@@ -1,5 +1,7 @@
 # Redis Basic
 
+
+
 Reference:
 
 https://redis.io/
@@ -299,7 +301,7 @@ redis 127.0.0.1:6379> ZRANGEBYSCORE tutoriallist 0 1000
 
 
 
-### `SET`/`GET`
+### SET/GET
 
 寫法
 
@@ -334,7 +336,7 @@ OK
 
 
 
-### `DECR`/`INCR`
+### DECR/INCR
 
 寫法
 
@@ -366,7 +368,7 @@ OK
 
 
 
-### `DECRBY`/`INCRBY`
+### DECRBY/INCRBY
 
 寫法
 
@@ -392,7 +394,7 @@ decrby [key] [decrement]
 
 
 
-### `HSET`/`HGET`
+### HSET/HGET
 
 寫法
 
