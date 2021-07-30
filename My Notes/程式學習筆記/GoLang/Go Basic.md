@@ -272,6 +272,14 @@ Hello, World!
 
 `Go`是沒有`char`的
 
+> In the Go programming language, strings are **slices**.
+
+slices資料結構會在另一篇筆記詳細記錄，
+
+我個人感覺`Go`的`string`和`C++`"指向一連串`char`的指標"的觀念很類似
+
+
+
 **引號的區別**
 
 ```
