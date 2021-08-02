@@ -350,13 +350,31 @@ func main()  {
 #### Derived
 
 * Pointer types
-*  Array types
+
+  宣告方式`var var_name *var-type`
+
+  其他和`C`以及`C++`的差不多，就不多提了
+
+* Array types
+
+  看Slice筆記
+
 * Structure types
+
 * Union types
+
 * Function types
+
 * Slice types
+
+  看Slice筆記
+
 * Interface types
+
 * Map types
+
+  key-value型別，和其他語言的Dictionary HashTable 等等差不多
+
 * Channel 
 
 #### Declare variables
