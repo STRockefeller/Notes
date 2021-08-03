@@ -450,7 +450,7 @@ await Future.delayed(Duration(seconds: 3),()=>"network data");
 
 Future的構造方法，創建一個基本的Future
 
-```
+```dart
 var future = Future(() {
 print("哈哈哈");
 });
@@ -463,7 +463,7 @@ print("111");
 
 這個跟上面的事件循環是有關係的，轉發大佬的解釋：main方法中的普通代碼都是同步執行的，所以肯定是main打印先全部打印出來，等main方法結束後會開始檢查microtask中是否有任務，若有則執行，執行完繼續檢查microtask，直到microtask列隊為空。所以接著打印的應該是microtask的打印。最後會去執行event隊列。
 
-```
+```dart
 var future = await Future(() {
 print("哈哈哈");
 });
@@ -476,7 +476,7 @@ print("111");
 
 創建一個返回指定value值的Future
 
-```
+```dart
 var future=Future.value(1);
 print(future);
 //Instance of 'Future<int>'
@@ -487,7 +487,7 @@ print(future);
 創建一個延遲執行的future。
 例如下面的例子，利用Future延遲兩秒後可以打印出字符串。
 
-```
+```dart
 var futureDelayed = Future.delayed(Duration(seconds: 2), () {
 print("Future.delayed");
 return 2;
@@ -501,7 +501,7 @@ return 2;
 根據某個集合，創建一系列的Future，並且會按順序執行這些Future。
 比如下面的例子，根據{1,2,3}創建3個延遲對應秒數的Future。執行結果為1秒後打印1，再過2秒打印2，再過3秒打印3，總時間為6秒。
 
-```
+```dart
 Future.forEach({1,2,3}, (num){
 return Future.delayed(Duration(seconds: num),(){print(num);});
 });
@@ -516,7 +516,7 @@ return Future.delayed(Duration(seconds: num),(){print(num);});
 
 比如下面的例子，也是創建3個延遲對應秒數的Future。結果是總時間過了3秒後，才輸出[1, 2, 3]的結果。可以與上面的例子對比一下，一個是順序執行多個Future，一個是異步執行多個Future。
 
-```
+```dart
 var future1 = new Future.delayed(new Duration(seconds: 1), () => 1);
 var future2 =
 new Future.delayed(new Duration(seconds: 2), () => 2);
@@ -527,10 +527,10 @@ Future.wait({future1,future2,future3}).then(print).catchError(print);
 
 將future2和future3改為有error拋出，則future.wait的結果是這個future2的error值。
 
-```
+```dart
 var future1 = new Future.delayed(new Duration(seconds: 1), () => 1);
-var future2 =new Future.delayed(new Duration(seconds: 2), () => throw “throw error2");
-var future3 = new Future.delayed(new Duration(seconds: 3), () => throw “throw error3");
+var future2 =new Future.delayed(new Duration(seconds: 2), () => throw "throw error2");
+var future3 = new Future.delayed(new Duration(seconds: 3), () => throw "throw error3");
 Future.wait({future1,future2,future3}).then(print).catchError(print);
 //運行結果： throw error2
 ```
@@ -541,7 +541,7 @@ Future.wait({future1,future2,future3}).then(print).catchError(print);
 
 例如下面的例子，使用Future.delayed（）延遲創建了三個不同的Future，第一個完成返回的是延遲1秒的那個future的結果。
 
-```
+```dart
  Future
 .any([1, 2, 5].map(
 (delay) => new Future.delayed(new Duration(seconds: delay), () => delay)))
@@ -559,7 +559,7 @@ Future.wait({future1,future2,future3}).then(print).catchError(print);
 
 例如下面的例子，生成一個隨機數進行等待，直到十秒之後，操作結束。
 
-```
+```dart
 void futureDoWhile(){
 var random = new Random();
 var totalDelay = 0;
@@ -596,7 +596,7 @@ I/flutter (11113): null
 
 例如下面的代碼，
 
-```
+```dart
 Future((){
 print("Future event 1");
 });
@@ -618,7 +618,7 @@ print("microtask event");
 
 Flutter提供了下面三個方法，讓我們來註冊回調，來監聽處理Future的結果。
 
-```
+```dart
 Future<R> then<R>(FutureOr<R> onValue(T value), {Function onError});
 Future<T> catchError(Function onError, {bool test(Object error)});
 Future<T> whenComplete(FutureOr action());
@@ -632,7 +632,7 @@ Future<T> whenComplete(FutureOr action());
 
 例如下面的代碼，將前面的future結果作為後面Future的輸入。
 
-```
+```dart
 Future.value(1).then((value) {
 return Future.value(value + 2);
 }).then((value) {
@@ -645,7 +645,7 @@ return Future.value(value + 3);
 
 註冊一個回調，來處理有error的Future
 
-```
+```dart
 new Future.error('boom!').catchError(print);
 ```
 
@@ -659,7 +659,7 @@ new Future.error('boom!').catchError(print);
 
 在那個拋出錯誤的future的then方法裡添加onError回調的話，onError會優先被調用
 
-```
+```dart
 Future.value(1).then((value) {
 return Future.value(value + 2);
 }).then((value) {
@@ -674,7 +674,7 @@ print("catchError find a error");
 
 使用catchError來監聽鏈式調用Future裡面拋出來的錯誤。
 
-```
+```dart
 Future.value(1).then((value) {
 throw "error";
 }).then((value) {
@@ -692,7 +692,7 @@ print("catchError find a error");
 
 注意：Future.whenComplete的返回值也是一個Future對象。
 
-```
+```dart
 Future.delayed(Duration(seconds: 3),(){
 print("哈哈");
 }).whenComplete((){

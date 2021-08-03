@@ -4,6 +4,13 @@ Reference:
 
 
 
+## Review with Questions
+
+* 試著簡短說明Concurrency。 [Ans](#What is Concurrency?)
+* 如何讓其他的go routines回傳訊息到main function?  [Ans](#Channel)
+
+
+
 ## Abstract
 
 終於到重點了，`Go`對我來說最大的特色莫過於他身為Concurrent Language這一點。
@@ -388,7 +395,7 @@ func channelTestAsync(channel chan int) {
 
 這次應該要可以看出放入速度加快的樣子了
 
-```
+```powershell
 PS C:\Users\admin\Desktop\Go> go run hello.go
 set  0
 get  0
@@ -426,11 +433,164 @@ get  9
 
 ## Sync
 
+很多時候主執行緒等待非同步方法完成才能繼續進行下去，所以`C#` `Dart` 在使用非同步的時候才會大量使用`await`關鍵字
+
+`Go`並沒有`await`但是卻有類似作用的東西，就是`sync.WaitGroup`
 
 
-## Defer
+
+### sync.WaitGroup
+
+顧名思義，這是等待**多個**go routines的作法，比起`await`更類似於`Dart`的`Future.wait()`或者`C#`的`Task.WhenAll()`
+
+使用時我們會先宣告一個`sync.WaitGroup`物件(我看網路上很多人的寫法會把這個變數命名為`wg`可能是go的編寫慣例吧)
+
+```go
+func main() {
+	wg := sync.WaitGroup{}
+	fmt.Printf("%T", wg) // sync.WaitGroup
+	fmt.Println("\r\n", wg) //{{} [0 0 0]}
+}
+```
+
+接著將要等待的內容加進去，並且把`wg`物件傳入要等待的go routines
+
+```go
+func main() {
+	wg := sync.WaitGroup{}
+	fmt.Println("初始化")
+	fmt.Println(wg) //{{} [0 0 0]}
+	wg.Add(2)
+	fmt.Println("Add(2)之後")
+	fmt.Println(wg) //{{} [0 2 0]}
+	go waitMeAsync(&wg)
+	go waitMeAsync2(&wg)
+	fmt.Println("傳入go routines之後")
+	fmt.Println(wg) //{{} [0 2 0]}
+	wg.Wait()
+	fmt.Println("wait之後")
+	fmt.Println(wg) //{{} [0 0 0]}
+}
+
+func waitMeAsync(wg *sync.WaitGroup) {
+	time.Sleep(time.Millisecond * 100)
+	wg.Done()
+}
+
+func waitMeAsync2(wg *sync.WaitGroup) {
+	time.Sleep(time.Millisecond * 200)
+	wg.Done()
+}
+```
+
+以下說明節錄自[ITHELP](https://ithelp.ithome.com.tw/articles/10242268)
+
+> WaitGroup拿`計數器(Counter)`來當作任務數量，若counter `< 0`會發生`panic`。
+>
+> - WaitGroup.**Add(n)**：計數器`+n`
+> - WaitGroup.**Done()**：任務完成，從計數器中`減去1`，可搭配`defer`使用
+> - WaitGroup.**Wait()**：阻塞(Block)住，直到計數器`歸0`
+>
+> 如果計數器大於線程數就會發生`死結(Deadlock)`。
 
 
+
+### Race Condition
+
+想起首次聽到這個詞的時候我還在學RS Flip-Flop...
+
+狀況演示，程式碼來自[ITHELP](https://ithelp.ithome.com.tw/articles/10242268)
+
+```go
+var count = 0
+
+func main() {
+	for i := 0; i < 10000; i++ {
+		go race()
+	}
+	time.Sleep(time.Millisecond * 100)
+	fmt.Println(count) //9616 每次執行都不一樣但都不到1000
+}
+
+func race() {
+	count++
+}
+```
+
+
+
+簡單來說就是非同步程式同時使用同一個物件會導致的意外情況，以前在寫`C#`的時候也有遇到過幾次，在`Go`的作法也是一樣的==>**鎖起來**就好
+
+不過在把它鎖起來之前，我先來試試其他作法
+
+使用剛學到的`sync.WaitGroup`
+
+```go
+var count = 0
+
+func main() {
+	wg := sync.WaitGroup{}
+	for i := 0; i < 10000; i++ {
+		wg.Add(1)
+		go race(&wg)
+	}
+	//time.Sleep(time.Millisecond * 100)
+	wg.Wait()
+	fmt.Println(count) //9306
+}
+
+func race(wg *sync.WaitGroup) {
+	defer wg.Done()
+	count++
+}
+```
+
+這個做法是可以確保`race()`執行了1000次，但仍無法改變race情況的發生。畢竟原本的100ms也夠執行1000次了。
+
+
+
+### sync.Mutex
+
+Mutex 是 Mutual exclusion 的縮寫
+
+在`C#`中，一般會宣告一個物件，專門拿來鎖住
+
+```C#
+private readonly object lockObj = new object();
+public async Task DoSomething()
+{
+    Lock(lockobj)
+    {
+        //...
+    }
+}
+```
+
+在`Go`的做法也差不多，不過物件不能隨便宣告，必須使用`sync.Mutex`型別
+
+拿上例做修改
+
+```go
+var count = 0
+var lock sync.Mutex
+
+func main() {
+	wg := sync.WaitGroup{}
+	for i := 0; i < 10000; i++ {
+		wg.Add(1)
+		go race(&wg)
+	}
+	wg.Wait()
+	fmt.Println(count) //1000
+}
+
+func race(wg *sync.WaitGroup) {
+	defer wg.Done()
+	lock.Lock()
+	count++
+	lock.Unlock()
+}
+```
 
 ## Panic
 

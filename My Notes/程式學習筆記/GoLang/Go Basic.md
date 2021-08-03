@@ -635,6 +635,31 @@ func main() {
 
 另外 `break` `continue` `goto`和C家族一樣，就不多提了
 
+
+
+**foreach**
+
+作法如下，參考[StackOverFlow](https://stackoverflow.com/questions/7782411/is-there-a-foreach-loop-in-go)
+
+As an example:
+
+```golang
+for index, element := range someSlice {
+    // index is the index where we are
+    // element is the element from someSlice for where we are
+}
+```
+
+If you don't care about the index, you can use `_`:
+
+```golang
+for _, element := range someSlice {
+    // element is the element from someSlice for where we are
+}
+```
+
+The underscore, `_`, is the [*blank identifier*](https://golang.org/ref/spec#Blank_identifier), an anonymous placeholder.
+
 ### Functions
 
 注意一下格式就好了，沒甚麼特別的
