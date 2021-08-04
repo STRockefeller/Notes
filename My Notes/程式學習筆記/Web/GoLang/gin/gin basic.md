@@ -142,4 +142,88 @@ PS C:\Users\admin\Desktop\Go> go run hello.go
 
 
 
-//待續
+### gin instance
+
+宣告gin instance 才能開始使用
+
+```go
+server := gin.Default()
+```
+
+
+
+### html template loader
+
+若有使用到 html檔案 則必須先告知路徑
+
+
+
+專案底下的`index.html`(一般來說會另開資料夾存放html檔案，例如下面的例子)
+
+```go
+router.LoadHTMLGlob("index.html")
+```
+
+
+
+template資料夾裡面全部
+
+```go
+server.LoadHTMLGlob("template/*")
+```
+
+
+
+### http routing
+
+
+
+格式`server.<http method>(<route>,<function>)`
+
+例如
+
+```go
+server.GET("/", test)
+```
+
+
+
+gin 可以使用的 http method :
+
+- GET
+- POST
+- PUT
+- PATCH
+- DELETE
+- OPTIONS
+
+對應方法的部分[後面再提](#routing functions)
+
+
+
+### run gin server
+
+執行`run()`，並於參數輸入port就行了
+
+```go
+server.Run(":8888")
+```
+
+
+
+### routing functions
+
+就是在設定[http routing](#http routing)的時候所傳入的function
+
+這個function會預設傳入位址`&gin.Context`
+
+所以宣告的時候要接收`*gin.Context`作為argument
+
+```go
+func test(context *gin.Context){
+    //...
+}
+```
+
+至於方法裡面要做甚麼就有很多選擇了，下次再提
+
