@@ -1,0 +1,209 @@
+# Gorm
+
+Reference:
+
+https://gorm.io/docs/index.html
+
+[ITHELP](https://ithelp.ithome.com.tw/articles/10245308)
+
+
+
+## Install
+
+```
+go get -u gorm.io/gorm
+```
+
+
+
+根據使用的SQL
+
+**SQLITE**
+
+```powershell
+go get -u gorm.io/driver/sqlite
+```
+
+(安裝sqlite driver 失敗顯示`exec: "gcc": executable file not found in %PATH%`的話參考[這篇](https://hoohoo.top/blog/golang-fix-gccexec-gcc-executable-file-not-found-in-path/)安裝`tmd-gcc`)
+
+
+
+**MySQL**
+
+```powershell
+go get -u gorm.io/driver/mysql
+```
+
+
+
+**PostrgreSQL**
+
+```powershell
+go get -u gorm.io/driver/postgres
+```
+
+
+
+## Getting Start
+
+官方的CRUD範例
+
+```go
+package main
+
+import (
+	"gorm.io/driver/sqlite"
+	"gorm.io/gorm"
+)
+
+type Product struct {
+	gorm.Model
+	Code  string
+	Price uint
+}
+
+func main() {
+	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	// Migrate the schema
+	db.AutoMigrate(&Product{})
+
+	// Create
+	db.Create(&Product{Code: "D42", Price: 100})
+
+	// Read
+	var product Product
+	db.First(&product, 1)                 // find product with integer primary key
+	db.First(&product, "code = ?", "D42") // find product with code D42
+
+	// Update - update product's price to 200
+	db.Model(&product).Update("Price", 200)
+	// Update - update multiple fields
+	db.Model(&product).Updates(Product{Price: 200, Code: "F42"}) // non-zero fields
+	db.Model(&product).Updates(map[string]interface{}{"Price": 200, "Code": "F42"})
+
+	// Delete - delete product
+	db.Delete(&product, 1)
+}
+```
+
+詳細接著說明
+
+
+
+## Connect to DB
+
+官方範例如下
+
+```go
+db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
+```
+
+
+
+來看看`gorm.Open()`方法簽章
+
+```go
+func gorm.Open(dialector gorm.Dialector, opts ...gorm.Option) (db *gorm.DB, err error)
+```
+
+回傳的`*gorm.DB`物件就是接下來資料庫操作會用到的物件。
+
+此外比較值得討論的是第一個argument `gorm.Dialector`
+
+Gorm Guides是以sqlite為例，根據import的`gorm.io/driver/`不同`sqlite.Open()` 也可以是 `mysql.Open()` / `postgres.New()`等等，一般來說這些方法都需要傳入DB的Connection String
+
+例如
+
+mysql
+
+```go
+addr := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True", UserName, Password, Addr, Port, Database)    
+	//連接MySQL
+	db, err := gorm.Open(mysql.Open(addr), &gorm.Config{})
+	if err != nil {
+		fmt.Println("connection to mysql failed:", err)
+		return
+	}  
+```
+
+postgresql
+
+```go
+	db, err := gorm.Open(postgres.New(
+		postgres.Config{
+			DriverName: "postgres",
+			DSN: fmt.Sprintf(
+				"host=%s port=%d user=%s dbname=%s password=%s sslmode=disable",
+				cfg.Address,
+				cfg.Port,
+				cfg.UserName,
+				cfg.Database,
+				cfg.Password,
+			),
+		},
+	), &gorm.Config{
+		Logger: newLogger(),
+		NamingStrategy: schema.NamingStrategy{
+			TablePrefix:   o.TablePrefix(),
+			SingularTable: true,
+		},
+	})
+```
+
+
+
+
+
+
+
+## Declaring Models
+
+[Reference](https://gorm.io/docs/models.html)
+
+Models are normal structs with basic Go types, pointers/alias of them or custom types implementing [Scanner](https://pkg.go.dev/database/sql/?tab=doc#Scanner) and [Valuer](https://pkg.go.dev/database/sql/driver#Valuer) interfaces
+
+GORM prefer convention over configuration, by default, GORM uses `ID` as primary key, pluralize struct name to `snake_cases` as table name, `snake_case` as column name, and uses `CreatedAt`, `UpdatedAt` to track creating/updating time
+
+If you follow the conventions adopted by GORM, you’ll need to write very little configuration/code, If convention doesn’t match your requirements, [GORM allows you to configure them](https://gorm.io/docs/conventions.html)
+
+example
+
+```go
+type User struct {
+    //gorm為model的tag標籤，v2版的auto_increment要放在type裡面，v1版是放獨立定義
+	ID        int64     `gorm:"type:bigint(20) NOT NULL auto_increment;primary_key;" json:"id,omitempty"`
+	Username  string    `gorm:"type:varchar(20) NOT NULL;" json:"username,omitempty"`
+	Password  string    `gorm:"type:varchar(100) NOT NULL;" json:"password,omitempty"`
+	Status    int32     `gorm:"type:int(5);" json:"status,omitempty"`
+	CreatedAt time.Time `gorm:"type:timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP" json:"created_at,omitempty"`
+	UpdatedAt time.Time `gorm:"type:timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP" json:"updated_at,omitempty"`
+}
+```
+
+BTW Gorm Guides最開始範例用的struct也有定義primary key和`CreateAt` `UpdateAt`等等方法
+
+```go
+type Product struct {
+	gorm.Model
+	Code  string
+	Price uint
+}
+```
+
+其中的`gorm.Model`
+
+```go
+type Model struct {
+    ID        uint `gorm:"primarykey"`
+    CreatedAt time.Time
+    UpdatedAt time.Time
+    DeletedAt DeletedAt `gorm:"index"`
+}
+```
+
+也就是說，只要Combine `gorm.Model` 就算是符合了最基本gorm的model要求
+
