@@ -96,11 +96,15 @@ func main() {
 
 ## Connect to DB
 
+[Reference](https://gorm.io/docs/connecting_to_the_database.html)
+
 官方範例如下
 
 ```go
 db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
 ```
+
+使用現有sqlite db的做法，不過就算沒有也會自動建立
 
 
 
@@ -121,8 +125,6 @@ Gorm Guides是以sqlite為例，根據import的`gorm.io/driver/`不同`sqlite.Op
 mysql
 
 ```go
-addr := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True", UserName, Password, Addr, Port, Database)    
-	//連接MySQL
 	db, err := gorm.Open(mysql.Open(addr), &gorm.Config{})
 	if err != nil {
 		fmt.Println("connection to mysql failed:", err)
@@ -206,4 +208,54 @@ type Model struct {
 ```
 
 也就是說，只要Combine `gorm.Model` 就算是符合了最基本gorm的model要求
+
+
+
+## Create
+
+```go
+user := User{Name: "Jinzhu", Age: 18, Birthday: time.Now()}
+
+result := db.Create(&user) // pass pointer of data to Create
+
+user.ID             // returns inserted data's primary key
+result.Error        // returns error
+result.RowsAffected // returns inserted records count
+```
+
+**注意:**`func (*gorm.DB).Create(value interface{}) (tx *gorm.DB)`方法引數**傳址**
+
+承上例，如果只想將`user`的`Name`和`Birthday`存入資料庫可以寫成如下
+
+```go
+db.Select("Name", "Age").Create(&user)
+// INSERT INTO `users` (`name`,`age`) VALUES ("jinzhu", 18)
+```
+
+反過來也可以指定那些屬性不想傳入
+
+```go
+db.Omit("Name", "Age", "CreatedAt").Create(&user)
+// INSERT INTO `users` (`birthday`,`updated_at`) VALUES ("2020-01-01 00:00:00.000", "2020-07-04 11:05:21.775")
+```
+
+
+
+### Batch Insert
+
+可以透過Slice批量建立資料
+
+```go
+var users = []User{{Name: "jinzhu1"}, {Name: "jinzhu2"}, {Name: "jinzhu3"}}
+db.Create(&users)
+```
+
+也可以指定大小
+
+```go
+var users = []User{{Name: "jinzhu_1"}, ...., {Name: "jinzhu_10000"}}
+
+// batch size 100
+db.CreateInBatches(users, 100)
+```
 

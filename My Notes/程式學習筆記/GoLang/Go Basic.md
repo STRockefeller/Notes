@@ -671,6 +671,24 @@ func function_name( [parameter list] ) [return_types]
 }
 ```
 
+比較值得一提的是，go可以指定回傳的變數名稱
+
+```go
+package main
+
+import "fmt"
+
+func split(sum int) (x, y int) {
+	x = sum %10
+	y = sum -x
+	return
+}
+
+func main() {
+	fmt.Println(split(17))
+}
+```
+
 
 
 ### Methods
