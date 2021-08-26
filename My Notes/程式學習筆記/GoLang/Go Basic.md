@@ -361,6 +361,27 @@ func main()  {
 
 * Structure types
 
+  在`go`裡面`struct`型別還作為類似`class`的角色，我們可以為`struct`定義`method`(見[Methods](#Methods))
+
+  另外 指向`struct`的指標，在取值的時候可以簡化，如下例
+
+  ```go
+  type Vertex struct {
+  	X int
+  	Y int
+  }
+  
+  func main() {
+  	v := Vertex{1, 2}
+  	p := &v
+      (*p).Y = 20 //正規寫法
+  	p.X = 1e3 //簡化寫法
+  	fmt.Println(v) //{1000 20}
+  }
+  ```
+
+  
+
 * Union types
 
 * Function types
@@ -548,15 +569,47 @@ Example假設"A為1且B為0" 或 "A為true且B為false"
 
 #### if
 
-`if` `else if` `else`的用法和C家族一模一樣，就略過不提了
+`if` `else if` `else`的用法除了條件的小括號可加可不加以外和幾乎C家族一模一樣
 
-條件的小括號可加可不加
+這邊特別提一下，`go`的`if`可以在條件的地方指派變數(作用範圍只在該`if/else`裡面)
+
+```go
+func pow(x, n, lim float64) float64 {
+	if v := math.Pow(x, n); v < lim {
+		return v
+	} else {
+		fmt.Printf("%g >= %g\n", v, lim)
+	}
+	// can't use v here, though
+	return lim
+}
+```
+
+
 
 #### switch
 
-基本上和C家族一樣不過不需要`break`
+基本上和C家族一樣不過不需要`break`，`break`的功能是預設的，也就是說`go`**並不會**在一個case值結束後接著執行下方的case
 
-條件的小括號一樣可加可不加
+**Switch with no condition**
+
+這算是一個比較獨特的用法，可以看成if/else的簡化寫法
+
+```go
+func main() {
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("Good morning!")
+	case t.Hour() < 17:
+		fmt.Println("Good afternoon.")
+	default:
+		fmt.Println("Good evening.")
+	}
+}
+```
+
+
 
 #### select
 
@@ -592,6 +645,12 @@ func main() {
 ```
 
 關於甚麼是`chan int` 甚麼是`<-`，先留到Channel筆記再詳談，不然這篇筆記的篇幅太大了
+
+
+
+#### ?:
+
+很可惜目前`go`沒有類似的功能
 
 ### Loop
 
@@ -659,6 +718,31 @@ for _, element := range someSlice {
 ```
 
 The underscore, `_`, is the [*blank identifier*](https://golang.org/ref/spec#Blank_identifier), an anonymous placeholder.
+
+
+
+也可以搭配channel使用
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	num := 100
+	intChan := make(chan int, 100)
+	for i := 0; i < num; i++ {
+		intChan <- i
+	}
+	//close(intChan)
+
+	for i := range intChan {
+		fmt.Println(i)
+	}
+}
+```
+
+
 
 ### Functions
 

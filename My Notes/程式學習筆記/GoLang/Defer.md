@@ -121,4 +121,31 @@ func repeat(inp int) {
 }
 ```
 
-目前看來如果有牽扯到變數的話，`defer`會先把當下的變數值存起來，等到執行時再用當時的變數執行，而不會重新獲取當下的變數值。
+如果有傳入(值型別的)變數的話，`defer`會先把當下的變數值存起來，等到執行時再用當時的變數執行，而不會重新獲取當下的變數值。
+
+參考型別或傳址則會獲取當前數值
+
+```go
+package main
+import "fmt"
+func main() {
+	var a int
+	defer func(){
+		fmt.Println(a) //10
+	}()
+	a = 10
+}
+```
+
+```go
+package main
+import "fmt"
+func main() {
+	var a int
+	defer func(b int){
+		fmt.Println(b) //0
+	}(a)
+	a = 10
+}
+```
+

@@ -309,7 +309,7 @@ set  9
 
 
 
-先不管了，繼續測試，看上面的結果，雖然給了Channel緩衝區10但重頭到尾都是放一個取一個，這次不給他緩衝區試試
+繼續測試，看上面的結果，雖然給了Channel緩衝區10但重頭到尾都是放一個取一個，這次不給他緩衝區試試
 
 改`channel := make(chan int)`，結果和上次一樣。
 
@@ -339,9 +339,11 @@ func channelTestAsync(channel chan int) {
 
 結果和先前是一樣的，這有點出乎我的意料，原本以為會因為channel的緩衝區不足而跳錯誤。
 
-難道說`go`還會聰明的等待取出後才放入下一個嗎?
+-->緩衝區不足的情況下，只要有人持續取出，**放入者就會等待取出後才再次放入**
 
-把取出的部分刪除只留下放入，確認一下到底有沒有緩衝區不足的錯誤
+若無人取出但又持續放入，則會發生**放入者一直在等待取出**的panic(注意**不是**緩衝區被塞爆所導致的)
+
+把取出的部分刪除只留下放入
 
 ```go
 func main() {
@@ -367,7 +369,7 @@ main.main()
 exit status 2
 ```
 
-確實有這個錯誤
+
 
 
 
@@ -426,6 +428,158 @@ get  9
 改個條件，變成取出比放入快，先猜會和最初一樣快的結果相同
 
 結果和猜想的一樣，**目前看起來只要放入和取出的動作都在進行，`Go`在執行的時候就會有類似"搓合"的動作，沒有緩衝區可以利用的話，快的一邊會等待慢的那一邊，而不會報錯。**
+
+
+
+#### Close Channel
+
+Channel也可以使用 for range 取出 但要注意對channel 進行Close動作
+
+例如
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	ch := make(chan int)
+	go func() {
+		for i := range ch {
+			fmt.Println(i)
+		}
+		fmt.Println("Done")
+	}()
+	for i := 0; i < 10; i++ {
+		ch <- i
+	}
+}
+```
+
+執行結果
+
+```
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
+
+可以注意到 goroutine的`fmt.Println("Done")`並沒有被執行
+
+因為for loop還在等待channel被放入新的物件再將其取出。(此時main執行續跑完所以程式結束)
+
+如果我們強迫main等待goroutine
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+func main() {
+	ch := make(chan int)
+	wg := sync.WaitGroup{}
+	wg.Add(1)
+	go func() {defer wg.Done()
+		for i := range ch {
+			fmt.Println(i)
+		}
+		fmt.Println("Done")
+	}()
+	for i := 0; i < 10; i++ {
+		ch <- i
+	}
+	wg.Wait()
+}
+```
+
+執行結果
+
+```powershell
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+fatal error: all goroutines are asleep - deadlock!
+
+goroutine 1 [semacquire]:
+sync.runtime_Semacquire(0xc00009af58)
+	/usr/local/go-faketime/src/runtime/sema.go:56 +0x25
+sync.(*WaitGroup).Wait(0x60)
+	/usr/local/go-faketime/src/sync/waitgroup.go:130 +0x71
+main.main()
+	/tmp/sandbox3150108899/prog.go:21 +0xd5
+
+goroutine 18 [chan receive]:
+main.main.func1()
+	/tmp/sandbox3150108899/prog.go:13 +0xb7
+created by main.main
+	/tmp/sandbox3150108899/prog.go:12 +0x9f
+
+```
+
+使用`close()`方法將用完的channel關閉，取出方才不會一直等在那邊，go routine 也可以正常結束了
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+func main() {
+	ch := make(chan int)
+	wg := sync.WaitGroup{}
+	wg.Add(1)
+	go func() {defer wg.Done()
+		for i := range ch {
+			fmt.Println(i)
+		}
+		fmt.Println("Done")
+	}()
+	for i := 0; i < 10; i++ {
+		ch <- i
+	}
+	close(ch)
+	wg.Wait()
+}
+```
+
+執行結果
+
+```
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Done
+```
+
+
 
 
 

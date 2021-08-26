@@ -109,11 +109,11 @@ func main() {
 
 ```go
 var numbers []int /* a slice of unspecified size */
-/* numbers == []int{0,0,0,0,0}*/
+numbers := []int{0,0,0,0,0}
 numbers = make([]int,5,5) /* a slice of length 5 and capacity 5*/
 ```
 
-
+其中第一種作法`numbers`的初始值會是`nil`一般來說**不推薦**使用
 
 
 
@@ -301,6 +301,92 @@ len = 3 cap = 7 slice = [2 3 4]
 ```
 
 這個做法在`Array`也適用
+
+
+
+**重點**
+
+1. `numbers[1:4]` 會取得從`numbers[1]`到`numbers[3]`的內容
+
+2. 上下限的默認值分別是`0`以及`len()`，例如
+
+   ```go
+   //len(sl)==10
+   len[:5] //等同於len[0:5]
+   len[5:] //等同於len[5:10]
+   len[:] //等同於len[0:10]
+   ```
+
+
+
+### Reference Type
+
+前面有提過了，`slice`屬於參考型別，這邊把一些比較容易忽略的地方重點提點一下
+
+下面是[a tour of go的範例](https://tour.golang.org/moretypes/11)，充分展現了參考型別的特性
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	s := []int{2, 3, 5, 7, 11, 13}
+	printSlice(s) //len=6 cap=6 [2 3 5 7 11 13]
+
+	// Slice the slice to give it zero length.
+	s = s[:0]
+	printSlice(s) //len=0 cap=6 []
+
+	// Extend its length.
+	s = s[:4]
+	printSlice(s) //len=4 cap=6 [2 3 5 7]
+
+	// Drop its first two values.
+	s = s[2:]
+	printSlice(s) //len=2 cap=4 [5 7]
+}
+
+func printSlice(s []int) {
+	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+}
+```
+
+第二步中我們把`s`變為長度為0的`slice`，但原`slice`的數值並沒有消失，只要將`s`擴大依然可以看到原來的數值
+
+
+
+另外參考型別的`slice`即便傳入`defer func`中，執行階段也會以最新的`slice`執行(因為是傳址)
+
+```go
+func main() {
+	arr := [3]int{1, 2, 3}
+	sl := []int{1, 2, 3}
+
+	fmt.Println("original arr=", arr)
+	fmt.Println("original sl=", sl)
+
+	defer fmt.Println("defer arr=", arr)
+	defer fmt.Println("defer sl=", sl)
+
+	arr[0] = 5
+	sl[0] = 5
+
+	fmt.Println("new arr=", arr)
+	fmt.Println("new sl=", sl)
+}
+```
+
+執行結果
+
+```
+original arr= [1 2 3]
+original sl= [1 2 3]
+new arr= [5 2 3]
+new sl= [5 2 3]
+defer sl= [5 2 3]
+defer arr= [1 2 3]
+```
 
 
 
