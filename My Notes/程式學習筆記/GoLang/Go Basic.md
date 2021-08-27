@@ -396,6 +396,31 @@ func main()  {
 
   key-value型別，和其他語言的Dictionary HashTable 等等差不多
 
+  必須使用`make`獲取實例 ，如果只使用`var`宣告的話會得到`nil map` ， `nil map`無法被指派新的值
+
+  以下是正確的宣告作法
+
+  ```go
+  var m map[int]string
+  m = make(map[int]string)
+  
+  m2 := make(map[int]string)
+  ```
+
+  移除特定`key`
+
+  ```go
+  delete(targetMap,targetKey)
+  ```
+
+  取值/確認key是否存在
+
+  ```go
+  value, containsKey = targetMap[targetKey] // 第一個變數會得到該key的value(如果不存在就是zero value) 第二個變數代表Key是否存在(bool)
+  ```
+
+  
+
 * Channel 
 
 #### Declare variables
@@ -814,3 +839,33 @@ func main(){
 ```
 
 在我看來好像把 Circle放在一般function的argument位置也沒有差別就是了
+
+一般來說會使用`struct`作為receiver，但其實也可以用其他型別，但限定於 在這個package宣告的型別
+
+```go
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+type MyFloat float64
+
+//跟function傳入參數的情況類似 下面這個method中對f的影響僅限於method內，外部的值不受影響
+//大多數的情況下(模擬其他語言的method)，我們會傳入指標，對物件的影響才會保留
+func (f MyFloat) Abs() float64 {
+	if f < 0 {
+		return float64(-f)
+	}
+	return float64(f)
+}
+
+func main() {
+	f := MyFloat(-math.Sqrt2)
+	fmt.Println(f.Abs()) //1.4142135623730951
+}
+```
+
+
+
