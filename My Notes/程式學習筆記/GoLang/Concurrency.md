@@ -581,7 +581,258 @@ Done
 
 
 
+#### Check if the channel is closed
 
+我們可以在讀取數值時順便確認channel是否已經關閉
+
+```go
+value, OK = <- ch // 當OK==false時代表通道已經被關閉了，此時value會得到zero value
+```
+
+
+
+#### Select
+
+> The `select` statement lets a goroutine wait on multiple communication operations.
+>
+> A `select` blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
+
+a tour of go example
+
+```go
+package main
+
+import "fmt"
+
+func fibonacci(c, quit chan int) {
+	x, y := 0, 1
+	for {
+		select {
+		case c <- x:
+			x, y = y, x+y
+		case <-quit:
+			fmt.Println("quit")
+			return
+		}
+	}
+}
+
+func main() {
+	c := make(chan int)
+	quit := make(chan int)
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println(<-c)
+		}
+		quit <- 0
+	}()
+	fibonacci(c, quit)
+}
+```
+
+result
+
+```
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+quit
+```
+
+
+
+單看範例還是有點難懂，這邊說明一下目前觀察到的特點
+
+* `select-case`是`channel`專用的語法，不會有`channel`以外的東西出現在這裡
+* 不同於`switch-case`，`select-case`中的`case`不是"我在OO情況下要做XX事"而是"我先做OO事再接著做XX事"的感覺
+* `select`會**隨機**挑選一個**做得到**的`case`進行(例入往channel放入東西，或是從非空的channel取出東西)
+* `for`搭配`select`事很常見的用法，如上例
+
+
+
+以下內容部分節錄自[AppleBoy的文章](https://blog.wu-boy.com/2019/11/four-tips-with-select-in-golang/)，補充一些關於Select的特點
+
+##### Random Select
+
+同一個 channel 在 select 會隨機選取，底下看個例子:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    ch := make(chan int, 1)
+
+    ch <- 1
+    select {
+    case <-ch:
+        fmt.Println("random 01")
+    case <-ch:
+        fmt.Println("random 02")
+    }
+}
+```
+
+執行後會發現有時候拿到 `random 01` 有時候拿到 `random 02`，這就是 select 的特性之一，case 是隨機選取，所以當 select 有兩個 channel 以上時，如果同時對全部 channel 送資料，則會隨機選取到不同的 Channel。而上面有提到另一個特性『假設沒有送 value 進去 Channel 就會造成 panic』，拿上面例子來改:
+
+```go
+func main() {
+    ch := make(chan int, 1)
+
+    select {
+    case <-ch:
+        fmt.Println("random 01")
+    case <-ch:
+        fmt.Println("random 02")
+    }
+}
+```
+
+執行後會發現變成 deadlock，造成 main 主程式爆炸，這時候可以直接用 `default` 方式解決此問題:
+
+```go
+func main() {
+    ch := make(chan int, 1)
+
+    select {
+    case <-ch:
+        fmt.Println("random 01")
+    case <-ch:
+        fmt.Println("random 02")
+    default:
+        fmt.Println("exit")
+    }
+}
+```
+
+主程式 main 就不會因為讀不到 channel value 造成整個程式 deadlock。
+
+
+
+##### Timeout
+
+用 select 讀取 channle 時，一定會實作超過一定時間後就做其他事情，而不是一直 blocking 在 select 內。底下是簡單的例子:
+
+```go
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func main() {
+    timeout := make(chan bool, 1)
+    go func() {
+        time.Sleep(2 * time.Second)
+        timeout <- true
+    }()
+    ch := make(chan int)
+    select {
+    case <-ch:
+    case <-timeout:
+        fmt.Println("timeout 01")
+    }
+}
+```
+
+建立 timeout channel，讓其他地方可以透過 trigger timeout channel 達到讓 select 執行結束，也或者有另一個寫法是透握 `time.After` 機制
+
+```go
+    select {
+    case <-ch:
+    case <-timeout:
+        fmt.Println("timeout 01")
+    case <-time.After(time.Second * 1):
+        fmt.Println("timeout 02")
+    }
+```
+
+可以注意 `time.After` 是回傳 `chan time.Time`，所以執行 select 超過一秒時，就會輸出 **timeout 02**。
+
+
+
+##### 檢查 channel 是否已滿
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    ch := make(chan int, 1)
+    ch <- 1
+    select {
+    case ch <- 2:
+        fmt.Println("channel value is", <-ch)
+        fmt.Println("channel value is", <-ch)
+    default:
+        fmt.Println("channel blocking")
+    }
+}
+```
+
+Select 特性的一種利用方式
+
+如果`ch`已滿，執行到`select`的時候會因為`ch`滿了所以無法再丟數值進去，轉而去執行`default`的內容
+
+
+
+##### Select for loop
+
+
+
+用於處理多個Channel的常見做法
+
+```go
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func main() {
+    i := 0
+    ch := make(chan string, 0)
+    defer func() {
+        close(ch)
+    }()
+
+    go func() {
+    LOOP:
+        for {
+            time.Sleep(1 * time.Second)
+            fmt.Println(time.Now().Unix())
+            i++
+
+            select {
+            case m := <-ch:
+                println(m)
+                break LOOP
+            default:
+            }
+        }
+    }()
+
+    time.Sleep(time.Second * 4)
+    ch <- "stop"
+}
+```
+
+使用時要注意離開迴圈的時機點。
+
+可以設定成符合特定條件(想做的都做完了/ERROR/TIMEOUT...等等)，利用`break`脫離loop或直接`return`
 
 
 

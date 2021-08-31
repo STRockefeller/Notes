@@ -14,3 +14,12 @@ go vet ./...
 go tool vet ./...
 ```
 
+
+
+檢查race
+
+```go
+go test ./... -race
+go vet ./... -race
+```
+
