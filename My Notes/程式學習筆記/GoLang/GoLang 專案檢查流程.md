@@ -12,6 +12,8 @@ go mod tidy
 //其他檢查
 go vet ./...
 go tool vet ./...
+//格式化
+go fmt
 ```
 
 
@@ -23,3 +25,6 @@ go test ./... -race
 go vet ./... -race
 ```
 
+
+
+覺得每次下差不多的指令有點麻煩，所以把它寫成powershell script了

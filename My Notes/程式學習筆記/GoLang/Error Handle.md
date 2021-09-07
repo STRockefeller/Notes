@@ -191,3 +191,186 @@ hello,world
 
 * catch的動作不能和err關聯，畢竟err是在try function裡面宣告的。
 * 不想處理catch的時候還是要傳入空方法
+
+
+
+
+
+## Package errors
+
+Reference: https://pkg.go.dev/errors
+
+基本上間扯到錯誤都會使用到這個套件，這邊記錄一些常見的用法。
+
+
+
+### Basic
+
+在 `go` 裡面`error`這東西是一種一層包一層的結構，下面提到的套件方法也都和這個特性息息相關
+
+Example
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+func main() {
+	err1 := errors.New("new error")
+	err2 := fmt.Errorf("err2: [%w]", err1)
+	err3 := fmt.Errorf("err3: [%w]", err2)
+	printErr(err1)
+	printErr(err2)
+	printErr(err3)
+}
+
+func printErr(err interface{}) {
+	fmt.Println("value : ", err)
+	fmt.Printf("type : %T\r\n", err)
+}
+```
+
+
+
+```
+value :  new error
+type : *errors.errorString
+value :  err2: [new error]
+type : *fmt.wrapError
+value :  err3: [err2: [new error]]
+type : *fmt.wrapError
+```
+
+
+
+### func [As](https://cs.opensource.google/go/go/+/go1.17:src/errors/wrap.go;l=77)
+
+```go
+func As(err error, target interface{}) bool
+```
+
+> As finds the first error in err's chain that matches target, and if so, sets target to that error value and returns true. Otherwise, it returns false.
+>
+> The chain consists of err itself followed by the sequence of errors obtained by repeatedly calling Unwrap.
+>
+> An error matches target if the error's concrete value is assignable to the value pointed to by target, or if the error has a method As(interface{}) bool such that As(target) returns true. In the latter case, the As method is responsible for setting target.
+>
+> An error type might provide an As method so it can be treated as if it were a different error type.
+>
+> As panics if target is not a non-nil pointer to either a type that implements error, or to any interface type.
+
+逐層檢查是否有包含指定類型的error
+
+Example
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+func main() {
+	if _, err := os.Open("non-existing"); err != nil {
+		var pathError *fs.PathError
+		if errors.As(err, &pathError) {
+			fmt.Println("Failed at path:", pathError.Path)
+		} else {
+			fmt.Println(err)
+		}
+	}
+
+}
+```
+
+```
+Output:
+
+Failed at path: non-existing
+```
+
+
+
+### func [Is](https://cs.opensource.google/go/go/+/go1.17:src/errors/wrap.go;l=39)
+
+```go
+func Is(err, target error) bool
+```
+
+> Is reports whether any error in err's chain matches target.
+>
+> The chain consists of err itself followed by the sequence of errors obtained by repeatedly calling Unwrap.
+>
+> An error is considered to match a target if it is equal to that target or if it implements a method Is(error) bool such that Is(target) returns true.
+>
+> An error type might provide an Is method so it can be treated as equivalent to an existing error. For example, if MyError defines
+>
+> ```
+> func (m MyError) Is(target error) bool { return target == fs.ErrExist }
+> ```
+>
+> then Is(MyError{}, fs.ErrExist) returns true. See syscall.Errno.Is for an example in the standard library.
+
+逐層檢查是否有包含指定的error，和As相似但是更加嚴謹，只有一模一樣的error才會回傳true
+
+Example
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+func main() {
+	if _, err := os.Open("non-existing"); err != nil {
+		if errors.Is(err, fs.ErrNotExist) {
+			fmt.Println("file does not exist")
+		} else {
+			fmt.Println(err)
+		}
+	}
+
+}
+```
+
+```
+Output:
+
+file does not exist
+```
+
+
+
+### func [New](https://cs.opensource.google/go/go/+/go1.17:src/errors/errors.go;l=58)
+
+```go
+func New(text string) error
+```
+
+> New returns an error that formats as the given text. Each call to New returns a distinct error value even if the text is identical.
+
+建構error的方法
+
+也可以使用`fmt`套件的`Errorf`方法，差別在錯誤訊息可以使用format string
+
+
+
+### func [Unwrap](https://cs.opensource.google/go/go/+/go1.17:src/errors/wrap.go;l=14)
+
+```go
+func Unwrap(err error) error
+```
+
+> Unwrap returns the result of calling the Unwrap method on err, if err's type contains an Unwrap method returning error. Otherwise, Unwrap returns nil.
+
+字面上的意思。把最外層的error拆掉再回傳
