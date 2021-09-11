@@ -259,3 +259,17 @@ var users = []User{{Name: "jinzhu_1"}, ...., {Name: "jinzhu_10000"}}
 db.CreateInBatches(users, 100)
 ```
 
+
+
+## Error Handle
+
+可以發現`Gorm`套件的方法幾乎都沒有error的回傳，也就是說不論`Gorm`套件的方法是否有正確執行，程式都會繼續下去。
+
+如果需要查看執行是否有誤，則必須使用`gorm.DB`的`Error`屬性。例如
+
+```go
+	if err := dm.db.Create(&NewBatch).Error; err != nil {
+		return err
+	}
+```
+
