@@ -565,6 +565,38 @@ WHERE c LIKE '%10\%%' ESCAPE '\';
 
 
 
+### SQL 萬用字元
+
+[參考](https://www.1keydata.com/tw/sql/sql-wildcard.html)
+
+% (百分比符號)：代表零個、一個、或數個字母。  ==> 類比regexp就是`.*`
+
+_ (底線)：代表剛好一個字母。 ==> 類比regexp就是`.`
+
+萬用字元是與 [**LIKE**](https://www.1keydata.com/tw/sql/sqllike.html) 關鍵字一起使用的。
+
+以下是幾個萬用字元的例子：
+
+
+
+'A_Z': 所有以 'A' 起頭，另一個任何值的字原，且以 'Z' 為結尾的字串。 'ABZ' 和 'A2Z' 都符合這一個模式，而 'AKKZ' 並不符合 (因為在 A 和 Z 之間有兩個字元，而不是一個字元)。
+
+
+
+'ABC%': 所有以 'ABC' 起頭的字串。舉例來說，'ABCD' 和 'ABCABC' 都符合這個模式。
+
+
+
+'%XYZ': 所有以 'XYZ' 結尾的字串。舉例來說，'WXYZ' 和 'ZZXYZ' 都符合這個模式。
+
+
+
+'%AN%': 所有含有 'AN'這個模式的字串。舉例來說， 'LOS ANGELES' 和 'SAN FRANCISCO' 都符合這個模式。
+
+
+
+'_AN%'： 所有第二個字母為 'A' 和第三個字母為 'N' 的字串。舉例來說，'SAN FRANCISCO' 符合這個模式，而 'LOS ANGELES' 則不符合這個模式。
+
 ## Is Null
 
 在SQLite中，Null=Null是不成立的。

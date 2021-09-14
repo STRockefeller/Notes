@@ -150,7 +150,9 @@ func main() {
 }
 ```
 
-一般來說，專案中都會有名為"main"的`package`，這個`package`可以被`go run`指令執行，並且程式進入點為`main()`
+一般來說，可執行專案中都會有名為"main"的`package`，這個`package`可以被`go run`指令執行，並且程式進入點為`main()`
+
+*對於一些僅作為library被引用的專案，就可能不 會有main package*
 
 比如說上面那支程式就可以直接執行
 
@@ -173,13 +175,21 @@ Hello, World!
 
 和C家族的完全一樣`//` 以及 `/* */`
 
+註:使用VSC開發的情況下，可以模擬C#的region功能(可能需要設定摺疊動作)
+
+```go
+// #region myregion
+// code...
+// #endregion myregion
+```
+
 
 
 #### Line Separator
 
 和`python`一樣不需要在行尾輸入任何符號，只要<kbd>Enter</kbd>進入下一行Compiler就可以知道該怎麼做了
 
-不過我試過加了`;`也是可以正常運作的
+不過我試過加了`;`也是可以正常運作的(但是在go format的時候會被拿掉)
 
 
 
@@ -207,6 +217,8 @@ Hello, World!
 #### Boolean
 
 值為`true` 和 `false`，我試過沒辦法像`C`一樣使用`1`和`0`替代
+
+zero value 是 `false`
 
 #### Numeric
 
@@ -607,6 +619,18 @@ func pow(x, n, lim float64) float64 {
 	}
 	// can't use v here, though
 	return lim
+}
+```
+
+
+
+補充:
+
+go 在做錯誤處理的時候也很適合使用`if`
+
+```go
+if err:=myfunc();err!=nil{
+    return err
 }
 ```
 

@@ -200,7 +200,7 @@ hello,world
 
 Reference: https://pkg.go.dev/errors
 
-基本上間扯到錯誤都會使用到這個套件，這邊記錄一些常見的用法。
+基本上只要扯到錯誤都會使用到這個套件，這邊記錄一些常見的用法。
 
 
 
