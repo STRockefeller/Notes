@@ -70,3 +70,86 @@ go tool cover -html=[剛才生成的檔案]
 
 
 
+
+
+## 其他工具
+
+https://medium.com/@arshamshirvani/lint-your-golang-code-like-a-pro-668dc6637b39
+
+有一部分無法使用，一部分在v1.15版有安裝問題
+
+
+
+### **Gocyclo** 
+
+查詢還複雜度
+
+```powershell
+PS D:\Rockefeller\Projects\mcom> gocyclo.exe .\record.go 
+14 impl (*DataManager).CreateWorkOrders .\impl\production.go:77:1
+13 impl parseUpdatesCondition .\impl\production.go:123:1
+6 impl (*DataManager).ListWorkOrders .\impl\production.go:297:1
+5 impl (*DataManager).UpdateWorkOrders .\impl\production.go:182:1
+5 impl parseWorkOrderInsertData .\impl\production.go:21:1
+4 impl getWorkOrderUnit .\impl\production.go:222:1
+3 impl (*DataManager).getReservedSequence .\impl\production.go:60:1
+```
+
+
+
+不過好像只能選擇單一檔案==>待驗證
+
+
+
+### interfacer
+
+無法正常使用，安裝失敗
+
+```powershell
+PS D:\Rockefeller\Projects\mcom> go install github.com/mvdan/interfacer/cmd/interfacer
+go: finding module for package github.com/mvdan/interfacer/cmd/interfacer
+module github.com/mvdan/interfacer@latest found (v0.0.0-20180901003855-c20040233aed), but does not contain package github.com/mvdan/interfacer/cmd/interfacer
+```
+
+
+
+
+
+### staticcheck
+
+靜態檢查
+
+```powershell
+PS D:\Rockefeller\Projects\mcom> staticcheck.exe ./...
+cmd\jennifer\main.go:218:52: cutset contains duplicate characters (SA1024)
+cmd\mockgenerator\main.go:79:65: cutset contains duplicate characters (SA1024)
+```
+
+
+
+### gotype
+
+無法正常使用
+
+像是被拒絕訪問
+
+```powershell
+PS D:\Rockefeller\Projects\mcom> gotype.exe ./...
+open ...: Access is denied.
+```
+
+或者沒有任何輸出
+
+```powershell
+PS D:\Rockefeller\Projects\mcom\cmd\jennifer> gotype.exe .\main.go
+PS D:\Rockefeller\Projects\mcom\cmd\jennifer> cd ../
+PS D:\Rockefeller\Projects\mcom\cmd> cd .\mockgenerator\
+PS D:\Rockefeller\Projects\mcom\cmd\mockgenerator> gotype.exe .\main.go
+PS D:\Rockefeller\Projects\mcom\cmd\mockgenerator> 
+```
+
+
+
+### goconst
+
+可以找到很多重複使用的常量，但大多數的情況看起來並不是合設置const variable
