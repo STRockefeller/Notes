@@ -261,6 +261,28 @@ db.CreateInBatches(users, 100)
 
 
 
+
+
+## Search
+
+### Search Zero Value
+
+> **NOTE** When querying with struct, GORM will only query with non-zero fields, that means if your field’s value is `0`, `''`, `false` or other [zero values](https://tour.golang.org/basics/12), it won’t be used to build query conditions, for example:
+
+```
+db.Where(&User{Name: "jinzhu", Age: 0}).Find(&users)
+// SELECT * FROM users WHERE name = "jinzhu";
+```
+
+To include zero values in the query conditions, you can use a map, which will include all key-values as query conditions, for example:
+
+```
+db.Where(map[string]interface{}{"Name": "jinzhu", "Age": 0}).Find(&users)
+// SELECT * FROM users WHERE name = "jinzhu" AND age = 0;
+```
+
+For more details, see [Specify Struct search fields](https://gorm.io/docs/query.html#specify_search_fields).
+
 ## Error Handle
 
 可以發現`Gorm`套件的方法幾乎都沒有error的回傳，也就是說不論`Gorm`套件的方法是否有正確執行，程式都會繼續下去。
