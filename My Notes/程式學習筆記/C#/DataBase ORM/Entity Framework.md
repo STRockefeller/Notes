@@ -238,8 +238,6 @@ Unhandled exception. Microsoft.EntityFrameworkCore.DbUpdateException: An error o
 
 有查到一些[參考資料](https://magnussundstrom.se/blog/deps-json-does-not-exist)但都不管用，VS版本也從16.7.0更新到16.8.3依然無用
 
-![image-20210107113409077](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20210107113409077.png)
-
 事實上指令執行結果都是successed，**執行程式後**blogging.db也有成功建立在專案根目錄以及debug目錄底下。
 
 是的，觀察之後發現database是在程式執行後才產生的，並非執行PMC指令後生成，PMC指令下完後只多出了bin和obj兩個資料夾
