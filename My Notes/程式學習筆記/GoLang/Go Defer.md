@@ -4,6 +4,16 @@ Reference:
 
 [ITHELP](https://ithelp.ithome.com.tw/articles/10242498)
 
+
+
+很精美的blog，用動圖來解釋defer的運作，內容相對基礎，以後如果忘掉怎麼用可以拿來快速複習
+
+https://blog.learngoprogramming.com/golang-defer-simplified-77d3b2b817ff
+
+跟上面同一個作者寫的，探討defer使用上的各種問題，比較深入一點，目前一共三篇
+
+https://blog.learngoprogramming.com/gotchas-of-defer-in-go-1-8d070894cb01
+
 ## Abstract
 
 Defer 是一個比較小的主題，其實沒甚麼可以寫的，但它又是`Go`的特色之一(至少我之前都沒有接處過類似的概念)，所以還是決定獨立為他寫一篇筆記。
@@ -149,3 +159,50 @@ func main() {
 }
 ```
 
+
+
+## About Defer Close
+
+
+
+使用defer來關閉檔案或資料庫算是比較常見的用法，不過有一些細節需要特別留意
+
+
+
+**defer無法接收回傳值**
+
+參考[Don't defer Close() on writable files](https://www.joeshaw.org/dont-defer-close-on-writable-files/)
+
+主要提到因為defer無法獲取回傳值(通常是error)，可能導致非預期的問題發生
+
+如果在意Close是否出錯並且希望準備對應的處理的話，避免使用defer close或許是比較好的做法
+
+
+
+**Error Handle要在defer之前**
+
+例如這是不好的做法
+
+```go
+	file, err := os.Create("../../mock/mock_func.go")
+	defer file.Close()
+	if err != nil {
+		return err
+	}
+```
+
+這是比較好的做法
+
+```go
+	file, err := os.Create("../../mock/mock_func.go")
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+```
+
+
+
+至於原因，就必須插播一下defer的另一個特性，眾所皆知defer會在return之前被執行，但實際上是"在寫在defer之後的return之前被執行"
+
+以上面的例子來說，假如說最開始開黨或建立檔案失敗，`file`物件很可能會是nil，第一種情況會執行到`file.Close`但第二種則不會

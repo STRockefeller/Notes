@@ -317,6 +317,12 @@ namespace DelegatePractice
 
 如此一來，連委派的宣告都能省略了。
 
+
+
+**補充**
+
+在Action或Func中無法使用`ref`關鍵字，真的有這種需求的時候還是必須使用自定義的delegate。[參考](https://stackoverflow.com/questions/2462814/func-delegate-with-ref-variable)
+
 ## Lambda Expression
 
 MSDN的定義
