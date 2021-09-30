@@ -213,3 +213,6 @@ public int ReturnNumber(List<int> numList,List<Action<ReturnNumberOption>> optFu
 
 所以方法的一開始要把接收到的function slice轉換成所需要的struct才能正常使用
 
+
+
+> 題外話:以我個人而言，把全部的參數用struct包起來也挺不錯的，至少夠直觀

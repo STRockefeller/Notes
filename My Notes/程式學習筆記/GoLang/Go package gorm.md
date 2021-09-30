@@ -295,3 +295,58 @@ For more details, see [Specify Struct search fields](https://gorm.io/docs/query.
 	}
 ```
 
+
+
+
+
+
+
+## Extra
+
+這邊紀錄一些進階功能或特例
+
+
+
+### where in
+
+主要是想要做到查詢目標的field/property在指定範圍內的集合
+
+像是這樣
+
+```C#
+List<string> targetIDs = new List<string>(){"LaDiDa","Rockefeller"};
+List<User> res = users.Where(u=>targetIDs.Contains(u.ID)).toList();
+```
+
+
+
+**如果要求的field剛好是primary key**
+
+那麼可以這樣做
+
+```go
+var res []User
+targetIDs := []string{"LaDiDa","Rockefeller"}
+db.Find(&res,targetIDs)
+```
+
+或者這樣做
+
+```go
+var res []User
+targetIDs := []string{"LaDiDa","Rockefeller"}
+db.Where(targetIDs).Find(&res)
+```
+
+
+
+**如果不是primary key**
+
+使用string query
+
+```go
+var res []User
+targetIDs := []string{"LaDiDa","Rockefeller"}
+db.Where("WHERE ID in",targetIDs).Find(&res)
+```
+
