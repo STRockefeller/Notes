@@ -155,4 +155,137 @@ codewars 似乎不接受這個套件的引用 (cannot find package) ，不過在
 
 ### 執行效率
 
-滿感興趣的部分，以後找個時間來測試看看
+使用BenchMark做了測試，先說結論，**效率很差**，在講究效率的系統中不要考慮使用linq
+
+
+
+詳細
+
+main.go
+
+```go
+package main
+
+import (
+	linq "github.com/ahmetb/go-linq/v3"
+)
+
+func main() {
+}
+
+func LinqTest(s []int) int64 {
+	return linq.From(s).Where(func(i interface{}) bool { return i.(int)%2 == 0 }).SumInts()
+}
+
+func LinqGenericTest(s []int) int64 {
+	return linq.From(s).WhereT(func(i int) bool { return i%2 == 0 }).SumInts()
+}
+
+func ForLoopTest(s []int) int {
+	var res int
+	for _, i := range s {
+		if i%2 == 0 {
+			res += i
+		}
+	}
+	return res
+}
+```
+
+
+
+main_test.go 測試結果寫在上面了
+
+```go
+package main
+
+import "testing"
+
+func getSlice(limit int) []int {
+	res := []int{}
+	for i := 0; i < limit; i++ {
+		res = append(res, i)
+	}
+	return res
+}
+
+// BenchmarkLinq100-8   	  342582	      3318 ns/op	    1000 B/op	     106 allocs/op
+func BenchmarkLinq100(b *testing.B) {
+	s := getSlice(100)
+	b.ResetTimer()
+	for n := 0; n < b.N; n++ {
+		LinqTest(s)
+	}
+}
+
+// BenchmarkLinq10000-8   	    3634	    310103 ns/op	   80201 B/op	   10006 allocs/op
+func BenchmarkLinq10000(b *testing.B) {
+	s := getSlice(10000)
+	b.ResetTimer()
+	for n := 0; n < b.N; n++ {
+		LinqTest(s)
+	}
+}
+
+// BenchmarkLinqGeneric100-8   	   43477	     27112 ns/op	    9296 B/op	     416 allocs/op
+func BenchmarkLinqGeneric100(b *testing.B) {
+	s := getSlice(100)
+	b.ResetTimer()
+	for n := 0; n < b.N; n++ {
+		LinqGenericTest(s)
+	}
+}
+
+// BenchmarkLinqGeneric10000-8   	     457	   2603440 ns/op	  880507 B/op	   40016 allocs/op
+func BenchmarkLinqGeneric10000(b *testing.B) {
+	s := getSlice(10000)
+	b.ResetTimer()
+	for n := 0; n < b.N; n++ {
+		LinqGenericTest(s)
+	}
+}
+
+// BenchmarkForLoop100-8   	23087000	        51.3 ns/op	       0 B/op	       0 allocs/op
+func BenchmarkForLoop100(b *testing.B) {
+	s := getSlice(100)
+	b.ResetTimer()
+	for n := 0; n < b.N; n++ {
+		ForLoopTest(s)
+	}
+}
+
+// BenchmarkForLoop10000-8   	  260864	      4554 ns/op	       0 B/op	       0 allocs/op
+func BenchmarkForLoop10000(b *testing.B) {
+	s := getSlice(10000)
+	b.ResetTimer()
+	for n := 0; n < b.N; n++ {
+		ForLoopTest(s)
+	}
+}
+```
+
+
+
+結果比較
+
+```powershell
+PS D:\Rockefeller\Projects_Test\go_test_mcom_warehouse_query> go test -benchmem -run=^$ -bench .
+goos: windows
+goarch: amd64
+pkg: ladidadida
+BenchmarkLinq100-8                333081              3289 ns/op      1000 B/op
+    106 allocs/op
+BenchmarkLinq10000-8                3746            309461 ns/op     80200 B/op
+  10006 allocs/op
+BenchmarkLinqGeneric100-8          44326             26684 ns/op      9296 B/op
+    416 allocs/op
+BenchmarkLinqGeneric10000-8          462           2595004 ns/op    880500 B/op
+  40016 allocs/op
+BenchmarkForLoop100-8           22447192                51.3 ns/op
+      0 B/op           0 allocs/op
+BenchmarkForLoop10000-8           249924              4494 ns/op         0 B/op
+      0 allocs/op
+PASS
+ok      ladidadida      7.926s
+```
+
