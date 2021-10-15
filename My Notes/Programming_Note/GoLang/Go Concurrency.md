@@ -900,6 +900,68 @@ func waitMeAsync2(wg *sync.WaitGroup) {
 
 
 
+### Timeout
+
+#### Don't do this
+
+剛剛來的天才想法，但試了一下馬上發現行不通
+
+大概像這樣，假如我想等一個go routine
+
+```go
+wg:=sync.WaitGroup{}
+wg.Add(1)
+// go routine
+go func(){
+    //...
+    wg.Done()
+}()
+
+// timeout
+go func(){
+    time.Sleep(3000)
+    wg.Done()
+}()
+
+wg.Wait()
+```
+
+實際執行的時候會發生negative wait group count 的 panic
+
+#### Do this
+
+上面[Select](#Select)筆記有提到過了，不過既然又碰到了那就補充一下另一個做法
+
+參考[Timeout for WaitGroup.Wait()](https://stackoverflow.com/questions/32840687/timeout-for-waitgroup-wait)
+
+```golang
+// waitTimeout waits for the waitgroup for the specified max timeout.
+// Returns true if waiting timed out.
+func waitTimeout(wg *sync.WaitGroup, timeout time.Duration) bool {
+    c := make(chan struct{})
+    go func() {
+        defer close(c)
+        wg.Wait()
+    }()
+    select {
+    case <-c:
+        return false // completed normally
+    case <-time.After(timeout):
+        return true // timed out
+    }
+}
+```
+
+Using it:
+
+```golang
+if waitTimeout(&wg, time.Second) {
+    fmt.Println("Timed out waiting for wait group")
+} else {
+    fmt.Println("Wait group finished")
+}
+```
+
 ### Race Condition
 
 想起首次聽到這個詞的時候我還在學RS Flip-Flop...

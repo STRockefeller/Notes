@@ -230,3 +230,37 @@ public class Dinglemouse
 }
 ```
 
+
+
+看到one-line solution都先給尊重。但說實話這個解法真的不好懂。
+
+為了遞迴多設定一個參數h並給予預設值0，代表高度
+
+`SelectMany`做深度為2的查詢(`char[][]`->`char[]`->`char`)，如果沒有`'^'`代表目前的高度即為最高值，則直接回傳。
+
+若還有則執行
+
+```C#
+PeakHeight(m.Select((a,r) => a.Select((x,c) => 
+        (r<1 || c<1 || c==a.Length-1 || r==m.Length-1 || new[]{x, m[r-1][c], m[r+1][c], a[c-1], a[c+1]}.Any(z => z==' ') ? 
+        ' ' : x)).ToArray()).ToArray(), h+1);
+```
+
+`Select`委派傳入兩個參數算是比較少見的用法，第一個參數就是平常會拿到的值，第二個則會是index (int) ，[參考](https://stackoverflow.com/questions/2471588/how-to-get-index-using-linq)
+
+以這個解答的寫法來說，變數分別會是
+
+|             | a      | r          | x    | c          |
+| ----------- | ------ | ---------- | ---- | ---------- |
+| Type        | char[] | int        | char | int        |
+| Description |        | index of a |      | index of a |
+
+接著就比較簡單了
+
+```C#
+r<1 || c<1 || c==a.Length-1 || r==m.Length-1 || new[]{x, m[r-1][c], m[r+1][c], a[c-1], a[c+1]}.Any(z => z==' ') ? ' ' : x
+```
+
+根據條件判斷是否要清空或保持原樣回傳，至於條件，顯然就是判斷是否在外圍。
+
+最後將這個已經更動過的array以及h+1作為參數進行遞迴。
