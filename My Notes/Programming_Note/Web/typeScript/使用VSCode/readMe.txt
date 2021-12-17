@@ -18,3 +18,7 @@ Js檔生成
 上述設定成功後直接DEBUG即可
 或目錄下COMMANDLINE:tsc
 or COMMANDLINE:tsc xxxxx.ts
+
+
+如果看到 No inputs were found in config file
+就在目錄底下隨便建立一個.ts檔案他就會閉嘴了

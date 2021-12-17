@@ -20,6 +20,8 @@ https://ithelp.ithome.com.tw/articles/10244882
 
 ​	https://www.atlassian.com/git/tutorials/git-hooks
 
+​	https://pre-commit.com/hooks.html
+
 ## Official Tutorial
 
 ### Installation
@@ -562,6 +564,14 @@ go vet: Pass
 
 
 
+
+
+## 同時使用兩種方法
+
+意外發現的，只要把自己寫的腳本命名為 pre-commit.legacy就可以同時使用.pre-commit-config.yaml的hooks了。
+
+
+
 ## 疑難雜症
 
 ### 不管有沒有出錯，ExitCode總是抓到0
@@ -680,7 +690,7 @@ PS D:\Rockefeller\Projects\mcom> $LASTEXITCODE
 
 參考 https://stackoverflow.com/questions/54697699/how-to-propertly-configure-my-pre-commit-and-pre-push-hooks
 
-目前看來比較合理的原因就是commit 的目標中不含指定類型的檔案 ，試著修改原始碼後再commit或許可以解決
+目前看來比較合理的原因就是commit 的目標中不含指定類型的檔案 ，試著修改原始碼後再commit通常可以解決
 
 ```powershell
 rockefel@DESKTOP-4RCB60P MINGW64 /d/Rockefeller/Projects/mcom (pre-commit-test)
