@@ -2,13 +2,21 @@
 
 [Reference:重新認識 Vue.js](https://book.vue.tw/)
 
-[Reference:「小孩才做選擇，我全都要。」小白也能輕鬆瞭解的 Vue.js 與 D3.js](https://ithelp.ithome.com.tw/users/20119062/ironman/2242) 
+[Reference:「小孩才做選擇，我全都要。」小白也能輕鬆瞭解的 Vue.js 與 D3.js](https://ithelp.ithome.com.tw/users/20119062/ironman/2242)
 
 [Reference:vuejs.org](https://vuejs.org/)
 
 [Reference:Mozilla Tutorial](https://developer.mozilla.org/zh-TW/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_getting_started)
 
+[TypeScript Support](https://v3.vuejs.org/guide/typescript-support.html#official-declaration-in-npm-packages)
 
+## Abstract
+
+根據Codecademy的說法，前端框架的出現，大多為了解決以下三種問題，Vue也不例外
+
+* Long development times
+* Difficult bug fixes and updates
+* Slow page rendering
 
 ## CDN
 
@@ -23,8 +31,6 @@
 ```
 
 老樣子CDN的東西比較少，用下面的方法進行安裝才可以體驗到最完整的Vue
-
-
 
 ## installation
 
@@ -68,8 +74,6 @@ npm notice Run npm install -g npm@8.3.0 to update!
 npm notice
 ```
 
-
-
 ## Initialization
 
 按照Mozilla的初始化步驟
@@ -87,8 +91,6 @@ npm notice
 > CLI 會開始建構你的專案，並且安裝所需的相依套件。
 >
 > 如果你之前沒有執行過 Vue CLI ，你將會被問一個問題－請選擇套件管理員。你可以使用方向鍵來選擇你想使用的套件管理員，Vue CLI 將會把這個套件管理員設為預設值。之後如果你想要使用不同的套件管理員，可以在執行 `vue create` 時傳入一個標幟 `--packageManager=<package-manager>` 。舉例來說，如果你現在想要用 npm 來創建 `moz-todo-vue` 專案，但是之前是使用 yarn ，你可以執行 `vue create moz-todo-vue --packageManager=npm` 。
-
-
 
 ## 專案結構
 
@@ -110,8 +112,6 @@ d----- src
 -a---- package.json
 -a---- README.md
 ```
-
-
 
 * node_modules
 
@@ -140,8 +140,6 @@ d----- src
   * assets
 
     放其他靜態資源
-
-
 
 ### .vue file
 
@@ -189,8 +187,6 @@ export default {
 
 `<style>` 是你撰寫元件的 CSS 的地方。如果你加上 scoped 屬性，例如 `<style scoped>` ， Vue 會把樣式的範圍限制在這個單一檔案元件裡。這類似 CSS-in-JS 的解決方案，但是它允許你寫單純的 CSS 。
 
-
-
 回頭看看程式進入點 `main.js`
 
 ```javascript
@@ -224,12 +220,6 @@ vm.mount('#app')
 | new Vue()   | Vue.createApp() |
 | vm.$mount() | vm.mount()      |
 
-
-
-
-
-
-
 ## 在Local端執行
 
 執行 npm run serve 或 yarn serve (要停止的話直接<kbd>Ctrl</kbd>+<kbd>C</kbd>中斷就行了)
@@ -253,19 +243,15 @@ $ vue-cli-service serve
 
 打開連結可以看到
 
-![](https://upload.cc/i1/2021/12/16/vpTmol.png)
+![vue default page](https://upload.cc/i1/2021/12/16/vpTmol.png)
 
 如果這時試著修該元件內容並儲存，可以看到網頁會跟著hot reload
-
-
-
-
 
 ## 題外話
 
 ### Tailwind css
 
-ref : https://medium.com/coding-hot-pot/%E5%A6%82%E4%BD%95%E7%94%A8vue-cli-%E6%90%AD%E9%85%8Dtailwind-css%E9%96%8B%E7%99%BC-42c0f0dc3d3a
+ref : <https://medium.com/coding-hot-pot/%E5%A6%82%E4%BD%95%E7%94%A8vue-cli-%E6%90%AD%E9%85%8Dtailwind-css%E9%96%8B%E7%99%BC-42c0f0dc3d3a>
 
 同樣是我一直很想嘗試的東西，順便試試在vue project裡面安裝
 
@@ -345,11 +331,9 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 比較神奇的是不知道為甚麼要改我的tree.out，那是我為了看專案結構生成出來的東西= =
 
-![](https://upload.cc/i1/2021/12/16/j8uqx7.png)
+![compare tree.out](https://upload.cc/i1/2021/12/16/j8uqx7.png)
 
 然後給我一堆亂碼是怎樣
-
-
 
 好先不管他，看看其他檔案的改動
 
@@ -374,15 +358,9 @@ package.json 和 package-lock.json也是多了一些tailwind的引用
 
 ```
 
-
-
-
-
-
-
 ---
 
-這段我不確定是不是一定要做，待確認
+這段我在某個文章中看到的步驟，不過後來測試後發現其實不影響執行，我暫時還不清楚它的作用，先保留在筆記中，以後知道了再回來補充。
 
 執行
 
@@ -427,10 +405,6 @@ module.exports = {
 
 ---
 
-
-
 接著重新啟動vue應該就看的到變化了(如果正在執行中無法透過hot-reload呈現變化，安裝完tailwind後還需要重新yarn run serve一次)
-
-
 
 先這樣，再多就離題了，剩下的留到tailwind的筆記再談。
