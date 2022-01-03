@@ -1,4 +1,4 @@
-# Vue.js 基礎 筆記
+# Vue.js 前置 筆記
 
 [Reference:重新認識 Vue.js](https://book.vue.tw/)
 
@@ -20,6 +20,10 @@
 
 ## CDN
 
+可以依需求選擇使用Vue2或Vue3
+
+Vue2
+
 ```html
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 ```
@@ -28,6 +32,12 @@
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+```
+
+Vue3
+
+```html
+<script src="https://unpkg.com/vue@next"></script>
 ```
 
 老樣子CDN的東西比較少，用下面的方法進行安裝才可以體驗到最完整的Vue
@@ -90,7 +100,7 @@ npm notice
 >
 > CLI 會開始建構你的專案，並且安裝所需的相依套件。
 >
-> 如果你之前沒有執行過 Vue CLI ，你將會被問一個問題－請選擇套件管理員。你可以使用方向鍵來選擇你想使用的套件管理員，Vue CLI 將會把這個套件管理員設為預設值。之後如果你想要使用不同的套件管理員，可以在執行 `vue create` 時傳入一個標幟 `--packageManager=<package-manager>` 。舉例來說，如果你現在想要用 npm 來創建 `moz-todo-vue` 專案，但是之前是使用 yarn ，你可以執行 `vue create moz-todo-vue --packageManager=npm` 。
+> 如果你之前沒有執行過 Vue CLI ，你將會被問一個問題－請選擇套件管理員。你可以使用方向鍵來選擇你想使用的套件管理員，Vue CLI 將會把這個套件管理員設為預設值。之後如果你想要使用不同的套件管理員，可以在執行 `vue create` 時傳入一個標幟 `--packageManager=<package-manager>` 。舉例來說，如果你現在想要用 npm 來創建 `moz-todo-vue` 專案，但是之前是使用 yarn ，你可以執行 `vue create moz-todo-vue --packageManager=npm` 。
 
 ## 專案結構
 
@@ -185,7 +195,7 @@ export default {
 
 > **注意**：如果你想要使用 [TypeScript](https://www.typescriptlang.org/) 語法，你必須把 `<script>` 標籤的 `lang` 屬性設定成 `<script lang="ts">` 來告訴編譯器你要使用 TypeScript 。
 
-`<style>` 是你撰寫元件的 CSS 的地方。如果你加上 scoped 屬性，例如 `<style scoped>` ， Vue 會把樣式的範圍限制在這個單一檔案元件裡。這類似 CSS-in-JS 的解決方案，但是它允許你寫單純的 CSS 。
+`<style>` 是你撰寫元件的 CSS 的地方。如果你加上 scoped 屬性，例如 `<style scoped>` ， Vue 會把樣式的範圍限制在這個單一檔案元件裡。這類似 CSS-in-JS 的解決方案，但是它允許你寫單純的 CSS 。
 
 回頭看看程式進入點 `main.js`
 

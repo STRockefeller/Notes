@@ -58,9 +58,7 @@ razor page 的路由不會經過Controller所以他們在檔案總管的路徑�
 
 ### `cshtml` files
 
-接著就可以開始寫razor pages，注意和blazor專案不同，我們使用的是razor view (`.cshtml`)而非 razor component
-
-(`.razor`)
+接著就可以開始寫razor pages，注意和blazor專案不同，我們使用的是razor view (`.cshtml`)而非 razor component(`.razor`)
 
 我們依然可以如同razor component將`.cshtml`檔案拆分為`.cshtml`+`.cshtml.cs`
 

@@ -4,6 +4,18 @@
 
 C# LinQ 真的把我寵壞了
 
+## 使用套件
+
+https://github.com/kutyel/linq.ts
+
+
+
+同場加印js版
+
+https://github.com/mihaifm/linq
+
+## 原生替代方案
+
 ---
 
 last updated: Nov 14th, 2017
