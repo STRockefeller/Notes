@@ -660,6 +660,26 @@ func main() {
 
 
 
+**進入下一個case的方法**
+
+由於golang自動break的特性，如果真的要進入下一個case反而需要另外下`fallthrough`指令
+
+```go
+switch n {
+    //...
+    case 1:
+    	fallthrough
+    case 2:
+    	fmt.Println("n<=2")
+    default:
+	    fmt.Ptintln("n>2")
+}
+```
+
+
+
+
+
 #### select
 
 類似於 `switch`但又有點不一樣

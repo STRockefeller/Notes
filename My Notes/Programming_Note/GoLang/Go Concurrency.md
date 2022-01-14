@@ -719,7 +719,7 @@ func main() {
 
 ##### Timeout
 
-用 select 讀取 channle 時，一定會實作超過一定時間後就做其他事情，而不是一直 blocking 在 select 內。底下是簡單的例子:
+用 select 讀取 channel 時，一定會實作超過一定時間後就做其他事情，而不是一直 blocking 在 select 內。底下是簡單的例子:
 
 ```go
 package main

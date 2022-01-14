@@ -22,7 +22,7 @@ https://ithelp.ithome.com.tw/articles/10244882
 
 ​	https://pre-commit.com/hooks.html
 
-## Official Tutorial
+## 使用別人寫好的腳本
 
 ### Installation
 
@@ -83,7 +83,7 @@ repos:
     -   id: black
 ```
 
-待補充..
+在這邊指定要使用的遠端repo/版本號/要執行的腳本id
 
 
 
@@ -93,56 +93,43 @@ repos:
 
 
 
-#### golang sample
+### golang 推薦
 
-https://github.com/dnephin/pre-commit-golang
+不是每個腳本都可以正常作用、也不是每個腳本都適合自己使用。
 
-直接照著做yaml寫完install就能使用了，不想檢查的直接在yaml註解掉即可
+比如go fmt就有很多腳本既不幫修改也不給過。
 
-golang hooks for http://pre-commit.com/
+在多方嘗試之後，整理了一些用起來比較順手的腳本如下
 
-##### Using these hooks
+.pre-commit-config.yaml
 
-Add this to your `.pre-commit-config.yaml`
-
-```
+```go
+repos:
 - repo: https://github.com/dnephin/pre-commit-golang
-  rev: master
+  rev: v0.4.0
   hooks:
-    - id: go-fmt
     - id: go-vet
     - id: go-lint
-    - id: go-imports
-    - id: go-cyclo
-      args: [-over=15]
-    - id: validate-toml
-    - id: no-go-testing
-    - id: golangci-lint
-    - id: go-critic
-    - id: go-unit-tests
-    - id: go-build
     - id: go-mod-tidy
+- repo: https://github.com/doublify/pre-commit-go
+  rev: 208a4aaa7f86b44e961eaaea526743b920e187a0
+  hooks:
+    - id: fmt
+- repo: https://github.com/syntaqx/git-hooks
+  rev: v0.0.16
+  hooks:
+  - id: go-generate
+- repo: https://github.com/golangci/golangci-lint
+  rev: v1.42.1
+  hooks:
+    - id: golangci-lint
 ```
 
-##### Available hooks
-
-- `go-fmt` - Runs `gofmt`, requires golang
-- `go-vet` - Runs `go vet`, requires golang
-- `go-lint` - Runs `golint`, requires https://github.com/golang/lint
-- `go-imports` - Runs `goimports`, requires golang.org/x/tools/cmd/goimports
-- `go-cyclo` - Runs `gocyclo`, require https://github.com/fzipp/gocyclo
-- `validate-toml` - Runs `tomlv`, requires https://github.com/BurntSushi/toml/tree/master/cmd/tomlv
-- `no-go-testing` - Checks that no files are using `testing.T`, if you want developers to use a different testing framework
-- `golangci-lint` - run `golangci-lint run ./...`, requires [golangci-lint](https://github.com/golangci/golangci-lint)
-- `go-critic` - run `gocritic check ./...`, requires [go-critic](https://github.com/go-critic/go-critic)
-- `go-unit-tests` - run `go test -tags=unit -timeout 30s -short -v`
-- `go-build` - run `go build`, requires golang
-- `go-mod-tidy` - run `go mod tidy -v`, requires golang
-- `go-mod-vendor` - run `go mod vendor`, requires golang
+如果要更客製的東西，可以寫在go generate裡面就會被順便執行到了，或者也可以乾脆自己寫腳本。
 
 
 
-## Scripts
+## 自己寫腳本
 
 這算是方法二，上面那些都不用做
 
@@ -561,8 +548,6 @@ go test: Fail
 golint: Fail
 go vet: Pass
 ```
-
-
 
 
 

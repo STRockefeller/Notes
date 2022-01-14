@@ -41,6 +41,24 @@ export default class App extends Vue {}
 
 
 
+**補充**:
+
+* 如果想要bind多個class，就把他們寫在一起就好了，不用想一堆有的沒有的方法
+
+```typescript
+@Options({
+  data() {
+    return {
+      my_button: "class1 class2 class3",
+    };
+  },
+})
+```
+
+
+
+* 經測試bind 一個回傳string的function是行不通的
+
 ## v-model
 
 表單資料的雙向綁定，適用於像是 `<input>`、`<textarea>` 以及 `<select>` 等tag

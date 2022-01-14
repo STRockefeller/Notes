@@ -70,6 +70,8 @@ go tool cover -html=[剛才生成的檔案]
 
 
 
+測試覆蓋率時想忽略部份內容(例如自動生成的內容) 可以參考[這篇](https://stackoverflow.com/questions/50065448/how-to-ignore-generated-files-from-go-test-coverage)
+
 
 
 ## 其他工具

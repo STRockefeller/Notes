@@ -443,6 +443,18 @@ vue 3 和 vue 2 的變化是一樣的，值得一提的是 兩邊的頁面顯示
 
 
 
+### tailwind just in time
+
+[參考](https://www.educative.io/edpresso/how-to-apply-arbitrary-styles-with-tailwind-jit)
+
+在 tailwind.config.js裡面加入`mode: 'jit',`就可以使用了
+
+主要的特點在於提供了[arbitrary styles](https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values)可以使用，還算是滿方便的
+
+在vue中使用有個缺點就是無法hot reload，每次修改都要重新run serve才會套用進去
+
+
+
 ## @Options (Vue3) / @Component (Vue2)
 
 ### data()
