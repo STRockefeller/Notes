@@ -1,6 +1,5 @@
 ﻿$createFileName = "github_path_generate.md"
 $linkPath="https://github.com/STRockefeller/MyProgrammingNote/tree/master/My_Notes"
-$localPath = "Microsoft.PowerShell.Core\FileSystem::$pwd"
 
 function searchNote($location,[string]$header)
 {
@@ -21,7 +20,7 @@ function searchNote($location,[string]$header)
     foreach($file in $files)
     {
         $name = $($file.Name)
-        $link=$file.PSpath.Replace($localPath,$linkPath).Replace("\","/").Replace(" ","%20")
+        $link=$file.PSpath.Replace($localPath,$linkPath).Replace("\","/").Replace(" ","%20").Replace("#","%23")
 
         "* [$name]($link)"
     }
@@ -36,4 +35,5 @@ function startup()
 }
 
 Set-Location $PSScriptRoot
+$localPath = "Microsoft.PowerShell.Core\FileSystem::$pwd"
 startup|Out-File $createFileName
