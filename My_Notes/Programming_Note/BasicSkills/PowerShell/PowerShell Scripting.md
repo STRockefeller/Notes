@@ -175,3 +175,72 @@ Mode                LastWriteTime         Length Name
 -a----       2021/6/1  下午 03:10             68 new_item.ps1
 ```
 
+
+
+## Traps
+
+這邊整理一些坑
+
+### Boolean value
+
+布林值要寫成 `$true` 和 `$false` ，寫成 `true` `false` compiler 不會報錯，但執行就會炸開
+
+
+
+### return
+
+這個或許不算坑，反而像是語法糖。
+
+powershell會找到上一個儲存的值回傳
+
+```powershell
+$a
+return
+```
+
+會等同
+
+```powershell
+return $a
+```
+
+
+
+另外補充，powershell的function是不用在定義的時候表示要回傳的內容的
+
+```powershell
+function IsNumber($number)
+{
+	// ...
+	return $res
+}
+```
+
+
+
+### path
+
+當腳本中滿是相對路徑的時候，在不同地方（終端機的起始位置）call相同腳本得到不一樣的結果（也可能是因為路徑錯誤而無法執行）
+
+不只powershell，其實只要扯到路徑的功能都或多或少會有這個問題…
+
+
+
+不過我發現powershell有個很方便的變數可以解決這個問題。
+
+`$PSScriptRoot` 代表腳本所在位置
+
+拿這個位置當作標準就沒有問題了，或者也可以把終端機的位置設定到這裡：
+
+在腳本最前方寫
+
+```powershell
+Set-Location $PSScriptRoot
+```
+
+或者用alias
+
+```powershell
+cd $PSScriptRoot
+```
+

@@ -1,6 +1,18 @@
 ﻿$createFileName = "github_path_generate.md"
 $linkPath="https://github.com/STRockefeller/MyProgrammingNote/tree/master/My_Notes"
 
+
+function isIgnoreFile($name)
+{
+    $ignoreFileExtension = ".dll", ".exe", ".layout", ".out", ".doc", ".zip", ".chm"
+    $res = $false
+    foreach($ext in $ignoreFileExtension)
+    {
+        $res = $res -or $name.Contains($ext)
+    }
+    return $res
+}
+
 function searchNote($location,[string]$header)
 {
     if($header -eq ""){$header="##"}
@@ -8,21 +20,32 @@ function searchNote($location,[string]$header)
     $files = $location|Get-ChildItem -File
     $dirs = $location|Get-ChildItem -Directory
 
+    foreach($file in $files)
+    {
+        $name = $($file.Name)
+        if(isIgnoreFile($name))
+        {
+            continue
+        }
+
+        $link=$file.PSpath.Replace($localPath,$linkPath).Replace("\","/").Replace(" ","%20").Replace("#","%23")
+
+        "* [$name]($link)"
+    }
+
     foreach($dir in $dirs)
     {
         $name = $($dir.Name)
         "$header $name"
         $newLocation = "$location\$name"
         $newHeader = "#$header"
+        if($newHeader.Length -gt 6)
+        {
+            $link=$dir.PSpath.Replace($localPath,$linkPath).Replace("\","/").Replace(" ","%20").Replace("#","%23")
+            "* more files in [$name]($link)"
+            continue
+        }
         searchNote $newLocation $newHeader
-    }
-
-    foreach($file in $files)
-    {
-        $name = $($file.Name)
-        $link=$file.PSpath.Replace($localPath,$linkPath).Replace("\","/").Replace(" ","%20").Replace("#","%23")
-
-        "* [$name]($link)"
     }
 }
 
