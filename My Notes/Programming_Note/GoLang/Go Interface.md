@@ -197,6 +197,35 @@ true bool
 
 
 
+
+
+這邊有坑要注意
+
+```go
+package main
+
+func main() {
+	a := A{}
+	InputInerface(a)
+	as := []A{}
+	InputInerfaceSlice(as) // cannot use as (type []A) as type []interface {} in argument to InputInerfaceSlice
+	InputInerfaceSlice2(as...) // cannot use as (type []A) as type []interface {} in argument to InputInerfaceSlice2
+}
+
+type A struct {
+}
+
+func InputInerface(i interface{}) {}
+
+func InputInerfaceSlice(i []interface{}) {}
+
+func InputInerfaceSlice2(i ...interface{}) {}
+```
+
+
+
+
+
 ### Type assertions
 
 

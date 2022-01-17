@@ -1059,6 +1059,62 @@ func race(wg *sync.WaitGroup) {
 }
 ```
 
-## Panic
 
-程式出錯的情況在`Go`裡面稱為Panic，不論是`main func`還是`Concurrent func`只要出錯了都會結束程式。
+
+## errgroup
+
+實用套件補充一下。 [godoc](https://pkg.go.dev/golang.org/x/sync/errgroup)
+
+基本上算是針對error handle 加強的go routine
+
+方法只有兩個 Go 和 Wait 
+
+顧名思義
+
+Go 就是以Concurrency 的方式執行方法，這個方法必須要回傳error
+
+Wait 就...wait ，另外會吐一個前面 Go() 的**第一個** error出來
+
+
+
+### 是否中斷執行
+
+這算是errgroup比較貼心的地方，根據物件建立的方式不同，可以決定是否在出現error的時候中斷執行
+
+```go
+type Group struct {
+	// contains filtered or unexported fields
+}
+```
+
+> A Group is a collection of goroutines working on subtasks that are part of the same overall task.
+>
+> A zero Group is valid and does not cancel on error.
+
+
+
+簡單來說不想中斷執行的話就寫成
+
+```go
+var g errgroup.Group
+```
+
+```go
+g := errgroup.Group{}
+```
+
+```go
+g := new(errgroup.Group)
+```
+
+
+
+想中斷的話就用這個方法
+
+```go
+func WithContext(ctx context.Context) (*Group, context.Context)
+```
+
+
+
+注意，即便不中斷執行，Wait()方法還是只會吐第一個error回來
