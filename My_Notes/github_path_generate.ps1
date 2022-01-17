@@ -1,5 +1,5 @@
-﻿$createFileName = "github_path_generate.md"
-$linkPath="https://github.com/STRockefeller/MyProgrammingNote/tree/master/My%20Notes"
+﻿$createFileName = ".\My_Notes\github_path_generate.md"
+$linkPath="https://github.com/STRockefeller/MyProgrammingNote/tree/master/My_Notes"
 $localPath = "Microsoft.PowerShell.Core\FileSystem::$pwd"
 
 function searchNote($location,[string]$header)

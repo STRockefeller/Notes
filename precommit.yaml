@@ -1,0 +1,3 @@
+- symbol: path generator
+  command: .\My_Notes\github_path_generate.ps1
+  check: true
