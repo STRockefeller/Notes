@@ -13,15 +13,15 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 ConfigureServices
 
 ```C#
-		services.AddSingleton<登入驗證的Middleware>();
-		services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+  services.AddSingleton<登入驗證的Middleware>();
+  services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
               .AddCookie();
 ```
 
 Configure
 
 ```C#
-			//Cookies驗證
+   //Cookies驗證
             app.UseWebSockets();
             CookiePolicyOptions cookiePolicyOptions = new CookiePolicyOptions();
             app.UseCookiePolicy(cookiePolicyOptions);
@@ -29,14 +29,12 @@ Configure
             app.UseMiddleware<登入驗證的Middleware>();
 ```
 
-
-
 ### 網頁.ts
 
 以post形式傳送帳號密碼等資訊(jQuery ajax done/fail 差別在於HTTP response的回傳StatusCode)
 
 ```typescript
-			let data: object = new Object();
+   let data: object = new Object();
             data["account"] = this._account.Value;
             data["password"] = this._password.Value;
             Helper.Loading = true;
@@ -53,8 +51,6 @@ Configure
                 })
                 ;
 ```
-
-
 
 ### 登入驗證的Middleware
 
@@ -112,15 +108,11 @@ public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         }
 ```
 
-
-
 ## ASP .Net Core MVC
 
 2020/09 正在撰寫新的專案，先前的作法有些部分不太適用，重新整理之。
 
 Linq2DB在Core上使用仍不順利故仍是以SQLite語法操作資料庫
-
-
 
 ### 定義使用者類別
 
@@ -275,8 +267,6 @@ namespace AcientBulletinBoard.Services
 
 ```
 
-
-
 ### Middleware部分
 
 #### 本體
@@ -348,8 +338,6 @@ namespace AcientBulletinBoard.Middlewares
 
 ```
 
-
-
 #### DI&註冊
 
 Startup.cs
@@ -397,8 +385,6 @@ Startup.cs
         }
 ```
 
-
-
 ### View
 
 簡單的登入畫面
@@ -437,8 +423,6 @@ Views\Home\Index.cshtml
 }
 ```
 
-
-
 ### TypeScript
 
 懶得Gulp所以直接寫在wwwroot裡面
@@ -475,8 +459,6 @@ $(document).ready(function () {
     })
 })
 ```
-
-
 
 ### Linq2DB(失敗)
 
@@ -536,52 +518,52 @@ DataModels.LinqUser.tt
 <# //@ include file="$(ProjectDir)LinqToDB.Templates\LinqToDB.SQLite.Tools.ttinclude" #>
 <# //@ include file="$(ProjectDir)LinqToDB.Templates\PluralizationService.ttinclude"  #>
 <#
-	/*
-		1. Create new *.tt file (e.g. MyDatabase.tt) in a folder where you would like to generate your data model
-		   and copy content from this file to it. For example:
+ /*
+  1. Create new *.tt file (e.g. MyDatabase.tt) in a folder where you would like to generate your data model
+     and copy content from this file to it. For example:
 
-			MyProject
-				DataModels
-					MyDatabase.tt
+   MyProject
+    DataModels
+     MyDatabase.tt
 
-		2. Modify the connection settings below to connect to your database.
+  2. Modify the connection settings below to connect to your database.
 
-		3. Add connection string to the web/app.config file:
+  3. Add connection string to the web/app.config file:
 
-			<connectionStrings>
-				<add name="MyDatabase" connectionString="Data Source=MyDatabase.sqlite" providerName="SQLite" />
-			</connectionStrings>
+   <connectionStrings>
+    <add name="MyDatabase" connectionString="Data Source=MyDatabase.sqlite" providerName="SQLite" />
+   </connectionStrings>
 
-		4. To access your database use the following code:
+  4. To access your database use the following code:
 
-			using (var db = new MyDatabaseDB())
-			{
-				var q =
-					from c in db.Customers
-					select c;
+   using (var db = new MyDatabaseDB())
+   {
+    var q =
+     from c in db.Customers
+     select c;
 
-				foreach (var c in q)
-					Console.WriteLine(c.ContactName);
-			}
+    foreach (var c in q)
+     Console.WriteLine(c.ContactName);
+   }
 
-		5. See more at https://linq2db.github.io/articles/T4.html
+  5. See more at https://linq2db.github.io/articles/T4.html
 
-		IMPORTANT: if running .tt file gives you error like this:
-		"error : Failed to resolve include text for file: C:\...\$(LinqToDBT4<SOME_DB>TemplatesDirectory)LinqToDB.<DB_NAME>.Tools.ttinclude"
-		check tt file properties.
-		Custom tool must be set to TextTemplatingFileGenerator, not TextTemplatingFilePreprocessor or any other value.
-	*/
+  IMPORTANT: if running .tt file gives you error like this:
+  "error : Failed to resolve include text for file: C:\...\$(LinqToDBT4<SOME_DB>TemplatesDirectory)LinqToDB.<DB_NAME>.Tools.ttinclude"
+  check tt file properties.
+  Custom tool must be set to TextTemplatingFileGenerator, not TextTemplatingFilePreprocessor or any other value.
+ */
 
-	NamespaceName = "DataModels";
+ NamespaceName = "DataModels";
 
-	// to configure GetSchemaOptions properties, add them here, before load metadata call
+ // to configure GetSchemaOptions properties, add them here, before load metadata call
 
-	LoadSQLiteMetadata(@"C:\Users\admin\source\repos\AcientBulletinBoard\AcientBulletinBoard\DataBases\", "UserData.db");
-//	LoadSQLiteMetadata(string connectionString);
+ LoadSQLiteMetadata(@"C:\Users\admin\source\repos\AcientBulletinBoard\AcientBulletinBoard\DataBases\", "UserData.db");
+// LoadSQLiteMetadata(string connectionString);
 
-	// to adjust loaded database model before generation, add your code here, after load metadata, but before GenerateModel() call
+ // to adjust loaded database model before generation, add your code here, after load metadata, but before GenerateModel() call
 
-	GenerateModel();
+ GenerateModel();
 #>
 ```
 
@@ -604,42 +586,42 @@ using LinqToDB.Mapping;
 
 namespace DataModels
 {
-	/// <summary>
-	/// Database       : UserData
-	/// Data Source    : UserData
-	/// Server Version : 3.24.0
-	/// </summary>
-	public partial class UserDataDB : LinqToDB.Data.DataConnection
-	{
-		public ITable<User> Users { get { return this.GetTable<User>(); } }
+ /// <summary>
+ /// Database       : UserData
+ /// Data Source    : UserData
+ /// Server Version : 3.24.0
+ /// </summary>
+ public partial class UserDataDB : LinqToDB.Data.DataConnection
+ {
+  public ITable<User> Users { get { return this.GetTable<User>(); } }
 
-		public UserDataDB()
-		{
-			InitDataContext();
-			InitMappingSchema();
-		}
+  public UserDataDB()
+  {
+   InitDataContext();
+   InitMappingSchema();
+  }
 
-		public UserDataDB(string configuration)
-			: base(configuration)
-		{
-			InitDataContext();
-			InitMappingSchema();
-		}
+  public UserDataDB(string configuration)
+   : base(configuration)
+  {
+   InitDataContext();
+   InitMappingSchema();
+  }
 
-		partial void InitDataContext  ();
-		partial void InitMappingSchema();
-	}
+  partial void InitDataContext  ();
+  partial void InitMappingSchema();
+ }
 
-	[Table("Users")]
-	public partial class User
-	{
-		[Column("role"),         Nullable] public string Role         { get; set; } // string(max)
-		[Column("name"),         Nullable] public string Name         { get; set; } // string(max)
-		[Column("account"),      Nullable] public string Account      { get; set; } // string(max)
-		[Column("password"),     Nullable] public string Password     { get; set; } // string(max)
-		[Column("emailAddress"), Nullable] public string EmailAddress { get; set; } // string(max)
-		[Column("camp"),         Nullable] public string Camp         { get; set; } // string(max)
-	}
+ [Table("Users")]
+ public partial class User
+ {
+  [Column("role"),         Nullable] public string Role         { get; set; } // string(max)
+  [Column("name"),         Nullable] public string Name         { get; set; } // string(max)
+  [Column("account"),      Nullable] public string Account      { get; set; } // string(max)
+  [Column("password"),     Nullable] public string Password     { get; set; } // string(max)
+  [Column("emailAddress"), Nullable] public string EmailAddress { get; set; } // string(max)
+  [Column("camp"),         Nullable] public string Camp         { get; set; } // string(max)
+ }
 }
 
 #pragma warning restore 1591
@@ -650,7 +632,7 @@ Startup.cs
 ```C#
         public void ConfigureServices(IServiceCollection services)
         {
-			//...
+   //...
             services.AddLinqToDbContext<AppDataConnection>((provider, options) =>
             {
                 options
@@ -659,4 +641,3 @@ Startup.cs
             });
         }
 ```
-

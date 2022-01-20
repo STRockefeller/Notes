@@ -74,7 +74,7 @@
   > >
   > > Second Middleware out.  
   > >
-  > > First Middleware out. 
+  > > First Middleware out.
 
   > Request 流程
   >
@@ -197,8 +197,6 @@
 
 4. 處理就response不處理就next
 
-
-
 ### 範例
 
 新建了兩個Middleware類別，其中一個繼承了`IMiddleware`，另一個則無
@@ -245,14 +243,12 @@ namespace MVCTest.MiddleWares
 
 ```
 
-
-
 於Configure註冊，注意類別名稱寫在<泛型位置>，注意註冊順序，Middleware會按照順序被呼叫。
 
 ```C#
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-			//...
+   //...
             app.UseMiddleware<TestMVCMiddleware>();
             app.UseMiddleware<TestMVCNoImpMiddleware>();
             app.UseEndpoints(endpoints =>
@@ -263,8 +259,6 @@ namespace MVCTest.MiddleWares
             });
         }
 ```
-
-
 
 於ConfigureServices加入服務(只有繼承了IMiddleware的類別)
 
@@ -277,13 +271,9 @@ namespace MVCTest.MiddleWares
         }
 ```
 
-
-
 ### Extension
 
-指細觀察的話會發現`app.UseRouting();` ` app.UseAuthorization();` `app.UseMvc();` 等等很多預設的middleware都會用一個靜態方法包裝呼叫方式都相當簡潔。
-
-
+指細觀察的話會發現`app.UseRouting();` `app.UseAuthorization();` `app.UseMvc();` 等等很多預設的middleware都會用一個靜態方法包裝呼叫方式都相當簡潔。
 
 自製的 Middleware 也可以做到一樣的事情，以上兩例修改
 
@@ -307,8 +297,6 @@ namespace MVCTest.MiddleWares
 
 註:Visual Studio新增的中介軟體類別已經包含擴展類別了，可以直接使用不需修改。
 
-
-
 Configure註冊方式就可以加以修改
 
 ```C#
@@ -320,6 +308,3 @@ Configure註冊方式就可以加以修改
             app.UseTestMVCMiddleware();
             app.UseTestMVCNoImpMiddleware();
 ```
-
-
-

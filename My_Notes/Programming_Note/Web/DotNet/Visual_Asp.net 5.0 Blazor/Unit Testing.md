@@ -25,8 +25,6 @@
 
 或者可以從專案屬性修改目標專案類型。
 
-
-
 ## 使用`bUnit`測試Component
 
 首先要先引用剛安裝的`bunit`套件
@@ -34,8 +32,6 @@
 ```C#
 using Bunit;
 ```
-
-
 
 接著就可以開始測試了
 
@@ -53,8 +49,6 @@ using Bunit;
         }
 ```
 
-
-
 我的專案中的`index.razor`並沒有做過更動。
 
 ```html
@@ -66,8 +60,6 @@ Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 ```
-
-
 
 測試結果，測試未通過
 
@@ -96,8 +88,6 @@ Welcome to your new app.
     <h1>Hello, world!</h1>
 ```
 
-
-
 **解說**
 
 透過
@@ -117,8 +107,6 @@ cut.MarkupMatches("<h1>Hello, world!</h1>");
 
 將其與預測內容進行比較。
 
-
-
 ---
 
 修改一下測試項目，變為取出`<h1></h1>`裏頭的東西進行比對
@@ -134,8 +122,6 @@ cut.MarkupMatches("<h1>Hello, world!</h1>");
 ```
 
 這次就順利通過測試了
-
-
 
 **解說**
 
@@ -153,8 +139,6 @@ cut.MarkupMatches("<h1>Hello, world!</h1>");
 ```
 
 似乎只會回傳第一個相符的項目。
-
-
 
 ---
 

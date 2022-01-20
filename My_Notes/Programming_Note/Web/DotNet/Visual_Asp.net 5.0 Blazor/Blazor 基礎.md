@@ -18,13 +18,13 @@ Blazor的專案分為Server 和 Web Assembly 兩種，具體比較可以看[ITHe
 
 老樣子使用`dotnet new`指令來建立
 
-```
+```bash
 dotnet new blazorserver -o BlazorApp --no-https
 ```
 
 執行看看
 
-```
+```powershell
 PS C:\Users\admin> dotnet new blazorserver -o BlazorApp --no-https
 The template "Blazor Server App" was created successfully.
 This template contains technologies from parties other than Microsoft, see https://aka.ms/aspnetcore/5.0-third-party-notices for details.
@@ -36,11 +36,9 @@ Running 'dotnet restore' on BlazorApp\BlazorApp.csproj...
 Restore succeeded.
 ```
 
-
-
 內容物
 
-```
+```powershell
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 d-----       2021/5/7  下午 04:52                bin
@@ -59,35 +57,25 @@ d-----       2021/5/7  下午 04:49                wwwroot
 -a----       2021/5/7  下午 04:49            392 _Imports.razor
 ```
 
-
-
 可以直接建置執行看看
 
-```
+```bash
 dotnet watch run
 ```
 
 一個簡單的Blazor網頁就跑出來啦
 
-
-
 專案最外層有`Program.cs`和`Startup.cs`乍看之下和ASP.net WEB/MVC專案架構相似
-
-
 
 ### Blazor Web Assembly
 
-
-
-```
+```bash
 dotnet new blazorwasm -n BlazorDemo
 ```
 
-
-
 內容物
 
-```
+```powershell
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 d-----      2021/5/10  下午 04:44                obj
@@ -103,19 +91,13 @@ d-----      2021/5/10  下午 04:44                wwwroot
 
 比較大的差別是少了`Startup.cs`
 
-
-
 ## 各檔案的作用
 
 Server 專案和以往寫過的其他ASP.Net專案相似度較高，這次就主要拿Web Assembly專案做範本來看看各個檔案的作用為何
 
-
-
 ### Program.cs
 
 包含做為程式進入點的`Main()`方法，不論是何種專案都預設有這個檔案，但內容有些許不同。
-
-
 
 Server新專案預設內容如下
 
@@ -149,9 +131,7 @@ namespace BlazorApp
 
 ```
 
-和許多ASP.net專案很像，進入程式後就執行指定的`Startup `class的內容
-
-
+和許多ASP.net專案很像，進入程式後就執行指定的`Startup` class的內容
 
 Web Assembly新專案預設內容如下
 
@@ -268,8 +248,6 @@ public sealed class WebAssemblyHostBuilder
     }
 ```
 
-
-
 ```C#
 public sealed class WebAssemblyHost : IAsyncDisposable
     {
@@ -306,8 +284,6 @@ public sealed class WebAssemblyHost : IAsyncDisposable
     }
 ```
 
-
-
 ### App.razor
 
 這個檔案在兩種專案的預設內容都相同
@@ -325,11 +301,7 @@ public sealed class WebAssemblyHost : IAsyncDisposable
 </Router>
 ```
 
-
-
 用處是路由處裡，會根據有沒有找到對應的路由回傳相應的內容
-
-
 
 以下說明節錄自[ITHELP文章](https://ithelp.ithome.com.tw/articles/10240617)
 
@@ -349,24 +321,18 @@ public sealed class WebAssemblyHost : IAsyncDisposable
 
 - `NotFound` 用於設定或取得當路由匹配失敗時所顯示的內容。
 
-* `RouteView` 顯示指定的頁面元件，並可設定預設的版面配置。
+- `RouteView` 顯示指定的頁面元件，並可設定預設的版面配置。
 
 - `RouteData` 設定或取得路由資料，這決定了顯示的頁面以及提供給該頁面的參數值。
 - `DefaultLayout` 設定或取得預設的版面配置，當指定的頁面元件無設定版面配置時使用，會在後面介紹**版面配置**時詳細說明。
-
-
 
 ### wwwroot
 
 和其他ASP.net專案一樣用來放一些靜態資料。
 
-
-
 ### Pages / Share Folder
 
 裡面的內容和其他ASP.net core專案很相似，作用我想也差不多，共用的放Share其他放Pages，就是檔案的副檔名都是`.razor`而不是`.cshtml`，具體有甚麼不一樣暫時不曉得，以後補充。
-
-
 
 ## Route
 
@@ -397,13 +363,11 @@ Counter.razor
 
 最開頭的`@page "/counter"`代表我可以在網域名稱後加入"/counter"連結到這個頁面
 
-
-
 延伸說明:
 
-* 關於找不到路徑時的處理可以參考上方的 [App.razor](#App.razor)內容
+- 關於找不到路徑時的處理可以參考上方的 [App.razor](#App.razor)內容
 
-* 一個頁面可以有超過一條路由方式例如
+- 一個頁面可以有超過一條路由方式例如
 
   ```C#
   @page "/counter"
@@ -412,13 +376,13 @@ Counter.razor
 
   透過兩種路由都會導向到該頁面
 
-* ```
+- ```C#
   @page "/counter/{text}"
   ```
 
   代表`"/counter/"`後方加入任意內容都可以連結到該頁面。例如`/counter/ooxx` 或`/counter/1234asdf`
 
-* text後方可以在加入限制條件例如`{text:int}`可以限制輸入整數才能正確導向頁面，其他不行。
+- text後方可以在加入限制條件例如`{text:int}`可以限制輸入整數才能正確導向頁面，其他不行。
 
   以下是支援的各種條件說明，節錄自ITHelp文章
 
@@ -432,6 +396,3 @@ Counter.razor
   |   guid   |    `{id:guid}`     | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` |
   |   int    |     `{id:int}`     |                             `1`                              |
   |   long   |    `{id:long}`     |                            `123`                             |
-
-
-

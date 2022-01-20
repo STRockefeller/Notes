@@ -1,10 +1,6 @@
 # Component Parameter
 
-
-
 ## [Parameter]標籤
-
-
 
 以下節錄自[ITHELP](https://ithelp.ithome.com.tw/articles/10245286)
 
@@ -28,27 +24,19 @@
 }
 ```
 
-
-
 在其他地方只要用如下方式就可以調用該元件，並同時賦予參數
 
 ```html
 <BindButton buttonText="OOXX" />
 ```
 
-
-
 備註: Visual Studio 2019 Community 這個部分的參考關係時靈時不靈有時會在BindButton下方顯示紅色波浪線表示無法理解，輸入類別名稱時也常常不會有自動輸入的提示，但可以正常編譯執行，另外VSC似乎就沒有這方面的問題。
-
-
 
 ## Arbitrary Parameter
 
-
-
 ### 目的
 
-在上例中，我使用`[Parameter]`標籤來定義<button> tag 的內容。
+在上例中，我使用`[Parameter]`標籤來定義`<button>` tag 的內容。
 
 其實在實作上，除了內容之外，利用參數來設定tag attributes的情況也很常見。
 
@@ -73,19 +61,13 @@
 
 當然不僅限於設定標籤屬性，只要涉及大量的參數設定都可以考慮到這個作法。
 
-
-
 ### 使用方式
 
-
-
-把`[Parameter]` 後方加入個參數變成` [Parameter(CaptureUnmatchedValues = true)]`
+把`[Parameter]` 後方加入個參數變成`[Parameter(CaptureUnmatchedValues = true)]`
 
 [MSDN文件](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.parameterattribute.captureunmatchedvalues?view=aspnetcore-5.0)說明如下
 
 > Gets or sets a value that determines whether the parameter will capture values that don't match any other parameter.
-
-
 
 ### 範例
 
@@ -104,23 +86,17 @@ Button Component (TestButton.razor)
 }
 ```
 
-
-
 Page
 
 ```C#
 <TestButton buttonText="LADIDA" class="btn btn-primary" type="button" />
 ```
 
-
-
 輸出就會如下
 
 ```html
 <button class="btn btn-primary" type="button">LADIDA</button>
 ```
-
-
 
 加入Console輸出來看看更詳細的資訊吧
 
@@ -147,8 +123,6 @@ TestButton.razor
 }
 ```
 
-
-
 輸出
 
 ```
@@ -157,10 +131,6 @@ OnParameterSet Called.
  attr=class : btn btn-primary
 type : button
 ```
-
-
-
-
 
 ### 補充 關於 @attributes
 
@@ -172,11 +142,7 @@ type : button
 
 簡單的說就是可以透過`Dictionary<string, object>`的形式輸入標籤屬性。
 
-
-
 我決定另外寫一篇筆記紀錄這些 Razor Directives，這邊就不贅述了。
-
-
 
 ## EventCallBack
 
@@ -189,17 +155,11 @@ Blazor Component 有著父元件和子元件的概念，例如我有一個Page C
 1. 父元件傳遞資料到子元件: 使用`[Parameter]`標籤設定，上面有提過了。
 2. 子元件傳遞資料到父元件: 使用 `EventCallBck`。
 
-
-
 ### 使用方法
-
-
 
 在子元件中定義`EventCallback`物件
 
 並定義一個方法觸發這個物件的`InvokeAsync`方法
-
-
 
 EventCallback定義如下
 
@@ -258,15 +218,9 @@ public readonly struct EventCallback : IEventCallback
     }
 ```
 
-
-
 父元件中再傳入相應的方法做執行
 
-
-
 ### 範例
-
-
 
 #### 範例1
 
@@ -292,8 +246,6 @@ namespace BlazorAppWasm.Shared.ComponentItems
 }
 ```
 
-
-
 父元件
 
 ```html
@@ -302,15 +254,9 @@ namespace BlazorAppWasm.Shared.ComponentItems
 
 對`onClickCallBack`參數傳入我想要子元件做的事情`onClickFunction`
 
-
-
-
-
 #### 範例2
 
 前面那個例子有點太單純了，感覺沒練習到，所以再試著想個複雜一點點的應用方式。
-
-
 
 子元件
 
@@ -340,8 +286,6 @@ namespace BlazorAppWasm.Shared.ComponentItems
 }
 ```
 
-
-
 父元件
 
 ```html
@@ -368,19 +312,13 @@ namespace BlazorAppWasm.Pages
 }
 ```
 
-
-
 流程就是在子元件選取顏色然後透過EventCallBack讓父元件決定子元件的按鈕要做甚麼事情同時從子元件傳遞顏色給父元件。
-
-
 
 #### 心得
 
 說實在的這兩個例子都沒有把這個功能做很好的應用，但撰寫的過程中我大致對於`EventCallback`的用處有了一些更具體的看法，對於大多數較為單純的情況下`EventCallback`幾乎都沒有出場的餘地，或許可以使用`EventCallback`，但是使用`EventCallback`並沒有明顯的好處，就如同上面兩個例子。
 
 如果說必須使用`EventCallback`將資訊由子元件傳遞到父元件的情形，大該是父元件傳遞參數條件進子元件後還會在子元件進行一連串的運算或根據使用者操作得出運算結果再丟回來的情形吧。
-
-
 
 ## Cascading Parameter
 

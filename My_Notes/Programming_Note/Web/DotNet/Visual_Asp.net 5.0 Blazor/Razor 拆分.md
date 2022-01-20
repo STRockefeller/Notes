@@ -1,12 +1,8 @@
 # Razor 拆分
 
-
-
 才發現Razor 元件是可以拆開來的，我比較喜歡這種拆開來的寫法以後應該會以這種寫法為主。
 
 有點類似把`javascript`寫在`.html`檔案裡面和另外寫在`.js`裡面的差別
-
-
 
 並不複雜，直接上範例
 
@@ -29,8 +25,6 @@
 }
 ```
 
-
-
 在同路徑(這個例子的話是Pages資料夾底下)新增類別並命名為`Razor檔案名稱+".cs"`(例如`LogTestComponent.razor.cs`)
 
 然後將Class宣告改為Partial 並 using `Microsoft.AspNetCore.Components`
@@ -52,8 +46,6 @@ namespace BlazorAppWasm.Pages
 ```
 
 然後就可以把C#的內容都搬過來了
-
-
 
 最後變成如下
 
@@ -87,8 +79,6 @@ namespace BlazorAppWasm.Pages
     }
 }
 ```
-
-
 
 Notice:
 

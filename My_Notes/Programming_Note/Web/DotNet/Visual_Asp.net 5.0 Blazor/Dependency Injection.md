@@ -1,10 +1,12 @@
-# Dependency Injection
+# Blazor Dependency Injection
 
 概述的部分我在ASP.net core MVC筆記裡面有提過了，這邊就不重複了
 
 本來是打算合併到基礎篇筆記裡，但是我發現我對DI的熟悉度不是很夠，所以還是另外紀錄一篇盡量寫詳細點。
 
 ## [複習]ASP.net core MVC專案中的DI
+
+[[ASP.net Core MVC Dependency Injection]]
 
 ### 註冊
 
@@ -48,8 +50,6 @@ public class Sample : ISample
     public int Id => _id;
 }
 ```
-
-
 
 ```C#
 // ...
@@ -106,11 +106,7 @@ ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型�
 
 > 每個 Request 都會把 Controller 實例化，所以 DI 容器會從建構子注入 ISample 的實例，把 sample 存到欄位 _sample 中，就能確保 Action 能夠使用到被注入進來的 ISample 實例。
 
-
-
 當然還有在其他地方如`View` `MiddleWare`等等注入的方法，詳情就看MVC筆記，不贅述了
-
-
 
 ---
 
@@ -126,8 +122,6 @@ ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型�
 - IJSRuntime：提供Javascript runtime物件，注入後可使用 Javascript
 - NavigationManager：包含處理路由導向和狀態的helper
 
-
-
 #### 生命週期
 
 同ASP.net core 專案
@@ -136,13 +130,9 @@ ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型�
 2. Scoped — 每次request時，都會new一個新的物件，在request期間都會共用該物件，這個物件會在request結束時Dispose。
 3. Transient — 每次要求時就會產生一個物件。
 
-
-
 補充(來自[MSDN](https://docs.microsoft.com/zh-tw/aspnet/core/blazor/fundamentals/dependency-injection?view=aspnetcore-5.0&pivots=webassembly)):
 
 > Blazor WebAssembly 應用程式目前不具有 DI 範圍的概念。 `Scoped`-註冊的服務行為類似 `Singleton` 服務。
-
-
 
 #### Blazor Server
 
@@ -153,20 +143,18 @@ DI容器同樣是`Startup.ConfigureServices(IServiceCollection services)`中的`
 以下是專案預設內容節錄
 
 ```C#
-	public class Startup
-	{
+ public class Startup
+ {
         //...
-		public void ConfigureServices(IServiceCollection services)
+  public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
         }
         //...
-	}
+ }
 ```
-
-
 
 註冊方式其實可以細分
 
@@ -181,11 +169,7 @@ services.AddSingleton<ISomeInterface>(implementingInstance);
 services.AddSingleton<ISomeInterface>(serviceProvider => new ImplementingType(.......));
 ```
 
-
-
 #### Blazor Assembly
-
-
 
 Assembly 專案的註冊方式稍微不同，因為沒有Startup.cs了取而代之的是直接將註冊寫到`Program.cs`裡的`Main`方法
 
@@ -206,15 +190,11 @@ Assembly 專案的註冊方式稍微不同，因為沒有Startup.cs了取而代�
     }
 ```
 
-
-
 注意：注入的寫法也有一點點的區別，因為沒有`IServiceCollection`實例，所以使用靜態方法。
 
 ```C#
 public static IServiceCollection AddScoped<TService>(this IServiceCollection services, Func<IServiceProvider, TService> implementationFactory) where TService : class;
 ```
-
-
 
 裡如我這邊想要註冊我自己寫的Sample類別，我可以這樣寫
 
@@ -236,11 +216,7 @@ public static IServiceCollection AddScoped<TService>(this IServiceCollection ser
     public class Sample : ISample { }
 ```
 
-
-
 ### 注入
-
-
 
 拿上面寫的Sample為例子，如果我要在Component中注入可以這樣寫
 
@@ -251,13 +227,7 @@ public static IServiceCollection AddScoped<TService>(this IServiceCollection ser
 <p class="content">@sample</p>
 ```
 
-
-
 其實就是在ASP.net core MVC 專案中VIEW的注入方式。
-
-
-
-
 
 ## SAMPLE
 
@@ -296,8 +266,6 @@ public static IServiceCollection AddScoped<TService>(this IServiceCollection ser
 ```C#
 builder.Services.AddSingleton<IDICounter, DICounter>();
 ```
-
-
 
 Page/Counter.razor
 
@@ -362,8 +330,6 @@ razor component 如下，基本上沒有改動，只是加了一些敘述方便�
 }
 ```
 
-
-
 執行結果符合預期，成功使計數器不會因為換頁而重置。
 
 順便一提，我第一次點進Counter頁面的時候顯示
@@ -381,22 +347,14 @@ Counter Page Constructor
 Counter Page OnInitialized
 ```
 
-* `DICounter`只有在第一次載入時被實例化，之後都是直接使用先前實例化的物件，成功實現單例。
-* 執行順序是 Component的建構式=>DI物件的實例化=>OnInitialized方法
-
-
-
-
+- `DICounter`只有在第一次載入時被實例化，之後都是直接使用先前實例化的物件，成功實現單例。
+- 執行順序是 Component的建構式=>DI物件的實例化=>OnInitialized方法
 
 ### 疑難待解
 
 依然無法確定是不是如果要使用addSingleton就必須傳入已實例化的物件
 
 第一種寫法真的是錯的嗎?
-
-
-
-
 
 ## 補充
 
@@ -415,8 +373,6 @@ The `using` directive for [Microsoft.Extensions.Logging](https://docs.microsoft.
 The following example demonstrates logging with an [ILogger](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.ilogger) in components.
 
 `Pages/Counter.razor`:
-
-
 
 ```razor
 @page "/counter"
@@ -445,8 +401,6 @@ The following example demonstrates logging with an [ILoggerFactory](https://docs
 
 `Pages/Counter.razor`:
 
-
-
 ```razor
 @page "/counter"
 @using Microsoft.Extensions.Logging;
@@ -470,4 +424,3 @@ The following example demonstrates logging with an [ILoggerFactory](https://docs
     }
 }
 ```
-

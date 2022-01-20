@@ -1,7 +1,5 @@
 # Model Binding
 
-[TOC]
-
 [reference:ITHelp](https://ithelp.ithome.com.tw/articles/10194337)
 
 ASP.NET Core MVC 的 Model Binding 會將 HTTP Request 資料，以映射的方式對應到相對到參數中。

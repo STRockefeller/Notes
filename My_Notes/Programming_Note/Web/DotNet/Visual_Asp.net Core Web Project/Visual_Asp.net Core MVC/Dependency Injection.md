@@ -1,4 +1,4 @@
-# **Dependency Injection**
+# ASP.net Core MVC Dependency Injection
 
 [TOC]
 
@@ -6,15 +6,11 @@
 
 [Ref:ITHelp](https://ithelp.ithome.com.tw/articles/10204404)
 
-
-
 ## Common
 
 這篇的內容會與OOP設計原則的依賴倒置相關
 
 關於OOP設計原則的依賴倒置可以參考[這裡](https://notfalse.net/1/dip)
-
-
 
 DI(Denpendency Injection)中文稱依賴注入，
 可解決兩個類別間**耦合性過高**的問題，
@@ -27,8 +23,6 @@ DI(Denpendency Injection)中文稱依賴注入，
 - [建構式注入(Constructor Injection)](#建構式注入(Constructor Injection))
 - [方法注入(Method Injection)](#方法注入(Method Injection))
 - [屬性注入(Property Injection)](#屬性注入(Property Injection))
-
-
 
 作法相當簡單，其實一直都在使用，但不知道這叫做DI罷了
 
@@ -110,8 +104,6 @@ DI(Denpendency Injection)中文稱依賴注入，
 
 如此一來，若今天我打算玩A21只要新增一個A21的類別並繼承IPS4Game介面就行了，不需要修改Holiday的內容。
 
-
-
 這就完成了一個簡單的依賴注入範例
 
 回頭來看看改了什麼
@@ -131,8 +123,6 @@ DI(Denpendency Injection)中文稱依賴注入，
    也就是不會有`IPS4Game game = new Ys8()`這類內容在Holiday裡面。(不然Holiday還是依賴Ys8，前面都做白工了)
 
    物件實體移到外面，事實上DI的精神就在此處。
-
-
 
 簡單來說DI就是盡量避免在class內部實體化物件，將物件由外部傳入替代。三種注入方式也相當單純。以下演示
 
@@ -174,8 +164,6 @@ DI(Denpendency Injection)中文稱依賴注入，
     }
 ```
 
-
-
 ### 屬性注入(Property Injection)
 
 ```C#
@@ -188,8 +176,6 @@ DI(Denpendency Injection)中文稱依賴注入，
         }
     }
 ```
-
-
 
 ## ASP.Net Core 中的 DI
 
@@ -230,8 +216,6 @@ DI(Denpendency Injection)中文稱依賴注入，
 ```
 
 以下都以3.1版本作範例
-
-
 
 資料繫結的Model要記得按照其內容階層定義對應的屬性，
 繫結過程會自動忽略大小寫，

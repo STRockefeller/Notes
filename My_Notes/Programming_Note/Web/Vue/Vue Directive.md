@@ -1,6 +1,8 @@
-# Directive
+# Vue Directives
 
 ## v-bind
+
+比較 blazor 的寫法 [[Data Binding]]
 
 用於綁定屬性，寫法是 v-bind:+屬性名稱+屬性內容填寫想要套用的變數
 
@@ -31,15 +33,11 @@ export default class App extends Vue {}
 
 這種寫法是行不通的
 
-
-
 另外 `v-bind:` 可以縮寫成 `:`
 
 ```html
   <div :class="my_button">v-bind test</div>
 ```
-
-
 
 **補充**:
 
@@ -54,8 +52,6 @@ export default class App extends Vue {}
   },
 })
 ```
-
-
 
 * 經測試bind 一個回傳string的function是行不通的
 
@@ -122,8 +118,6 @@ const vm = Vue.createApp({
 vm.mount('#app');
 ```
 
-
-
 ### input radio
 
 ```vue
@@ -152,8 +146,6 @@ import { Options, Vue } from "vue-class-component";
 export default class App extends Vue {}
 </script>
 ```
-
-
 
 ### input checkbox
 
@@ -191,8 +183,6 @@ export default class App extends Vue {}
 
 題外話，那個陣列的順序還會跟checkbox的勾選順序一樣
 
-
-
 另外 checkbox 也可以綁bool
 
 ```vue
@@ -218,11 +208,7 @@ export default class App extends Vue {}
 </script>
 ```
 
-
-
 ### select
-
-
 
 ```vue
 <template>
@@ -249,13 +235,9 @@ export default class App extends Vue {}
 
 滿有趣的一點就是如果我有給value那綁定到的值就是value，如果沒有，就會綁定到tag裡面的文字
 
-
-
 ### v-model modifiers
 
 官方提供了一些修飾詞給v-model
-
-
 
 #### .lazy
 
@@ -265,19 +247,13 @@ export default class App extends Vue {}
 <input v-model.lazy="message">
 ```
 
-
-
 #### .number
 
 嘗試把數值轉換為number型別
 
-
-
 #### .trim
 
 過濾前方及後方的空白
-
-
 
 ## v-text
 
@@ -322,8 +298,6 @@ hello world!
 
 第三行的"world"被`text`取代掉了
 
-
-
 同樣的內容把它搬到Vue3
 
 Vue3
@@ -366,19 +340,13 @@ VueCompilerError: v-text will override element children.
 
 他會認為在v-text的tag裡面有內容是不正常的。
 
-
-
 ## v-html
 
 基本上和`v-text`差不多，差別在`v-html`裡面的html tag會被渲染出來。
 
-
-
 ## v-once
 
 基本上和`v-text`差不多，差別在只渲染一次
-
-
 
 ## v-pre
 
