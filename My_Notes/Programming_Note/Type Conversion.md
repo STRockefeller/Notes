@@ -50,6 +50,15 @@ var i: number = 1234;
 var str: string = i.toString();
 ```
 
+---
+
+Go
+
+```go
+i := 1234
+str := strconv.Itoa(i)
+```
+
 
 
 #### From char array
@@ -149,6 +158,17 @@ TypeScript
 
 在typescript中數字只有number型別所以應該不會有這類需求
 
+---
+
+Go
+
+```go
+var d float64
+i := int(d)
+```
+
+小數點後無條件捨去
+
 #### From char
 
 ---
@@ -190,6 +210,16 @@ int i = (int)c;
 
 ```C#
 int i = Convert.ToInt32(c);
+```
+
+---
+
+Go
+
+```go
+var c rune
+c = 'c'
+i := int(c)
 ```
 
 
@@ -279,6 +309,15 @@ dart
 ```dart
 String str = "1234";
 int i = int.parse(str);
+```
+
+---
+
+Go
+
+```go
+str := "1234"
+i, err := strconv.Atoi(str)
 ```
 
 

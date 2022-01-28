@@ -591,6 +591,16 @@ value, OK = <- ch // 當OK==false時代表通道已經被關閉了，此時value
 
 
 
+#### channel 間傳遞資料
+
+```go
+chan1 <- <- chan2
+```
+
+
+
+
+
 #### Select
 
 > The `select` statement lets a goroutine wait on multiple communication operations.
