@@ -1,5 +1,9 @@
 # CodinGam:War:20220127:Go
 
+## Question
+
+
+
 Reference
 
 Let's go back to basics with this simple card game: war!
@@ -104,7 +108,11 @@ Output
 1 3
 ```
 
-## Question
+
+
+
+
+## My Solution
 
 首先來分析一下 example
 
@@ -923,9 +931,365 @@ func parsePower(str string) int {
 
 
 
-## My Solution
+---
+
+2022/02/08 補充
+
+終於寫出來啦，後來發現題目還是讀錯了
+
+取牌順序這裡
+
+> When a player wins a battle, they put back the cards at the bottom of their deck in a precise order. **First the cards from the first player, then the one from the second player** (for a "war", all the cards from the first player **then** all the cards from the second player).
+
+我最初的理解是獲勝的玩家按照自己的出牌順序取牌，接著按照對手的出牌順序取牌，看到題目的用字"First Player", "Second Player" 覺得有點彆扭但也沒有多想
+
+結果把它當作字面上的意思，First Player = Player1 , Second Player = Player2 就過關了= =
+
+我還自己幫題目追加難度...
+
+```go
+	if power1 > power2 {
+		transferAllContent(player1.playedRecord, player1.deck)
+		transferAllContent(player2.playedRecord, player1.deck)
+	} else {
+		transferAllContent(player1.playedRecord, player2.deck)
+		transferAllContent(player2.playedRecord, player2.deck)
+	}
+```
+
+只要修正這個部分就可以了
+
+
+
+完整如下
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	// n: the number of cards for player 1
+	var n int
+	fmt.Scan(&n)
+	var player1, player2 player
+	player1.deck = make(chan string, 2000)
+	player2.deck = make(chan string, 2000)
+	player1.playedRecord = make(chan string, 2000)
+	player2.playedRecord = make(chan string, 2000)
+
+	for i := 0; i < n; i++ {
+		// cardp1: the n cards of player 1
+		var cardp1 string
+		fmt.Scan(&cardp1)
+		player1.deck <- cardp1
+	}
+	// m: the number of cards for player 2
+	var m int
+	fmt.Scan(&m)
+
+	for i := 0; i < m; i++ {
+		// cardp2: the m cards of player 2
+		var cardp2 string
+		fmt.Scan(&cardp2)
+		player2.deck <- cardp2
+	}
+
+	turn := 1
+	for {
+		result := battle(&player1, &player2)
+		switch result {
+		case Player1Win:
+			fallthrough
+		case Player2Win:
+			fmt.Println(result, turn)
+			return
+		case PAT:
+			fmt.Println("PAT")
+			return
+		}
+		if end, result := endGame(player1.deck, player2.deck); end {
+			fmt.Println(result, turn)
+			return
+		}
+		turn++
+	}
+}
+
+type player struct {
+	deck         chan string
+	playedRecord chan string
+}
+
+type battleResult int
+
+const (
+	notEnd     battleResult = 0
+	Player1Win battleResult = 1
+	Player2Win battleResult = 2
+	PAT        battleResult = 3
+)
+
+func battle(player1, player2 *player) battleResult {
+	player1BattleCard := <-player1.deck
+	player2BattleCard := <-player2.deck
+
+	power1 := parsePower(player1BattleCard)
+	power2 := parsePower(player2BattleCard)
+	player1.playedRecord <- player1BattleCard
+	player2.playedRecord <- player2BattleCard
+
+	if power1 == power2 {
+		if len(player1.deck) < 4 || len(player2.deck) < 4 {
+			return 3
+		}
+		return war(player1, player2)
+	}
+	if power1 > power2 {
+		transferAllContent(player1.playedRecord, player1.deck)
+		transferAllContent(player2.playedRecord, player1.deck)
+	} else {
+		transferAllContent(player1.playedRecord, player2.deck)
+		transferAllContent(player2.playedRecord, player2.deck)
+	}
+	return 0
+}
+
+func war(player1, player2 *player) battleResult {
+	for i := 0; i < 3; i++ {
+		player1.playedRecord <- <-player1.deck
+		player2.playedRecord <- <-player2.deck
+	}
+	return battle(player1, player2)
+}
+
+func endGame(player1Deck, player2Deck chan string) (bool, battleResult) {
+	if len(player1Deck) == 0 {
+		return true, Player2Win
+	}
+	if len(player2Deck) == 0 {
+		return true, Player1Win
+	}
+	return false, 0
+}
+
+func transferAllContent(source, destination chan string) {
+	for len(source) != 0 {
+		destination <- <-source
+	}
+}
+
+func parsePower(str string) int {
+	switch str[0] {
+	case 'J':
+		return 11
+	case 'Q':
+		return 12
+	case 'K':
+		return 13
+	case 'A':
+		return 14
+	case '1':
+		if len(str) == 3 {
+			return 10
+		}
+		return 1
+	default:
+		return int(str[0] - '0')
+	}
+}
+
+```
 
 
 
 ## Better Solutions
+
+
+
+### Solution 1
+
+```go
+package main
+
+import "fmt"
+import "os"
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+
+func main() {
+    mp := map[string]int{
+        "2":0,
+        "3":1,
+        "4":2,
+        "5":3,
+        "6":4,
+        "7":5,
+        "8":6,
+        "9":7,
+        "10":8,
+        "J":9,
+        "Q":10,
+        "K":11,
+        "A":12,
+    }
+
+    // n: the number of cards for player 1
+    var n int
+    fmt.Scan(&n)
+    p1 := make([]int,n)
+    for i := 0; i < n; i++ {
+        var cardp1 string
+        fmt.Scan(&cardp1)
+        p1[i] = mp[cardp1[:len(cardp1)-1]]
+    }
+
+    // m: the number of cards for player 2
+    var m int
+    fmt.Scan(&m)
+    p2 := make([]int,m)
+
+    for i := 0; i < m; i++ {
+        var cardp2 string
+        fmt.Scan(&cardp2)
+        p2[i] = mp[cardp2[:len(cardp2)-1]]
+    }
+    fmt.Fprintln(os.Stderr, p1,p2)
+    rounds := 1
+    temp1,temp2 := []int{},[]int{}
+    for {
+        tc1,tc2 := p1[0],p2[0]
+        p1 = p1[1:]
+        p2 = p2[1:]
+        temp1 = append(temp1,tc1)
+        temp2 = append(temp2,tc2)
+        if tc1 != tc2 {
+            if tc1 > tc2{
+                p1 = append(p1, temp1...)
+                p1 = append(p1, temp2...)
+            }else{
+                p2 = append(p2,temp1...)
+                p2 = append(p2,temp2...)
+            }
+            temp1,temp2 = []int{},[]int{}
+            if len(p1) == 0 {
+                fmt.Println("2",rounds)
+                break
+            }
+            if len(p2) == 0 {
+                fmt.Println("1",rounds)
+                break
+            }
+            rounds++
+        } else if (len(p1) < 3 || len(p2) < 3) {
+            fmt.Println("PAT")
+            break    
+        } else {
+            temp1 = append(temp1, []int{p1[0],p1[1],p1[2]}...)
+            temp2 = append(temp2, []int{p2[0],p2[1],p2[2]}...)
+            p1 = p1[3:]
+            p2 = p2[3:]
+        }
+    }
+}
+```
+
+
+
+### Solution 2
+
+```go
+package main
+
+import "fmt"
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+
+func main() {
+    
+    values := map[string]int {
+        "2":1,
+        "3":2,
+        "4":3,
+        "5":4,
+        "6":5,
+        "7":6,
+        "8":7,
+        "9":8,
+        "10":9,
+        "J":10,
+        "Q":11,
+        "K":12,
+        "A":13}
+    
+    val := func(c string) int {
+        if v, ok := values[c]; ok {
+            return v
+        }
+        return 0
+    }
+    
+    // n: the number of cards for player 1
+    var n int
+    fmt.Scan(&n)
+    
+    deck1 := make([]string,n)
+    for i := 0; i < n; i++ {
+        // cardp1: the n cards of player 1
+        var cardp1 string
+        fmt.Scan(&cardp1)
+        deck1[i] = cardp1[:len(cardp1)-1]
+    }
+    // m: the number of cards for player 2
+    var m int
+    fmt.Scan(&m)
+    
+    deck2 := make([]string,m)
+    for i := 0; i < m; i++ {
+        // cardp2: the m cards of player 2
+        var cardp2 string
+        fmt.Scan(&cardp2)
+        deck2[i] = cardp2[:len(cardp2)-1]
+    }
+    
+    var war1, war2 []string
+    var c1, c2 string
+    answer := "PAT"
+    rounds := 0
+    for {
+        c1, deck1 = deck1[0], deck1[1:]
+        c2, deck2 = deck2[0], deck2[1:]
+        
+        war1 = append(war1, c1)
+        war2 = append(war2, c2)
+        
+        if val(c1) == val(c2) {
+            answer = "PAT"
+            if len(deck1) <= 3 || len(deck2) <= 3 {break}
+            war1, deck1 = append(war1, deck1[0:3]...), deck1[3:]
+            war2, deck2 = append(war2, deck2[0:3]...), deck2[3:]
+        } else {
+            winner, wId := &deck1, 1
+            if val(c1) < val(c2) {winner, wId = &deck2, 2}
+            *winner, war1 = append(*winner, war1...), []string{} 
+            *winner, war2 = append(*winner, war2...), []string{}
+            rounds++
+            answer = fmt.Sprintf("%d %d", wId , rounds)
+            if len(deck1) == 0 || len(deck2) == 0 {break}
+        }
+        
+    }
+
+    
+    // fmt.Fprintln(os.Stderr, "Debug messages...")
+    fmt.Println(answer)// Write answer to stdout
+}
+```
 
