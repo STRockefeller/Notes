@@ -14,6 +14,49 @@ https://blog.learngoprogramming.com/golang-defer-simplified-77d3b2b817ff
 
 https://blog.learngoprogramming.com/gotchas-of-defer-in-go-1-8d070894cb01
 
+
+
+## Review with Questions:
+
+試回答以下main方法輸出
+
+```go
+func main() {
+	var num int
+	ptr := &num
+	deferPrint := func(i *int) {
+		defer fmt.Println(*i)
+		*i++
+	}
+	defer fmt.Println(num)
+	defer fmt.Println(*ptr)
+	for i := 0; i < 2; i++ {
+		num++
+		defer func() { fmt.Println(num) }()
+	}
+	for i := 0; i < 2; i++ {
+		deferPrint(ptr)
+		defer fmt.Println(*ptr)
+	}
+	num++
+}
+```
+
+答
+
+```
+2
+3
+4
+3
+5
+5
+0
+0
+```
+
+自己想的題目，感覺設計得不錯就拿來放筆記了
+
 ## Abstract
 
 Defer 是一個比較小的主題，其實沒甚麼可以寫的，但它又是`Go`的特色之一(至少我之前都沒有接處過類似的概念)，所以還是決定獨立為他寫一篇筆記。
@@ -206,3 +249,29 @@ func main() {
 至於原因，就必須插播一下defer的另一個特性，眾所皆知defer會在return之前被執行，但實際上是"在寫在defer之後的return之前被執行"
 
 以上面的例子來說，假如說最開始開黨或建立檔案失敗，`file`物件很可能會是nil，第一種情況會執行到`file.Close`但第二種則不會
+
+
+
+## Traps
+
+1. 針對已初始化回傳變數進行defer操作
+
+   ```go
+   func f()(i int){
+       defer func(){i++}
+       return 5
+   }
+   ```
+
+   這個方法的回傳會得到`6`
+
+   順序推起來應該像是這樣(?):
+
+   1. `i`初始化`i:=0`
+   2. return 5 => i = 5
+   3. 真正return之前插入defer，執行並影響`i`
+
+   好吧，我還不是很確定為什麼會變成這樣，以後再來補充。
+
+   另外，一般recover的使用方法和這個情況也很類似。
+

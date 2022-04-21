@@ -134,3 +134,51 @@ Dart gRPC supports the Flutter and Server platforms.
 
 
 生成同上改成`--dart_out`
+
+
+
+## TypeScript
+
+typescript 目前還不是官方有支援的語言(至少我在google的文件中沒看到。)不過有第三方的npm套件可以用，所以就來玩玩看了。
+
+[ts-proto](https://github.com/stephenh/ts-proto)
+
+- `npm install ts-proto`
+
+- ```
+  protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=. ./simple.proto
+  ```
+
+  - (Note that the output parameter name, `ts_proto_out`, is named based on the suffix of the plugin's name, i.e. "ts_proto" suffix in the `--plugin=./node_modules/.bin/protoc-gen-ts_proto` parameter becomes the `_out` prefix, per `protoc`'s CLI conventions.)
+  - On Windows, use `protoc --plugin=protoc-gen-ts_proto=.\node_modules\.bin\protoc-gen-ts_proto.cmd --ts_proto_out=. ./simple.proto` (see [#93](https://github.com/stephenh/ts-proto/issues/93))
+  - Ensure you're using a modern `protoc`, i.e. the original `protoc` `3.0.0` doesn't support the `_opt` flag
+
+This will generate `*.ts` source files for the given `*.proto` types.
+
+If you want to package these source files into an npm package to distribute to clients, just run `tsc` on them as usual to generate the `.js`/`.d.ts` files, and deploy the output as a regular npm package.
+
+
+
+這邊有個要注意的點就是，前面`plugin`的flag必須要指到安裝的`protoc-gen-ts_proto.cmd`的位置，如果目前的終端機基準位置不是在專案跟目錄的話，必須跟著調整路徑，否則會找不到路徑
+
+```bash
+--ts_proto_out: protoc-gen-ts_proto: 系統找不到指定的路徑。
+```
+
+
+
+再來就是如果生成出來的東西紅紅的
+
+![](https://i.imgur.com/iyrKNMQ.png)
+
+![](C:\Users\rockefel\AppData\Roaming\Typora\typora-user-images\image-20220325112248570.png)
+
+就按照上面的註解再生成一次即可。
+
+![](https://i.imgur.com/Se8MDor.png)
+
+
+
+至於隨便生一個enum都可以拿到`you must be kidding`的複雜度就...
+
+![](https://i.imgur.com/b2jSWbU.png)

@@ -186,3 +186,6 @@ WHERE col @> '{"name": "LaDiDa", "index": 5}'
 
 
 
+速記表
+
+![](https://i.imgur.com/QYNJuYi.png)

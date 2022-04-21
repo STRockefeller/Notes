@@ -443,6 +443,28 @@ vue 3 和 vue 2 的變化是一樣的，值得一提的是 兩邊的頁面顯示
 
 
 
+### 安裝後執行失敗的情形
+
+執行 `vue add tailwind` 後 執行 `yarn run serve` 失敗
+
+錯誤訊息
+
+```
+PostCSS plugin tailwindcss requires PostCSS 8.
+```
+
+
+
+更新 vue cli
+
+更新 tailwind 和 postCSS
+
+然後把專案整個砍掉重新建立 (vue 真的雷)
+
+
+
+參考[這篇](https://stackoverflow.com/questions/69109763/postcss-8-error-when-installing-tailwind-css-in-vue-3-v3-2-10-without-vite-po)的二樓
+
 ### tailwind just in time
 
 [參考](https://www.educative.io/edpresso/how-to-apply-arbitrary-styles-with-tailwind-jit)

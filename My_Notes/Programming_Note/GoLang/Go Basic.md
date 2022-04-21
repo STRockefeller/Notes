@@ -431,7 +431,7 @@ func main()  {
   value, containsKey = targetMap[targetKey] // 第一個變數會得到該key的value(如果不存在就是zero value) 第二個變數代表Key是否存在(bool)
   ```
 
-  
+  **補充**:尚未assign的value會直接被認定為zero value，所以其實很多地方的確認可以省下來，不用特別擔心操作到undefined value的情形
 
 * Channel 
 

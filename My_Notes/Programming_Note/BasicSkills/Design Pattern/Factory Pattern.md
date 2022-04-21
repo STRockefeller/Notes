@@ -442,6 +442,10 @@ namespace SimpleAbstractFactoryPattern
 
 看到了嗎!?這樣就算加入了其他 Product 子類別後，也不需要修改 Factory 的程式碼，只要在 CreateProduct() 方法內傳入要實體化的類別名稱就可以了，相當方便吧。
 
+
+
+這個方法僅適用於部分程式語言，例如golang就無法透過名稱建立實體(參考: [Stackoverflow](https://stackoverflow.com/questions/67778780/activator-createinstance-analogue-in-golang))
+
 ## 實作
 
 ### 實作一

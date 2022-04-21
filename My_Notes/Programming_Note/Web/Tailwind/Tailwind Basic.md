@@ -10,7 +10,20 @@ Helpful links:
 
 ## Installation
 
-都在用網頁版嘗試，還沒安裝過，試過再來補筆記
+```bash
+C:\Users\rockefel>npm install -D tailwindcss
+
+added 96 packages, and audited 97 packages in 7s
+
+20 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+```
+
+
+
+
 
 
 

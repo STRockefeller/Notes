@@ -75,5 +75,103 @@ public class Solution {
 
 進階測試，失敗。
 
+---
+
+20220420 分隔線
+
+很閒，把之前沒寫出來的題目拿起來看看..
+$$
+同樣目標是避免 O(n^{2}) 的時間複雜度
+$$
+先來分析一下題目，看能不能找到簡易的解法
+
+兩兩一對`%60==0`
+
+可以先把每個元素都除以60取餘數，接著找加起來是60或0的答案
+
+比如第一個case
+
+[30,20,150,100,40]
+
+=> [30,20,30,40,40]
+
+如果抓著第一個30，再去找後面出現的30，然後抓20....就依然還是n^2 ==>所以不能這樣做
+
+先分類，總共有 一個20 兩個30 兩個40
+
+
+
+重新來一次，抓第一個30=>要找30=>發先30數量為2(減去自己為1)=>...
+
+順序根本不重要，沒必要從第一個抓
+
+假如用一個map存 餘數為OO的一共有XX個 ， 例如 map[OO]=XX
+
+```go
+func numPairsDivisibleBy60(time []int) int {
+	m := make(map[int]int)
+	for _, elem := range time {
+		r := elem % 60
+		if n, ok := m[r]; ok {
+			m[r] = n + 1
+		} else {
+			m[r] = 1
+		}
+	}
+
+	var count int
+	for key, value := range m {
+		if value == 0 {
+			continue
+		}
+		switch key {
+		case 0:
+			fallthrough
+		case 30:
+			count += (value - 1) * value / 2
+		default:
+			ops, ok := m[60-key]
+			if !ok {
+				continue
+			}
+			count += value * ops
+			m[60-key] = 0
+		}
+	}
+	return count
+}
+```
+
+![](https://i.imgur.com/PPEXlGe.png)
+
+過關，可以再優化一下
+
+```go
+func numPairsDivisibleBy60(time []int) int {
+	m := make(map[int]int)
+	for _,elem := range time {
+		m[elem%60]++
+	}
+
+	var count int
+	for key, value := range m {
+		switch key {
+		case 0,30:
+			count += (value - 1) * value >> 1
+		default:
+			count += value * m[60-key]
+			m[60-key] = 0
+		}
+	}
+	return count
+}
+```
+
+![](https://i.imgur.com/1dRJhhC.png)
+
+我感覺應該是有更好才對，但是結果反而變糟了，我猜是leetcode的問題，晚點用benchmark測測
+
+
+
 ## Better Solutions
 
