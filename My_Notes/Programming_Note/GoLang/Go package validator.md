@@ -144,3 +144,10 @@ PS D:\Rockefeller\Projects_Test\test_validator> go run .
 <nil>
 ```
 
+
+
+## DONOT type spaces after a comma
+
+真的坑。要特別注意
+
+參考[issue](https://github.com/go-playground/validator/issues/453)
