@@ -357,6 +357,20 @@ func main()  {
 
 
 
+##### Rune & Byte
+
+[參考](https://www.bogotobogo.com/GoLang/GoLang_byte_and_rune.php)
+
+Rune 和 Byte 分別做為 int32 以及 uint8 的別稱
+
+有趣的是對一個string進行 for range 以及 for index 會拿到不一樣的型別
+
+
+
+推測可能和UTF-8的支援有關，for index 會針對 byte 取資料 ，for range 則會針對一個完整的字元
+
+[play ground](https://go.dev/play/p/kNPcGWZUdr0)
+
 
 
 #### Derived

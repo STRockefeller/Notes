@@ -81,3 +81,6 @@ issues:
   exclude-use-default: false
 ```
 
+
+
+想移除某種檢查: [參考](https://golangci-lint.run/usage/false-positives/)

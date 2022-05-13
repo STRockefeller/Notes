@@ -88,5 +88,87 @@ public class Solution {
 
 
 
+---
+
+20220513 回來重看這題，突然靈光一現，想說是不是可以不用複製，直接用算的...結果還是太天真了，忘了複製規則會包含前面的所有字串，原有字串經過修改後就不能用了..
+
+```go
+func decodeAtIndex(s string, k int) string {
+	if len(s) == 0 {
+		return ""
+	}
+	edge := len(s)
+	if len(s) >= k {
+		edge = k
+	}
+	hd, index := hasDigit(s[:edge])
+	if len(s) >= k && !hd {
+		return string([]byte{s[k-1]})
+	}
+
+	times := int(s[index] - '0')
+	front := s[:index]
+	back := s[index+1:]
+
+	if k > len(front)*times {
+		k -= len(front) * times
+	} else {
+		i := k % len(front)
+		if i == 0 {
+			return string(front[len(front)-1])
+		} else {
+			return string(front[i-1])
+		}
+	}
+
+	return decodeAtIndex(back, k)
+}
+
+func hasDigit(s string) (bool, int) {
+	for i, b := range s {
+		if isDigit(b) {
+			return true, i
+		}
+	}
+	return false, 0
+}
+
+func isDigit(b rune) bool {
+	if b-'0' >= 0 && b-'0' <= 9 {
+		return true
+	}
+	return false
+}
+
+```
+
+
+
+再想想看有沒有其他不用複製的手段
+
+假如題目是
+
+`abc3def3ghi` `20` (b)
+
+如果要找的數字在第一個字`abc`的長度*3之內，答案就是 `"abc"[k%3-1]`(`if k%3!=0`)，總之就是可以套公式解
+
+但是要找的20>3*3，所以只能繼續下去了
+
+字串變為`abc`*3+`def`
+
+如果要找的位置在`(3*3+3)*3 = 36`之內的話，套公式 k%12 = 20%12 = 8
+
+答案就是新字串的第8位，新字串為`abc`*3+`def`
+
+第8位在前半段，所以可以套回第一個公式`"abc"[8%3-1]="abc"[1]="b"`
+
+
+
+好像看懂了什麼，總之試試..
+
+
+
+
+
 ## Better Solutions
 
