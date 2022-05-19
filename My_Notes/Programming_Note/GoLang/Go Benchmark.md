@@ -25,7 +25,7 @@ https://blog.wu-boy.com/2018/06/how-to-write-benchmark-in-go/
 * 要測的東西寫在for迴圈中，初始化設定不想計算時間可以用`ResetTimer()`
 
   ```go
-  unc BenchmarkLinq100(b *testing.B) {
+  func BenchmarkLinq100(b *testing.B) {
   	s := getSlice(100)
   	b.ResetTimer()
   	for n := 0; n < b.N; n++ {

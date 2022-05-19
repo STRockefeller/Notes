@@ -163,6 +163,15 @@ func isDigit(b rune) bool {
 第8位在前半段，所以可以套回第一個公式`"abc"[8%3-1]="abc"[1]="b"`
 
 
+$$
+[[[abc...]def...]ghi...]\\
+1.\space len = 3*3\\
+2.\space len = (len+3)*3\\
+3.\space len = (len+3)*3
+$$
+
+
+
 
 好像看懂了什麼，總之試試..
 
