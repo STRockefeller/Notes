@@ -160,6 +160,22 @@ The small white square to the right of the second board is called the \textit{mo
 
 
 
+可以來個經典的 queen's gambit
+
+```latex
+\documentclass{article}
+\usepackage{xskak}
+\begin{document}
+\newchessgame
+\mainline{1.d4 d5 2.c4 dxc4 3.Nf3 Nf6 4.e3 e6 5.Bxc4 c5}
+\showboard
+\end{document}
+```
+
+![](https://i.imgur.com/MIdFmRV.png)
+
+
+
 ```latex
 \documentclass{article}
 \usepackage{xskak}
