@@ -289,3 +289,12 @@ PASS
 ok      ladidadida      7.926s
 ```
 
+
+
+## 自給自足
+
+新版本的golang有支援泛型之後，就自己寫了個linq套件，還包了一些非linq但是我很喜歡的方法進去。
+
+https://github.com/STRockefeller/go-linq
+
+效率問題有了極大的改善。但很可惜依然沒能多載也沒能lambda。
