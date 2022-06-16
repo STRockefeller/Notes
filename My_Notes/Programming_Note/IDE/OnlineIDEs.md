@@ -42,6 +42,16 @@ extesion的支援程度和vscode.dev差不多，目前有待加強。
 
 
 
+shortcuts
+
+![](https://i.imgur.com/UsueoF8.png)
+
+
+
+gitlab 也有
+
+![](https://i.imgur.com/asRoWHr.png)
+
 ### github1s
 
 把 github repo 網址中的 github.com 改成 github1s.com 可以用類似 vscode 的樣式查看，無法編輯。

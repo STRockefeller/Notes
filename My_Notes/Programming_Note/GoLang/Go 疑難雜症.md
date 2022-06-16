@@ -196,3 +196,8 @@ int main()
 }
 ```
 
+
+
+## net/http 相關
+
+夾帶文件發送請求時請注意，不能直接把文件當作io.Reader發送。會由於文件還沒被Close導致接收到Header不完整的Response。只能把內容放到其他物件中再發送請求。
