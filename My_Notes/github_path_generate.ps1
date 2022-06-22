@@ -4,7 +4,7 @@ $linkPath="https://github.com/STRockefeller/MyProgrammingNote/tree/master/My_Not
 
 function isIgnoreFile($name)
 {
-    $ignoreFileExtension = ".dll", ".exe", ".layout", ".out", ".doc", ".zip", ".chm"
+    $ignoreFileExtension = ".dll", ".exe", ".layout", ".out", ".doc", ".zip", ".chm", ".sln", ".csproj"
     $res = $false
     foreach($ext in $ignoreFileExtension)
     {
