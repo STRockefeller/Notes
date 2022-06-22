@@ -10,6 +10,7 @@
 
 詳細的內容還是會放在各個語言的筆記裡面。這篇只注重比較。
 
+本篇筆記的程式碼範例放在`./Samples/async_samples`資料夾中。
 
 
 ## 觀念釐清
@@ -119,11 +120,12 @@ reference: [js](https://jimmyswebnote.com/javascript-sync-async/) [dart](https:/
 ```mermaid
 gantt
     title 同步的情況
-    dateFormat  s
+    dateFormat mm:ss
+    axisFormat %M:%S
     section Sync
-    DB   :a, 3s
-    API  :b,after a, 1s
-    UI   :after b, 2s
+    DB   :start, 3s
+    API  :1s
+    UI   :2s
 ```
 
 總共就必須花費 3+1+2秒來完成這個需求。
@@ -361,12 +363,13 @@ class DBEngineer implements IEngineer {
 
 ```mermaid
 gantt
-    title 同步的情況
-    dateFormat  s
-    section Sync
-    DB   :a, 3s
-    API  :a, 1s
-    UI   :a, 2s
+    title 非同步的情況
+    dateFormat mm:ss
+    axisFormat %M:%S
+    section Async
+    DB   :start , 3s
+    API  :start , 1s
+    UI   :start , 2s
 ```
 
 同樣的需求，這次只需要三秒就能完成啦。
@@ -597,12 +600,13 @@ db task complete
 
 ```mermaid
 gantt
-    title 同步的情況
-    dateFormat  s
-    section Sync
-    DB   :a, 3s
-    API  :b, after a, 1s
-    UI   :c, 2s
+    title 非同步的情況
+    dateFormat mm:ss
+    axisFormat %M:%S
+    section Async
+    DB   :start, 3s
+    API  :1s
+    UI   :start, 2s
 ```
 
 上面那些搞懂後，其他變化也就手到擒來。
@@ -925,16 +929,15 @@ namespace Async
     {
         static void EventQueueSample()
         {
-            var Task1 = Func1Async();
+            var Task1 = Task.Run(() =>
+            {
+                Console.WriteLine("<1> start");
+                DateTime end = DateTime.Now.AddSeconds(2);
+                while (DateTime.Now < end) { }
+                Console.WriteLine("<1> end");
+            });
             var Task2 = Func2Async();
             Task.WaitAll(Task1, Task2);
-        }
-        static async Task Func1Async()
-        {
-            Console.WriteLine("<1> start");
-            DateTime end = DateTime.Now.AddSeconds(2);
-            while(DateTime.Now < end){}
-            Console.WriteLine("<1> end");
         }
         static async Task Func2Async()
         {
@@ -947,10 +950,9 @@ namespace Async
         {
             Console.WriteLine("<3> start");
             DateTime end = DateTime.Now.AddSeconds(2);
-            while(DateTime.Now < end){}
+            while (DateTime.Now < end) { }
             Console.WriteLine("<3> end");
         }
-
     }
 }
 ```
@@ -962,13 +964,23 @@ while迴圈等待也可以用 `Task.Delay().Wait()`來實現。
 執行結果
 
 ```
-<1> start
-<1> end
 <2> start
+<1> start
 <3> start
 <3> end
 <2> end
+<1> end
 ```
+
+```
+<2> start
+<1> start
+<3> start
+<1> end
+<3> end
+<2> end
+```
+多執行緒，結果每次都不一樣。
 
 
 
