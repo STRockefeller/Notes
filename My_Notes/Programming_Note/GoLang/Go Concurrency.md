@@ -1128,3 +1128,11 @@ func WithContext(ctx context.Context) (*Group, context.Context)
 
 
 注意，即便不中斷執行，Wait()方法還是只會吐第一個error回來
+
+
+
+## 補充
+
+### 在golang玩async/await
+
+[這個repo](https://github.com/Ksloveyuan/channelx)有實作，看起來滿完整的，可惜沒有支援go 1.18後的generic。

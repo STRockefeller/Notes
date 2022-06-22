@@ -10,6 +10,8 @@
 
 [Reference:iter01](https://iter01.com/441301.html)
 
+[Reference:another ithelp](https://ithelp.ithome.com.tw/articles/10240005)
+
 
 
 ## 前言
@@ -75,16 +77,133 @@ while (true) {
 
 
 
-## Flutter 執行的流程
+## Isolate
 
-- Dart的入口是main函式，所以`main函式中的程式碼`會優先執行；
-- main函式執行完後，會啟動一個事件迴圈（Event Loop）就會啟動，啟動後開始執行佇列中的任務；
-- 首先，會按照先進先出的順序，執行 `微任務佇列（Microtask Queue）`中的所有任務；
-- 其次，會按照先進先出的順序，執行 `事件佇列（Event Queue）`中的所有任務；
+基本上可以看做Process，只是這個Process裡面**只能有一個**Thread。
+
+彼此之間不會公用記憶體，必須靠傳遞訊息來溝通。(Process的特性)
+
+大多數的情況下，我們不會多開Isolate，而是會用Event Queue來實現非同步的需求。
+
+不過這邊依然來簡單介紹一下這東西。
 
 
 
-![程式碼執行順序](https://i.iter01.com/images/bd1752ed3a68e84564bd74ace77fcb176c23f86a2427a07257083fe1f743b97e.jpg)
+### 建立isolate並傳出訊息
+
+建立Isolate時，會用到`spawn`方法(註解太多就不放了。)
+
+```dart
+  external static Future<Isolate> spawn<T>(
+      void entryPoint(T message), T message,
+      {bool paused = false,
+      bool errorsAreFatal = true,
+      SendPort? onExit,
+      SendPort? onError,
+      @Since("2.3") String? debugName});
+```
+
+entryPoint 就是我要執行的內容。可以看做一般非同步用的callback function。 message 是我從現在這個isolate傳入新建立的isolate的訊息。
+
+
+
+ex
+
+```dart
+import 'dart:isolate';
+
+void isolate(){
+  Isolate.spawn(saySomething,"Hello");
+}
+
+void saySomething(String message){
+  print(message);
+}
+```
+
+
+
+### 接收新isolate回傳的訊息
+
+剛建立了新的isolate並丟了訊息過去，卻沒有拿到回應，entryPoint又是回傳void的function，實際上該如何接收回應呢?
+
+```dart
+Future<void> isolate2() async{
+  final mainReceivePort = ReceivePort();
+  await Isolate.spawn(responseSomething,mainReceivePort.sendPort);
+  final message = await mainReceivePort.first;
+  print(message);
+}
+
+void responseSomething(SendPort mainSendPort){
+  mainSendPort.send("this is responseSomething isolate");
+}
+```
+
+做法是在main isolate 建立Receive Port 並把對應的 Send Port 傳給新的isolate
+
+
+
+### 雙向溝通
+
+仔細觀察上例會發現，原本拿來傳參數給isolate的位置被sender port占走了，這麼一來就無法從main isolate傳訊息給新的isolate了。
+
+至於解決辦法也很直覺，就是把新isolate的sender port丟回來罷了。
+
+```dart
+Future<void> isolate3() async {
+  final mainReceivePort = ReceivePort();
+  await Isolate.spawn(repeatSomething, mainReceivePort.sendPort);
+  mainReceivePort.listen((message) {
+    if (message is SendPort) {
+      message.send("Hello");
+    }
+    if (message is String) {
+      print("main receive message: " + message);
+    }
+  });
+}
+
+void repeatSomething(SendPort mainSendPort) {
+  final repeatSomethingReceivePort = ReceivePort();
+  mainSendPort.send(repeatSomethingReceivePort.sendPort);
+
+  repeatSomethingReceivePort.listen((message) {
+    if (message is String) {
+      mainSendPort.send(message);
+    }
+  });
+}
+```
+
+
+
+### 簡單的用法
+
+直接用[compute](https://docs-flutter-io.firebaseapp.com/flutter/foundation/compute.html)。就很簡單沒啥好說的，只需要記得他的底層是使用isolate而不是event loop就好。
+
+
+
+## Dart 執行的流程
+
+1. Dart的入口是main函式，所以`main函式中的程式碼`會優先執行；
+
+2. main函式執行完後，會啟動一個事件迴圈（Event Loop）就會啟動，啟動後開始執行佇列中的任務；
+
+3. 首先，會按照先進先出的順序，執行 `微任務佇列（Microtask Queue）`中的所有任務；
+
+4. 其次，會按照先進先出的順序，執行 `事件佇列（Event Queue）`中~~的所有任務~~的一個任務，然後回到3；
+
+```mermaid
+flowchart TD
+	A([start app]) --> B[Execute main]-->C{Microtask queue empty?}-- yes -->D{Event queue empty?}-- yes --> E([Exit Code])
+	C -- no --> F[run next microtask] --> C
+	D -- no --> G[run next event] --> C
+```
+
+
+
+
 
 ## Future
 
@@ -279,6 +398,22 @@ Future的使用過程：
 
 3、通過`.catchError`(失敗或異常回撥函式)的方式來監聽Future內部執行失敗或者出現異常時的錯誤資訊；
 
+
+
+補充
+
+Future 建立方式屬於 event 還是 microtask
+
+```dart
+  Future(() { }); // event
+  Future.delayed(); // event
+  Future.value(); // micro task
+  Future.sync(() => null); // micro task
+  Future.microtask(() => null); // micro task
+```
+
+
+
 ### Future 的狀態
 
 #### uncompleted
@@ -445,11 +580,64 @@ await Future.delayed(Duration(seconds: 3),()=>"network data");
 
 
 
+## 從 await / async 了解 event queue 機制
+
+```dart
+void eventQueueSample() {
+  Future(() {
+    print("<1> start");
+    DateTime end = DateTime.now().add(Duration(seconds: 2));
+    while (DateTime.now().isBefore(end));
+    print("<1> end");
+  });
+  asyncFunction();
+}
+
+Future<void> asyncFunction() async {
+  print("<2> start");
+  await Future(() {
+    print("<3> start");
+    DateTime end = DateTime.now().add(Duration(seconds: 2));
+    while (DateTime.now().isBefore(end));
+    print("<3> end");
+  });
+  print("<2> end");
+}
+```
+
+程式碼是從[這篇文章](https://ithelp.ithome.com.tw/articles/10240626)的範例略為修改來的
+
+執行`eventQueueSample`結果
+
+```
+<2> start
+<1> start
+<1> end
+<3> start
+<3> end
+<2> end
+```
+
+參考[執行流程](#Dart 執行的流程)
+
+可以把`eventQueueSample`當作main來看，來review一下這個function的流程:
+
+1. 進入`eventQueueSample`-->作為main要先執行完才進入event loop
+2. 看到Future內容，不執行，直接放進event queue
+3. 看到`asyncFunction();`，進入。
+4. 執行`print("<2> start");`
+5. 看到`await`，把後面的程式碼都放入event queue。 --> 到此main執行完成
+6. FIFO執行event queue，首先是步驟2的event
+7. 執行` print("<1> start");`到`print("<1> end");`為止的內容。
+8. 執行下一個event，也就是步驟5的event。
+9. 執行`print("<3> start");`到`print("<2> end");`的內容。
+10. 到此程式執行完畢，兩個等待兩秒的內容並沒有同時執行，所以程式執行過程一共等待了4秒
+
+
+
 ## 補充
 
 ### Future 的更多用法
-
-### 
 
 #### factory Future(FutureOr computation())
 
@@ -645,6 +833,14 @@ return Future.value(value + 3);
 }).then(print);
 //打印結果為6
 ```
+
+
+
+補充:
+
+then裡面的callback會在future完成後立即被呼叫，而不會建立新的event，視作在同一個event裡面完成。槽狀then全都在一個event內完成。
+
+少數情況下，進入callback之前future就已完成時，callback會排進micro task queue中，在下一個event之前被呼叫。
 
 #### Future.cathcError（）
 
