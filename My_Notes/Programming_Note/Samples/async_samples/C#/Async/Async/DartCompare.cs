@@ -20,16 +20,13 @@ namespace Async
         static async Task Func2Async()
         {
             Console.WriteLine("<2> start");
-            await Func3Async();
-            Console.WriteLine("<2> end");
-        }
-
-        static async Task Func3Async()
-        {
+            await Task.Run(() =>{
             Console.WriteLine("<3> start");
             DateTime end = DateTime.Now.AddSeconds(2);
             while (DateTime.Now < end) { }
             Console.WriteLine("<3> end");
+        });
+            Console.WriteLine("<2> end");
         }
     }
 }

@@ -12,7 +12,6 @@
 
 本篇筆記的程式碼範例放在`./Samples/async_samples`資料夾中。
 
-
 ## 觀念釐清
 
 開始之前來複習一些比較重要的觀念
@@ -76,8 +75,6 @@ Cooperation + Routine
 
 可以看做輕量型Thread，建立、切換和取消的成本都很低
 
-
-
 ### Concurrent and Parallel
 
 [wiki Concurrent](https://en.wikipedia.org/wiki/Concurrent_computing)
@@ -88,8 +85,6 @@ Cooperation + Routine
 > - Parallel： Parallel 主要是會有多個 CPU 在同一個時間點內會去做多件事，例如會有三個人同時分別在做 Job1、Job2、Job3 的事情。因此 Parallel 的目標是希望能把事情更快速的做完。
 
 [reference](https://ithelp.ithome.com.tw/articles/10201828)
-
-
 
 ### Threads and Event Loops
 
@@ -103,13 +98,9 @@ Cooperation + Routine
 
 reference: [js](https://jimmyswebnote.com/javascript-sync-async/) [dart](https://ithelp.ithome.com.tw/articles/10240626)
 
-
-
 ## 應用
 
 來個情境模擬好了。希望能展現出各語言的特色。
-
-
 
 今天有一個系統，可以分為三個專案，分別為db api ui ，每次有一個新的需求，都需要三個專案配合進行改動才能完成
 
@@ -136,18 +127,18 @@ gantt
 
 ```go
 func sync() {
-	job := job{
-		db:  3,
-		api: 1,
-		ui:  2,
-	}
-	var dbEngineer dbEngineer
-	var apiEngineer apiEngineer
-	var uiEngineer uiEngineer
+ job := job{
+  db:  3,
+  api: 1,
+  ui:  2,
+ }
+ var dbEngineer dbEngineer
+ var apiEngineer apiEngineer
+ var uiEngineer uiEngineer
 
-	dbEngineer.do(job)
-	apiEngineer.do(job)
-	uiEngineer.do(job)
+ dbEngineer.do(job)
+ apiEngineer.do(job)
+ uiEngineer.do(job)
 }
 ```
 
@@ -157,16 +148,16 @@ func sync() {
 type dbEngineer struct{}
 
 func (dbEngineer) do(job job) {
-	fmt.Println("db task start")
-	time.Sleep(time.Second * time.Duration(job.db))
-	fmt.Println("db task complete")
+ fmt.Println("db task start")
+ time.Sleep(time.Second * time.Duration(job.db))
+ fmt.Println("db task complete")
 }
 //...
 
 type job struct {
-	db  int64
-	api int64
-	ui  int64
+ db  int64
+ api int64
+ ui  int64
 }
 ```
 
@@ -180,8 +171,6 @@ api task complete
 ui task start
 ui task complete
 ```
-
-
 
 #### dart
 
@@ -234,7 +223,7 @@ ui task start
 ui task complete
 ```
 
-####  C#
+#### C#
 
 ```C#
 using System;
@@ -300,8 +289,6 @@ ui task start
 ui task complete
 ```
 
-
-
 #### TS
 
 (我找不到同步的等待方法，所以只能寫成async來模擬)
@@ -355,8 +342,6 @@ class DBEngineer implements IEngineer {
 [LOG]: "ui task complete" 
 ```
 
-
-
 ### 如果三個專案可以同時進行
 
 這次工程師之間彼此先討論好該做些甚麼，不需要等別人的工作完成就可以開始自己的作業了
@@ -374,8 +359,6 @@ gantt
 
 同樣的需求，這次只需要三秒就能完成啦。
 
-
-
 #### golang
 
 ```go
@@ -384,32 +367,32 @@ package main
 import "sync"
 
 func asyncFunc1() {
-	job := job{
-		db:  3,
-		api: 1,
-		ui:  2,
-	}
-	var dbEngineer dbEngineer
-	var apiEngineer apiEngineer
-	var uiEngineer uiEngineer
+ job := job{
+  db:  3,
+  api: 1,
+  ui:  2,
+ }
+ var dbEngineer dbEngineer
+ var apiEngineer apiEngineer
+ var uiEngineer uiEngineer
 
-	wg := sync.WaitGroup{}
-	wg.Add(3)
+ wg := sync.WaitGroup{}
+ wg.Add(3)
 
-	go func() {
-		dbEngineer.do(job)
-		wg.Done()
-	}()
-	go func() {
-		apiEngineer.do(job)
-		wg.Done()
-	}()
-	go func() {
-		uiEngineer.do(job)
-		wg.Done()
-	}()
+ go func() {
+  dbEngineer.do(job)
+  wg.Done()
+ }()
+ go func() {
+  apiEngineer.do(job)
+  wg.Done()
+ }()
+ go func() {
+  uiEngineer.do(job)
+  wg.Done()
+ }()
 
-	wg.Wait()
+ wg.Wait()
 }
 
 ```
@@ -424,8 +407,6 @@ api task complete
 ui task complete
 db task complete
 ```
-
-
 
 #### dart
 
@@ -500,8 +481,6 @@ ui task complete
 db task complete
 ```
 
-
-
 #### C#
 
 主要內容
@@ -559,8 +538,6 @@ ui task complete
 db task complete
 ```
 
-
-
 #### TS
 
 基本上和dart類似
@@ -594,8 +571,6 @@ ui task complete
 db task complete
 ```
 
-
-
 ### 其他變化: api專案必須在db專案完成後才開始動工
 
 ```mermaid
@@ -611,45 +586,43 @@ gantt
 
 上面那些搞懂後，其他變化也就手到擒來。
 
-
-
 #### golang
 
 ```go
 func asyncFunc2() {
-	job := job{
-		db:  3,
-		api: 1,
-		ui:  2,
-	}
-	var dbEngineer dbEngineer
-	var apiEngineer apiEngineer
-	var uiEngineer uiEngineer
+ job := job{
+  db:  3,
+  api: 1,
+  ui:  2,
+ }
+ var dbEngineer dbEngineer
+ var apiEngineer apiEngineer
+ var uiEngineer uiEngineer
 
-	wgAll := sync.WaitGroup{}
-	wgAll.Add(3)
+ wgAll := sync.WaitGroup{}
+ wgAll.Add(3)
 
-	dbDone := make(chan bool)
+ dbDone := make(chan bool)
 
-	go func() {
-		dbEngineer.do(job)
-		wgAll.Done()
-		dbDone <- true
-	}()
+ go func() {
+  dbEngineer.do(job)
+  wgAll.Done()
+  dbDone <- true
+ }()
 
-	go func() {
-		if <-dbDone {
-			apiEngineer.do(job)
-			wgAll.Done()
-		}
-	}()
+ go func() {
+  if <-dbDone {
+   apiEngineer.do(job)
+   wgAll.Done()
+  }
+ }()
 
-	go func() {
-		uiEngineer.do(job)
-		wgAll.Done()
-	}()
+ go func() {
+  uiEngineer.do(job)
+  wgAll.Done()
+ }()
 
-	wgAll.Wait()
+ wgAll.Wait()
 }
 
 ```
@@ -664,8 +637,6 @@ db task complete
 api task start
 api task complete
 ```
-
-
 
 #### dart
 
@@ -682,8 +653,6 @@ void async2(){
 }
 ```
 
-
-
 執行結果
 
 ```
@@ -694,8 +663,6 @@ db task complete
 api task start
 api task complete
 ```
-
-
 
 #### C#
 
@@ -735,8 +702,6 @@ api task complete
 
 ```
 
-
-
 #### TS
 
 ```typescript
@@ -764,8 +729,6 @@ function async2():Promise<[void,void]>{
 [LOG]: "api task complete"
 ```
 
-
-
 ## 特色
 
 這邊再稍微深入一點比較各語言的特色及差異，還有一部分我自己使用上的感想。詳細的內容還是會放在各語言的筆記裡面。
@@ -778,56 +741,54 @@ function async2():Promise<[void,void]>{
 
 非同步屬於coroutine層級。相當輕便。
 
-
-
 仿照下面的dart範例來個golang版本
 
 ```go
 package main
 
 import (
-	"fmt"
-	"sync"
-	"time"
+ "fmt"
+ "sync"
+ "time"
 )
 
 func eventQueueSample() {
-	wg := sync.WaitGroup{}
-	wg.Add(2)
-	go func() {
-		fmt.Println("<1> start")
-		end := time.Now().Add(2 * time.Second)
-		for time.Now().Before(end) {
-		}
-		fmt.Println("<1> end")
-		wg.Done()
-	}()
-	asyncFunction(&wg)
-	wg.Wait()
+ wg := sync.WaitGroup{}
+ wg.Add(2)
+ go func() {
+  fmt.Println("<1> start")
+  end := time.Now().Add(2 * time.Second)
+  for time.Now().Before(end) {
+  }
+  fmt.Println("<1> end")
+  wg.Done()
+ }()
+ asyncFunction(&wg)
+ wg.Wait()
 }
 
 func asyncFunction(outerWg *sync.WaitGroup) {
-	fmt.Println("<2> start")
-	wg := sync.WaitGroup{}
-	wg.Add(1)
-	go func() {
-		fmt.Println("<3> start")
-		end := time.Now().Add(2 * time.Second)
-		for time.Now().Before(end) {
-		}
-		fmt.Println("<3> end")
-		wg.Done()
-	}()
-	wg.Wait()
-	fmt.Println("<2> end")
-	outerWg.Done()
+ fmt.Println("<2> start")
+ wg := sync.WaitGroup{}
+ wg.Add(1)
+ go func() {
+  fmt.Println("<3> start")
+  end := time.Now().Add(2 * time.Second)
+  for time.Now().Before(end) {
+  }
+  fmt.Println("<3> end")
+  wg.Done()
+ }()
+ wg.Wait()
+ fmt.Println("<2> end")
+ outerWg.Done()
 }
 
 ```
 
 執行結果
 
-```
+```text
 <2> start
 <3> start
 <1> start
@@ -836,7 +797,7 @@ func asyncFunction(outerWg *sync.WaitGroup) {
 <1> end
 ```
 
-```
+```text
 <2> start
 <1> start
 <3> start
@@ -845,7 +806,7 @@ func asyncFunction(outerWg *sync.WaitGroup) {
 <2> end
 ```
 
-```
+```text
 <2> start
 <3> start
 <1> start
@@ -866,9 +827,9 @@ event loop 執行流程務必記熟
 
 ```mermaid
 flowchart TD
-	A([start app]) --> B[Execute main]-->C{Microtask queue empty?}-- yes -->D{Event queue empty?}-- yes --> E([Exit Code])
-	C -- no --> F[run next microtask] --> C
-	D -- no --> G[run next event] --> C
+ A([start app]) --> B[Execute main]-->C{Microtask queue empty?}-- yes -->D{Event queue empty?}-- yes --> E([Exit Code])
+ C -- no --> F[run next microtask] --> C
+ D -- no --> G[run next event] --> C
 ```
 
 有些東西執行起來沒有那麼直觀
@@ -898,7 +859,7 @@ Future<void> asyncFunction() async {
 
 執行結果
 
-```
+```text
 <2> start
 <1> start
 <1> end
@@ -909,13 +870,9 @@ Future<void> asyncFunction() async {
 
 原理請參照流程，或Dart筆記。
 
-
-
 ### C#
 
 `Task`很好用，雖然沒有Golang好上手，但也算相當簡單了。
-
-
 
 來模仿一下上面dart的範例看看
 
@@ -942,16 +899,13 @@ namespace Async
         static async Task Func2Async()
         {
             Console.WriteLine("<2> start");
-            await Func3Async();
-            Console.WriteLine("<2> end");
-        }
-
-        static async Task Func3Async()
-        {
+            await Task.Run(() =>{
             Console.WriteLine("<3> start");
             DateTime end = DateTime.Now.AddSeconds(2);
             while (DateTime.Now < end) { }
             Console.WriteLine("<3> end");
+        });
+            Console.WriteLine("<2> end");
         }
     }
 }
@@ -959,11 +913,9 @@ namespace Async
 
 while迴圈等待也可以用 `Task.Delay().Wait()`來實現。
 
-
-
 執行結果
 
-```
+```text
 <2> start
 <1> start
 <3> start
@@ -972,7 +924,7 @@ while迴圈等待也可以用 `Task.Delay().Wait()`來實現。
 <1> end
 ```
 
-```
+```text
 <2> start
 <1> start
 <3> start
@@ -980,7 +932,53 @@ while迴圈等待也可以用 `Task.Delay().Wait()`來實現。
 <3> end
 <2> end
 ```
+
 多執行緒，結果每次都不一樣。
 
+### TypeScript(JavaScript)
 
+[好文章](https://medium.com/infinitegamer/why-event-loop-exist-e8ac9d287044)值得再看一遍
 
+HTML CSS 和 JS 都是在瀏覽器的 Renderer process 的 main thread 完成的，也就是說，耗時的JS邏輯甚至會影響到畫面的渲染。
+
+照慣例來模仿一下dart的範例
+
+```typescript
+export function eventQueueSample() {
+  var f = async (): Promise<void> => {
+    console.log("<1> start");
+    const end: Date = new Date();
+    end.setSeconds(end.getSeconds() + 2);
+    while (new Date() < end);
+    console.log("<1> end");
+  };
+  f();
+  asyncFunction2();
+}
+
+async function asyncFunction2(): Promise<void> {
+  console.log("<2> start");
+  var f = async (): Promise<void> => {
+    console.log("<3> start");
+    const end: Date = new Date();
+    end.setSeconds(end.getSeconds() + 2);
+    while (new Date() < end);
+    console.log("<3> end");
+  };
+  await f();
+  console.log("<2> end");
+}
+```
+
+執行結果(每次都一樣，因為不是真的多執行緒)，與dart相同一共等待4秒
+
+```text
+<1> start
+<1> end
+<2> start
+<3> start
+<3> end
+<2> end
+```
+
+至於詳細原因，請參考js筆記。

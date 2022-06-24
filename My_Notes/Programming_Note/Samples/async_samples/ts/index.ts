@@ -1,3 +1,3 @@
-import './sync'
+import { eventQueueSample } from './dartCompare';
 
-sync();
+eventQueueSample();

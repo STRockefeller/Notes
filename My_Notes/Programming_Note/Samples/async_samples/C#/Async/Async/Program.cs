@@ -8,7 +8,6 @@ namespace Async
         static void Main(string[] args)
         {
             EventQueueSample();
-            Console.ReadLine();
         }
     }
 }

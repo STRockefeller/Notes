@@ -1,3 +1,5 @@
+import { DBEngineer, APIEngineer, UIEngineer } from "./engineer";
+
 function async1():Promise<void>{
     var job = new Job(3,1,2);
     var dbEngineer = new DBEngineer();
