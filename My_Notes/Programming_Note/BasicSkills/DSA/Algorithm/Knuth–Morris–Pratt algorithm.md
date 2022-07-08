@@ -6,6 +6,8 @@
 
 [GFG](https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/?ref=lbp)
 
+[BSC](http://www.btechsmartclass.com/data_structures/knuth-morris-pratt-algorithm.html)
+
 ## wiki sample
 
 [維基百科](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)這個範例還滿好懂得，借來用一下
@@ -199,7 +201,63 @@ func getNext(s string) map[int]int {
 
 其中`getNext`會吐出LPS表，這個方法的執行效率關係到整個KMP演算法的效率
 
-比較不好的實作方式如下
+
+
+## LPS Table
+
+從上一節可以看出，kmp演算法的重點落在於LPS table，這邊就來重點了解一下LPS table是甚麼樣子?他能怎麼幫助我們實現KMP演算法，又該如何取得?
+
+再把wiki的範例拿來用
+
+```
+             1         2
+m: 01234567890123456789012
+S: ABC ABCDAB ABCDABCDABDE
+W: ABCDABD
+i: 0123456
+```
+
+LPS table 只針對字串，以一個array呈現，值代表到該處為止prefix和sufix相符的個數(中文有點差，描述得不是很好，待改善)
+
+先用wiki的範例來寫個LPS table。
+
+以字串 `ABCCDABD`為例，以下P代表prefix，S同理
+
+index 0 : "A" => P: "",S: ""=> 0
+
+index 1 : "AB"  => P:"A"; S:"B" => 0
+
+index 2 : "ABC"  => P:"AB","A"; S:"BC","B" => 0
+
+...
+
+index 4: "ABCDA" => P:"A" ...; S:"A"... => 1
+
+index 5: "ABCDAB" => P:"AB"...;S:"AB"... => 2
+
+index 6: "ABCDABD" => P:...;S:... => 0
+
+
+
+總之就是找前後綴相同的字串中最長者的長度，全部寫完大概會像是
+
+```
+text: ABCDABD
+LPS:  0000120
+```
+
+
+
+再看一個比較複雜的例子
+
+```
+text: abcabffabcabc
+LPS:  0001200123453
+```
+
+
+
+然後就是把這個表實作出來
 
 ```go
 func getNext(s string) map[int]int {
@@ -224,7 +282,238 @@ func getNext(s string) map[int]int {
 
 兩個迴圈，直接讓kmp的效率蕩然無存
 
-較理想的做法如下
+
+
+實際上LPS表的實作方式有很多種。下面提供來自[這篇文章](https://yeefun.github.io/kmp-algorithm-for-beginners/)的做法為參考
+
+把前面比較複雜的例子拿來看
+
+```
+text: abcabffabcabc
+LPS:  0001200123453
+```
+
+
+
+我們把整個字串和substring對在一起比較
+
+index0:
+
+```
+                     1
+index:     0123456789012
+string:    abcabffabcabc
+substring: a
+LPS:       0
+```
+
+index1:
+
+```
+                      1
+index:      0123456789012
+string:     abcabffabcabc
+substring: ab
+LPS:       00
+```
+
+index2:
+
+```
+                       1
+index:       0123456789012
+string:      abcabffabcabc
+substring: abc
+LPS:       000
+```
+
+index3: 對上了
+
+```
+                        1
+index:        0123456789012
+string:       abcabffabcabc
+substring: abca
+LPS:       0001
+```
+
+繼續...
+
+```
+                        1
+index:        0123456789012
+string:       abcabffabcabc
+substring: abcab
+LPS:       00012
+```
+
+index5: 沒對上，需要往前找，這邊結果是0， 後面再細講
+
+```
+                        1
+index:        0123456789012
+string:       abcabffabcabc
+substring: abcabf
+LPS:       000120
+```
+
+繼續...
+
+一直到index11:
+
+```
+                            1
+index:            0123456789012
+string:           abcabffabcabc
+substring: abcabffabcab
+LPS:       000120012345
+```
+
+index12:沒對上
+
+```
+                            1
+index:            |01234|56789012
+string:           |abcab|ffabcabc
+substring: abcabff|abcab|c
+LPS:       0001200|12345|?
+```
+
+往前找"abcab"
+
+```
+                            1
+index:            |01234|56789012
+string:           |abcab|ffabcabc
+substring: abcabff|abcab|c
+           -----
+LPS:       0001200|12345|?
+```
+
+值為2，把檢查的位置移動到index2
+
+```
+                               1
+index:               0123456789012
+string:              abcabffabcabc
+substring: abcabffabcabc
+LPS:       000120012345?
+```
+
+對上了，這邊要填入的數值要從"abcab"之後+1，也就是2+1=3
+
+```
+                               1
+index:               0123456789012
+string:              abcabffabcabc
+substring: abcabffabcabc
+LPS:       0001200123453
+```
+
+完成
+
+---
+
+再提供一種LPS的思路，原理是一樣的，不過我們這次用指針來表示。(在記事本中演練可以直接移動指針效果特別好)
+
+```
+index:     0123456789012
+           ⬇
+string:    abcabffabcabc
+substring: abcabffabcabc
+           ⬆
+LPS:       
+```
+
+老樣子第一位先填入0
+
+```
+index:     0123456789012
+           ⬇
+string:    abcabffabcabc
+substring: abcabffabcabc
+            ⬆
+LPS:       0
+```
+
+然後繼續...
+
+到 index 3 發現兩邊對上了，填入1，兩邊指針後移
+
+```
+index:     0123456789012
+           ⬇
+string:    abcabffabcabc
+substring: abcabffabcabc
+              ⬆
+LPS:       000
+```
+
+```
+index:     0123456789012
+            ⬇
+string:    abcabffabcabc
+substring: abcabffabcabc
+               ⬆
+LPS:       0001
+```
+
+```
+index:     0123456789012
+             ⬇
+string:    abcabffabcabc
+substring: abcabffabcabc
+                ⬆
+LPS:       00012
+```
+
+index 5 沒對上，把上指針(以下簡稱UI)移動到 LPS[UI-1] 也就是 0 的位置繼續
+
+```
+index:     0123456789012
+           ⬇
+string:    abcabffabcabc
+substring: abcabffabcabc
+                ⬆
+LPS:       00012
+```
+
+```
+index:     0123456789012
+                ⬇
+string:    abcabffabcabc
+substring: abcabffabcabc
+                       ⬆
+LPS:       000120012345
+```
+
+一直到 index 12 又沒對上，把UI 移動到 LPS[UI] 也就是 2 繼續
+
+```
+index:     0123456789012
+             ⬇
+string:    abcabffabcabc
+substring: abcabffabcabc
+                       ⬆
+LPS:       000120012345
+```
+
+這次對上了，LPS填入UI+1 = 3
+
+```
+index:     0123456789012
+              ⬇
+string:    abcabffabcabc
+substring: abcabffabcabc
+                        ⬆
+LPS:       0001200123453
+```
+
+結束
+
+
+
+接著把它實作出來
 
 ```go
 func getNext(s string) map[int]int {
@@ -252,3 +541,87 @@ func getNext(s string) map[int]int {
  return next
 }
 ```
+
+
+
+### Usage
+
+好不容易算出LPS table，但是不會用就尷尬了。
+
+老樣子拿wiki範例出來用
+
+```
+             1         2
+m: 01234567890123456789012
+S: ABC ABCDAB ABCDABCDABDE
+W: ABCDABD
+i: 0123456
+```
+
+我們算出 w 的 LPS table，並且把它填上去
+
+```
+             1         2
+m: 01234567890123456789012
+S: ABC ABCDAB ABCDABCDABDE
+W: ABCDABD
+i: 0123456
+l: 0000120
+```
+
+開始來比較
+
+```
+               1         2
+m: |0123456|7890123456789012
+S: |ABC ABC|DAB ABCDABCDABDE
+W: |ABCDABD|
+i: |0123456|
+l: |0000120|
+```
+
+`ABC ABC` vs `ABCDABD` 從index 3開始對不上，找LPS[2] = 0，我們就直接把整個字串移動到之後的位置繼續。
+
+```
+             1         2
+m: 01234567890123456789012
+S: ABC ABCDAB ABCDABCDABDE
+W:     ABCDABD
+i:     0123456
+l:     0000120
+```
+
+`ABCDAB ` vs `ABCDABD` 從index 6開始對不上，找LPS[5] = 2。把index 2 放到沒對上的位置繼續。
+
+```
+             1         2
+m: 01234567890123456789012
+S: ABC ABCDAB ABCDABCDABDE
+W:         ABCDABD
+i:         0123456
+l:         0000120
+```
+
+`AB ABCD` vs `ABCDABD` index 2 開始對不上， LPS[1] = 0
+
+```
+             1         2
+m: 01234567890123456789012
+S: ABC ABCDAB ABCDABCDABDE
+W:            ABCDABD
+i:            0123456
+l:            0000120
+```
+
+`ABCDABC` vs `ABCDABD` index 6 開始對不上， LPS[5] = 2。把index 2 放到沒對上的位置繼續。
+
+```
+             1         2
+m: 01234567890123456789012
+S: ABC ABCDAB ABCDABCDABDE
+W:                ABCDABD
+i:                0123456
+l:                0000120
+```
+
+完成查詢。
