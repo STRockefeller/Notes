@@ -6,7 +6,13 @@ log套件
 
 
 
-初始化
+## 初始化
+
+方式有很多種，詳細看官方文件
+
+
+
+NewXXX 系列
 
 ```go
 logger, err := zap.NewDevelopment()
@@ -15,15 +21,51 @@ if err != nil {
 }
 ```
 
-建構式不一定要用`NewDevelopment` 還有其他選擇，差別可以看官方文件
 
 
+透過Config
+
+```go
+cfg := zap.NewDevelopmentConfig()
+cfg.DisableStacktrace = true
+
+logger, err := cfg.Build()
+if err != nil {
+	return err
+}
+```
+
+
+
+
+
+## 註冊到全域
+
+```go
+zap.ReplaceGlobals(logger)
+```
+
+之後就可以用`zap.L()`來呼叫這個logger
+
+
+
+## Print
 
 印出log，可以選層級
 
 ```go
 logger.Info("")
 ```
+
+
+
+搭配結構化的呈現
+
+```go
+logger.Warn("file not found",zap.String("file name",file.Name),zap.Error(err))
+```
+
+
 
 
 

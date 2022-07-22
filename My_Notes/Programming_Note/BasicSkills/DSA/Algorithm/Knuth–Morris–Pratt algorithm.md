@@ -487,7 +487,7 @@ substring: abcabffabcabc
 LPS:       000120012345
 ```
 
-一直到 index 12 又沒對上，把UI 移動到 LPS[UI] 也就是 2 繼續
+一直到 index 12 又沒對上，把UI 移動到 LPS[UI-1] 也就是 2 繼續
 
 ```
 index:     0123456789012
