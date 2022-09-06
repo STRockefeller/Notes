@@ -1136,3 +1136,38 @@ func WithContext(ctx context.Context) (*Group, context.Context)
 ### 在golang玩async/await
 
 [這個repo](https://github.com/Ksloveyuan/channelx)有實作，看起來滿完整的，可惜沒有支援go 1.18後的generic。
+
+### 簡單的泛用非同步委派
+
+1.18版本支援generic之後，簡單寫了下這個泛用功能
+
+```go
+func runAsync[I any, O any](inputs []I, delegate func(I) O) []O {
+	res := make([]O, len(inputs))
+	m := sync.Mutex{}
+	wg := sync.WaitGroup{}
+	wg.Add(len(inputs))
+	for i, input := range inputs {
+		i := i
+		input := input
+		go func() {
+			defer wg.Done()
+			result := delegate(input)
+			m.Lock()
+			res[i] = result
+			m.Unlock()
+		}()
+	}
+	wg.Wait()
+	return res
+}
+
+```
+
+說是泛用但仍需依需求進行修改就是了。
+
+視情況可以把in/out改成channel還能接著其他的routine一起使用。
+
+另外這個版本沒有加入routine數量的限制。可能會有吃太多cpu的問題。
+
+然後 error 目前是把它放在`O`傳回，依需求，也可以導入errgroup，或用其他方式解決。

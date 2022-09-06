@@ -161,27 +161,28 @@ build.sh
 ```bash
 #!/usr/bin/env bash
 
-package=$1
-package_name=$2
-if [[ -z "$package" ]]; then
-  echo "usage: $0 <package-name>"
+target=$1
+output_file_prefix=$2
+if [[ -z "$target" ]]; then
+  echo "usage: $0 <target> <output_file_prefix>"
+  echo "example: $0 . test/test"
   exit 1
 fi
-	
-platforms=("windows/amd64" "windows/arm64" "windows/386" "darwin/amd64" "linux/amd64")
+
+platforms=("windows/amd64" "linux/amd64")
+# platforms=("windows/amd64" "windows/arm64" "windows/386" "darwin/amd64" "linux/amd64")
 
 for platform in "${platforms[@]}"
 do
-	platform_split=(${platform//\// })
+	read -r -a <<< "${platform//\// }" platform_split
 	GOOS=${platform_split[0]}
 	GOARCH=${platform_split[1]}
-	output_name=$package_name'-'$GOOS'-'$GOARCH
-	if [ $GOOS = "windows" ]; then
+	output_name=$output_file_prefix'-'$GOOS'-'$GOARCH
+	if [ "$GOOS" = "windows" ]; then
 		output_name+='.exe'
-	fi	
+	fi
 
-	env GOOS=$GOOS GOARCH=$GOARCH go build -o $output_name $package
-	if [ $? -ne 0 ]; then
+	if ! env GOOS="$GOOS" GOARCH="$GOARCH" go build -o $output_name "$target"; then
    		echo 'An error has occurred! Aborting the script execution...'
 		exit 1
 	fi
@@ -256,6 +257,80 @@ release:
 
 ```
 
-原本的golang image 不支援bash，所以改了一下。
+原本的golang image (alpine 3.16)不支援bash，所以改了一下。
 
 如果我在stage階段使用image，原本的image就會失效，總之就是一次只能用一種。
+
+
+
+如果還是要用alpine版本的話就要另外安裝bash工具，如下
+
+```yaml
+image: golang:1.18.2-alpine3.16
+
+stages:
+  - test
+  - build
+  - upload
+  - release
+
+variables:
+  SSH_PRIVATE_KEY: ${SSH_PRIVATE_KEY}
+  PACKAGE_NAME: "kgoimports"
+  FILE_NAME: "kgoimports"
+  WIN_AMD64_FILE_NAME: "${FILE_NAME}-windows-amd64.exe"
+  WIN_ARM64_FILE_NAME: "${FILE_NAME}-windows-arm64.exe"
+  WIN_386_FILE_NAME: "${FILE_NAME}-windows-386.exe"
+  LINUX_AMD64_FILE_NAME: "${FILE_NAME}-linux-amd64"
+  DARWIN_AMD64_FILE_NAME: "${FILE_NAME}-darwin-amd64"
+  PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${CI_COMMIT_TAG}"
+
+test:
+  stage: test
+  script:
+    - apk add build-base
+    - go mod download
+    - go vet ./...
+
+
+build:
+  stage: build
+  # image: ubuntu:22.10
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - apk update
+    - apk upgrade
+    - apk add bash
+    - mkdir bin
+    - chmod 777 ./build.sh
+    - ./build.sh . bin/${FILE_NAME}
+  artifacts:
+    paths:
+      - bin/
+
+
+upload:
+  stage: upload
+  image: curlimages/curl:latest
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - |
+      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file bin/${WIN_AMD64_FILE_NAME} "${PACKAGE_REGISTRY_URL}/${WIN_AMD64_FILE_NAME}"
+    - |
+      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file bin/${LINUX_AMD64_FILE_NAME} "${PACKAGE_REGISTRY_URL}/${LINUX_AMD64_FILE_NAME}"
+
+release:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - |
+      release-cli create --name "Release $CI_COMMIT_TAG" --tag-name $CI_COMMIT_TAG \
+        --assets-link "{\"name\":\"${WIN_AMD64_FILE_NAME}\",\"url\":\"${PACKAGE_REGISTRY_URL}/${WIN_AMD64_FILE_NAME}\"}" \
+        --assets-link "{\"name\":\"${LINUX_AMD64_FILE_NAME}\",\"url\":\"${PACKAGE_REGISTRY_URL}/${LINUX_AMD64_FILE_NAME}\"}"
+```
+
+(這個版本我有減少建置的執行檔種類，不過這不是重點)
