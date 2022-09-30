@@ -2,22 +2,16 @@
 
 Reference:
 
-
-
 ## Review with Questions
 
 * 試著簡短說明Concurrency。 [Ans](#What is Concurrency?)
 * 如何讓其他的go routines回傳訊息到main function?  [Ans](#Channel)
-
-
 
 ## Abstract
 
 終於到重點了，`Go`對我來說最大的特色莫過於他身為Concurrent Language這一點。
 
 筆記的內容中我會試著拿`Go`和過去我較熟悉的非同步寫法做比較(主要是`C#`和`Dart`)
-
-
 
 ## What is Concurrency?
 
@@ -26,22 +20,16 @@ Reference:
 Concurrency 通常會被拿來和 Parallelism 做比較，以下節錄自[StackOverFlow](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism)，是我覺得比較精闢的解釋
 
 > **Concurrency** is when two or more tasks can start, run, and complete in overlapping time **periods**. It doesn't necessarily mean they'll ever both be running **at the same instant**. For example, *multitasking* on a single-core machine.
->
+> 
 > **Parallelism** is when tasks *literally* run at the same time, e.g., on a multicore processor.
-
-
 
 以下說明一下我理解的部分，或許不是很準確，有錯再來修正。
 
 * Concurrency和單執行緒/多執行緒並沒有關係，以`Go`來說，可以透過`runtime.GOMAXPROCS(n)`選擇使用的核心數，但即便選擇數量為1，同樣可以執行concurrent function。`go routine`會去分配執行時間，概念應該和`Dart`那種單執行緒的非同步做法類似(?)
 
-
-
 ## How to Use?
 
 很簡單`go func()`即可
-
-
 
 例如
 
@@ -49,19 +37,19 @@ Concurrency 通常會被拿來和 Parallelism 做比較，以下節錄自[StackO
 package main
 
 import (
-	"fmt"
-	"time"
+    "fmt"
+    "time"
 )
 
 func main() {
-	go testAsync()
-	fmt.Print("main:")
-	fmt.Println(time.Now())
+    go testAsync()
+    fmt.Print("main:")
+    fmt.Println(time.Now())
 }
 
 func testAsync() {
-	fmt.Print("test:")
-	fmt.Println(time.Now())
+    fmt.Print("test:")
+    fmt.Println(time.Now())
 }
 ```
 
@@ -75,11 +63,7 @@ main:test:2021-08-02 10:30:06.8633153 +0800 CST m=+0.010488101
 
 (結果跟我想的有一點不一樣...不過這樣反而可以恨清楚的看到兩個function交錯執行的樣子)
 
-
-
 **注意:在`Go`中，Concurrent function 和一般的function是一樣的，區別只在於呼叫的時候使用`go`，並不會有`Future`或是`Task`這種回傳型別**
-
-
 
 **注意: `main()`執行結束後其他`func`就不會繼續執行了**
 
@@ -89,15 +73,15 @@ main:test:2021-08-02 10:30:06.8633153 +0800 CST m=+0.010488101
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func main() {
-	go testAsync()
+    go testAsync()
 }
 
 func testAsync() {
-	fmt.Println("Hello World!")
+    fmt.Println("Hello World!")
 }
 ```
 
@@ -111,17 +95,17 @@ func testAsync() {
 package main
 
 import (
-	"fmt"
-	"time"
+    "fmt"
+    "time"
 )
 
 func main() {
-	go testAsync()
-	time.Sleep(time.Millisecond * 10)
+    go testAsync()
+    time.Sleep(time.Millisecond * 10)
 }
 
 func testAsync() {
-	fmt.Println("Hello World!")
+    fmt.Println("Hello World!")
 }
 ```
 
@@ -132,20 +116,18 @@ PS C:\Users\admin\Desktop\Go> go run hello.go
 Hello World!
 ```
 
-
-
 ## Return Value
 
 在測試Concurrency的時候發現，如果要傳入資料給`concurrent function`，只要按照一般的方式就可以順利進行，例如修改上例
 
 ```go
 func main() {
-	go testAsync("Hello World!")
-	time.Sleep(time.Millisecond * 10)
+    go testAsync("Hello World!")
+    time.Sleep(time.Millisecond * 10)
 }
 
 func testAsync(str string) {
-	fmt.Println(str)
+    fmt.Println(str)
 }
 ```
 
@@ -153,8 +135,8 @@ func testAsync(str string) {
 
 ```go
 func main() {
-	str:= go testAsync() // Compiler 報錯
-	time.Sleep(time.Millisecond * 10)
+    str:= go testAsync() // Compiler 報錯
+    time.Sleep(time.Millisecond * 10)
 }
 
 func testAsync() string {
@@ -170,9 +152,7 @@ func testAsync() string {
 
 Channel 還可以**根據Buffer的有無**和**單/雙向**再做一些細分
 
-
-
-####  Without Buffer
+#### Without Buffer
 
 先考慮比較單純沒有Buffer的情況
 
@@ -186,34 +166,32 @@ Channel 還可以**根據Buffer的有無**和**單/雙向**再做一些細分
 
 ```go
 func main() {
-	chs := make(chan string)
-	go testAsync(chs)
-	time.Sleep(time.Millisecond * 10)
-	fmt.Print(<-chs) //Hello World
+    chs := make(chan string)
+    go testAsync(chs)
+    time.Sleep(time.Millisecond * 10)
+    fmt.Print(<-chs) //Hello World
 }
 
 func testAsync(chs chan string) {
-	chs <- "Hello World"
+    chs <- "Hello World"
 }
 ```
-
-
 
 檢查一下值是不是真的被從Channel拿出去了
 
 ```go
 func main() {
-	chs := make(chan string)
-	go testAsync(chs)
-	time.Sleep(time.Millisecond * 10)
-	fmt.Println(<-chs) //Hello World
+    chs := make(chan string)
+    go testAsync(chs)
+    time.Sleep(time.Millisecond * 10)
+    fmt.Println(<-chs) //Hello World
 
-	str := <-chs //fatal error
-	fmt.Println(str)
+    str := <-chs //fatal error
+    fmt.Println(str)
 }
 
 func testAsync(chs chan string) {
-	chs <- "Hello World"
+    chs <- "Hello World"
 }
 ```
 
@@ -228,8 +206,6 @@ main.main()
 exit status 2
 ```
 
-
-
 #### With Buffer
 
 在初始化Channel的時候，給`make()`第二個參數可以決定緩衝區的大小
@@ -238,42 +214,40 @@ exit status 2
 
 ```go
 func main() {
-	chs := make(chan string, 2)
-	go testAsync(chs)
-	time.Sleep(time.Millisecond * 10)
-	fmt.Println(<-chs) //Hello World
+    chs := make(chan string, 2)
+    go testAsync(chs)
+    time.Sleep(time.Millisecond * 10)
+    fmt.Println(<-chs) //Hello World
 
-	str := <-chs
-	fmt.Println(str) //the second string
+    str := <-chs
+    fmt.Println(str) //the second string
 }
 
 func testAsync(chs chan string) {
-	chs <- "Hello World"
-	chs <- "the second string"
+    chs <- "Hello World"
+    chs <- "the second string"
 }
 ```
-
-
 
 更進階一點的測試，試著讓放入和取出同時進行
 
 ```go
 func main() {
-	channel := make(chan int, 10)
-	go channelTestAsync(channel)
-	for i := 0; i < 10; i++ {
-		channel <- i
-		fmt.Println("set ", i)
-		time.Sleep(time.Millisecond * 100)
-	}
-	time.Sleep(time.Second * 1)
+    channel := make(chan int, 10)
+    go channelTestAsync(channel)
+    for i := 0; i < 10; i++ {
+        channel <- i
+        fmt.Println("set ", i)
+        time.Sleep(time.Millisecond * 100)
+    }
+    time.Sleep(time.Second * 1)
 }
 
 func channelTestAsync(channel chan int) {
-	for true {
-		fmt.Println("get ", <-channel)
-		time.Sleep(time.Millisecond * 100)
-	}
+    for true {
+        fmt.Println("get ", <-channel)
+        time.Sleep(time.Millisecond * 100)
+    }
 }
 ```
 
@@ -307,33 +281,29 @@ set  9
 
 還是說其實順序是`channel <- i`-->`fmt.Println("get ", <-channel)`-->`fmt.Println("set ", i)`
 
-
-
 繼續測試，看上面的結果，雖然給了Channel緩衝區10但重頭到尾都是放一個取一個，這次不給他緩衝區試試
 
 改`channel := make(chan int)`，結果和上次一樣。
-
-
 
 接著讓放入的速度加快
 
 ```go
 func main() {
-	channel := make(chan int)
-	go channelTestAsync(channel)
-	for i := 0; i < 10; i++ {
-		channel <- i
-		fmt.Println("set ", i)
-		time.Sleep(time.Millisecond * 10)
-	}
-	time.Sleep(time.Second * 1)
+    channel := make(chan int)
+    go channelTestAsync(channel)
+    for i := 0; i < 10; i++ {
+        channel <- i
+        fmt.Println("set ", i)
+        time.Sleep(time.Millisecond * 10)
+    }
+    time.Sleep(time.Second * 1)
 }
 
 func channelTestAsync(channel chan int) {
-	for true {
-		fmt.Println("get ", <-channel)
-		time.Sleep(time.Millisecond * 100)
-	}
+    for true {
+        fmt.Println("get ", <-channel)
+        time.Sleep(time.Millisecond * 100)
+    }
 }
 ```
 
@@ -347,13 +317,13 @@ func channelTestAsync(channel chan int) {
 
 ```go
 func main() {
-	channel := make(chan int)
-	for i := 0; i < 10; i++ {
-		channel <- i
-		fmt.Println("set ", i)
-		time.Sleep(time.Millisecond * 10)
-	}
-	time.Sleep(time.Second * 1)
+    channel := make(chan int)
+    for i := 0; i < 10; i++ {
+        channel <- i
+        fmt.Println("set ", i)
+        time.Sleep(time.Millisecond * 10)
+    }
+    time.Sleep(time.Second * 1)
 }
 ```
 
@@ -369,29 +339,25 @@ main.main()
 exit status 2
 ```
 
-
-
-
-
 給剛剛的測試程式加更多的緩衝區
 
 ```go
 func main() {
-	channel := make(chan int, 10)
-	go channelTestAsync(channel)
-	for i := 0; i < 10; i++ {
-		channel <- i
-		fmt.Println("set ", i)
-		time.Sleep(time.Millisecond * 10)
-	}
-	time.Sleep(time.Second * 1)
+    channel := make(chan int, 10)
+    go channelTestAsync(channel)
+    for i := 0; i < 10; i++ {
+        channel <- i
+        fmt.Println("set ", i)
+        time.Sleep(time.Millisecond * 10)
+    }
+    time.Sleep(time.Second * 1)
 }
 
 func channelTestAsync(channel chan int) {
-	for true {
-		fmt.Println("get ", <-channel)
-		time.Sleep(time.Millisecond * 100)
-	}
+    for true {
+        fmt.Println("get ", <-channel)
+        time.Sleep(time.Millisecond * 100)
+    }
 }
 ```
 
@@ -423,13 +389,9 @@ get  9
 
 這次和預想的差不多
 
-
-
 改個條件，變成取出比放入快，先猜會和最初一樣快的結果相同
 
 結果和猜想的一樣，**目前看起來只要放入和取出的動作都在進行，`Go`在執行的時候就會有類似"搓合"的動作，沒有緩衝區可以利用的話，快的一邊會等待慢的那一邊，而不會報錯。**
-
-
 
 #### Close Channel
 
@@ -441,20 +403,20 @@ Channel也可以使用 for range 取出 但要注意對channel 進行Close動作
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func main() {
-	ch := make(chan int)
-	go func() {
-		for i := range ch {
-			fmt.Println(i)
-		}
-		fmt.Println("Done")
-	}()
-	for i := 0; i < 10; i++ {
-		ch <- i
-	}
+    ch := make(chan int)
+    go func() {
+        for i := range ch {
+            fmt.Println(i)
+        }
+        fmt.Println("Done")
+    }()
+    for i := 0; i < 10; i++ {
+        ch <- i
+    }
 }
 ```
 
@@ -483,24 +445,24 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"sync"
+    "fmt"
+    "sync"
 )
 
 func main() {
-	ch := make(chan int)
-	wg := sync.WaitGroup{}
-	wg.Add(1)
-	go func() {defer wg.Done()
-		for i := range ch {
-			fmt.Println(i)
-		}
-		fmt.Println("Done")
-	}()
-	for i := 0; i < 10; i++ {
-		ch <- i
-	}
-	wg.Wait()
+    ch := make(chan int)
+    wg := sync.WaitGroup{}
+    wg.Add(1)
+    go func() {defer wg.Done()
+        for i := range ch {
+            fmt.Println(i)
+        }
+        fmt.Println("Done")
+    }()
+    for i := 0; i < 10; i++ {
+        ch <- i
+    }
+    wg.Wait()
 }
 ```
 
@@ -521,18 +483,17 @@ fatal error: all goroutines are asleep - deadlock!
 
 goroutine 1 [semacquire]:
 sync.runtime_Semacquire(0xc00009af58)
-	/usr/local/go-faketime/src/runtime/sema.go:56 +0x25
+    /usr/local/go-faketime/src/runtime/sema.go:56 +0x25
 sync.(*WaitGroup).Wait(0x60)
-	/usr/local/go-faketime/src/sync/waitgroup.go:130 +0x71
+    /usr/local/go-faketime/src/sync/waitgroup.go:130 +0x71
 main.main()
-	/tmp/sandbox3150108899/prog.go:21 +0xd5
+    /tmp/sandbox3150108899/prog.go:21 +0xd5
 
 goroutine 18 [chan receive]:
 main.main.func1()
-	/tmp/sandbox3150108899/prog.go:13 +0xb7
+    /tmp/sandbox3150108899/prog.go:13 +0xb7
 created by main.main
-	/tmp/sandbox3150108899/prog.go:12 +0x9f
-
+    /tmp/sandbox3150108899/prog.go:12 +0x9f
 ```
 
 使用`close()`方法將用完的channel關閉，取出方才不會一直等在那邊，go routine 也可以正常結束了
@@ -541,25 +502,25 @@ created by main.main
 package main
 
 import (
-	"fmt"
-	"sync"
+    "fmt"
+    "sync"
 )
 
 func main() {
-	ch := make(chan int)
-	wg := sync.WaitGroup{}
-	wg.Add(1)
-	go func() {defer wg.Done()
-		for i := range ch {
-			fmt.Println(i)
-		}
-		fmt.Println("Done")
-	}()
-	for i := 0; i < 10; i++ {
-		ch <- i
-	}
-	close(ch)
-	wg.Wait()
+    ch := make(chan int)
+    wg := sync.WaitGroup{}
+    wg.Add(1)
+    go func() {defer wg.Done()
+        for i := range ch {
+            fmt.Println(i)
+        }
+        fmt.Println("Done")
+    }()
+    for i := 0; i < 10; i++ {
+        ch <- i
+    }
+    close(ch)
+    wg.Wait()
 }
 ```
 
@@ -579,8 +540,6 @@ func main() {
 Done
 ```
 
-
-
 #### Check if the channel is closed
 
 我們可以在讀取數值時順便確認channel是否已經關閉
@@ -589,22 +548,16 @@ Done
 value, OK = <- ch // 當OK==false時代表通道已經被關閉了，此時value會得到zero value
 ```
 
-
-
-#### channel 間傳遞資料
+#### channel 間傳遞資料(傳一筆)
 
 ```go
 chan1 <- <- chan2
 ```
 
-
-
-
-
 #### Select
 
 > The `select` statement lets a goroutine wait on multiple communication operations.
->
+> 
 > A `select` blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
 
 a tour of go example
@@ -615,28 +568,28 @@ package main
 import "fmt"
 
 func fibonacci(c, quit chan int) {
-	x, y := 0, 1
-	for {
-		select {
-		case c <- x:
-			x, y = y, x+y
-		case <-quit:
-			fmt.Println("quit")
-			return
-		}
-	}
+    x, y := 0, 1
+    for {
+        select {
+        case c <- x:
+            x, y = y, x+y
+        case <-quit:
+            fmt.Println("quit")
+            return
+        }
+    }
 }
 
 func main() {
-	c := make(chan int)
-	quit := make(chan int)
-	go func() {
-		for i := 0; i < 10; i++ {
-			fmt.Println(<-c)
-		}
-		quit <- 0
-	}()
-	fibonacci(c, quit)
+    c := make(chan int)
+    quit := make(chan int)
+    go func() {
+        for i := 0; i < 10; i++ {
+            fmt.Println(<-c)
+        }
+        quit <- 0
+    }()
+    fibonacci(c, quit)
 }
 ```
 
@@ -656,16 +609,12 @@ result
 quit
 ```
 
-
-
 單看範例還是有點難懂，這邊說明一下目前觀察到的特點
 
 * `select-case`是`channel`專用的語法，不會有`channel`以外的東西出現在這裡
 * 不同於`switch-case`，`select-case`中的`case`不是"我在OO情況下要做XX事"而是"我先做OO事再接著做XX事"的感覺
 * `select`會**隨機**挑選一個**做得到**的`case`進行(例入往channel放入東西，或是從非空的channel取出東西)
 * `for`搭配`select`事很常見的用法，如上例
-
-
 
 以下內容部分節錄自[AppleBoy的文章](https://blog.wu-boy.com/2019/11/four-tips-with-select-in-golang/)，補充一些關於Select的特點
 
@@ -725,8 +674,6 @@ func main() {
 
 主程式 main 就不會因為讀不到 channel value 造成整個程式 deadlock。
 
-
-
 ##### Timeout
 
 用 select 讀取 channel 時，一定會實作超過一定時間後就做其他事情，而不是一直 blocking 在 select 內。底下是簡單的例子:
@@ -768,8 +715,6 @@ func main() {
 
 可以注意 `time.After` 是回傳 `chan time.Time`，所以執行 select 超過一秒時，就會輸出 **timeout 02**。
 
-
-
 ##### 檢查 channel 是否已滿
 
 ```go
@@ -796,11 +741,7 @@ Select 特性的一種利用方式
 
 如果`ch`已滿，執行到`select`的時候會因為`ch`滿了所以無法再丟數值進去，轉而去執行`default`的內容
 
-
-
 ##### Select for loop
-
-
 
 用於處理多個Channel的常見做法
 
@@ -844,15 +785,11 @@ func main() {
 
 可以設定成符合特定條件(想做的都做完了/ERROR/TIMEOUT...等等)，利用`break`脫離loop或直接`return`
 
-
-
 ## Sync
 
 很多時候主執行緒等待非同步方法完成才能繼續進行下去，所以`C#` `Dart` 在使用非同步的時候才會大量使用`await`關鍵字
 
 `Go`並沒有`await`但是卻有類似作用的東西，就是`sync.WaitGroup`
-
-
 
 ### sync.WaitGroup
 
@@ -862,9 +799,9 @@ func main() {
 
 ```go
 func main() {
-	wg := sync.WaitGroup{}
-	fmt.Printf("%T", wg) // sync.WaitGroup
-	fmt.Println("\r\n", wg) //{{} [0 0 0]}
+    wg := sync.WaitGroup{}
+    fmt.Printf("%T", wg) // sync.WaitGroup
+    fmt.Println("\r\n", wg) //{{} [0 0 0]}
 }
 ```
 
@@ -872,43 +809,41 @@ func main() {
 
 ```go
 func main() {
-	wg := sync.WaitGroup{}
-	fmt.Println("初始化")
-	fmt.Println(wg) //{{} [0 0 0]}
-	wg.Add(2)
-	fmt.Println("Add(2)之後")
-	fmt.Println(wg) //{{} [0 2 0]}
-	go waitMeAsync(&wg)
-	go waitMeAsync2(&wg)
-	fmt.Println("傳入go routines之後")
-	fmt.Println(wg) //{{} [0 2 0]}
-	wg.Wait()
-	fmt.Println("wait之後")
-	fmt.Println(wg) //{{} [0 0 0]}
+    wg := sync.WaitGroup{}
+    fmt.Println("初始化")
+    fmt.Println(wg) //{{} [0 0 0]}
+    wg.Add(2)
+    fmt.Println("Add(2)之後")
+    fmt.Println(wg) //{{} [0 2 0]}
+    go waitMeAsync(&wg)
+    go waitMeAsync2(&wg)
+    fmt.Println("傳入go routines之後")
+    fmt.Println(wg) //{{} [0 2 0]}
+    wg.Wait()
+    fmt.Println("wait之後")
+    fmt.Println(wg) //{{} [0 0 0]}
 }
 
 func waitMeAsync(wg *sync.WaitGroup) {
-	time.Sleep(time.Millisecond * 100)
-	wg.Done()
+    time.Sleep(time.Millisecond * 100)
+    wg.Done()
 }
 
 func waitMeAsync2(wg *sync.WaitGroup) {
-	time.Sleep(time.Millisecond * 200)
-	wg.Done()
+    time.Sleep(time.Millisecond * 200)
+    wg.Done()
 }
 ```
 
 以下說明節錄自[ITHELP](https://ithelp.ithome.com.tw/articles/10242268)
 
 > WaitGroup拿`計數器(Counter)`來當作任務數量，若counter `< 0`會發生`panic`。
->
+> 
 > - WaitGroup.**Add(n)**：計數器`+n`
 > - WaitGroup.**Done()**：任務完成，從計數器中`減去1`，可搭配`defer`使用
 > - WaitGroup.**Wait()**：阻塞(Block)住，直到計數器`歸0`
->
+> 
 > 如果計數器大於線程數就會發生`死結(Deadlock)`。
-
-
 
 ### Timeout
 
@@ -982,19 +917,17 @@ if waitTimeout(&wg, time.Second) {
 var count = 0
 
 func main() {
-	for i := 0; i < 10000; i++ {
-		go race()
-	}
-	time.Sleep(time.Millisecond * 100)
-	fmt.Println(count) //9616 每次執行都不一樣但都不到1000
+    for i := 0; i < 10000; i++ {
+        go race()
+    }
+    time.Sleep(time.Millisecond * 100)
+    fmt.Println(count) //9616 每次執行都不一樣但都不到1000
 }
 
 func race() {
-	count++
+    count++
 }
 ```
-
-
 
 簡單來說就是非同步程式同時使用同一個物件會導致的意外情況，以前在寫`C#`的時候也有遇到過幾次，在`Go`的作法也是一樣的==>**鎖起來**就好
 
@@ -1006,25 +939,23 @@ func race() {
 var count = 0
 
 func main() {
-	wg := sync.WaitGroup{}
-	for i := 0; i < 10000; i++ {
-		wg.Add(1)
-		go race(&wg)
-	}
-	//time.Sleep(time.Millisecond * 100)
-	wg.Wait()
-	fmt.Println(count) //9306
+    wg := sync.WaitGroup{}
+    for i := 0; i < 10000; i++ {
+        wg.Add(1)
+        go race(&wg)
+    }
+    //time.Sleep(time.Millisecond * 100)
+    wg.Wait()
+    fmt.Println(count) //9306
 }
 
 func race(wg *sync.WaitGroup) {
-	defer wg.Done()
-	count++
+    defer wg.Done()
+    count++
 }
 ```
 
 這個做法是可以確保`race()`執行了1000次，但仍無法改變race情況的發生。畢竟原本的100ms也夠執行1000次了。
-
-
 
 ### sync.Mutex
 
@@ -1052,24 +983,22 @@ var count = 0
 var lock sync.Mutex
 
 func main() {
-	wg := sync.WaitGroup{}
-	for i := 0; i < 10000; i++ {
-		wg.Add(1)
-		go race(&wg)
-	}
-	wg.Wait()
-	fmt.Println(count) //1000
+    wg := sync.WaitGroup{}
+    for i := 0; i < 10000; i++ {
+        wg.Add(1)
+        go race(&wg)
+    }
+    wg.Wait()
+    fmt.Println(count) //1000
 }
 
 func race(wg *sync.WaitGroup) {
-	defer wg.Done()
-	lock.Lock()
-	count++
-	lock.Unlock()
+    defer wg.Done()
+    lock.Lock()
+    count++
+    lock.Unlock()
 }
 ```
-
-
 
 ## errgroup
 
@@ -1085,23 +1014,19 @@ Go 就是以Concurrency 的方式執行方法，這個方法必須要回傳error
 
 Wait 就...wait ，另外會吐一個前面 Go() 的**第一個** error出來
 
-
-
 ### 是否中斷執行
 
 這算是errgroup比較貼心的地方，根據物件建立的方式不同，可以決定是否在出現error的時候中斷執行
 
 ```go
 type Group struct {
-	// contains filtered or unexported fields
+    // contains filtered or unexported fields
 }
 ```
 
 > A Group is a collection of goroutines working on subtasks that are part of the same overall task.
->
+> 
 > A zero Group is valid and does not cancel on error.
-
-
 
 簡單來說不想中斷執行的話就寫成
 
@@ -1117,19 +1042,13 @@ g := errgroup.Group{}
 g := new(errgroup.Group)
 ```
 
-
-
 想中斷的話就用這個方法
 
 ```go
 func WithContext(ctx context.Context) (*Group, context.Context)
 ```
 
-
-
 注意，即便不中斷執行，Wait()方法還是只會吐第一個error回來
-
-
 
 ## 補充
 
@@ -1143,25 +1062,24 @@ func WithContext(ctx context.Context) (*Group, context.Context)
 
 ```go
 func runAsync[I any, O any](inputs []I, delegate func(I) O) []O {
-	res := make([]O, len(inputs))
-	m := sync.Mutex{}
-	wg := sync.WaitGroup{}
-	wg.Add(len(inputs))
-	for i, input := range inputs {
-		i := i
-		input := input
-		go func() {
-			defer wg.Done()
-			result := delegate(input)
-			m.Lock()
-			res[i] = result
-			m.Unlock()
-		}()
-	}
-	wg.Wait()
-	return res
+    res := make([]O, len(inputs))
+    m := sync.Mutex{}
+    wg := sync.WaitGroup{}
+    wg.Add(len(inputs))
+    for i, input := range inputs {
+        i := i
+        input := input
+        go func() {
+            defer wg.Done()
+            result := delegate(input)
+            m.Lock()
+            res[i] = result
+            m.Unlock()
+        }()
+    }
+    wg.Wait()
+    return res
 }
-
 ```
 
 說是泛用但仍需依需求進行修改就是了。
