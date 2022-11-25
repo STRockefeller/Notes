@@ -79,3 +79,25 @@ Received: XXX
 試著照這篇文章加入source map type 的設定，但情況依然沒有改善。
 
 目前只能先用不得已的作法，先跑一次debug，查看被修改後的 source code ，找到想要中斷的位置，並在該處下中斷點。
+
+## Property 'XXX' does not exist on type ...
+
+搞定jest之後，雖然測試可以通過，但vue反而會run失敗。
+
+![img](https://i.imgur.com/o47nXFo.png)
+
+在[這篇文章](https://github.com/kulshekhar/ts-jest/issues/2834)中找到解決辦法。
+
+簡單的做法就是把wrapper.vm轉成any讓型別確認可以通過
+
+例如原本是
+
+```typescript
+wrapper.vm.xxx
+```
+
+改成
+
+```typescript
+(wrapper.vm as any).xxx
+```

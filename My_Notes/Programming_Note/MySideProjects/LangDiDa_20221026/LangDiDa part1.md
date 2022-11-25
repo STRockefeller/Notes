@@ -241,3 +241,183 @@ enum Language{
 |  hello | 0        | fdjepofiowqjgJAISWODFJWe |
 
 冷靜下來仔細一想其他然位也不是沒有作為查詢條件的機會，例如複習日，這麼做還是不太好。
+
+---
+
+## 20221028
+
+### model-2
+
+繼續完成model的部分。
+
+題外話。我感覺nosql似乎不太適合這個專案，比起google sheets還要更不適合。到時候實作的時候先不考慮nosql好了。
+
+我需要有一個model紀錄使用者的資訊。類似於lingq中會記錄每天、每周的學習單字量。還有設定學習目標等等的功能。目前不打算支援多人使用(身分認證)。所以只要存一份資訊即可。
+
+```protobuf
+syntax = "proto3";
+
+package protomodels;
+
+import "google/protobuf/timestamp.proto";
+
+message Log{
+    google.protobuf.Timestamp date = 1;
+    int32 review_words = 2;
+    int32 new_words    = 3;
+    int32 streak = 4;
+    bool streak_updated = 5;
+}
+```
+
+```protobuf
+syntax = "proto3";
+
+package protomodels;
+
+message UserSettings{
+    int32 daily_goal = 1;
+}
+```
+
+`review_words` `new_words` `daily_goal` 都不分語言，先寫的簡單點，而且我覺得憑當天的興致決定要學什麼感覺比較自由。
+`streak` 指得是連續目標達成天數。想不到比較合適的命名，所以就拿lingq的先來用。
+暫且先這樣。想到再補。
+
+後悔了，每日目標感覺沒有必要存，改成使用設定檔來決定好了。`UserSettings` model 就可以刪除掉了。
+
+### storage
+
+```go
+type Storage interface {
+ ListCards(ctx context.Context, cardIndex []protomodels.CardIndex) ([]protomodels.Card, error)
+ // upsert to logs NewCards++
+ CreateCard(ctx context.Context, card protomodels.Card) error
+ // zero values will NOT been updated
+ UpdateCard(ctx context.Context, card protomodels.Card) error
+ DeleteCard(ctx context.Context, cardIndex protomodels.CardIndex) error
+
+ GetLog(ctx context.Context, date time.Time) (protomodels.Log, error)
+ ListLogs(ctx context.Context, from time.Time, until time.Time) ([]protomodels.Log, error)
+
+ // upsert to logs ReviewedCards++
+ // update card review date
+ ReviewCard(ctx context.Context, cardIndex protomodels.CardIndex) error
+}
+```
+
+學習新的卡片被我歸類到`CreateCard`裡面了，複習則是獨立出來(因為它不一定會更新到卡片內容)。
+`Log`沒有建立方法，應為預計會在`CreateCard`以及`ReviewCard`做upsert
+註解是寫給我自己看得，提醒我這個方法應該做到甚麼事情。
+
+## 20221031
+
+今天參考了一些架構設計的文章，決定用這個架構來試試。
+![img](https://i.imgur.com/oItfIfB.png)
+
+## 20221101
+
+### 修改架構
+
+延續昨天的進度，先修改一下專案結構
+
+```powershell
+PS D:\OOO\XXX\langdida-server> TREE . /F
+D:\OOO\XXX\LANGDIDA-SERVER
+│  .gitignore
+│  go.mod
+│  go.sum
+│  LICENSE
+│  main.go
+│  README.md
+│
+├─assets
+├─delivery
+│  └─ginserver
+│          server.go
+│
+├─models
+│  └─protomodels
+│          card.pb.go
+│          card.proto
+│          log.pb.go
+│          log.proto
+│          protogen.go
+│
+├─service
+│      service.go
+│
+└─storage
+        storage.go
+```
+
+其中storage就代表repository層級。
+
+接著再從業務邏輯的角度，幫我的功能分個類。
+
+1. primary domain : 單字的建立以及複習
+2. sub domain : 學習歷程追蹤記錄
+3. sub domain: 問題集生成
+
+然後來設計service (use cases)
+
+#### CardService
+
+首先是`CardService`，我需要的功能有:
+
+* 取的項目的內容(確認是否存在)
+* 學習新單字/片語/句型
+* 編輯項目(新增例句、修改label、熟練度、應複習日等等)
+* 關聯項目(包含如果項目不存在時，自動建立卡片的邏輯)
+* 查詢應複習項目
+* 以label查詢項目
+* 以語言查詢項目
+* 查字典功能(這個部分我還沒什麼具體的想法)
+
+```go
+type CardService interface {
+ GetCard(ctx context.Context, condition protomodels.CardIndex) (protomodels.Card, error)
+ CreateCard(ctx context.Context, card protomodels.Card) error
+ EditCard(ctx context.Context, card protomodels.Card) error
+ ListCardsShouldBeReviewed(ctx context.Context) ([]protomodels.Card, error)
+ ListCardsByLabelsAndLanguage(ctx context.Context, labels []string, language protomodels.Language) ([]protomodels.Card, error)
+
+ // return url
+ SearchWithDictionary(ctx context.Context, cardIndex protomodels.CardIndex) (string, error)
+}
+```
+
+稍微做了點調整，關聯項目的部分感覺比較像是技術細節，並且預計應該不會獨立使用，所以把它合併到編輯功能去了。
+
+#### LogService
+
+接著是`LogService`，我需要的功能有:
+
+* 列出學習狀態，包含各個熟練程度的項目數量，連續達成目標的日數等等。
+* ~~更新log(分為手動和自動觸發)~~(改在項目更動時更新)
+
+```go
+type LogService interface {
+ GetLogStatus(ctx context.Context) (LogStatus, error)
+}
+```
+
+#### ExerciseService
+
+```go
+type ExerciseService interface {
+ CreateChoiceProblems(ctx context.Context, cards protomodels.CardIndex) (problems []string, answers []string, err error)
+ CreateFillingProblems(ctx context.Context, cards protomodels.CardIndex) (problems []string, answers []string, err error)
+}
+```
+
+選擇題跟填空題，命名暫定，晚點再去查正確的寫法。
+
+#### IOService
+
+用於import&export，目前暫時沒有想到內容，留待以後再補充
+
+### 修改card model
+
+現在才發現當初設計的model中，連解釋說明的欄位都沒有= =。
+趕緊來補上...

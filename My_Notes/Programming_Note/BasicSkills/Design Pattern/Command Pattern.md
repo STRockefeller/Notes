@@ -34,7 +34,7 @@
 >
 > ```java
 > public class Light {
-> 	//Receiver可以是任何的類
+>  //Receiver可以是任何的類
 >     public void turnOn(){
 >         System.out.println("打開燈");
 >     }
@@ -326,8 +326,6 @@
 >
 > 命令模式實現起來沒有很困難，幾乎所有的類別都可以套用命令模式，但是無謂的套用只會增加類別的數量。所以在有適合使用命令模式的需求，到那時再重構就好。
 
-
-
 ---
 
 > ![](https://s3.notfalse.net/wp-content/uploads/2016/12/24154946/command-pattern-class-diagram1.png)
@@ -370,7 +368,7 @@
 
 在NotFalse裡面還多提了Client，不過看來並不是必要項目
 
-比較混淆的地方是執行的部分，Command裡面會包含Reciever物件，Command裡面的執行方法會令該Receiver物件執行相應的動作
+比較混淆的地方是執行的部分，Command裡面會包含Receiver物件，Command裡面的執行方法會令該Receiver物件執行相應的動作
 
 ---
 
@@ -435,9 +433,9 @@ namespace CommandPattern
 
 先分配一下每個部件扮演的角色
 
-* Command:我所下的各種指令，如水機啟動、主軸啟動、軸向移動等等
-* Receiver:實際執行動作的物件，在這個情境下應為工具機本身
-* Invoker:儲存指令以執行指令內容，應為控制器
+- Command:我所下的各種指令，如水機啟動、主軸啟動、軸向移動等等
+- Receiver:實際執行動作的物件，在這個情境下應為工具機本身
+- Invoker:儲存指令以執行指令內容，應為控制器
 
 為了增加挑戰性試著實作undo功能，雖然實際工具機不可能有這個功能就是了
 
@@ -636,8 +634,6 @@ namespace CommandPattern
 
 Machine類別其實理想是以單例模式設計，但由於undo功能的設計，多實例化一個物件作為上一個ˋ狀態的儲存
 
-
-
 考慮一下是否有其他實現undo的方法
 
 在這個例子中，簡單的作法的話也可以讓undo再次執行Execute，如下
@@ -667,8 +663,6 @@ Machine類別其實理想是以單例模式設計，但由於undo功能的設計
 
 當然這麼做沒有Execute之前先做undo就會很奇怪
 
-
-
 閱讀NotFalse文章，得知兩種做法
 
 > 1. 新增一個 具體命令類別，讓 execute() 呼叫復原邏輯。
@@ -682,10 +676,6 @@ public class Jas
     public string hello(){}
 }
 ```
-
-
-
-
 
 另一個問題就是耦合嚴重，Command依賴於Receiver在架構中可能是不可避免的，但是在我這個程式中Invoker也依賴於Receiver
 

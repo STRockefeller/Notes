@@ -12,7 +12,7 @@
 
 ### CPP
 
-### C#
+### C #
 
 ### dart
 
@@ -79,8 +79,6 @@ int main()
 
 同dart
 
-
-
 #### CPP Array
 
 **Pass By Reference**
@@ -132,8 +130,6 @@ int main()
 
 同 dart
 
-
-
 印出指標來看
 
 ```cpp
@@ -161,8 +157,6 @@ int main()
 }
 ```
 
-
-
 #### CPP Vector
 
 **Pass By Value**
@@ -188,8 +182,6 @@ int main()
     return 0;
 }
 ```
-
-
 
 印出指標來看
 
@@ -217,8 +209,6 @@ int main()
 }
 ```
 
-
-
 #### C# Array
 
 **reference type**
@@ -237,15 +227,13 @@ public class Program
         foo(arr);
         Console.WriteLine(arr[2]); // 5
     }
-	
+ 
     private static void foo(int[] arr)
     {
         arr[2] = 5;
     }
 }
 ```
-
-
 
 reassign
 
@@ -268,8 +256,6 @@ public class Program
     }
 }
 ```
-
-
 
 #### C# List
 
@@ -296,9 +282,7 @@ public class Program
 }
 ```
 
-
-
-reassign 
+reassign
 
 ```C#
 using System.Collections.Generic;
@@ -318,8 +302,6 @@ public class Program
     }
 }
 ```
-
-
 
 同dart
 
@@ -364,8 +346,6 @@ void main() {
 
 dart 其他型別也是類似的情況，就不一一細說了
 
-
-
 #### go Array
 
 **pass by value**
@@ -376,18 +356,16 @@ package main
 import "fmt"
 
 func main() {
-	arr := [3]int{1, 2, 3}
-	foo(arr)
-	fmt.Println(arr[2]) // 3
+ arr := [3]int{1, 2, 3}
+ foo(arr)
+ fmt.Println(arr[2]) // 3
 }
 
 func foo(arr [3]int) {
-	arr[2] = 5
+ arr[2] = 5
 }
 
 ```
-
-
 
 印出指標來看
 
@@ -397,28 +375,24 @@ package main
 import "fmt"
 
 func main() {
-	arr := [3]int{1, 2, 3}
-	fmt.Printf("arr = %p, arr[0] = %p\n", &arr, &arr[0]) // arr = 0xc0000b8000, arr[0] = 0xc0000b8000
-	foo(arr)
-	fmt.Println(arr[2]) // 3
+ arr := [3]int{1, 2, 3}
+ fmt.Printf("arr = %p, arr[0] = %p\n", &arr, &arr[0]) // arr = 0xc0000b8000, arr[0] = 0xc0000b8000
+ foo(arr)
+ fmt.Println(arr[2]) // 3
 }
 
 func foo(arr [3]int) {
-	fmt.Printf("arr = %p, arr[0] = %p\n", &arr, &arr[0]) // arr = 0xc0000b8030, arr[0] = 0xc0000b8030
-	arr[2] = 5
+ fmt.Printf("arr = %p, arr[0] = %p\n", &arr, &arr[0]) // arr = 0xc0000b8030, arr[0] = 0xc0000b8030
+ arr[2] = 5
 }
 
 ```
-
-
 
 #### go Slice
 
 **pass by value , but the value is len, cap and address**
 
 基本上跟下面的typescript array相似
-
-
 
 指定index修改
 
@@ -428,18 +402,16 @@ package main
 import "fmt"
 
 func main() {
-	slc := []int{1, 2, 3}
-	foo(slc)
-	fmt.Println(slc[2]) // 5
+ slc := []int{1, 2, 3}
+ foo(slc)
+ fmt.Println(slc[2]) // 5
 }
 
 func foo(slc []int) {
-	slc[2] = 5
+ slc[2] = 5
 }
 
 ```
-
-
 
 reassign
 
@@ -449,18 +421,16 @@ package main
 import "fmt"
 
 func main() {
-	slc := []int{1, 2, 3}
-	foo(slc)
-	fmt.Println(slc[2]) // 3
+ slc := []int{1, 2, 3}
+ foo(slc)
+ fmt.Println(slc[2]) // 3
 }
 
 func foo(slc []int) {
-	slc = []int{1, 2, 5}
+ slc = []int{1, 2, 5}
 }
 
 ```
-
-
 
 golang 我們就可以印出指標來驗證了
 
@@ -470,29 +440,25 @@ package main
 import "fmt"
 
 func main() {
-	slc := []int{1, 2, 3}
-	fmt.Printf("slc = %p, slc[0] = %p\n", &slc, &slc[0]) //slc = 0xc00009c000, slc[0] = 0xc00009e000
-	foo(slc)
-	fmt.Println(slc[2]) // 3
+ slc := []int{1, 2, 3}
+ fmt.Printf("slc = %p, slc[0] = %p\n", &slc, &slc[0]) //slc = 0xc00009c000, slc[0] = 0xc00009e000
+ foo(slc)
+ fmt.Println(slc[2]) // 3
 }
 
 func foo(slc []int) {
-	fmt.Printf("slc = %p, slc[0] = %p\n", &slc, &slc[0]) // slc = 0xc00009c018, slc[0] = 0xc00009e000
-	slc = []int{1, 2, 5}
-	fmt.Printf("slc = %p, slc[0] = %p\n", &slc, &slc[0]) // slc = 0xc00009c018, slc[0] = 0xc00009e030
+ fmt.Printf("slc = %p, slc[0] = %p\n", &slc, &slc[0]) // slc = 0xc00009c018, slc[0] = 0xc00009e000
+ slc = []int{1, 2, 5}
+ fmt.Printf("slc = %p, slc[0] = %p\n", &slc, &slc[0]) // slc = 0xc00009c018, slc[0] = 0xc00009e030
 }
 
 ```
-
-
 
 [Are slices passed by value?](https://stackoverflow.com/questions/39993688/are-slices-passed-by-value)
 
 #### TypeScript Array
 
 **pass by sharing?**
-
-
 
 指定index修改
 
@@ -510,8 +476,6 @@ function foo(arr:Array<number>):void{
 main();
 ```
 
-
-
 reassign
 
 ```typescript
@@ -528,8 +492,6 @@ function foo(arr:Array<number>):void{
 main();
 ```
 
-
-
 我是理解成
 $$
 假如 在main裡面 arr(0x0001)\rightarrow[1,2,3](0x1001)\\
@@ -538,12 +500,39 @@ $$
 case2中因為做了reassign所以 arr(0x0002)\rightarrow[1,2,5](0x1002) 指向了一個新的位址，故不會影響main的arr
 $$
 
+補充:將array value取出後修改。
+
+```typescript
+function main():void{
+  const arr = [{num:1},{num:2},{num:3}];
+  console.log(arr[1].num); // 2
+
+  let a = arr[1];
+  a.num = 10;
+  console.log(arr[1].num); // 10
+}
+
+main();
+```
+
+```typescript
+function main():void{
+  const arr = [1,2,3];
+  console.log(arr[1]); // 2
+
+  let a = arr[1];
+  a = 10;
+  console.log(arr[1]); // 2
+}
+
+main();
+```
+
+詳請可以參考下方class的特性說明。
 
 ### Map/Set
 
 #### C Map
-
-
 
 copy a new map
 
@@ -569,8 +558,6 @@ int main()
 ```
 
 c 和 cpp 都使引用同來源的map，詳細可以看下面cpp的結果
-
-
 
 #### CPP Map
 
@@ -600,11 +587,7 @@ int main()
 }
 ```
 
-
-
 #### CPP Set
-
-
 
 ```cpp
 #include <stdio.h>
@@ -632,10 +615,6 @@ int main()
 }
 ```
 
-
-
-
-
 #### C# Dictionary
 
 **reference type**
@@ -661,8 +640,6 @@ public class Program
     }
 }
 ```
-
-
 
 reassign
 
@@ -690,8 +667,6 @@ public class Program
 }
 ```
 
-
-
 #### C# HashSet
 
 **reference type**
@@ -716,8 +691,6 @@ public class Program
 }
 ```
 
-
-
 reassign
 
 ```c#
@@ -740,8 +713,6 @@ public class Program
 }
 ```
 
-
-
 #### dart Map
 
 **reference type**
@@ -759,8 +730,6 @@ void foo(Map<int, int> m) {
 
 ```
 
-
-
 reassign
 
 ```dart
@@ -775,8 +744,6 @@ void foo(Map<int, int> m) {
 }
 
 ```
-
-
 
 #### dart Set
 
@@ -795,10 +762,6 @@ void foo(Set<int> s) {
 
 ```
 
-
-
-
-
 #### go Map
 
 **reference type**
@@ -809,22 +772,20 @@ package main
 import "fmt"
 
 func main() {
-	m := make(map[int]int)
-	m[1] = 100
+ m := make(map[int]int)
+ m[1] = 100
 
-	fmt.Printf("m = %p\n", &m) // m = 0xc00000e028
-	foo(m)
-	fmt.Println(m[1]) // 200
+ fmt.Printf("m = %p\n", &m) // m = 0xc00000e028
+ foo(m)
+ fmt.Println(m[1]) // 200
 }
 
 func foo(m map[int]int) {
-	fmt.Printf("m = %p\n", &m) // m = 0xc00000e038
-	m[1] = 200
+ fmt.Printf("m = %p\n", &m) // m = 0xc00000e038
+ m[1] = 200
 }
 
 ```
-
-
 
 reassign
 
@@ -834,23 +795,21 @@ package main
 import "fmt"
 
 func main() {
-	m := make(map[int]int)
-	m[1] = 100
+ m := make(map[int]int)
+ m[1] = 100
 
-	fmt.Printf("m = %p\n", &m) // m = 0xc00000e028
-	foo(m)
-	fmt.Println(m[1]) // 100
+ fmt.Printf("m = %p\n", &m) // m = 0xc00000e028
+ foo(m)
+ fmt.Println(m[1]) // 100
 }
 
 func foo(m map[int]int) {
-	fmt.Printf("m = %p\n", &m) // m = 0xc00000e038
-	m = map[int]int{1: 200}
-	fmt.Printf("m = %p\n", &m) // m = 0xc00000e038
+ fmt.Printf("m = %p\n", &m) // m = 0xc00000e038
+ m = map[int]int{1: 200}
+ fmt.Printf("m = %p\n", &m) // m = 0xc00000e038
 }
 
 ```
-
-
 
 #### TypeScript Map
 
@@ -890,8 +849,6 @@ function foo(m: Map<number, number>): void {
 main();
 ```
 
-
-
 reassign
 
 ```typescript
@@ -912,8 +869,6 @@ function foo(m: Map<number, number>): void {
 main();
 ```
 
-
-
 #### TypeScript Set
 
 **pass by sharing**
@@ -931,8 +886,6 @@ function foo(s: Set<number>): void {
 
 main();
 ```
-
-
 
 ### Class/Struct
 
@@ -966,8 +919,6 @@ int main()
     return 0;
 }
 ```
-
-
 
 #### CPP Struct
 
@@ -1004,8 +955,6 @@ int main()
     return 0;
 }
 ```
-
-
 
 #### CPP Class
 
@@ -1047,8 +996,6 @@ int main()
 }
 ```
 
-
-
 #### C# Struct
 
 **value type**
@@ -1083,8 +1030,6 @@ public class Program
 }
 ```
 
-
-
 #### C# Class
 
 **reference type**
@@ -1118,8 +1063,6 @@ public class Program
 }
 ```
 
-
-
 reassign
 
 ```C#
@@ -1151,8 +1094,6 @@ public class Program
 }
 ```
 
-
-
 #### dart Class
 
 **reference type**
@@ -1179,8 +1120,6 @@ void foo(Person p) {
 
 ```
 
-
-
 reassign
 
 ```dart
@@ -1205,8 +1144,6 @@ void foo(Person p) {
 
 ```
 
-
-
 #### go Struct
 
 **pass by value**
@@ -1217,30 +1154,28 @@ package main
 import "fmt"
 
 func main() {
-	p := Person{
-		name: "John",
-		age:  18,
-	}
+ p := Person{
+  name: "John",
+  age:  18,
+ }
 
-	fmt.Printf("p = %p\n", &p) // p = 0xc00000c030
-	foo(p)
-	fmt.Println(p.name) // John
+ fmt.Printf("p = %p\n", &p) // p = 0xc00000c030
+ foo(p)
+ fmt.Println(p.name) // John
 }
 
 func foo(p Person) {
-	fmt.Printf("p = %p\n", &p) // p = 0xc00000c048
-	p.name = "Ted"
-	fmt.Printf("p = %p\n", &p) // p = 0xc00000c048
+ fmt.Printf("p = %p\n", &p) // p = 0xc00000c048
+ p.name = "Ted"
+ fmt.Printf("p = %p\n", &p) // p = 0xc00000c048
 }
 
 type Person struct {
-	name string
-	age  int
+ name string
+ age  int
 }
 
 ```
-
-
 
 #### TypeScript Class
 
@@ -1269,8 +1204,6 @@ function foo(p: Person): void {
 main();
 ```
 
-
-
 reassign
 
 ```typescript
@@ -1295,4 +1228,3 @@ function foo(p: Person): void {
 
 main();
 ```
-
