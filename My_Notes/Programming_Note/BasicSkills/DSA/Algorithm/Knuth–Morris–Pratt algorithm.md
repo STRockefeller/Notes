@@ -1,5 +1,7 @@
 # Knuth–Morris–Pratt algorithm
 
+#string_searching_algorithms #algorithms
+
 [wiki](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
 
 [初學者學 KMP 演算法](https://yeefun.github.io/kmp-algorithm-for-beginners/)
@@ -201,8 +203,6 @@ func getNext(s string) map[int]int {
 
 其中`getNext`會吐出LPS表，這個方法的執行效率關係到整個KMP演算法的效率
 
-
-
 ## LPS Table
 
 從上一節可以看出，kmp演算法的重點落在於LPS table，這邊就來重點了解一下LPS table是甚麼樣子?他能怎麼幫助我們實現KMP演算法，又該如何取得?
@@ -237,8 +237,6 @@ index 5: "ABCDAB" => P:"AB"...;S:"AB"... => 2
 
 index 6: "ABCDABD" => P:...;S:... => 0
 
-
-
 總之就是找前後綴相同的字串中最長者的長度，全部寫完大概會像是
 
 ```
@@ -246,16 +244,12 @@ text: ABCDABD
 LPS:  0000120
 ```
 
-
-
 再看一個比較複雜的例子
 
 ```
 text: abcabffabcabc
 LPS:  0001200123453
 ```
-
-
 
 然後就是把這個表實作出來
 
@@ -282,8 +276,6 @@ func getNext(s string) map[int]int {
 
 兩個迴圈，直接讓kmp的效率蕩然無存
 
-
-
 實際上LPS表的實作方式有很多種。下面提供來自[這篇文章](https://yeefun.github.io/kmp-algorithm-for-beginners/)的做法為參考
 
 把前面比較複雜的例子拿來看
@@ -292,8 +284,6 @@ func getNext(s string) map[int]int {
 text: abcabffabcabc
 LPS:  0001200123453
 ```
-
-
 
 我們把整個字串和substring對在一起比較
 
@@ -511,8 +501,6 @@ LPS:       0001200123453
 
 結束
 
-
-
 接著把它實作出來
 
 ```go
@@ -541,8 +529,6 @@ func getNext(s string) map[int]int {
  return next
 }
 ```
-
-
 
 ### Usage
 
@@ -591,7 +577,7 @@ i:     0123456
 l:     0000120
 ```
 
-`ABCDAB ` vs `ABCDABD` 從index 6開始對不上，找LPS[5] = 2。把index 2 放到沒對上的位置繼續。
+`ABCDAB` vs `ABCDABD` 從index 6開始對不上，找LPS[5] = 2。把index 2 放到沒對上的位置繼續。
 
 ```
              1         2

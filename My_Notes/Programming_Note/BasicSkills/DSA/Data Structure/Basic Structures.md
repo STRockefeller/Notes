@@ -1,5 +1,5 @@
 # Basic Structures
-
+/split
 Reference:
 
 [演算法筆記](http://web.ntnu.edu.tw/~algo/Data.html)

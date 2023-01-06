@@ -1,0 +1,171 @@
+{
+  "main": {
+    "id": "79e4b6009f9b5162",
+    "type": "split",
+    "children": [
+      {
+        "id": "6263cd8808b24aa9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4f6e705e5d1b2259",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          },
+          {
+            "id": "7213a601fd314745",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Basic Structures.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "327b27dd45f69eca",
+    "type": "split",
+    "children": [
+      {
+        "id": "8f83386d1ca6be87",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d0ca4190dab819b9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "691e1609af6f2456",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ceae17922e56693b",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6325a3935438480e",
+    "type": "split",
+    "children": [
+      {
+        "id": "3dde3152ca7a7e29",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0dc6b178e858f175",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Basic Structures.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "db622d3f529d3ba4",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Basic Structures.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7ac99c9070dd3c57",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "6d1c420c45a9a366",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Basic Structures.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "canvas:Create new canvas": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "7213a601fd314745",
+  "lastOpenFiles": [
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/RabinKarp.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knuth–Morris–Pratt algorithm.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Floyd Cycle Detection.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Trie.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_Double Cola.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_6kyu_The search for Primes Twin Primes.md",
+    "My_Notes/Problem_Solve/Uva/100/100.pdf",
+    "My_Notes/Programming_Note/MySideProjects/C#_DLL_StockCrawlerTW_20210303/Stock Crawler.md",
+    "My_Notes/Programming_Note/IDE/OnlineIDEs.md"
+  ]
+}

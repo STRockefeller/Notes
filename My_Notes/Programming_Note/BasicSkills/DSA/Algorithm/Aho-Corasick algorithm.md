@@ -1,14 +1,13 @@
 # Aho Corasick algorithm
 
+#string_searching_algorithms #algorithms
 [wiki](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm)
-
-
 
 ## Abstract
 
-與KMP同為字串比對演算法，主要是用來處理KMP在多個字串間搜尋時間複雜度會明顯提升的問題。
+與[[Knuth–Morris–Pratt algorithm]]同為字串比對演算法，主要是用來處理KMP在多個字串間搜尋時間複雜度會明顯提升的問題。
 
-閱讀這篇筆記之前，請先熟讀 trie 和 KMP 的筆記。
+閱讀這篇筆記之前，請先熟讀 [[Trie]] 和 [[Knuth–Morris–Pratt algorithm]] 的筆記。
 
 這個演算法大致可以看成在trie的搜尋中加入KMP 的 LPS table 的概念
 
@@ -22,13 +21,9 @@
 
 ![](https://i.imgur.com/BdYmdty.png)
 
-
-
 ## Failure Index
 
 ![](https://i.imgur.com/tv4dZ3x.png)
-
-
 
 trie裡面一共有7個詞，分別是`a`, `ab`, `bab`, `bc`, `bca`, `c`, `caa`
 
@@ -48,11 +43,7 @@ trie裡面一共有7個詞，分別是`a`, `ab`, `bab`, `bc`, `bca`, `c`, `caa`
 
 ![](https://i.imgur.com/gezd8RQ.png)
 
-
-
 接著用Latex來畫trie好了
-
-
 
 ```Latex
 \documentclass[tikz,border=10pt]{standalone}
@@ -81,13 +72,9 @@ trie裡面一共有7個詞，分別是`a`, `ab`, `bab`, `bc`, `bca`, `c`, `caa`
 \end{document}
 ```
 
-
-
 ![](https://i.imgur.com/RHBwxQy.png)
 
 以AC演算法來說，除了指向自己的節點以外，還要能指向其他branches的節點，例如`bab` 出錯， 要從 `ab` 接著繼續， `ba` 出錯， 要從 `a` 接著繼續
-
-
 
 ![](https://i.imgur.com/T2xbKAB.png)
 
@@ -106,42 +93,42 @@ package ac
 
 // trie for a-z
 type TrieNode struct {
-	nextNodes [26]*TrieNode
-	retryNode *TrieNode
-	isWord    bool
+ nextNodes [26]*TrieNode
+ retryNode *TrieNode
+ isWord    bool
 }
 
 func NewTrieNode() TrieNode {
-	return TrieNode{
-		nextNodes: [26]*TrieNode{},
-		retryNode: &TrieNode{},
-		isWord:    false,
-	}
+ return TrieNode{
+  nextNodes: [26]*TrieNode{},
+  retryNode: &TrieNode{},
+  isWord:    false,
+ }
 }
 
 func (tn *TrieNode) Insert(str string) {
-	currentNode := tn
-	for _, r := range str {
-		i := r - 'a'
-		if currentNode.nextNodes[i] == nil {
-			nextNode := NewTrieNode()
-			currentNode.nextNodes[i] = &nextNode
-		}
-		currentNode = currentNode.nextNodes[i]
-	}
-	currentNode.isWord = true
+ currentNode := tn
+ for _, r := range str {
+  i := r - 'a'
+  if currentNode.nextNodes[i] == nil {
+   nextNode := NewTrieNode()
+   currentNode.nextNodes[i] = &nextNode
+  }
+  currentNode = currentNode.nextNodes[i]
+ }
+ currentNode.isWord = true
 }
 
 func (tn *TrieNode) Search(str string) bool {
-	currentNode := tn
-	for _, r := range str {
-		i := r - 'a'
-		if currentNode.nextNodes[i] == nil {
-			return false
-		}
-		currentNode = currentNode.nextNodes[i]
-	}
-	return currentNode.isWord
+ currentNode := tn
+ for _, r := range str {
+  i := r - 'a'
+  if currentNode.nextNodes[i] == nil {
+   return false
+  }
+  currentNode = currentNode.nextNodes[i]
+ }
+ return currentNode.isWord
 }
 
 func (tn *TrieNode) FillRetryNode() {
@@ -154,7 +141,7 @@ func (tn *TrieNode) FillRetryNode() {
 
 感覺資訊有點不夠，假如我現在的節點是`bac`的`c` 位置
 
-![](https://i.imgur.com/xW7Chqd.png) 
+![](https://i.imgur.com/xW7Chqd.png)
 
 照理來說我應該去找`ac` 或 `c` ，因此我需要知道我現在的位置是 `bac` ，但一般的trie結構甚至不知道父節點是啥，更別說整個字是甚麼了。
 
@@ -162,4 +149,3 @@ func (tn *TrieNode) FillRetryNode() {
 
 * 改結構，讓節點知道父節點甚至於到目前為止經過的節點資訊。
 * 不事先計算，等到出錯的時候，再來找error index。不過這樣一來會有重複計算的情況發生，也不是我們所樂見的。
-
