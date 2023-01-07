@@ -1,5 +1,7 @@
 # CodeWars:Gap in Primes:20220901:TS
 
+#typescript #problem_solve 
+
 [Gap in Primes | Codewars](https://www.codewars.com/kata/561e9c843a2ef5a40c0000a4)
 
 ## Question

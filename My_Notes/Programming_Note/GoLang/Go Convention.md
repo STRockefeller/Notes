@@ -2,12 +2,9 @@
 
 #golang
 
-
 ## Abstract
 
 有鑑於Golang開發習慣真的和以往很不同，因此特此紀錄
-
-
 
 ## About Naming
 
@@ -15,15 +12,11 @@ Reference:
 
 [Effective Go](https://golang.org/doc/effective_go#Getters)
 
-
-
 主要根據官方文件
 
 ### Package
 
 命名以簡潔易懂為主，使用全小寫字母構成，避免使用大寫或`_`。
-
-
 
 ### Interface
 
@@ -36,15 +29,13 @@ Reference
 
 [StackOverFlow](https://stackoverflow.com/questions/26228839/golang-code-organisation-with-structs-variables-and-interfaces)
 
-
-
 主要是關於source code (*.go) 的拆分問題
 
 > A package should encompass one idea or concept. http is a concept, http client or http message is not.
 
 > A file in a package should encompass a set of related types, a good rule of thumb is if two files share the same set of imports, merge them. Using the previous example, `http/client.go`, `http/server.go` are a good level of granularity
 
->  Don't do one file per type, that's not idiomatic Go.
+> Don't do one file per type, that's not idiomatic Go.
 
 大方向來說，golang傾向於以功能或概念而非具體的物件區分source code
 
@@ -59,8 +50,6 @@ Reference
 [Standard Go Project Layout](https://github.com/golang-standards/project-layout#standard-go-project-layout)
 
 [OK Let’s Go: Three Approaches to Structuring Go Code](https://www.perimeterx.com/tech-blog/2019/ok-lets-go/)
-
-
 
 ### Go 目錄結構
 
@@ -199,8 +188,6 @@ Git hooks。
 不要將專案層級的 `/src` 目錄與 [`How to Write Go Code`](https://golang.org/doc/code.html) 所描述的 `/src` 混為一談。`$GOPATH` 環境變數指向你目前的工作區 (workspace)（非 Windows 的作業環境預設指向 `$HOME/go`），這個工作區包含了最上層的 `/pkg`、`/bin` 和 `/src` 目錄。你的實際專案最終其實是放在 `/src` 下的一個子目錄，所以你的專案路徑大概會長這樣：`/some/path/to/workspace/src/your_project/src/your_code.go`。注意：雖然 Go 1.11 可以將專案放在 `GOPATH` 之外，但這並不意味著使用這種目錄結構模式是一個好主意！
 
 ## About Exported
-
-
 
 ### About Read-Only
 

@@ -1,5 +1,7 @@
 # Defer
 
+#golang
+
 Reference:
 
 [ITHELP](https://ithelp.ithome.com.tw/articles/10242498)

@@ -1,22 +1,18 @@
 # Chrome Extension
 
+#chrome_extension #dart/flutter #content_security_policy #c_sharp/blazor
+
 Reference
 
-https://ithelp.ithome.com.tw/articles/10186039
+<https://ithelp.ithome.com.tw/articles/10186039>
 
-https://medium.com/@dailyfluttermonster/how-to-create-a-flutter-chrome-extension-1293d75b887b
-
-
+<https://medium.com/@dailyfluttermonster/how-to-create-a-flutter-chrome-extension-1293d75b887b>
 
 現在找到大部分的文章都是適用於manifest version 2，無法在現在(2021/06)最新的manifest version 3正常運作，官方有提供[MV2轉MV3的相關指南](https://developer.chrome.com/docs/extensions/mv3/intro/mv3-migration/)，我也會在閱讀MV3的文件之後更新筆記內容。
-
-
 
 ## 基本結構
 
 首先整理一個Chrome Extension的最低要求
-
-
 
 1. 建立一個資料夾
 
@@ -47,11 +43,7 @@ https://medium.com/@dailyfluttermonster/how-to-create-a-flutter-chrome-extension
    }
    ```
 
-   
-
 於Chrome的擴充元件頁面開啟開發者選項，選擇資料夾匯入即可
-
-
 
 ### 說明
 
@@ -75,27 +67,17 @@ https://medium.com/@dailyfluttermonster/how-to-create-a-flutter-chrome-extension
 
 定義了預設的html和icon，[browser_action](https://developer.chrome.com/docs/extensions/reference/browserAction/)代表在瀏覽器啟動期間作用，如果要在特定網站作用要使用[page_action](https://developer.chrome.com/docs/extensions/reference/pageAction/)
 
-
-
 `permissions`表示擴充功能的[許可權限](https://developer.chrome.com/docs/extensions/mv3/declare_permissions/)
-
-
 
 `*.htm;`
 
 預設的html會在功能圖示被點擊時呼叫，和一般的html差不多，也可以引入css和js，因為CSP的關係，請盡量避免使用inline js/css
-
-
-
-
 
 ## 使用Flutter
 
 修改`index.html`將`<script>`搬出來放到獨立的`.js`檔案，並且引用`main.dart.js`(這東西是建置後才會出現的，所以常常忘記orz)
 
 修改`web`資料夾底下的`manifest.json`，加入一些必要項目，移除一些不被允許的項目。(嘗試安裝擴充功能時，Chrome就會顯示`manifest.json`有哪些屬性不能使用，再把他們刪掉就可以了。)
-
-
 
 最後大概會長這個樣子
 
@@ -150,8 +132,6 @@ CSP會出於資安考量限制擴充功能文件的內容，限制的方式有�
 
 `https://unpkg.com/`是為了讓`main.dart.js`的內容通過，但我搞不明白為啥`main.dart.js`沒有被算在`self`裡面。
 
-
-
 ### 輸出畫面變成小方塊的情形
 
 #### 描述
@@ -161,8 +141,6 @@ CSP會出於資安考量限制擴充功能文件的內容，限制的方式有�
 #### 解決辦法
 
 不要在預設的html畫面使用`<script>`插入腳本，改使用`<iframe>`
-
-
 
 假設我的文件如下
 
@@ -180,8 +158,6 @@ index.html
     </body>
 </html>
 ```
-
-
 
 **NG**
 
@@ -205,8 +181,6 @@ index.js
 ```js
 my script
 ```
-
-
 
 **Good**
 
@@ -243,7 +217,4 @@ index.js
 my script
 ```
 
-
-
 ## 使用Blazor
-

@@ -1,12 +1,12 @@
 # Option Page and `chrome.storage`
 
+#chrome_extension
+
 參考
 
-https://ithelp.ithome.com.tw/articles/10188720
+<https://ithelp.ithome.com.tw/articles/10188720>
 
 筆記待補。
-
-
 
 文章裡面沒有特別講，但是要記得加入permissions才能使用`chrome.storage`
 
@@ -17,10 +17,6 @@ https://ithelp.ithome.com.tw/articles/10188720
   ],
 ...
 ```
-
-
-
-
 
 Google 給的範例中
 
@@ -58,8 +54,6 @@ document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click',
     save_options);
 ```
-
-
 
 `chrome.storage.sync.get` 和 `chrome.storage.sync.set`兩個方法都是非同步的，sync代表該資料會在使用者的帳號上同步，而非方法同步，後方的function就是該方法的callback ，它會在資料獲取完畢後被執行，一開始搞混這個造成不少麻煩。
 
@@ -100,4 +94,3 @@ get(keys?: string | string[] | object, callback: function) => {...}
     object
 
     Object with items in their key-value mappings.
-

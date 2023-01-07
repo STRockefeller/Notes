@@ -1,20 +1,18 @@
 # Gorm
 
+#golang #orm #database/sql
+
 Reference:
 
-https://gorm.io/docs/index.html
+<https://gorm.io/docs/index.html>
 
 [ITHELP](https://ithelp.ithome.com.tw/articles/10245308)
-
-
 
 ## Install
 
 ```
 go get -u gorm.io/gorm
 ```
-
-
 
 根據使用的SQL
 
@@ -26,23 +24,17 @@ go get -u gorm.io/driver/sqlite
 
 (安裝sqlite driver 失敗顯示`exec: "gcc": executable file not found in %PATH%`的話參考[這篇](https://hoohoo.top/blog/golang-fix-gccexec-gcc-executable-file-not-found-in-path/)安裝`tmd-gcc`)
 
-
-
 **MySQL**
 
 ```powershell
 go get -u gorm.io/driver/mysql
 ```
 
-
-
 **PostrgreSQL**
 
 ```powershell
 go get -u gorm.io/driver/postgres
 ```
-
-
 
 ## Getting Start
 
@@ -92,8 +84,6 @@ func main() {
 
 詳細接著說明
 
-
-
 ## Connect to DB
 
 [Reference](https://gorm.io/docs/connecting_to_the_database.html)
@@ -105,8 +95,6 @@ db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
 ```
 
 使用現有sqlite db的做法，不過就算沒有也會自動建立
-
-
 
 來看看`gorm.Open()`方法簽章
 
@@ -156,12 +144,6 @@ postgresql
 	})
 ```
 
-
-
-
-
-
-
 ## Declaring Models
 
 [Reference](https://gorm.io/docs/models.html)
@@ -209,8 +191,6 @@ type Model struct {
 
 也就是說，只要Combine `gorm.Model` 就算是符合了最基本gorm的model要求
 
-
-
 ## Create
 
 ```go
@@ -239,8 +219,6 @@ db.Omit("Name", "Age", "CreatedAt").Create(&user)
 // INSERT INTO `users` (`birthday`,`updated_at`) VALUES ("2020-01-01 00:00:00.000", "2020-07-04 11:05:21.775")
 ```
 
-
-
 ### Batch Insert
 
 可以透過Slice批量建立資料
@@ -258,10 +236,6 @@ var users = []User{{Name: "jinzhu_1"}, ...., {Name: "jinzhu_10000"}}
 // batch size 100
 db.CreateInBatches(users, 100)
 ```
-
-
-
-
 
 ## Search
 
@@ -295,17 +269,9 @@ For more details, see [Specify Struct search fields](https://gorm.io/docs/query.
 	}
 ```
 
-
-
-
-
-
-
 ## Extra
 
 這邊紀錄一些進階功能或特例
-
-
 
 ### where in
 
@@ -317,8 +283,6 @@ For more details, see [Specify Struct search fields](https://gorm.io/docs/query.
 List<string> targetIDs = new List<string>(){"LaDiDa","Rockefeller"};
 List<User> res = users.Where(u=>targetIDs.Contains(u.ID)).toList();
 ```
-
-
 
 **如果要求的field剛好是primary key**
 
@@ -338,8 +302,6 @@ targetIDs := []string{"LaDiDa","Rockefeller"}
 db.Where(targetIDs).Find(&res)
 ```
 
-
-
 **如果不是primary key**
 
 使用string query
@@ -349,4 +311,3 @@ var res []User
 targetIDs := []string{"LaDiDa","Rockefeller"}
 db.Where("WHERE ID in",targetIDs).Find(&res)
 ```
-

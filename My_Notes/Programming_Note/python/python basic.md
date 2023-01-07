@@ -1,5 +1,7 @@
 # Python Basic
 
+#python
+
 ## Abstract
 
 過去有幾度接觸這個語言(像是CS50)，但都沒有深入，也沒記錄成筆記，最近對machine learning有點興趣，又不想抱著以前的openCV不放，所以就學學python。

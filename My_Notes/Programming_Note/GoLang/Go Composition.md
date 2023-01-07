@@ -1,5 +1,7 @@
 # Composition
 
+#golang #composition
+
 Reference:
 
 [ITHELP](https://ithelp.ithome.com.tw/articles/10217359)

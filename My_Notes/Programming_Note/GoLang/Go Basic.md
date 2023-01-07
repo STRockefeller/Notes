@@ -1,5 +1,7 @@
 # Go Language Basic
 
+#golang
+
 Reference:
 
 [ITHelp](https://ithelp.ithome.com.tw/users/20125192/ironman/3155)

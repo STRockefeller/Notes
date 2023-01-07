@@ -1,46 +1,53 @@
 # Go Cheat Sheet
 
-From: https://github.com/a8m/golang-cheat-sheet#channels
+#golang
+
+From: <https://github.com/a8m/golang-cheat-sheet#channels>
 
 # Index
-1. [Basic Syntax](#basic-syntax)
-2. [Operators](#operators)
-    * [Arithmetic](#arithmetic)
-    * [Comparison](#comparison)
-    * [Logical](#logical)
-    * [Other](#other)
-3. [Declarations](#declarations)
-4. [Functions](#functions)
-    * [Functions as values and closures](#functions-as-values-and-closures)
-    * [Variadic Functions](#variadic-functions)
-5. [Built-in Types](#built-in-types)
-6. [Type Conversions](#type-conversions)
-7. [Packages](#packages)
-8. [Control structures](#control-structures)
-    * [If](#if)
-    * [Loops](#loops)
-    * [Switch](#switch)
-9. [Arrays, Slices, Ranges](#arrays-slices-ranges)
-    * [Arrays](#arrays)
-    * [Slices](#slices)
-    * [Operations on Arrays and Slices](#operations-on-arrays-and-slices)
-10. [Maps](#maps)
-11. [Structs](#structs)
-12. [Pointers](#pointers)
-13. [Interfaces](#interfaces)
-14. [Embedding](#embedding)
-15. [Errors](#errors)
-16. [Concurrency](#concurrency)
-    * [Goroutines](#goroutines)
-    * [Channels](#channels)
-    * [Channel Axioms](#channel-axioms)
-17. [Printing](#printing)
-18. [Reflection](#reflection)
-    * [Type Switch](#type-switch)
-    * [Examples](https://github.com/a8m/reflect-examples)
-19. [Snippets](#snippets)
-    * [Files Embedding](#files-embedding)
-    * [HTTP Server](#http-server)
+
+- [Go Cheat Sheet](#go-cheat-sheet)
+- [Index](#index)
+  - [Credits](#credits)
+  - [Go in a Nutshell](#go-in-a-nutshell)
+- [Basic Syntax](#basic-syntax)
+  - [Hello World](#hello-world)
+  - [Operators](#operators)
+    - [Arithmetic](#arithmetic)
+    - [Comparison](#comparison)
+    - [Logical](#logical)
+    - [Other](#other)
+  - [Declarations](#declarations)
+  - [Functions](#functions)
+    - [Functions As Values And Closures](#functions-as-values-and-closures)
+    - [Variadic Functions](#variadic-functions)
+  - [Built-in Types](#built-in-types)
+  - [Type Conversions](#type-conversions)
+  - [Packages](#packages)
+  - [Control structures](#control-structures)
+    - [If](#if)
+    - [Loops](#loops)
+    - [Switch](#switch)
+  - [Arrays, Slices, Ranges](#arrays-slices-ranges)
+    - [Arrays](#arrays)
+    - [Slices](#slices)
+    - [Operations on Arrays and Slices](#operations-on-arrays-and-slices)
+  - [Maps](#maps)
+  - [Structs](#structs)
+  - [Pointers](#pointers)
+  - [Interfaces](#interfaces)
+  - [Embedding](#embedding)
+  - [Errors](#errors)
+- [Concurrency](#concurrency)
+  - [Goroutines](#goroutines)
+  - [Channels](#channels)
+    - [Channel Axioms](#channel-axioms)
+  - [Printing](#printing)
+  - [Reflection](#reflection)
+    - [Type Switch](#type-switch)
+- [Snippets](#snippets)
+  - [Files Embedding](#files-embedding)
+  - [HTTP Server](#http-server)
 
 ## Credits
 
@@ -65,7 +72,9 @@ If you're new to Go, do that tour. Seriously.
 # Basic Syntax
 
 ## Hello World
+
 File `hello.go`:
+
 ```go
 package main
 
@@ -75,10 +84,13 @@ func main() {
     fmt.Println("Hello Go")
 }
 ```
+
 `$ go run hello.go`
 
 ## Operators
+
 ### Arithmetic
+
 |Operator|Description|
 |--------|-----------|
 |`+`|addition|
@@ -94,6 +106,7 @@ func main() {
 |`>>`|right shift|
 
 ### Comparison
+
 |Operator|Description|
 |--------|-----------|
 |`==`|equal|
@@ -104,6 +117,7 @@ func main() {
 |`>=`|greater than or equal|
 
 ### Logical
+
 |Operator|Description|
 |--------|-----------|
 |`&&`|logical and|
@@ -111,6 +125,7 @@ func main() {
 |`!`|logical not|
 
 ### Other
+
 |Operator|Description|
 |--------|-----------|
 |`&`|address of / create pointer|
@@ -118,7 +133,9 @@ func main() {
 |`<-`|send / receive operator (see 'Channels' below)|
 
 ## Declarations
+
 Type goes after identifier!
+
 ```go
 var foo int // declaration without initialization
 var foo int = 42 // declaration with initialization
@@ -140,6 +157,7 @@ const (
 ```
 
 ## Functions
+
 ```go
 // a simple function
 func functionName() {}
@@ -173,6 +191,7 @@ var x, str = returnMulti2()
 ```
 
 ### Functions As Values And Closures
+
 ```go
 func main() {
     // assign a function to a name
@@ -211,6 +230,7 @@ func outer() (func() int, int) {
 ```
 
 ### Variadic Functions
+
 ```go
 func main() {
 	fmt.Println(adder(1, 2, 3)) 	// 6
@@ -232,6 +252,7 @@ func adder(args ...int) int {
 ```
 
 ## Built-in Types
+
 ```go
 bool
 
@@ -252,6 +273,7 @@ complex64 complex128
 All Go's predeclared identifiers are defined in the [builtin](https://golang.org/pkg/builtin/) package.  
 
 ## Type Conversions
+
 ```go
 var i int = 42
 var f float64 = float64(i)
@@ -264,6 +286,7 @@ u := uint(f)
 ```
 
 ## Packages
+
 * Package declaration at top of every source file
 * Executables are in package `main`
 * Convention: package name == last name of import path (import path `math/rand` => package `rand`)
@@ -273,6 +296,7 @@ u := uint(f)
 ## Control structures
 
 ### If
+
 ```go
 func main() {
 	// Basic one
@@ -300,6 +324,7 @@ func main() {
 ```
 
 ### Loops
+
 ```go
     // There's only `for`, no `while`, no `until`
     for i := 1; i < 10; i++ {
@@ -341,6 +366,7 @@ there:
 ```
 
 ### Switch
+
 ```go
     // switch statement
     switch operatingSystem {
@@ -381,6 +407,7 @@ there:
 ## Arrays, Slices, Ranges
 
 ### Arrays
+
 ```go
 var a [10]int // declare an int array with length 10. Array length is part of the type!
 a[3] = 42     // set elements
@@ -393,6 +420,7 @@ a := [...]int{1, 2} // elipsis -> Compiler figures out array length
 ```
 
 ### Slices
+
 ```go
 var a []int                              // declare a slice - similar to an array, but length is unspecified
 var a = []int {1, 2, 3, 4}               // declare and initialize a slice (backed by the array given implicitly)
@@ -416,6 +444,7 @@ s := x[:] // a slice referencing the storage of x
 ```
 
 ### Operations on Arrays and Slices
+
 `len(a)` gives you the length of an array/a slice. It's a built-in function, not a attribute/method on the array.
 
 ```go
@@ -467,6 +496,7 @@ for key, value := range m {
 ## Structs
 
 There are no classes, only structs. Structs can have methods.
+
 ```go
 // A struct is a type. It's also a collection of fields
 
@@ -501,8 +531,10 @@ func (v *Vertex) add(n float64) {
 }
 
 ```
+
 **Anonymous structs:**
 Cheaper and safer than using `map[string]interface{}`.
+
 ```go
 point := struct {
 	X, Y int
@@ -510,6 +542,7 @@ point := struct {
 ```
 
 ## Pointers
+
 ```go
 p := Vertex{1, 2}  // p is a Vertex
 q := &p            // q is a pointer to a Vertex
@@ -521,6 +554,7 @@ var s *Vertex = new(Vertex) // new creates a pointer to a new struct instance
 ```
 
 ## Interfaces
+
 ```go
 // interface declaration
 type Awesomizer interface {
@@ -577,6 +611,7 @@ type error interface {
 ```
 
 Here's an example:
+
 ```go
 func sqrt(x float64) (float64, error) {
 	if x < 0 {
@@ -600,6 +635,7 @@ func main() {
 # Concurrency
 
 ## Goroutines
+
 Goroutines are lightweight threads (managed by Go, not OS threads). `go f(a, b)` starts a new goroutine which runs `f` (given `f` is a function).
 
 ```go
@@ -619,6 +655,7 @@ func main() {
 ```
 
 ## Channels
+
 ```go
 ch := make(chan int) // create a channel of type int
 ch <- 42             // Send a value to the channel ch.
@@ -655,6 +692,7 @@ func doStuff(channelOut, channelIn chan int) {
 ```
 
 ### Channel Axioms
+
 - A send to a nil channel blocks forever
 
   ```go
@@ -662,6 +700,7 @@ func doStuff(channelOut, channelIn chan int) {
   c <- "Hello, World!"
   // fatal error: all goroutines are asleep - deadlock!
   ```
+
 - A receive from a nil channel blocks forever
 
   ```go
@@ -669,6 +708,7 @@ func doStuff(channelOut, channelIn chan int) {
   fmt.Println(<-c)
   // fatal error: all goroutines are asleep - deadlock!
   ```
+
 - A send to a closed channel panics
 
   ```go
@@ -678,6 +718,7 @@ func doStuff(channelOut, channelIn chan int) {
   c <- "Hello, Panic!"
   // panic: send on closed channel
   ```
+
 - A receive from a closed channel returns the zero value immediately
 
   ```go
@@ -709,8 +750,11 @@ hellomsg := `
 ```
 
 ## Reflection
+
 ### Type Switch
+
 A type switch is like a regular switch statement, but the cases in a type switch specify types (not values), and those values are compared against the type of the value held by the given interface value.
+
 ```go
 func do(i interface{}) {
 	switch v := i.(type) {
@@ -758,6 +802,7 @@ func main() {
 [Full Playground Example](https://play.golang.org/p/pwWxdrQSrYv)
 
 ## HTTP Server
+
 ```go
 package main
 
@@ -784,4 +829,3 @@ func main() {
 //     ServeHTTP(w http.ResponseWriter, r *http.Request)
 // }
 ```
-

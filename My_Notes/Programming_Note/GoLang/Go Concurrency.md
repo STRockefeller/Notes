@@ -1,5 +1,7 @@
 # Go Concurrency
 
+#golang #concurrency #async
+
 Reference:
 
 ## Review with Questions
@@ -20,7 +22,7 @@ Reference:
 Concurrency 通常會被拿來和 Parallelism 做比較，以下節錄自[StackOverFlow](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism)，是我覺得比較精闢的解釋
 
 > **Concurrency** is when two or more tasks can start, run, and complete in overlapping time **periods**. It doesn't necessarily mean they'll ever both be running **at the same instant**. For example, *multitasking* on a single-core machine.
-> 
+>
 > **Parallelism** is when tasks *literally* run at the same time, e.g., on a multicore processor.
 
 以下說明一下我理解的部分，或許不是很準確，有錯再來修正。
@@ -557,7 +559,7 @@ chan1 <- <- chan2
 #### Select
 
 > The `select` statement lets a goroutine wait on multiple communication operations.
-> 
+>
 > A `select` blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
 
 a tour of go example
@@ -838,11 +840,11 @@ func waitMeAsync2(wg *sync.WaitGroup) {
 以下說明節錄自[ITHELP](https://ithelp.ithome.com.tw/articles/10242268)
 
 > WaitGroup拿`計數器(Counter)`來當作任務數量，若counter `< 0`會發生`panic`。
-> 
-> - WaitGroup.**Add(n)**：計數器`+n`
-> - WaitGroup.**Done()**：任務完成，從計數器中`減去1`，可搭配`defer`使用
-> - WaitGroup.**Wait()**：阻塞(Block)住，直到計數器`歸0`
-> 
+>
+> * WaitGroup.**Add(n)**：計數器`+n`
+> * WaitGroup.**Done()**：任務完成，從計數器中`減去1`，可搭配`defer`使用
+> * WaitGroup.**Wait()**：阻塞(Block)住，直到計數器`歸0`
+>
 > 如果計數器大於線程數就會發生`死結(Deadlock)`。
 
 ### Timeout
@@ -1006,7 +1008,7 @@ func race(wg *sync.WaitGroup) {
 
 基本上算是針對error handle 加強的go routine
 
-方法只有兩個 Go 和 Wait 
+方法只有兩個 Go 和 Wait
 
 顧名思義
 
@@ -1025,7 +1027,7 @@ type Group struct {
 ```
 
 > A Group is a collection of goroutines working on subtasks that are part of the same overall task.
-> 
+>
 > A zero Group is valid and does not cancel on error.
 
 簡單來說不想中斷執行的話就寫成

@@ -1,5 +1,7 @@
 # Slice
 
+#golang
+
 Reference:
 [ITHELP](https://ithelp.ithome.com.tw/articles/10237400)
 
@@ -13,19 +15,13 @@ Reference:
 
 因為免不了比較，所以順便把`Go`的`Array`一起介紹了。
 
-
-
 ## Array
 
 > Arrays in golang are a value type, means whenever you assign an array to a new variable then the copy of the original array is assigned to the new variable.
 
 強調`Go`的`Array`是value type，其實就是變相比較`Slice`是reference  type (和`C#`的`List`一樣)
 
-
-
 其他基本上沒甚麼特別的，快速帶過
-
-
 
 宣告方法是`var variable_name [SIZE] variable_type`，`go`一樣會賦予初始值
 
@@ -37,8 +33,6 @@ func main() {
 ```
 
 `Print`方法可以直些顯示陣列倒是滿方便的。
-
-
 
 給初始值
 
@@ -72,8 +66,6 @@ func main() {
 }
 ```
 
-
-
 多維陣列的宣告方式 `var variable_name [SIZE1][SIZE2]...[SIZEN] variable_type`
 
 ```go
@@ -83,8 +75,6 @@ func main() {
 }
 ```
 
-
-
 ## Slice
 
 `Slice`算是size比較有彈性的`Array`，我暫時找不到適合類比`Slice`的結構
@@ -93,15 +83,11 @@ func main() {
 
 另外`Slice`還自帶指標，某些情況下是滿方便的。
 
-
-
 以下`Slice`的屬性
 
-1. 長度 `len` ，就是現在的長度 
+1. 長度 `len` ，就是現在的長度
 2. 容量 `cap` ，最大能容納的長度
-3. 指針 `ptr` 
-
-
+3. 指針 `ptr`
 
 ### Declare
 
@@ -114,8 +100,6 @@ numbers = make([]int,5,5) /* a slice of length 5 and capacity 5*/
 ```
 
 其中第一種作法`numbers`的初始值會是`nil`一般來說**不推薦**使用
-
-
 
 直接從範例看吧
 
@@ -137,8 +121,6 @@ func testSlice(target []int) {
 }
 ```
 
-
-
 **首先宣告`Slice`並給予長度**
 
 ```go
@@ -157,8 +139,6 @@ target==nil?false
 ```
 
 除了`len`以外`cap`也一併被設定成10了
-
-
 
 **設定 `len`:5、`cap`:10**
 
@@ -179,8 +159,6 @@ target==nil?false
 
 和預料一樣沒什麼特別的
 
-
-
 **初始化一個空白的`Slice`**
 
 ```go
@@ -199,8 +177,6 @@ target==nil?false
 ```
 
 和預料一樣沒什麼特別的
-
-
 
 **宣告但沒有初始化**
 
@@ -221,8 +197,6 @@ target==nil?true
 
 這個時候變數還是`nil`
 
-
-
 **宣告並直接賦值**
 
 ```go
@@ -241,8 +215,6 @@ target==nil?false
 ```
 
 和預料一樣沒什麼特別的
-
-
 
 ### Sub Slicing
 
@@ -302,8 +274,6 @@ len = 3 cap = 7 slice = [2 3 4]
 
 這個做法在`Array`也適用
 
-
-
 **重點**
 
 1. `numbers[1:4]` 會取得從`numbers[1]`到`numbers[3]`的內容
@@ -316,8 +286,6 @@ len = 3 cap = 7 slice = [2 3 4]
    sl[5:] //等同於sl[5:10]
    sl[:] //等同於sl[0:10]
    ```
-
-
 
 ### Reference Type
 
@@ -354,8 +322,6 @@ func printSlice(s []int) {
 
 第二步中我們把`s`變為長度為0的`slice`，但原`slice`的數值並沒有消失，只要將`s`擴大依然可以看到原來的數值
 
-
-
 另外參考型別的`slice`即便傳入`defer func`中，執行階段也會以最新的`slice`執行(因為是傳址)
 
 ```go
@@ -388,8 +354,6 @@ defer sl= [5 2 3]
 defer arr= [1 2 3]
 ```
 
-
-
 ### Append
 
 `append()`方法可以擴增`Slice`的內容
@@ -397,8 +361,6 @@ defer arr= [1 2 3]
 有趣的是`append()`是可以將`Slice`擴充到超過`cap`設定的size的，
 
 但是這麼做似乎容易出現一些奇奇怪怪的問題，所以一般還是會建議在宣告`Slice`的時候就給他足夠的`cap`
-
-
 
 ```go
 func main() {
@@ -410,8 +372,6 @@ func main() {
 	testSlice(s)
 }
 ```
-
-
 
 ```powershell
 -----------------------------------------

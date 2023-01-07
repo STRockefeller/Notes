@@ -1,8 +1,8 @@
-# 疑難雜症
+# Miscellaneous problems
 
+#golang #pointer
 
-
-## Debug 路徑問題 
+## Debug 路徑問題
 
 `go run` `go build`等指令可以正常作用
 
@@ -33,8 +33,6 @@ cannot find package "d:\\Rockefeller\\Projects_Test\\GormTest0824" in any of:
 
 執行`go mod init`生成`go.mod`file
 
-
-
 ## cannot find package "io/fs"
 
 執行go install時發生的
@@ -47,8 +45,6 @@ go\src\github.com\fzipp\gocyclo\analyze.go:12:2: cannot find package "io/fs" in 
 ```
 
 根據[github issue](https://github.com/spf13/viper/issues/1161)看來應該是v1.15特有的問題，後續更新被修正掉了，至於v1.15有沒有替代的解決方案，目前是沒有找到。
-
-
 
 ## Only addressable objects can be assigned
 
@@ -78,13 +74,9 @@ type AA struct {
 
 ```
 
-
-
 同樣的情況在其他語言是否能行得通呢?
 
 下面來試試
-
-
 
 ### C#(OK)
 
@@ -113,8 +105,6 @@ public class AA
 ### TypeScript(SKIP)
 
 TypeScript的Map是使用`get()`和`set()`肯定沒問題，所以就沒試了
-
-
 
 ### Dart(NG)
 
@@ -167,8 +157,6 @@ class AA{
 }
 ```
 
-
-
 ### CPP(OK)
 
 ```cpp
@@ -195,8 +183,6 @@ int main()
     return 0;
 }
 ```
-
-
 
 ## net/http 相關
 

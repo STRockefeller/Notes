@@ -1,6 +1,6 @@
 # Flutter Project Basic
 
-#dart #flutter
+#dart/flutter
 
 ## 建立專案以及執行
 

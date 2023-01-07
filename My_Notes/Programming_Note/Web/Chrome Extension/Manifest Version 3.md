@@ -1,14 +1,14 @@
 # Manifest Version 3
 
+#chrome_extension
+
 剛好有個完整的manifest V2 的擴充功能要改成 manifest V3，順便把過程記錄下來。
 
-主要參考google 官方文件 https://developer.chrome.com/docs/extensions/mv3/intro/mv3-migration/
-
-
+主要參考google 官方文件 <https://developer.chrome.com/docs/extensions/mv3/intro/mv3-migration/>
 
 按順序紀錄
 
-### 改版本號
+## 改版本號
 
 manifest.json
 
@@ -20,19 +20,17 @@ manifest.json
 "manifest_version": 3,
 ```
 
-
-
 ---
 
-### Host permissions
+## Host permissions
 
 MV3的Host permissions 要另外宣告，不過我這次沒用到，需要的話參考
 
-https://developer.chrome.com/docs/extensions/mv3/intro/mv3-migration/#host-permissions
+<https://developer.chrome.com/docs/extensions/mv3/intro/mv3-migration/#host-permissions>
 
 ---
 
-### 改CSP
+## 改CSP
 
 首先改格式
 
@@ -60,9 +58,7 @@ In addition, MV3 disallows certain CSP modifications for `extension_pages` that 
 
 這樣我似乎應該直接刪掉了?
 
-
-
-### 改action
+## 改action
 
 MV3不再區分`page_action`和`browser_action`
 
@@ -82,17 +78,13 @@ manifest.json
     },
 ```
 
-
-
 ---
 
-### Web-accessible resources
+## Web-accessible resources
 
 一樣這次沒用到，之後有用到再說。
 
-
-
-### Background service workers
+## Background service workers
 
 >The "background.scripts" key cannot be used with manifest_version 3. Use the "background.service_worker" key instead.
 >
@@ -152,9 +144,7 @@ Unchecked runtime.lastError: Extensions using event pages or Service Workers mus
 Unchecked runtime.lastError: Extensions using event pages or Service Workers cannot pass an onclick parameter to chrome.contextMenus.create. Instead, use the chrome.contextMenus.onClicked event.
 ```
 
-根據提示改用onclicked，官方文件 https://developer.chrome.com/docs/extensions/reference/contextMenus/
-
-
+根據提示改用onclicked，官方文件 <https://developer.chrome.com/docs/extensions/reference/contextMenus/>
 
 ```typescript
 function onClickUnsplash(info, tab): void { link("https://unsplash.com/s/photos/" + info.selectionText) }
@@ -187,13 +177,9 @@ chrome.contextMenus.onClicked.addListener(function (info, tab): void {
         });
 ```
 
+這個部分改很多，具體參考<https://developer.chrome.com/docs/extensions/mv3/migrating_to_service_workers/>
 
-
-
-
-這個部分改很多，具體參考https://developer.chrome.com/docs/extensions/mv3/migrating_to_service_workers/
-
-### 改options_ui
+## 改options_ui
 
 > chrome_style option cannot be used with manifest version 3.
 
@@ -209,4 +195,3 @@ chrome.contextMenus.onClicked.addListener(function (info, tab): void {
         "page": "options.html"
     },
 ```
-

@@ -11,12 +11,8 @@
             "id": "79f88722abb74bd6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "My_Notes/Programming_Note/C#/DataBase ORM/SQLite in CSharp.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           },
           {
@@ -25,13 +21,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/Naming Conventions.md",
+                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Bird Mountain.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bfd62097fa662b79",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "My_Notes/Programming_Note/C#/Console/parse flags.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -60,7 +69,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#cpp",
+                "query": "tag:#c_sharp/blazor",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -97,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Programming_Note/C#/DataBase ORM/SQLite in CSharp.md",
+                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Bird Mountain.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Programming_Note/C#/DataBase ORM/SQLite in CSharp.md",
+                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Bird Mountain.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,12 +146,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Programming_Note/C#/DataBase ORM/SQLite in CSharp.md"
+                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Bird Mountain.md"
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -159,17 +168,17 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "79f88722abb74bd6",
+  "active": "99f416e96cf50688",
   "lastOpenFiles": [
-    "My_Notes/Programming_Note/C#/DataBase ORM/Entity Framework.md",
-    "My_Notes/Programming_Note/C#/DataBase ORM/LinQ to SQLite.md",
-    "My_Notes/Programming_Note/C#/Console/parse flags.md",
-    "My_Notes/Programming_Note/GoLang/Go 疑難雜症.md",
-    "My_Notes/Programming_Note/GoLang/gin/gin basic.md",
-    "My_Notes/Programming_Note/CPP/OpenCV/滑鼠事件.md",
-    "My_Notes/Programming_Note/CPP/OpenCV/圖片的讀寫.md",
-    "My_Notes/Programming_Note/CPP/OpenCV/OpenCV 画像処理演習/2.行列編/行列の作成と操作.md",
-    "My_Notes/Programming_Note/Database/SQL/PostgreSQL/Triggers and Foreign Keys.md",
-    "My_Notes/Programming_Note/Database/SQL/PostgreSQL/Query json array.md"
+    "My_Notes/Problem_Solve/已解決/CodeWars_6kyu_The search for Primes Twin Primes.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_Bit Counting.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Bird Mountain.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Gap in Primes.md",
+    "My_Notes/Programming_Note/C#/Yield.md",
+    "My_Notes/Programming_Note/C#/yaml (De)Serialize.md",
+    "My_Notes/Programming_Note/C#/web api.md",
+    "My_Notes/Programming_Note/C#/Tuple and Value Tuple.md",
+    "My_Notes/Programming_Note/C#/Task.md",
+    "My_Notes/Programming_Note/C#/String isNumber.md"
   ]
 }

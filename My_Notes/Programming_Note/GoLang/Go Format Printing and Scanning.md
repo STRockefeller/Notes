@@ -1,8 +1,8 @@
 # Format Printing and Scanning
 
+#golang #format
+
 [Reference](https://pkg.go.dev/fmt)
-
-
 
 #### Printing [¶](https://pkg.go.dev/fmt#hdr-Printing)
 

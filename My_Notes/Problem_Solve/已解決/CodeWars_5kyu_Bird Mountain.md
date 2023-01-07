@@ -1,8 +1,7 @@
-# CodeWars:Bird Mountain:20210128:C#
+# CodeWars:Bird Mountain:20210128:C\#
+#problem_solve #c_sharp 
 
 [Reference](https://www.codewars.com/kata/5c09ccc9b48e912946000157)
-
-
 
 ## Question
 

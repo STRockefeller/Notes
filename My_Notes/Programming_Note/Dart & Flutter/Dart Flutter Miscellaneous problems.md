@@ -1,6 +1,6 @@
 # Miscellaneous problems
 
-#dart #flutter
+#dart/flutter
 
 紀錄各種問題以及解決方法，比較複雜的會另撰寫筆記
 

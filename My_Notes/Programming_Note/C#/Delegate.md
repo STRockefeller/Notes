@@ -1,4 +1,7 @@
 # Delegate Note
+
+#c_sharp #delegate 
+
 ## 具名委派
 ```C#
 using System;

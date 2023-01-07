@@ -1,4 +1,6 @@
+# Find all substring
 
+#c_sharp #algorithms
 
 [Source](https://www.csharpstar.com/csharp-program-to-find-all-substrings-in-a-string/)
 

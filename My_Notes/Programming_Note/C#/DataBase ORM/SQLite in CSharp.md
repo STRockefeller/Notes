@@ -1,5 +1,7 @@
 # SQLite in C#
 
+#c_sharp #database/sql/sqlite
+
 首先要安裝Nuget套件 System.Data.SQLite 
 
 ```C#

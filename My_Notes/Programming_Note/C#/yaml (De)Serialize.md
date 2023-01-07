@@ -1,5 +1,7 @@
 # Yaml Serialize
 
+#c_sharp #yaml #serialize #marshal
+
 參考
 
 https://blog.no2don.com/2021/02/c-yaml-json.html

@@ -1,14 +1,10 @@
 # Interface
 
-
-
-
+#golang #interface
 
 ## Abstract
 
 目前看來`go`的interface和傳統意義上的interface似是而非
-
-
 
 舉個例子
 
@@ -52,8 +48,6 @@ class Square implements Shape {
 } 
 ```
 
-
-
 在`go`裡面大概像這樣
 
 ```go
@@ -73,11 +67,7 @@ func (s Square) GetPerimeter() int {
 }
 ```
 
-
-
 看起來差不多，但是細節有許多不同，下面一一道來
-
-
 
 ## Implemented implicitly
 
@@ -117,10 +107,6 @@ func isShape(s IShape) bool {
 }
 ```
 
-
-
-
-
 ## The Value of Interfaces
 
 在`go`中，是允許宣告符合某一介面的物件的，zero value 是 `nil`
@@ -148,8 +134,6 @@ func main() {
 
 目前是還看不出這個設計的好處，拿同一個變數名稱實作不同的`struct`算好處嗎(?)
 
-
-
 不知道為什麼也可以存指標
 
 ```go
@@ -165,17 +149,9 @@ func main() {
 
 另外，如果方法是以指標的方式宣告，則只有傳入**指向"interface的struct"的指標**才可以正常呼叫
 
-
-
-
-
 ## Empty interface
 
-
-
 ### As an Object
-
-
 
 ```go
 func main() {
@@ -194,10 +170,6 @@ hi string
 true bool
 */
 ```
-
-
-
-
 
 這邊有坑要注意
 
@@ -222,13 +194,7 @@ func InputInerfaceSlice(i []interface{}) {}
 func InputInerfaceSlice2(i ...interface{}) {}
 ```
 
-
-
-
-
 ### Type assertions
-
-
 
 ```go
 package main
@@ -252,8 +218,6 @@ func main() {
 }
 ```
 
-
-
 ```go
 package main
 
@@ -276,4 +240,3 @@ func main() {
 	do(true)
 }
 ```
-

@@ -1,4 +1,7 @@
 # Parse Flags
+#c_sharp #console
+
+我發現這篇筆記我記錄了兩次[[Command Line Flags]]再找機會把他們合併起來
 
 方法大概可以分成三種
 

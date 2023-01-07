@@ -1,7 +1,7 @@
 # Go Doc
 
-
+#golang #documents
 
 Reference:
 
-https://developpaper.com/how-to-write-a-godoc-go-document-on-a-large-scale/
+<https://developpaper.com/how-to-write-a-godoc-go-document-on-a-large-scale/>

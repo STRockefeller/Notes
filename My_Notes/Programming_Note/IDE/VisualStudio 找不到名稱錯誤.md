@@ -7,8 +7,6 @@
 * Visual Studio 2019 Community
 * Winform 專案 .net framework 4.8
 
-
-
 ## 解決辦法
 
 嘗試過重建方案、重新啟動VS都沒有用

@@ -1,5 +1,7 @@
 # JSCPD
 
+#refactor
+
 [doc](https://www.npmjs.com/package/jscpd?activeTab=readme)
 
 ## ignore 的寫法

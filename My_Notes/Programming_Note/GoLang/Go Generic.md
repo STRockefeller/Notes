@@ -1,5 +1,7 @@
 # Generic
 
+#golang #generic
+
 ## Abstract
 
 ~~一直有傳說新版本的go可能會支援泛型，但至少現在還沒看到~~

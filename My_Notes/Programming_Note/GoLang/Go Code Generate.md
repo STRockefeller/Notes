@@ -1,5 +1,7 @@
 # Code generation
 
+#golang #code_generation
+
 目前有兩個主要的做法，一個是使用template，另一個是使用jennifer套件
 
 前者用法滿簡單的，只需花點時間熟悉template使用的語法就可以了。這邊主要紀錄後者的使用方式。

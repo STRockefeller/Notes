@@ -1,5 +1,7 @@
 # Go Test
 
+#golang #test/unit_test #test/coverage #static_check
+
 ## 專案檢查流程
 
 ```powershell

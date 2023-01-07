@@ -1,5 +1,7 @@
 # Entity Framework
 
+#c_sharp #orm #database/sql
+
 [Reference:淺談 Entity Framework 與 ADO.NET 差異](http://www.kangting.tw/2019/06/entity-framework_23.html)
 
 [Reference:MSDN](https://docs.microsoft.com/zh-tw/ef/core/get-started/overview/first-app?tabs=netcore-cli)

@@ -1,8 +1,8 @@
 # Validator
 
+#golang
+
 [official doc](https://pkg.go.dev/github.com/go-playground/validator)
-
-
 
 ## Sample
 
@@ -60,8 +60,6 @@ Key: 'User.FavouriteColor' Error:Field validation for 'FavouriteColor' failed on
 Key: 'User.Addresses' Error:Field validation for 'Addresses' failed on the 'required' tag
 ```
 
-
-
 ## Fields must be exposed
 
 ![](https://i.imgur.com/q1Yr4fa.png)
@@ -103,10 +101,6 @@ PS D:\Rockefeller\Projects_Test\test_validator> go run .
 Key: 'User.Name' Error:Field validation for 'Name' failed on the 'required' tag
 ```
 
-
-
-
-
 ### case 2
 
 ```go
@@ -143,8 +137,6 @@ output
 PS D:\Rockefeller\Projects_Test\test_validator> go run .
 <nil>
 ```
-
-
 
 ## DONOT type spaces after a comma
 

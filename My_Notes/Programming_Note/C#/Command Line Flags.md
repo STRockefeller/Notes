@@ -1,10 +1,11 @@
 # Command Line Flags
+#c_sharp #console
 
 先排除argv的寫法~~，你以為再寫C language嗎~~，這篇筆記主要紀錄使用套件的寫法。
 
 https://stackoverflow.com/questions/491595/best-way-to-parse-command-line-arguments-in-c
 
-
+我發現這篇筆記我記錄了兩次[[parse flags]]再找機會把他們合併起來
 
 ## GoFlag
 

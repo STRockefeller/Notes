@@ -1,6 +1,6 @@
 # Basic widgets
 
-#dart #flutter
+#dart/flutter
 
 [Reference:flutter.dev](https://flutter.dev/docs/development/ui/widgets/basics)
 

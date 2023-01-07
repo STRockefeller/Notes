@@ -1,10 +1,10 @@
 # Error Handle
 
+#golang #error_handle
+
 Reference:
 
 [ITHELP](https://ithelp.ithome.com.tw/articles/10219879)
-
-
 
 ## Abstract
 
@@ -14,8 +14,6 @@ Reference:
 >
 > - 一個可能造成錯誤的函式，必須回傳一個錯誤型別。如果函式呼叫成功，就回傳 nil，反之回傳錯誤。
 > - 在函式呼叫後，需要檢查錯誤，如果不是 nil，就必須進行錯誤處理。
-
-
 
 ## Example
 
@@ -44,11 +42,7 @@ func main() {
 }
 ```
 
-
-
 下面列一些`Go`的其他有助於例外處理的關鍵字
-
-
 
 ## defer
 
@@ -57,8 +51,6 @@ func main() {
 簡單來說就是把動作延後執行
 
 遇到`panic`則在`panic`之前執行
-
-
 
 ## panic
 
@@ -82,8 +74,6 @@ func main() {
 > defer hello
 > panic: crash
 > ```
-
-
 
 ## recover
 
@@ -110,10 +100,8 @@ crash
 
 **注意**:
 
-*  `panic`後方的程式碼**不會**被執行
-* `recover`後方的程式碼**會**被執行
-
-
+- `panic`後方的程式碼**不會**被執行
+- `recover`後方的程式碼**會**被執行
 
 可以利用這些特性模擬出`try`-`catch`動作
 
@@ -189,20 +177,14 @@ hello,world
 
 不過這樣做也是有缺點:
 
-* catch的動作不能和err關聯，畢竟err是在try function裡面宣告的。
-* 不想處理catch的時候還是要傳入空方法
-
-
-
-
+- catch的動作不能和err關聯，畢竟err是在try function裡面宣告的。
+- 不想處理catch的時候還是要傳入空方法
 
 ## Package errors
 
-Reference: https://pkg.go.dev/errors
+Reference: <https://pkg.go.dev/errors>
 
 基本上只要扯到錯誤都會使用到這個套件，這邊記錄一些常見的用法。
-
-
 
 ### Basic
 
@@ -233,8 +215,6 @@ func printErr(err interface{}) {
 }
 ```
 
-
-
 ```
 value :  new error
 type : *errors.errorString
@@ -243,8 +223,6 @@ type : *fmt.wrapError
 value :  err3: [err2: [new error]]
 type : *fmt.wrapError
 ```
-
-
 
 ### func [As](https://cs.opensource.google/go/go/+/go1.17:src/errors/wrap.go;l=77)
 
@@ -294,8 +272,6 @@ Output:
 
 Failed at path: non-existing
 ```
-
-
 
 ### func [Is](https://cs.opensource.google/go/go/+/go1.17:src/errors/wrap.go;l=39)
 
@@ -349,8 +325,6 @@ Output:
 file does not exist
 ```
 
-
-
 ### func [New](https://cs.opensource.google/go/go/+/go1.17:src/errors/errors.go;l=58)
 
 ```go
@@ -362,8 +336,6 @@ func New(text string) error
 建構error的方法
 
 也可以使用`fmt`套件的`Errorf`方法，差別在錯誤訊息可以使用format string
-
-
 
 ### func [Unwrap](https://cs.opensource.google/go/go/+/go1.17:src/errors/wrap.go;l=14)
 
