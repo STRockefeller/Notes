@@ -19,12 +19,24 @@
             "id": "99f416e96cf50688",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Bird Mountain.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "27601b7c88e19d06",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "a9af30b49f6a0373",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
             }
           },
           {
@@ -40,7 +52,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -69,7 +81,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#c_sharp/blazor",
+                "query": "tag:#Getting",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -106,7 +118,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Bird Mountain.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +134,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Bird Mountain.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -145,9 +155,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Bird Mountain.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -168,17 +176,17 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "99f416e96cf50688",
+  "active": "a9af30b49f6a0373",
   "lastOpenFiles": [
-    "My_Notes/Problem_Solve/已解決/CodeWars_6kyu_The search for Primes Twin Primes.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_Bit Counting.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Bird Mountain.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Gap in Primes.md",
-    "My_Notes/Programming_Note/C#/Yield.md",
-    "My_Notes/Programming_Note/C#/yaml (De)Serialize.md",
-    "My_Notes/Programming_Note/C#/web api.md",
-    "My_Notes/Programming_Note/C#/Tuple and Value Tuple.md",
-    "My_Notes/Programming_Note/C#/Task.md",
-    "My_Notes/Programming_Note/C#/String isNumber.md"
+    "My_Notes/Programming_Note/C#/Command Line Flags.md",
+    "My_Notes/Programming_Note/C#/Console/parse flags.md",
+    "My_Notes/Programming_Note/GoLang/Go Basic.md",
+    "My_Notes/Programming_Note/GoLang/Go Composition.md",
+    "My_Notes/Programming_Note/GoLang/Go Basic/Go Basic.md",
+    "My_Notes/Programming_Note/GoLang/Go Basic/Getting Start.md",
+    "My_Notes/Programming_Note/GoLang/Go Basic/Installation.md",
+    "My_Notes/Programming_Note/GoLang/Go Basic/Abstract.md",
+    "My_Notes/Programming_Note/GoLang/Go Basic/Review with Questions.md",
+    "My_Notes/Programming_Note/GoLang/Go Basic/Functions.md"
   ]
 }
