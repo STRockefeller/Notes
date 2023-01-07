@@ -1,6 +1,6 @@
 # SQLite Note
 
-
+#database/sql/sqlite
 
 [Reference](https://www.sqlitetutorial.net/)
 
@@ -27,8 +27,6 @@ Select
 2
 ```
 
-
-
 SQLite
 
 ```sqlite
@@ -39,8 +37,6 @@ Select
 ```
 1
 ```
-
-
 
 SQLite
 
@@ -53,8 +49,6 @@ Select
 1
 ```
 
-
-
 SQLite
 
 ```Sqlite
@@ -65,8 +59,6 @@ Select
 ```
 0
 ```
-
-
 
 SQLite
 
@@ -98,8 +90,6 @@ C#
 tracks.Select(t=>t.trackid);
 ```
 
-
-
 SQLite
 
 ```sqlite
@@ -114,8 +104,6 @@ C#
 ```C#
 tracks.Select(t=>t);
 ```
-
-
 
 SQLite
 
@@ -135,13 +123,9 @@ C#
 tracks.Select(t=>(t.trackid,t.name,t.composer,unitprice));
 ```
 
-
-
 ## Order By
 
 ASC是升冪，DESC是降冪
-
-
 
 SQLite
 
@@ -161,8 +145,6 @@ C#
 ```C#
 tracks.Select(t=>(t.name,t.milliseconds,t.albumid)).OrderBy(t=>t.albumid);
 ```
-
-
 
 SQLite
 
@@ -184,13 +166,9 @@ C#
 tracks.Select(t=>(t.name,t.milliseconds,t.albumid)).OrderBy(t=>t.albumid).ThenByDescending(t=>t.milliseconds);
 ```
 
-
-
 ---
 
 選擇以第幾行為依據排列，這我不曉得怎麼用linq類比
-
-
 
 SQLite
 
@@ -207,15 +185,11 @@ ORDER BY
 
 先以第三行的內容作升冪排列再以第二行的內容作升冪排列。
 
-
-
 ---
 
 ### Null數值的排序
 
 在SQLite中Null被視為最小值，在ASC中會排在最前面，DESC則是最後方。
-
-
 
 ## Select Distinct
 
@@ -233,8 +207,6 @@ C#
 ```C#
 customers.Select(c=>c.city).Distinct();
 ```
-
-
 
 ## Where
 
@@ -285,8 +257,6 @@ C#
 tracks.Where(t=>t.albumid==1).Select(t=>(t.name,t.millisecond,t.bytes,t.albumid));
 ```
 
-
-
 SQLite
 
 ```sqlite
@@ -308,8 +278,6 @@ C#
 tracks.Where(t=>t.albumid==1&&t.milliseconds>250000).Select(t=>(t.name,t.millisecond,t.bytes,t.albumid));
 ```
 
-
-
 SQLite
 
 ```sqlite
@@ -326,8 +294,6 @@ ORDER BY
 ```
 
 這個我不會用linq類比
-
-
 
 SQLite
 
@@ -347,8 +313,6 @@ C#
 ```C#
 tracks.Where(t=>t.mediatypeid==2||t.mediatypeid==3).Select(t=>(t.name,t.albumid,t.mediatypeid));
 ```
-
-
 
 ## Limit / Offset
 
@@ -388,8 +352,6 @@ C#
 tracks.Select(t=>(t.trackId,t.name)).Skip(10).Take(10);
 ```
 
-
-
 ## Between
 
 SQLite
@@ -413,8 +375,6 @@ C#
 invoices.Where(i=>i.Total>=14.91&&i.Total<=18.86).Select(i=>(i.InvoiceId,i.BillingAddress,i.Total)).OrderBy(i=>i.Total);
 ```
 
-
-
 SQLite
 
 ```sqlite
@@ -435,8 +395,6 @@ C#
 ```C#
 invoices.Where(i=>!(i.Total>=1&&i.Total<=20)).Select(i=>(i.InvoiceId,i.BillingAddress,i.Total)).OrderBy(i=>i.Total);
 ```
-
-
 
 SQLite
 
@@ -460,17 +418,13 @@ private bool IsInDate(DateTime date)=>
     return date.CompareTo(new DateTime(2010,1,1)) >= 0 && date.CompareTo(new DateTime(2010,1,31)) <= 0;
 ```
 
-
-
 ## In
 
-> The SQLite `IN` operator determines whether a value matches any value in a list or a [subquery](https://www.sqlitetutorial.net/sqlite-subquery/). 
+> The SQLite `IN` operator determines whether a value matches any value in a list or a [subquery](https://www.sqlitetutorial.net/sqlite-subquery/).
 
 在[Where](#Where)處有一個範例有用到這個關鍵字
 
 用法有二，其一是判斷是否在給定的集合內，另一是以query判斷。
-
-
 
 SQLite
 
@@ -490,8 +444,6 @@ C#
 ```C#
 Tracks.Where(t=>t.MediaTypeId==1||t.MediaTypeId==2).Select(t=>t).OrderBy(t=>t.Name);
 ```
-
-
 
 SQLite
 
@@ -521,15 +473,11 @@ Tracks.Where(t=>Condition(t.AlbumId)).Select(t=>(t.TrackId,t.Name,t.AlbumId));
 bool Condition(int albumId)=>Albums.Where(a=>a.ArtistId==12).Contains(albumId);
 ```
 
-
-
 ## Like
 
 同樣是不曉得如何用linq類比的
 
 再次強調SQLite屬於`case-insensitive`，這個特性同樣適用於Like關鍵字
-
-
 
 ```sqlite
 SELECT
@@ -541,8 +489,6 @@ WHERE
 	name LIKE 'Wild%';
 ```
 
-
-
 ```sqlite
 SELECT
 	trackid,
@@ -553,8 +499,6 @@ WHERE
 	name LIKE '%Br_wn%';
 ```
 
-
-
 如果要找'%'字元要使用反斜線 `\%`
 
 ```sqlite
@@ -562,8 +506,6 @@ SELECT c
 FROM t 
 WHERE c LIKE '%10\%%' ESCAPE '\';
 ```
-
-
 
 ### SQL 萬用字元
 
@@ -577,23 +519,13 @@ _ (底線)：代表剛好一個字母。 ==> 類比regexp就是`.`
 
 以下是幾個萬用字元的例子：
 
-
-
 'A_Z': 所有以 'A' 起頭，另一個任何值的字原，且以 'Z' 為結尾的字串。 'ABZ' 和 'A2Z' 都符合這一個模式，而 'AKKZ' 並不符合 (因為在 A 和 Z 之間有兩個字元，而不是一個字元)。
-
-
 
 'ABC%': 所有以 'ABC' 起頭的字串。舉例來說，'ABCD' 和 'ABCABC' 都符合這個模式。
 
-
-
 '%XYZ': 所有以 'XYZ' 結尾的字串。舉例來說，'WXYZ' 和 'ZZXYZ' 都符合這個模式。
 
-
-
 '%AN%': 所有含有 'AN'這個模式的字串。舉例來說， 'LOS ANGELES' 和 'SAN FRANCISCO' 都符合這個模式。
-
-
 
 '_AN%'： 所有第二個字母為 'A' 和第三個字母為 'N' 的字串。舉例來說，'SAN FRANCISCO' 符合這個模式，而 'LOS ANGELES' 則不符合這個模式。
 
@@ -614,8 +546,6 @@ Where
 
 是不成立的，結果當然是甚麼都找不到
 
-
-
 應該寫成
 
 ```sqlite
@@ -627,17 +557,13 @@ WHERE
 	Composer IS null;
 ```
 
-
-
 如果要找非Null的值，同理應該寫成`IS NOT NULL`而非`!=NULL`
-
-
 
 ## Glob
 
 與[Like](#Like)關鍵字類似，但為大小寫敏感類型
 
-> Unlike the `LIKE` operator, the `GLOB` operator is **case sensitive** and uses the **UNIX wildcards.** 
+> Unlike the `LIKE` operator, the `GLOB` operator is **case sensitive** and uses the **UNIX wildcards.**
 
 > The following shows the wildcards used with the `GLOB` operator:
 >
@@ -658,8 +584,6 @@ WHERE
 
 找 `一個任意字元+"ere"+任意字串`
 
-
-
 ---
 
 關於數字搜尋
@@ -676,8 +600,6 @@ WHERE
 	name GLOB '*[1-9]*';
 ```
 
-
-
 Or to find the tracks whose name does not contain any number, you place the character `^` at the beginning of the list:
 
 ```sqlite
@@ -689,8 +611,6 @@ FROM
 WHERE
 	name GLOB '*[^1-9]*';
 ```
-
-
 
 The following statement finds the tracks whose names end with a number.
 
@@ -704,21 +624,15 @@ WHERE
 	name GLOB '*[1-9]';
 ```
 
-
-
 ## Join
 
 一般分為`INNER JOIN`, `LEFT JOIN`,  `CROSS JOIN` ,  `RIGHT JOIN` and `FULL OUTER JOIN`
 
 SQLite 支援前三種
 
-
-
 範例table結構如下圖
 
 ![](https://cdn.sqlitetutorial.net/wp-content/uploads/2018/11/artists_albums.png)
-
-
 
 ### Inner Join
 
@@ -738,8 +652,6 @@ INNER JOIN artists
     ON artists.ArtistId = albums.ArtistId;
 ```
 
-
-
 也可以縮寫成
 
 ```sqlite
@@ -750,8 +662,6 @@ FROM
    albums
 INNER JOIN artists USING(ArtistId);
 ```
-
-
 
 ### Left Join
 
@@ -773,8 +683,6 @@ LEFT JOIN albums ON
     artists.ArtistId = albums.ArtistId;
 ```
 
-
-
 > ![](https://cdn.sqlitetutorial.net/wp-content/uploads/2019/08/sqlite-join-left-join-example.png)
 
 一樣可以用Using縮寫
@@ -787,8 +695,6 @@ FROM
    artists
 LEFT JOIN albums USING (ArtistId);
 ```
-
-
 
 ### Cross Join
 
@@ -815,4 +721,3 @@ CROSS JOIN calendars;
 | 產品2         | 2020           | 3               |
 | 產品2         | 2020           | 4               |
 | ...           | ...            | ...             |
-

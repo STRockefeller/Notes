@@ -1,12 +1,12 @@
 # Graph
 
+#data_structure
+
 ## Reference
 
 [GeeksforGeeks](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)
 
 [SecondRound](http://alrightchiu.github.io/SecondRound/graph-introjian-jie.html)
-
-
 
 ## Basic
 
@@ -34,8 +34,6 @@
 ![](https://github.com/alrightchiu/SecondRound/blob/master/content/Algorithms%20and%20Data%20Structures/Graph%20series/Intro_fig/f3.png?raw=true)
 
 ![](https://github.com/alrightchiu/SecondRound/blob/master/content/Algorithms%20and%20Data%20Structures/Graph%20series/Intro_fig/f4.png?raw=true)
-
-
 
 其他名詞
 
@@ -68,7 +66,5 @@
    ：先以一個一維陣列列出所有的vertex，再以Linked list表示所有與vertex相連的vertex。
 
    (vertex接進Linked list的順序不重要，因為是Graph是定義成Set。)
-
-
 
 ![](https://github.com/alrightchiu/SecondRound/blob/master/content/Algorithms%20and%20Data%20Structures/Graph%20series/Intro_fig/f_5.png?raw=true)

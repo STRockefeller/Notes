@@ -1,6 +1,10 @@
 # Naming Conventions
 
+#dart #json #typescript  #api #swagger
+
 ## dart
+
+在 [[Dart Convention]] 裡面也有提到。
 
 https://dart.dev/guides/language/effective-dart/style
 

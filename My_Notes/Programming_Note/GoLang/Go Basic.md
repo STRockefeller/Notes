@@ -13,8 +13,6 @@ Reference:
 * 若要宣告一個跨package的整數並賦予初始值，可以怎麼做? [Ans](#Declare variables)
 * 假如我有一個`struct`紀錄立方體的三個邊長，若要寫一個`method`來獲取立方體的表面積可以怎麼做? [Ans](#Methods)
 
-
-
 ## Abstract
 
 新入坑`GoLang`，這篇筆記會從最基礎的部份邊學邊紀錄
@@ -29,13 +27,9 @@ Reference:
 
 其實也就只是安裝之後修改環境變數，並沒有甚麼特別的。
 
-
-
 [官網](https://golang.org/dl/)下載安裝包，這篇筆記以win10作業系統為主，下載的是當下(2021/7)最新的版本:1.16.6
 
 加入Path環境變數`%GOPATH%`或者是安裝路徑上的`\Go\bin\`
-
-
 
 這次使用`Power Shell`來加入環境變數試試
 
@@ -118,17 +112,11 @@ Additional help topics:
 Use "go help <topic>" for more information about that topic.
 ```
 
-
-
 ## Getting Start
-
-
 
 粗略了解了一下發現`Go`並不完全是物件導向語言，並且我很難找到目前學過的哪個語言可以和`Go`類比
 
 筆記中我會盡量以我的方式去說明`Go`的結構，可能不完全正確，有錯的話就等以後熟悉了再回來修正。
-
-
 
 ### Program Structure
 
@@ -169,8 +157,6 @@ Hello, World!
 
 在同package中的程式碼可以看做在同一個檔案下，但是外部資源的引用每次都要寫，有點像`partial class`
 
-
-
 #### Comments
 
 和C家族的完全一樣`//` 以及 `/* */`
@@ -183,15 +169,11 @@ Hello, World!
 // #endregion myregion
 ```
 
-
-
 #### Line Separator
 
 和`python`一樣不需要在行尾輸入任何符號，只要<kbd>Enter</kbd>進入下一行Compiler就可以知道該怎麼做了
 
 不過我試過加了`;`也是可以正常運作的(但是在go format的時候會被拿掉)
-
-
 
 #### Naming
 
@@ -210,8 +192,6 @@ Hello, World!
 | const    | fallthrough | if     | range     | Type   |
 | continue | for         | import | return    | Var    |
 
-
-
 ### Data Types
 
 #### Boolean
@@ -222,7 +202,7 @@ zero value 是 `false`
 
 #### Numeric
 
-**Integer** 
+**Integer**
 
 * `uint`
 
@@ -290,8 +270,6 @@ slices資料結構會在另一篇筆記詳細記錄，
 
 我個人感覺`Go`的`string`和`C++`"指向一連串`char`的指標"的觀念很類似
 
-
-
 **引號的區別**
 
 ```
@@ -320,13 +298,9 @@ slices資料結構會在另一篇筆記詳細記錄，
 | \ooo            | Octal number of one to three digits      |
 | \xhh . . .      | Hexadecimal number of one or more digits |
 
-
-
 **格式化輸入輸出**
 
 可以在`fmt.Printf()`或`fmt.Scanf()`使用
-
-
 
 下方的範例來自[ITHELP](https://ithelp.ithome.com.tw/articles/10235988)
 
@@ -355,8 +329,6 @@ func main()  {
 // main.Name{A:"", B:false, C:0}	
 ```
 
-
-
 ##### Rune & Byte
 
 [參考](https://www.bogotobogo.com/GoLang/GoLang_byte_and_rune.php)
@@ -365,13 +337,9 @@ Rune 和 Byte 分別做為 int32 以及 uint8 的別稱
 
 有趣的是對一個string進行 for range 以及 for index 會拿到不一樣的型別
 
-
-
 推測可能和UTF-8的支援有關，for index 會針對 byte 取資料 ，for range 則會針對一個完整的字元
 
 [play ground](https://go.dev/play/p/kNPcGWZUdr0)
-
-
 
 #### Derived
 
@@ -405,8 +373,6 @@ Rune 和 Byte 分別做為 int32 以及 uint8 的別稱
   	fmt.Println(v) //{1000 20}
   }
   ```
-
-  
 
 * Union types
 
@@ -447,15 +413,11 @@ Rune 和 Byte 分別做為 int32 以及 uint8 的別稱
 
   **補充**:尚未assign的value會直接被認定為zero value，所以其實很多地方的確認可以省下來，不用特別擔心操作到undefined value的情形
 
-* Channel 
+* Channel
 
 #### Declare variables
 
-
-
 > Note that it is a good programming practice to define constants in CAPITALS.
-
-
 
 直接看範例
 
@@ -511,8 +473,6 @@ d :=  42;
    	fmt.Printf("d=%f and i=%d", d, i) //d=0.500000 and i=10
    }
    ```
-
-   
 
 ### Operators
 
@@ -591,11 +551,7 @@ Example假設"A為1且B為0" 或 "A為true且B為false"
 | &        | Returns the address of a variable. | &a; provides actual address of the variable. |
 | *        | Pointer to a variable.             | *a; provides pointer to a variable.          |
 
-
-
 #### Operators Precedence in Go
-
-
 
 | Category       | Operator                          | Associativity |
 | -------------- | --------------------------------- | ------------- |
@@ -613,8 +569,6 @@ Example假設"A為1且B為0" 或 "A為true且B為false"
 | Logical OR     | \|\|                              | Left to right |
 | Assignment     | = += -= *= /= %=>>= <<= &= ^= \|= | Right to left |
 | Comma          | ,                                 | Left to right |
-
-
 
 ### Decision Making
 
@@ -636,8 +590,6 @@ func pow(x, n, lim float64) float64 {
 }
 ```
 
-
-
 補充:
 
 go 在做錯誤處理的時候也很適合使用`if`
@@ -647,8 +599,6 @@ if err:=myfunc();err!=nil{
     return err
 }
 ```
-
-
 
 #### switch
 
@@ -672,8 +622,6 @@ func main() {
 }
 ```
 
-
-
 **進入下一個case的方法**
 
 由於golang自動break的特性，如果真的要進入下一個case反而需要另外下`fallthrough`指令
@@ -689,10 +637,6 @@ switch n {
 	    fmt.Ptintln("n>2")
 }
 ```
-
-
-
-
 
 #### select
 
@@ -729,9 +673,7 @@ func main() {
 
 關於甚麼是`chan int` 甚麼是`<-`，先留到Channel筆記再詳談，不然這篇筆記的篇幅太大了
 
-
-
-#### ?:
+#### ?
 
 很可惜目前`go`沒有類似的功能
 
@@ -773,11 +715,7 @@ func main() {
 }
 ```
 
-
-
 另外 `break` `continue` `goto`和C家族一樣，就不多提了
-
-
 
 **foreach**
 
@@ -802,8 +740,6 @@ for _, element := range someSlice {
 
 The underscore, `_`, is the [*blank identifier*](https://golang.org/ref/spec#Blank_identifier), an anonymous placeholder.
 
-
-
 也可以搭配channel使用
 
 ```go
@@ -824,8 +760,6 @@ func main() {
 	}
 }
 ```
-
-
 
 ### Functions
 
@@ -855,8 +789,6 @@ func main() {
 	fmt.Println(split(17))
 }
 ```
-
-
 
 ### Methods
 
@@ -924,6 +856,3 @@ func main() {
 	fmt.Println(f.Abs()) //1.4142135623730951
 }
 ```
-
-
-

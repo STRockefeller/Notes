@@ -1,5 +1,7 @@
 # More about source code building
 
+#c #golang #preprocess #compile #link #build #gcc
+
 references:
 
 [Compiling C files with gcc, step by step](https://medium.com/@laura.derohan/compiling-c-files-with-gcc-step-by-step-8e78318052)

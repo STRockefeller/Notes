@@ -1,10 +1,8 @@
+# Dart enum
 
-
-
+#dart
 
 ## Enum 賦值
-
-
 
 Dart沒辦法像下方C#的作法一樣給enum數值
 
@@ -91,11 +89,9 @@ EnumSeriesName series = series.EnumSeriesName.A20_Atelier_Lulua;
 String name = series.name;
 ```
 
-
-
 ## 未整理
 
-參考https://stackoverflow.com/questions/64887178/how-to-loop-over-an-enum-in-dart
+參考<https://stackoverflow.com/questions/64887178/how-to-loop-over-an-enum-in-dart>
 
 Given an enum like so,
 

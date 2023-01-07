@@ -1,8 +1,10 @@
 # Gitlab-ci
 
+#git #gitlab #cicd #hooks
+
 主要想記錄gitlab自動化測試以及gitlab-ci.yaml的撰寫方式
 
-
+github 也有類似的功能[[Github actions]]
 
 中文參考 
 

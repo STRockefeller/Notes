@@ -1,5 +1,7 @@
 # Dart kernel
 
+#dart #jupyter
+
 折騰了1.5小時才搞定，必須記下來，免得之後又得花費一堆時間弄這東西= =
 
 首先我用的是這個版本的kernel [GitHub - vickumar1981/jupyter-dart-kernel: Dart Kernel for Jupyter Notebooks](https://github.com/vickumar1981/jupyter-dart-kernel)

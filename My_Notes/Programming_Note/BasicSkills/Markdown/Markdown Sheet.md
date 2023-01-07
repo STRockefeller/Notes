@@ -1,9 +1,11 @@
-Markdown Cheatsheet<a name="TOP"></a>
-===================
+# Markdown Cheatsheet
 
-Clone From https://github.com/tchapi/markdown-cheatsheet
+#markdown
+
+Clone From <https://github.com/tchapi/markdown-cheatsheet>
 
 - - - -
+
 # Heading 1 #
 
     Markup :  # Heading 1 #
@@ -28,7 +30,6 @@ Clone From https://github.com/tchapi/markdown-cheatsheet
 
     Markup :  #### Heading 4 ####
 
-
 Common text
 
     Markup :  Common text
@@ -49,12 +50,12 @@ ___Strong emphasized text___
 
     Markup :  ___Strong emphasized text___ or ***Strong emphasized text***
 
-[Named Link](http://www.google.fr/ "Named link title") and http://www.google.fr/ or <http://example.com/>
+[Named Link](http://www.google.fr/ "Named link title") and <http://www.google.fr/> or <http://example.com/>
 
     Markup :  [Named Link](http://www.google.fr/ "Named link title") and http://www.google.fr/ or <http://example.com/>
 
 [heading-1](#heading-1 "Goto heading-1")
-    
+
     Markup: [heading-1](#heading-1 "Goto heading-1")
 
 Table, like this one :
@@ -124,8 +125,8 @@ Content Cell  | Content Cell | Content Cell
              ```
 
 * Bullet list
-    * Nested bullet
-        * Sub-nested bullet etc
+  * Nested bullet
+    * Sub-nested bullet etc
 * Bullet list item 2
 
 ~~~
@@ -154,16 +155,16 @@ Content Cell  | Content Cell | Content Cell
           2. Which is numbered
 ~~~
 
-- [ ] An uncompleted task
-- [x] A completed task
+* [ ] An uncompleted task
+* [x] A completed task
 
 ~~~
  Markup : - [ ] An uncompleted task
           - [x] A completed task
 ~~~
 
-- [ ] An uncompleted task
-    - [ ] A subtask
+* [ ] An uncompleted task
+  * [ ] A subtask
 
 ~~~
  Markup : - [ ] An uncompleted task

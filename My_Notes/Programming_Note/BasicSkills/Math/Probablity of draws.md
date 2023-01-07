@@ -1,5 +1,7 @@
 # Probability of Draws
 
+#math #latex
+
 ## Abstract
 
 有時候感覺解題的時候，不足的反而是數學方面。

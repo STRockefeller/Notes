@@ -1,4 +1,6 @@
-# flutter 基礎
+# flutter Basic
+
+#dart #flutter
 
 [Reference:ITHelp](https://ithelp.ithome.com.tw/articles/10215158)
 
@@ -419,3 +421,4 @@ $ flutter packages get
 $ flutter packages upgrade
 ```
 
+其他專案相關的基礎資訊紀錄於[[Flutter Project Basic]]中

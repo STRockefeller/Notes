@@ -1,3 +1,6 @@
+# OpenCV prob100
 
-github 100°Ý ªþC++/Python¸Ñµª
-https://github.com/yoyoyo-yo/Gasyori100knock
+#cpp/openCV
+
+github 100ï¿½ï¿½ ï¿½ï¿½C++/Pythonï¿½Ñµï¿½
+<https://github.com/yoyoyo-yo/Gasyori100knock>

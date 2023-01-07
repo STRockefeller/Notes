@@ -1,5 +1,7 @@
 # Async
 
+#golang #c_sharp #dart #typescript #async
+
 ## Abstract
 
 每次學習新的語言時非同步的寫法總是會成為重點學習的項目之一。

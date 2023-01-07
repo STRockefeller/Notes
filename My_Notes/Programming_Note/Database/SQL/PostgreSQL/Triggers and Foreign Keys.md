@@ -1,5 +1,7 @@
 # Triggers & Foreign Keys
 
+#database/sql/postgresql
+
 References:
 
 * [PostgreSQL sequence based on another column](https://stackoverflow.com/questions/6821871/postgresql-sequence-based-on-another-column)
@@ -10,8 +12,6 @@ References:
 ## Abstract
 
 結合PostgreSQL和Gorm package 達成根據另一個Column進行sequences排序的功能
-
-
 
 ## About Foreign Key
 
@@ -44,8 +44,6 @@ CREATE TABLE weather (
 
 例如，我今天想要新增一筆weather資料內容是彰化的天氣，那麼此時`cities.city`必須先有一筆資料的城市名稱為彰化，我才可以順利新增。
 
-
-
 另外還有一點要注意的是刪除被參考方資料的時候，若該筆資料正在被其他資料表參考中，則不被允許刪除
 
 ### Gorm Models
@@ -63,8 +61,6 @@ type ModelB struct {
   ModelAID string `gorm:"type:varchar(2);foreignKey:ModelA;primaryKey"`
 }
 ```
-
-
 
 後來在stack overflow 找到另一個寫法行的通
 
@@ -85,17 +81,11 @@ type ModelB struct {
 * 和postgreSQL的寫法相同，如果參考的目標是該表格的PK則`()`的Column名稱可以不寫，例如`gorm:"type:varchar(2) REFERENCES model_a;primaryKey"`
 * 如果connection string 裡面沒有設定預設的schema name在參考目標處必須標明schema name否則會有[找不到參考的問題](#XXX does not exists)
 
-
-
 ## About Trigger
 
 trigger 會綁訂於table，當條件達成時執行指定的動作。
 
-
-
 值得注意的一點是，PostgreSQL v14 之前的trigger 不支援 OR REPLACE 關鍵字，如果要避免重複創建，只能先執行DROP IF EXISTS
-
-
 
 V13
 
@@ -136,8 +126,6 @@ where event can be one of:
     DELETE
     TRUNCATE
 ```
-
-
 
 ## Implementation
 
@@ -209,8 +197,6 @@ CREATE TABLE my_model(
 | Apple  | 4             |
 | Banana | 5             |
 
-
-
 補充: CREATE SEQUENCE 完整參數
 
 ```sql
@@ -219,8 +205,6 @@ CREATE [ TEMPORARY | TEMP ] SEQUENCE [ IF NOT EXISTS ] name [ INCREMENT [ BY ] i
     [ START [ WITH ] start ] [ CACHE cache ] [ [ NO ] CYCLE ]
     [ OWNED BY { table_name.column_name | NONE } ]
 ```
-
-
 
 ---
 
@@ -266,8 +250,6 @@ public class MyModel
 }
 ```
 
-
-
 那麼問題來了
 
 * 不太可能透過PostgreSQL的欄位標籤，去執行這種複雜的邏輯。
@@ -283,8 +265,6 @@ public class MyModel
 
 1. 確認新資料的label是否存在對應的sequence，如果沒有就創建一個新的
 2. 根據label從對應的sequence找資料填入serial_number
-
-
 
 用function實現邏輯，大概像這樣
 
@@ -314,8 +294,6 @@ $$;
 
 註: sequence命名的部分要留意，像上方的寫法由於sequence的名稱會被轉換為lowercase所以有時不一定可以找到一對一對應的名稱，比較合適的做法還是把字串處理後再進行命名。這邊是方便示意。
 
-
-
 邏輯有兩個所以需要兩個trigger (一個trigger 只能觸發一個function ， [參考](https://dba.stackexchange.com/questions/54199/call-multiple-functions-from-trigger))
 
 trigger 條件就設定為資料創建時，大概像是這樣
@@ -327,8 +305,6 @@ CREATE TRIGGER my_trigger1 AFTER INSERT ON myschema.my_model FOR EACH ROW EXECUT
 ```sql
 CREATE TRIGGER my_trigger2 AFTER INSERT ON myschema.my_model FOR EACH ROW EXECUTE PROCEDURE myschema.fill_in_serial_number();
 ```
-
-
 
 到這裡目標就差不多實現了，再次執行前一回的操作時，動作會像這樣:
 
@@ -355,8 +331,6 @@ CREATE TRIGGER my_trigger2 AFTER INSERT ON myschema.my_model FOR EACH ROW EXECUT
 仔細觀察可能會發現上述的作法中有一件事情每次都執行顯得有點冗餘，就是trigger1的`CREATE SEQUENCE IF NOT EXISTS`動作，可能很多時候新資料的label和舊有的一樣，但還是必須去確認是否有對應sequence，就顯得很多餘。
 
 話雖這麼說，但是trigger的condition也沒辦法細緻到偵測這筆資料有新的label才觸發。
-
-
 
 針對這種情形，有一個不是很直覺的作法。
 
@@ -390,8 +364,6 @@ CREATE TRIGGER my_trigger1 AFTER INSERT ON myschema.my_model_label FOR EACH ROW 
 
 trigger2維持不變
 
-
-
 最後執行的詳細情形會像這樣:
 
 1. 新增資料Apple
@@ -410,13 +382,7 @@ trigger2維持不變
    * my_model_label 新增一筆資料 Banana，trigger1觸發並創建對應的sequence
    * trigger2 找到Banana對應的sequence並且取值放入serial_number
 
-
-
-
-
 ### Troubles
-
-
 
 #### XXX does not exists
 
@@ -425,8 +391,6 @@ trigger2維持不變
 1. 生成順序: 被參考目標必須先生成
 2. schema name: 若connection string沒有包含schema name，則sql指令中必須包含目標的schema name否則無法正確找到參考目標
 
-
-
 #### tuple concurrently updated
 
 另外還有一個PK衝突的錯誤，因為發生的情景很接近所以一起講。
@@ -434,7 +398,5 @@ trigger2維持不變
 原本會設計讓資料庫而不是後端程式進行流水號的累加最主要的目的是想避免同時在多個設備進行資料新增時可能造成因為PK衝突而新增失敗的情形
 
 但是採用這種寫法後，以golang的concurrent function做測試，發現goroutine當數量超過3個以後開始有機會出現錯誤，並且數量越多出錯率越高。
-
-
 
 **原因和解決方法待補。**

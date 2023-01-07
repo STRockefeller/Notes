@@ -1,6 +1,6 @@
 # PowerShell 基礎
 
-
+#powershell
 
 ## 關於PowerShell
 
@@ -17,15 +17,11 @@ PowerShell 由兩個部分所組成，**command-line shell**與**scripting langu
 - 您可以使用主控台與雲端資源及其他資源互動。
 - 您可以將命令與指令碼儲存在文字檔中，並使用原始檔控制系統。 這可能是最大的優點之一，因為您的命令可重複且可稽核。 在許多系統中 (尤其是政府系統)，所有項目都必須經過追蹤、評估或「稽核」。 稽核涵蓋了從資料庫變更到指令碼所做變更的所有項目。
 
-
-
 PowerShell 與傳統的殼層共用一些功能：
 
 - **Built-in help system**：大部分的殼層都有某種說明系統，您可以在其中深入了解命令。 例如，您可以了解命令的作用及其支援的參數。 PowerShell 中的說明系統能提供命令的相關資訊，以及與線上說明文章整合。
-- **Pipeline**：在傳統的殼層中，管線用於依序執行許多命令。 一個命令的輸出就是下一個命令的輸入。 PowerShell 會像傳統的殼層一樣實作此概念，但又因其會在文字上的物件運作而有所不同。 
+- **Pipeline**：在傳統的殼層中，管線用於依序執行許多命令。 一個命令的輸出就是下一個命令的輸入。 PowerShell 會像傳統的殼層一樣實作此概念，但又因其會在文字上的物件運作而有所不同。
 - **Aliases**：別名是可用於執行命令的替代名稱。 PowerShell 支援使用一般別名，例如 `cls` (清除螢幕) 與 `ls` (列出檔案)。 因此，新的使用者可以使用他們對其他架構的知識，而不一定要記住常見命令的 PowerShell 名稱。
-
-
 
 PowerShell 因幾種方式而與傳統的命令列殼層有所不同：
 
@@ -36,10 +32,6 @@ PowerShell 因幾種方式而與傳統的命令列殼層有所不同：
   Cmdlet 通常會採用物件輸入並傳回物件。 PowerShell 中的核心 Cmdlet 建置於 .NET Core 中，而且是開放原始碼。 您可以使用來自社群與其他來源的更多 Cmdlet、指令碼與函式擴充 PowerShell。 或者，您也可以在 .NET Core 或 PowerShell 中建置自己的 Cmdlet。
 
 - **PowerShell 有許多類型的命令。** PowerShell 中的命令可以是原生可執行檔、Cmdlet、函式、指令碼或別名。 您執行的每個命令都屬於這些類型的其中一種。 因為 Cmdlet 是一種命令類型，所以「命令」與 *Cmdlet* 兩個字通常會交互使用。
-
-
-
-
 
 ## Hot Key
 
@@ -131,11 +123,9 @@ PS C:\> cd 'C:\Program Files'
 PS C:\> dir 'C:\Program Files' | Out-File d:\files.txt -a<tab>
 PS C:\> dir 'C:\Program Files' | Out-File d:\files.txt -Append
 
-
-
 ## Cmdlet
 
-*Cmdlet* (發音為 "command-let") 是已編譯的命令。 
+*Cmdlet* (發音為 "command-let") 是已編譯的命令。
 
 Cmdlet 可以在 .NET 或 .NET Core 中開發，並在 PowerShell 中叫用為命令。 PowerShell 安裝中有數千個 Cmdlet 可供使用。
 
@@ -231,8 +221,6 @@ PS C:\Users\admin> get-help -name get-help
            移至 https://go.microsoft.com/fwlink/?LinkID=113316。
 ```
 
-
-
 這邊不知道為什麼我更新動作一直無法完成 `UICulture`不論是設定`zh-TW` `en-US`還是不設定都一樣
 
 ```powershell
@@ -283,8 +271,6 @@ PS C:\Windows\System32> Update-Help -UICulture en-US
 Update-Help: Failed to update Help for the module(s) 'ConfigDefender, PSReadline, WindowsUpdateProvider' with UI culture(s) {en-US} : One or more errors occurred. (Response status code does not indicate success: 404 (The specified blob does not exist.).).
 English-US help content is available and can be installed using: Update-Help -UICulture en-US.
 ```
-
-
 
 #### 更新說明
 
@@ -364,8 +350,6 @@ Get-Command -ParameterType Process
 
 其結果是一份在此類型上運作的 Cmdlet 清單。 透過使用 `Get-Member` 及學習如何解譯 PowerShell 的結果，您即可逐步地深入了解 PowerShell。
 
-
-
 #### 使用 Select-Object 篩選 Get-Member 結果
 
 當執行 `Get-Member` 時，其結果可能會「相當冗長」。 亦即，系統會傳回許多資料列。 其物件可能具有事件與方法之類的屬性。 若想讓結果不要那麼冗長，您可篩選特定資料行，並同時決定要顯示哪些資料行。 請記住，所傳回答案已經是回應中所有資料行的子集。
@@ -381,8 +365,6 @@ Handles                     AliasProperty
 ```
 
 您也可以依資料列篩選回應。 例如，您可使用旗標 `-MemberType Method` 指定您想要其成員類型為方法的資料列。 例如，如果想要找出並執行特定的方法，您可能只想要顯示特定的資料列。
-
-
 
 ---
 
@@ -420,8 +402,6 @@ PS C:\Users\admin> get-help -name get-help
         -- 若要線上檢視此 cmdlet 的說明主題，請輸入: "Get-Help Get-Help -Online" 或
            移至 https://go.microsoft.com/fwlink/?LinkID=113316。
 ```
-
-
 
 使用`get-member`
 
@@ -504,8 +484,6 @@ xmlns:maml
 
 備註`|`運算子用於建立pipeline，我會在後面的筆記中詳談。
 
-
-
 ## Commands
 
 指令這種東西講不完，就挑一些重點說明一下吧
@@ -529,8 +507,6 @@ PSRemotingProtocolVersion      2.3
 SerializationVersion           1.1.0.1
 ```
 
-
-
 值得一提的是這個結果為**物件輸出**，也就是我們可以透過`.`單獨調閱個別屬性的資料。
 
 ```powershell
@@ -541,14 +517,10 @@ Major  Minor  Build  Revision
 5      1      18362  752
 ```
 
-
-
 ```powershell
 PS C:\Users\admin> $PSVersionTable.PSVersion.Major
 5
 ```
-
-
 
 #### 關於 PowerShell 的版本
 
@@ -565,8 +537,6 @@ PS C:\Users\admin> $PSVersionTable.PSVersion.Major
 > PowerShell 7 會分別從 Windows PowerShell 安裝到目錄。 如此一來，您就能同時安裝 PowerShell 7 與 Windows PowerShell 5.1。 針對 PowerShell Core 6.x，PowerShell 7 會就地升級並移除 PowerShell Core 6.x。
 
 事實上我安裝完成後確實同時存在兩種PowerShell
-
-
 
 現在(2021/06)我所使用的PowerShell版本分別是
 
@@ -590,13 +560,9 @@ Major  Minor  Patch  PreReleaseLabel BuildLabel
 7      1      3
 ```
 
-
-
 至於兩者的區別，目前看來是幾乎相同
 
 於部分指令可能有些不同，如`Get-WmiObject`指令只有在Windows PowerShell可以作用
-
-
 
 ### Get-Alias
 
@@ -609,8 +575,6 @@ CommandType     Name                                               Version    So
 -----------     ----                                               -------    ------
 Alias           gal -> Get-Alias
 ```
-
-
 
 #### 進階操作
 
@@ -638,11 +602,9 @@ Get-Alias | Where-Object {$_.Options -Match "ReadOnly"}
 Get-Alias -Definition "*-PSSession" -Exclude e* -Scope Global
 ```
 
-
-
 ### Get-ChildrenItem
 
-不多說先上alias就懂了 
+不多說先上alias就懂了
 
     PS C:\Users\admin\Desktop\powershelltest> Get-Alias -Definition Get-ChildItem
     
@@ -668,8 +630,6 @@ Mode                 LastWriteTime         Length Name
 -a---          2021/6/1 上午 08:54            361 pwd_result.txt
 ```
 
-
-
 不過，僅此而已的話就沒必要記錄在筆記裏頭了，加碼來學習一下前面的`Mode`欄位`-a---`是什麼意思吧
 
 其實只要透過指令`Get-Help Get-ChildItem -Examples`就能找到答案
@@ -682,8 +642,6 @@ h - Hidden
 s - System
 l - Reparse point, symlink, etc.
 ```
-
-
 
 往下尋找使用參數 --recurse
 
@@ -715,13 +673,9 @@ Mode                 LastWriteTime         Length Name
 -a---         2021/7/12 下午 01:21              0 hello.txt
 ```
 
-
-
 ### New-Item
 
 用於建立檔案
-
-
 
 ```powershell
 PS C:\Users\admin\Desktop\powershelltest> New-Item new_item.ps1
@@ -735,13 +689,9 @@ Mode                LastWriteTime         Length Name
 -a----      2021/5/31  下午 04:31              0 new_item.ps1
 ```
 
-
-
 ### Out-File
 
 將原本要在dos上顯示的結果輸出成文字檔的指令
-
-
 
 例如
 
@@ -750,8 +700,6 @@ PS C:\Users\admin\Desktop\powershelltest> "hahaha" | Out-File haha.txt
 ```
 
 就會生成一個`haha.txt`檔案內容是`hahaha`
-
-
 
 ```powershell
 PS C:\Users\admin\Desktop\powershelltest> pwd | Out-File pwd_result.txt
@@ -765,13 +713,9 @@ Path
 C:\Users\admin\Desktop\powershelltest
 ```
 
-
-
 `Out-File`的機制是如果目標位置沒有該檔名的檔案就會生成一個，如果已經有了就會將其複寫。
 
 如果想要不更動現有內容，在文件的下方加入新的內容，可以透過參數`Append`進行設定。
-
-
 
 ```powershell
 PS C:\Users\admin\Desktop\powershelltest> dir | Out-File pwd_result.txt -Append
@@ -793,8 +737,6 @@ Mode                 LastWriteTime         Length Name
 -a---          2021/6/1 上午 08:50             55 pwd_result.txt
 ```
 
-
-
 #### `>`運算子
 
 `>`運算子的作用和`Out-File`指令十分相似(至少我是沒看出甚麼差別啦)
@@ -809,15 +751,11 @@ PS C:\Users\admin\Desktop\powershelltest> pwd | Out-File pwd_result.txt
 PS C:\Users\admin\Desktop\powershelltest> pwd > pwd_result.txt
 ```
 
-
-
 `Append`的作用也可以達成，只要將`>`寫兩遍成為`>>`即可
 
 ```powershell
 PS C:\Users\admin\Desktop\powershelltest> dir >> pwd_result.txt
 ```
-
-
 
 **註**:
 
@@ -829,8 +767,6 @@ PS C:\Users\admin\Desktop\powershelltest> dir >> pwd_result.txt
 PS C:\Users\admin\Desktop\powershelltest> Get-Alias -Definition Out-File
 Get-Alias: This command cannot find a matching alias because an alias with the definition 'Out-File' does not exist.
 ```
-
-
 
 ### Measure-Object
 
@@ -880,4 +816,3 @@ Maximum  :
 Minimum  :
 Property :
 ```
-

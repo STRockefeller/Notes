@@ -1,4 +1,6 @@
-# Git 基礎
+# Git Basic
+
+#git #bash
 
 [Reference](https://progressbar.tw/posts/1)
 
@@ -6,71 +8,67 @@
 
 其原因還得歸咎於自己的健忘，當初粗略的學完git後一直都在使用git kraken這種第三方工具，以至於現在原本的git怎麼操作都忘的差不多了。現在是時候從頭撿起來，並做好筆記了。
 
-
-
-## 安裝
+## Installation
 
 [https://git-scm.com/download/win](https://git-scm.com/download/win)
 
 安裝中有很多設定，反正就按照需求勾選，就算全部都直接NEXT也沒問題。
 
+## Commands
 
-
-## 指令
-
-### 一般指令
+### Bash Commands
 
 就基本上和 Command line 類似，但也有些許不同
 
 一樣可以透過help查看
 
-> $ help
-> GNU bash, version 4.4.23(1)-release (x86_64-pc-msys)
-> These shell commands are defined internally.  Type `help' to see this list.
-> Type `help name' to find out more about the function `name'.
-> Use `info bash' to find out more about the shell in general.
-> Use `man -k' or `info' to find out more about commands not in this list.
->
-> A star (*) next to a name means that the command is disabled.
->
->  job_spec [&]                                 history [-c] [-d offset] [n] or history ->
->  (( expression ))                             if COMMANDS; then COMMANDS; [ elif COMMAN>
->  . filename [arguments]                       jobs [-lnprs] [jobspec ...] or jobs -x co>
->  :                                            kill [-s sigspec | -n signum | -sigspec] >
->  [ arg... ]                                   let arg [arg ...]
->  [[ expression ]]                             local [option] name[=value] ...
->  alias [-p] [name[=value] ... ]               logout [n]
->  bg [job_spec ...]                            mapfile [-d delim] [-n count] [-O origin]>
->  bind [-lpsvPSVX] [-m keymap] [-f filename]>  popd [-n] [+N | -N]
->  break [n]                                    printf [-v var] format [arguments]
->  builtin [shell-builtin [arg ...]]            pushd [-n] [+N | -N | dir]
->  caller [expr]                                pwd [-LPW]
->  case WORD in [PATTERN [| PATTERN]...) COMM>  read [-ers] [-a array] [-d delim] [-i tex>
->  cd [-L|[-P [-e]] [-@]] [dir]                 readarray [-n count] [-O origin] [-s coun>
->  command [-pVv] command [arg ...]             readonly [-aAf] [name[=value] ...] or rea>
->  compgen [-abcdefgjksuv] [-o option] [-A ac>  return [n]
->  complete [-abcdefgjksuv] [-pr] [-DE] [-o o>  select NAME [in WORDS ... ;] do COMMANDS;>
->  compopt [-o|+o option] [-DE] [name ...]      set [-abefhkmnptuvxBCHP] [-o option-name]>
->  continue [n]                                 shift [n]
->  coproc [NAME] command [redirections]         shopt [-pqsu] [-o] [optname ...]
->  declare [-aAfFgilnrtux] [-p] [name[=value]>  source filename [arguments]
->  dirs [-clpv] [+N] [-N]                       suspend [-f]
->  disown [-h] [-ar] [jobspec ... | pid ...]    test [expr]
->  echo [-neE] [arg ...]                        time [-p] pipeline
->  enable [-a] [-dnps] [-f filename] [name ..>  times
->  eval [arg ...]                               trap [-lp] [[arg] signal_spec ...]
->  exec [-cl] [-a name] [command [arguments .>  true
->  exit [n]                                     type [-afptP] name [name ...]
->  export [-fn] [name[=value] ...] or export >  typeset [-aAfFgilnrtux] [-p] name[=value]>
->  false                                        ulimit [-SHabcdefiklmnpqrstuvxPT] [limit]
->  fc [-e ename] [-lnr] [first] [last] or fc >  umask [-p] [-S] [mode]
->  fg [job_spec]                                unalias [-a] name [name ...]
->  for NAME [in WORDS ... ] ; do COMMANDS; do>  unset [-f] [-v] [-n] [name ...]
->  for (( exp1; exp2; exp3 )); do COMMANDS; d>  until COMMANDS; do COMMANDS; done
->  function name { COMMANDS ; } or name () { >  variables - Names and meanings of some sh>
->  getopts optstring name [arg]                 wait [-n] [id ...]
->  hash [-lr] [-p pathname] [-dt] [name ...]    while COMMANDS; do COMMANDS; done
->  help [-dms] [pattern ...]                    { COMMANDS ; }
+```bash
+$ help
+GNU bash, version 4.4.23(1)-release (x86_64-pc-msys)
+These shell commands are defined internally.  Type `help' to see this list.
+Type`help name' to find out more about the function `name'.
+Use`info bash' to find out more about the shell in general.
+Use `man -k' or`info' to find out more about commands not in this list.
+A star (*) next to a name means that the command is disabled.
+job_spec [&]                                 history [-c] [-d offset] [n] or history ->
+(( expression ))                             if COMMANDS; then COMMANDS; [ elif COMMAN>
+. filename [arguments]                       jobs [-lnprs] [jobspec ...] or jobs -x co>
+:                                            kill [-s sigspec | -n signum | -sigspec] >
+[ arg... ]                                   let arg [arg ...]
+[[ expression ]]                             local [option] name[=value] ...
+alias [-p] [name[=value] ... ]               logout [n]
+bg [job_spec ...]                            mapfile [-d delim] [-n count] [-O origin]>
+bind [-lpsvPSVX] [-m keymap] [-f filename]>  popd [-n] [+N | -N]
+break [n]                                    printf [-v var] format [arguments]
+builtin [shell-builtin [arg ...]]            pushd [-n] [+N | -N | dir]
+caller [expr]                                pwd [-LPW]
+case WORD in [PATTERN [| PATTERN]...) COMM>  read [-ers] [-a array] [-d delim] [-i tex>
+cd [-L|[-P [-e]] [-@]] [dir]                 readarray [-n count] [-O origin] [-s coun>
+command [-pVv] command [arg ...]             readonly [-aAf] [name[=value] ...] or rea>
+compgen [-abcdefgjksuv] [-o option] [-A ac>  return [n]
+complete [-abcdefgjksuv] [-pr] [-DE] [-o o>  select NAME [in WORDS ... ;] do COMMANDS;>
+compopt [-o|+o option] [-DE] [name ...]      set [-abefhkmnptuvxBCHP] [-o option-name]>
+continue [n]                                 shift [n]
+coproc [NAME] command [redirections]         shopt [-pqsu] [-o] [optname ...]
+declare [-aAfFgilnrtux] [-p] [name[=value]>  source filename [arguments]
+dirs [-clpv] [+N] [-N]                       suspend [-f]
+disown [-h] [-ar] [jobspec ... | pid ...]    test [expr]
+echo [-neE] [arg ...]                        time [-p] pipeline
+enable [-a] [-dnps] [-f filename] [name ..>  times
+eval [arg ...]                               trap [-lp] [[arg] signal_spec ...]
+exec [-cl] [-a name] [command [arguments .>  true
+exit [n]                                     type [-afptP] name [name ...]
+export [-fn] [name[=value] ...] or export >  typeset [-aAfFgilnrtux] [-p] name[=value]>
+false                                        ulimit [-SHabcdefiklmnpqrstuvxPT] [limit]
+fc [-e ename] [-lnr] [first] [last] or fc >  umask [-p] [-S] [mode]
+fg [job_spec]                                unalias [-a] name [name ...]
+for NAME [in WORDS ... ] ; do COMMANDS; do>  unset [-f] [-v] [-n] [name ...]
+for (( exp1; exp2; exp3 )); do COMMANDS; d>  until COMMANDS; do COMMANDS; done
+function name { COMMANDS ; } or name () { >  variables - Names and meanings of some sh>
+getopts optstring name [arg]                 wait [-n] [id ...]
+hash [-lr] [-p pathname] [-dt] [name ...]    while COMMANDS; do COMMANDS; done
+help [-dms] [pattern ...]                    { COMMANDS ; }
+```
 
 下面列一些代表
 
@@ -78,13 +76,17 @@
 
 顯示當前位置
 
-> $ pwd
-> /c/Users/admin/desktop/TESTGIT
+```bash
+ $ pwd
+ /c/Users/admin/desktop/TESTGIT
+```
 
 補充: 在CMD 可以透過`cd ,`查詢
 
-> C:\Users\admin\Desktop\TESTGIT>cd ,
-> C:\Users\admin\Desktop\TESTGIT
+```bash
+ C:\Users\admin\Desktop\TESTGIT>cd ,
+ C:\Users\admin\Desktop\TESTGIT
+```
 
 #### cd
 
@@ -94,23 +96,27 @@
 
 比如我輸入 cd d接著按想下`tab`
 
-> admin@NBP0572 MINGW64 ~
-> $ cd D
-> Desktop/   Documents/ Downloads/
+```bash
+ admin@NBP0572 MINGW64 ~
+ $ cd D
+ Desktop/   Documents/ Downloads/
+```
 
 試著導到路徑
 
-> admin@NBP0572 MINGW64 ~
-> $ pwd
-> /c/Users/admin
->
-> admin@NBP0572 MINGW64 ~
-> $ cd Desktop/
->
-> admin@NBP0572 MINGW64 ~/Desktop
-> $ cd testgit
->
-> admin@NBP0572 MINGW64 ~/Desktop/testgit (master)
+```bash
+ admin@NBP0572 MINGW64 ~
+ $ pwd
+ /c/Users/admin
+
+ admin@NBP0572 MINGW64 ~
+ $ cd Desktop/
+
+ admin@NBP0572 MINGW64 ~/Desktop
+ $ cd testgit
+
+ admin@NBP0572 MINGW64 ~/Desktop/testgit (master)
+```
 
 在CMD中如下
 
@@ -119,8 +125,6 @@
 > C:\Users\admin\Desktop>cd testgit
 >
 > C:\Users\admin\Desktop\TESTGIT>
-
-
 
 現在有個小麻煩，我不知道怎麼回退，輸入絕對路徑和相對路徑都不行
 
@@ -147,8 +151,6 @@
 >
 > admin@NBP0572 MINGW64 ~/Desktop/TESTGIT (master)
 
-
-
 #### ls
 
 顯示當前目錄下的檔案 (Command Line 沒有)
@@ -159,27 +161,23 @@
 相當於CMD 的 `dir`
 
 > C:\Users\admin\Desktop\TESTGIT>dir
->  磁碟區 C 中的磁碟是 WIN10
->  磁碟區序號:  5E6B-3299
+> 磁碟區 C 中的磁碟是 WIN10
+> 磁碟區序號:  5E6B-3299
 >
->  C:\Users\admin\Desktop\TESTGIT 的目錄
+> C:\Users\admin\Desktop\TESTGIT 的目錄
 >
 > 2021/02/17  上午 10:59    <DIR>          .
 > 2021/02/17  上午 10:59    <DIR>          ..
 > 2021/02/17  上午 10:44    <DIR>          ewqf
 > 2021/02/17  上午 09:54                12 Readme.txt
->                1 個檔案              12 位元組
->                3 個目錄  118,027,829,248 位元組可用
-
-
+> 1 個檔案              12 位元組
+> 3 個目錄  118,027,829,248 位元組可用
 
 #### clear
 
 清空文字，沒啥好演示的
 
-
-
-### git 指令
+### git Commands
 
 一步步按順序來
 
@@ -211,9 +209,7 @@ TESTGIT資料夾，內新增ReadMe.txt，內容+initialization
 > admin@NBP0572 MINGW64 /c/users/admin/Desktop/TESTGIT (master)
 > $ git add ReadMe.txt
 
-也可以用`$ git add -f --all `將目錄底下的檔案全部加入
-
-
+也可以用`$ git add -f --all`將目錄底下的檔案全部加入
 
 #### git commit
 
@@ -224,8 +220,6 @@ TESTGIT資料夾，內新增ReadMe.txt，內容+initialization
 > fatal: your current branch 'master' does not have any commits yet
 
 必須先commit一次把最初的資料記錄起來。(git kraken也是這樣做的)
-
-
 
 試著輸入`git commit`
 
@@ -242,8 +236,8 @@ TESTGIT資料夾，內新增ReadMe.txt，內容+initialization
 > admin@NBP0572 MINGW64 /c/users/admin/Desktop/TESTGIT (master)
 > $ git commit  -m "initialization"
 > [master (root-commit) a608c43] initialization
->  1 file changed, 1 insertion(+)
->  create mode 100644 ReadMe.txt
+> 1 file changed, 1 insertion(+)
+> create mode 100644 ReadMe.txt
 
 註:如果出現訊息`***Please tell me who you are.`，則必須去設定基本資料
 
@@ -261,8 +255,6 @@ commit後再看log就有資訊了(Email被我改過了)
 > Author: STRockefeller <testGit@gmail.com>
 > Date:   Wed Feb 17 11:40:15 2021 +0800
 
-
-
 試著修改ReadMe.txt再次commit
 
 > admin@NBP0572 MINGW64 /c/users/admin/Desktop/TESTGIT (master)
@@ -271,7 +263,7 @@ commit後再看log就有資訊了(Email被我改過了)
 > admin@NBP0572 MINGW64 /c/users/admin/Desktop/TESTGIT (master)
 > $ git commit -m "first change"
 > [master c48eb70] first change
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> 1 file changed, 1 insertion(+), 1 deletion(-)
 >
 > admin@NBP0572 MINGW64 /c/users/admin/Desktop/TESTGIT (master)
 > $ git log
@@ -287,13 +279,9 @@ commit後再看log就有資訊了(Email被我改過了)
 >
 >     initialization
 
-
-
 #### git log
 
 顯示修改紀錄(過去的)
-
-
 
 #### git show
 
@@ -333,8 +321,6 @@ commit後再看log就有資訊了(Email被我改過了)
 
 NOTICE:版本號至少要輸入前四碼(可以更多)
 
-
-
 #### git reset
 
 回朔到之前的版本
@@ -349,8 +335,6 @@ NOTICE:版本號至少要輸入前四碼(可以更多)
 >admin@NBP0572 MINGW64 /c/users/admin/Desktop/TESTGIT (master)
 >$ git reset --hard a608
 >HEAD is now at a608c43 initialization
-
-
 
 #### git reflog
 
@@ -379,10 +363,10 @@ NOTICE:版本號至少要輸入前四碼(可以更多)
 
 就可以知道少掉的是c48e.....
 
-
-
-#### 更多 git 指令
+#### more git commands
 
 [Reference](https://hellojs-tw.github.io/git-101/cheat-sheet.html)
 
 [Reference](https://www.freecodecamp.org/news/10-important-git-commands-that-every-developer-should-know/)
+
+[[Git Command List]]

@@ -1,6 +1,6 @@
-
-
 # Pointer and Address
+
+#cpp #pointer
 
 [reference](https://openhome.cc/Gossip/CppGossip/Pointer.html)
 

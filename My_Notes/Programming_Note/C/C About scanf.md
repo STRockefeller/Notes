@@ -1,4 +1,6 @@
-# 關於`scanf()`
+# About `scanf()`
+
+#c 
 
 [Reference: 紅燒小站](https://sites.google.com/site/9braised/fan-si/c1)
 

@@ -1,10 +1,8 @@
 # Redis Cheat Sheet
 
+#database/no_sql/redis
 
-
-Copy From https://simplecheatsheet.com/tag/redis-cheat-sheet/
-
-
+Copy From <https://simplecheatsheet.com/tag/redis-cheat-sheet/>
 
 The **Redis cheat sheet** includes basic syntax and methods to help you using Redis. [**Redis**](https://redis.io/topics/introduction) is an open-source (BSD licensed), in-memory data structure store, used as a database, cache, and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams.
 
@@ -21,7 +19,7 @@ $redis-cli
 You need to connect to the server by the same client **redis-cli**
 
 ```
-$ redis-cli -h host -p port -a password
+redis-cli -h host -p port -a password
 ```
 
 ## [Redis: Keys Cheat Sheet](https://simplecheatsheet.com/redis-keys/)
@@ -317,8 +315,6 @@ redis > HSETNX KEY_NAME FIELD VALUE
 ```
 redis > HVALS KEY_NAME FIELD VALUE
 ```
-
-
 
 ## [Redis: Lists Cheat Sheet](https://simplecheatsheet.com/redis-lists/)
 

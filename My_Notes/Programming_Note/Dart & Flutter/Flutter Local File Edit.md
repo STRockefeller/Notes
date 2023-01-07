@@ -1,5 +1,7 @@
 # 本地文件的讀寫
 
+#dart #flutter
+
 [Reference:Flutter.dev](https://flutter.dev/docs/cookbook/persistence/reading-writing-files)
 
 主要是想要做應用程式的客製化設定功能，由於內容不多，不想大費周章使用資料庫或firebase，在本地創建文件紀錄似乎是個比較恰當的選擇。

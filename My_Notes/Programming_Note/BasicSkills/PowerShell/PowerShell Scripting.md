@@ -1,10 +1,10 @@
 # PowerShell Scripting
 
+#powershell
+
 `PowerShell Scripting` 之於 `PowerShell`就如同 `Batch file` 之於 `Command line`
 
 滿分造句。
-
-
 
 ## Execution Policy
 
@@ -23,8 +23,6 @@ Execution Policy 算是微軟的一種保護機制，windows會限制來路不�
 * `RemoteSigned` ：在本機電腦所撰寫的腳本檔，不需要簽署就可執行；但是從網際網路（例如：email、MSN Messenger）下載的腳本檔就必須經過受信任發行者的簽署才能執行。
 * `Unrestricted` ：任何腳本檔皆可被執行，但是於執行網際網路下載的腳本檔時，會先出現警告的提示視窗。
 
-
-
 雖然聽說預設的設置是`Restricted`但不曉得為啥我的設置是`RemoteSigned`，可能是微軟後來有變更過設定(?)
 
 ```powershell
@@ -34,17 +32,11 @@ RemoteSigned
 
 更正，這是跨平台版本的PowerShell的預設值，Windows PowerShell的預設值是Restricted沒錯
 
-
-
-
-
 總之，如果Execution Policy不符合需求，可以透過`Set-ExecutionPolicy`指令來進行設定 (需admin權限)
 
 ```powershell
 Set-ExecutionPolicy Unrestricted
 ```
-
-
 
 更改起來如下
 
@@ -61,8 +53,6 @@ PS C:\Windows\system32> Get-ExecutionPolicy
 RemoteSigned
 ```
 
-
-
 ## Variables
 
 其實變數的功能並沒有限定在Scripting才能使用，但我想大部分的應用情境應該都在Scripting中。
@@ -72,8 +62,6 @@ RemoteSigned
 ```powershell
 $myVar = 12345
 ```
-
-
 
 ### `'` 和 `"`的區別
 
@@ -100,8 +88,6 @@ $myVar
 $myVar
 ```
 
-
-
 簡單來說在`'`裡面寫什麼就顯示什麼
 
 在`"`裡面輸入`$`+變數名稱則會顯示變數的值，但可以透過在前方加入`字元來避免顯示變數值
@@ -118,8 +104,6 @@ $myVar = 12345
 ```
 $myVar*2 = 24690
 ```
-
-
 
 ## Parameters
 
@@ -175,8 +159,6 @@ Mode                LastWriteTime         Length Name
 -a----       2021/6/1  下午 03:10             68 new_item.ps1
 ```
 
-
-
 ## Traps
 
 這邊整理一些坑
@@ -184,8 +166,6 @@ Mode                LastWriteTime         Length Name
 ### Boolean value
 
 布林值要寫成 `$true` 和 `$false` ，寫成 `true` `false` compiler 不會報錯，但執行就會炸開
-
-
 
 ### return
 
@@ -204,8 +184,6 @@ return
 return $a
 ```
 
-
-
 另外補充，powershell的function是不用在定義的時候表示要回傳的內容的
 
 ```powershell
@@ -216,15 +194,11 @@ function IsNumber($number)
 }
 ```
 
-
-
 ### path
 
 當腳本中滿是相對路徑的時候，在不同地方（終端機的起始位置）call相同腳本得到不一樣的結果（也可能是因為路徑錯誤而無法執行）
 
 不只powershell，其實只要扯到路徑的功能都或多或少會有這個問題…
-
-
 
 不過我發現powershell有個很方便的變數可以解決這個問題。
 
@@ -243,4 +217,3 @@ Set-Location $PSScriptRoot
 ```powershell
 cd $PSScriptRoot
 ```
-

@@ -1,5 +1,7 @@
 # Garbaga Collector
 
+#c #cpp #garbage_collect
+
 References:
 
 [Garbage collection (computer science) - Wikipedia](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science))

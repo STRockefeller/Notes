@@ -4,11 +4,9 @@
 
 參考:
 
-https://sc0vu.medium.com/%E9%AB%98%E6%95%88%E8%83%BD-golang-%E7%A8%8B%E5%BC%8F-%E6%95%88%E8%83%BD%E6%AF%94%E8%BC%83-f84bb4fc390a
+<https://sc0vu.medium.com/%E9%AB%98%E6%95%88%E8%83%BD-golang-%E7%A8%8B%E5%BC%8F-%E6%95%88%E8%83%BD%E6%AF%94%E8%BC%83-f84bb4fc390a>
 
-https://blog.wu-boy.com/2018/06/how-to-write-benchmark-in-go/
-
-
+<https://blog.wu-boy.com/2018/06/how-to-write-benchmark-in-go/>
 
 ## How to use
 
@@ -16,7 +14,7 @@ https://blog.wu-boy.com/2018/06/how-to-write-benchmark-in-go/
 
 * 寫在測試檔案中(end with "test.go")
 
-* import "testing" 
+* import "testing"
 
 * 方法名稱為Benchmark開頭
 
@@ -34,17 +32,9 @@ https://blog.wu-boy.com/2018/06/how-to-write-benchmark-in-go/
   }
   ```
 
-  
-
-
-
-
-
 ## Example
 
 拿我測試 go-linq 效率的程式作為範例
-
-
 
 main.go
 
@@ -76,8 +66,6 @@ func ForLoopTest(s []int) int {
 	return res
 }
 ```
-
-
 
 main_test.go 測試結果寫在上面了
 
@@ -149,8 +137,6 @@ func BenchmarkForLoop10000(b *testing.B) {
 }
 ```
 
-
-
 結果比較
 
 ```powershell
@@ -173,4 +159,3 @@ BenchmarkForLoop10000-8           249924              4494 ns/op         0 B/op
 PASS
 ok      ladidadida      7.926s
 ```
-

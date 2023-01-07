@@ -4,21 +4,15 @@ Reference:
 
 [ITHELP](https://ithelp.ithome.com.tw/articles/10217359)
 
-
-
 ## Abstract
 
 因為`Go`並不是典型的OOP語言，沒有`繼承`這個概念，所以特別拿這個主題出來講一下
-
-
 
 關於`組合`和`繼承`之間的優劣，更多的是牽扯到設計模式，這篇筆記不會多提，有機會另外紀錄。
 
 目前大部分的觀點認為多數情況下**耦合度較低**的`組合`會優於`繼承`
 
 對我來說的話目前較熟悉`繼承`的做法，剛好趁此機會熟悉`組合`的思維邏輯
-
-
 
 ## Example
 
@@ -30,8 +24,6 @@ type Pet struct {
 }
 ```
 
-
-
 貓是寵物(組合)
 
 ```go
@@ -40,8 +32,6 @@ type Cat struct {
 }
 ```
 
-
-
 貓會打滾(方法)
 
 ```go
@@ -49,8 +39,6 @@ func (cat Cat) Roll() {
 	fmt.Println("打滾中~")
 }
 ```
-
-
 
 公主是貓會打滾，並且有個寵物名
 
@@ -61,8 +49,6 @@ func main() {
 	princess.Roll() //打滾中~
 }
 ```
-
-
 
 ## Embedding
 
@@ -86,8 +72,6 @@ func main() {
 }
 ```
 
-
-
 ### Embedding Method
 
 向前面的貓咪打滾方法這種並沒有用到自身物件的方法，也可以用內嵌的方式簡化
@@ -97,10 +81,6 @@ func (*Cat) Roll() {
 	fmt.Println("打滾中~")
 }
 ```
-
-
-
-
 
 ## Method Composition
 
@@ -133,8 +113,6 @@ func main() {
 	princess.Play() //和寵物玩
 }
 ```
-
-
 
 這時如果想讓`Cat` override(譬喻而已，`Go`沒有這種東西) `Pet.Play()` method，就只要再次宣告方法就可以了
 
@@ -171,13 +149,9 @@ func main() {
 
 ```
 
-
-
 ## 補充
 
 又稍微玩了一下這東西，有些心得補在這裡。
-
-
 
 ### 繼承/實作關係
 
@@ -205,8 +179,6 @@ type Cat struct{
 
 此時的`Cat`對Go的編譯器而言也算是實作了`IPet` interface
 
-
-
 但是如果我把`Pet`欄位命名
 
 ```go
@@ -216,8 +188,6 @@ type Cat struct{
 ```
 
 此時`Cat`就不再是`IPet`的實作了
-
-
 
 ### 方法的沿用
 
@@ -255,8 +225,6 @@ name := cat.Pet.Name
 cat.Pet.Play()
 ```
 
-
-
 實際上我們在調用`Cat.Play()`的時候，編譯器會先找`Cat`結構有沒有定義`Play()`方法，沒有的話就會確認底下的未命名結構有沒有定義該方法
 
 所以如果給`Cat`定義`Play()`方法後，`Cat.Play()`就會找到`Cat`的方法，進而造成了類似於override的行為，但其實`Cat.Pet.Play()`方法並沒有被覆蓋掉。
@@ -278,8 +246,6 @@ type Cat struct{
 
 func(Cat)Play(){} // cat.Play() 會找到他
 ```
-
-
 
 再回溯一下，假如`Cat`本身沒有實作`Play()`方法，但是組合了另一個含有`Play()`方法的結構，此時編譯器會顯示錯誤
 
@@ -308,8 +274,6 @@ type Cat struct {
 
 這種情況下如果`Cat`自己有`Play()`方法，那就會優先使用自己的方法而不會出錯，或者幫其中一個Field命名，也可以避免這個錯誤
 
-
-
 ### 擴充方法
 
 算是一種應用方式
@@ -330,4 +294,3 @@ func (mt MyTime) Add(d time.Duration) {
 	// ...
 }
 ```
-

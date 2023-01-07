@@ -1,10 +1,12 @@
 # Pipeline
 
+#powershell
+
 ## 建立Pipeline
 
 直立線符號字元 (`|`) 是用於連接 Cmdlet。
 
- **直立線符號前面的 Cmdlet 輸出，成為直立線符號後面的 Cmdlet 輸入。** 
+ **直立線符號前面的 Cmdlet 輸出，成為直立線符號後面的 Cmdlet 輸入。**
 
 這樣銜接 Cmdlet 可以建立比單一 Cmdlet 更強大又複雜的陳述式。 此銜接稱為「Pipeline」，可以包含一個或多個直立線符號和 Cmdlet。
 
@@ -117,8 +119,6 @@ PowerShell複製
   
 - **-Contains**：此運算子會檢查集合是否包含特定值。
 
-
-
 ### 練習
 
 官方提供的指令範例
@@ -132,8 +132,6 @@ Get-Process | Where-Object CPU -gt 1000 | Sort-Object CPU -Descending | Select-O
 ```C#
 processList.Where(p => p.CPU > 1000).OrderByDescending(p => p.CPU).Take(3);
 ```
-
-
 
 `Get-Process`會列出目前的所有處理程序的資訊，文字量太大這邊就不展示了，不過可以來看看他的member
 
@@ -239,8 +237,6 @@ Product                    ScriptProperty System.Object Product {get=$this.Mainm
 ProductVersion             ScriptProperty System.Object ProductVersion {get=$this.Mainmodule.FileVersionInfo.Product...
 ```
 
-
-
 加上資料篩選`where cpu > 1000`
 
 ```powershell
@@ -252,8 +248,6 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 ```
 
 `?`是`Where-Object`的別名，在`GET-ALIAS`的第一行就可以看到了，感覺很方便所以就把它記起來了
-
-
 
 ## 使用格式化和篩選
 

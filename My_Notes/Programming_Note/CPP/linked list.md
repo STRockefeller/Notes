@@ -1,32 +1,20 @@
 # Linked list
 
+#cpp #data_structure #linked_list
+
 [reference](http://alrightchiu.github.io/SecondRound/linked-list-introjian-jie.html)
-
-
 
 ## Abstract：Linked list
 
 Linked list(連結串列)是一種常見的資料結構，其使用**node(節點)**來記錄、表示、儲存資料(data)，並利用每個node中的**pointer**指向下一個node，藉此將多個node串連起來，形成Linked list，並以`NULL`來代表Linked list的終點，見圖一(a)。
 
-
-
 ![cc](https://github.com/alrightchiu/SecondRound/blob/master/content/Algorithms%20and%20Data%20Structures/BasicDataStructures/LinkedList/Intro/f1.png?raw=true)
-
-
 
 **圖一(a)。**
 
-
-
-
-
 ![cc](https://github.com/alrightchiu/SecondRound/blob/master/content/Algorithms%20and%20Data%20Structures/BasicDataStructures/LinkedList/Intro/f2.png?raw=true)
 
-
-
 **圖一(b)。**
-
-
 
 若實際打開每個node的內部，至少會包含(1)**data**來代表資料，與(2)**pointer**指向下一個node，見圖一(b)：
 
@@ -70,10 +58,6 @@ Linked list(連結串列)是一種常見的資料結構，其使用**node(節點
 
 通常在面對一個Linked list時，能夠公開存取(access)的node只有「第一個node」，以`ListNode *first`表示，不過因為node中有**pointer**記錄下一個node的記憶體位置，便能夠讀取下一個node的**data**與**pointer**，換句話說，有了node中的**pointer**就可以在Linked list中「移動(**traversal**)」，更進一步，便能進行諸如「新增節點」、「刪除節點」、「印出Linked list」等等的資料處理。
 
-
-
-
-
 ### Realized Linked list by 2 classes
 
 若以C++的**class(類別)**來實作Linked list，可以利用兩個class，使得node的資料不會被任意更動(也就是封裝(Encapsulation)的概念)。
@@ -114,17 +98,9 @@ public:
 };
 ```
 
-
-
-
-
 ## Compare：Array & Linked list
 
 Array(矩陣)也是常見的用來記錄一連串「具有相同形態的資料」的資料結構，以下便列舉Array與Linked list各自的優缺點，以及各自適合的問題情境。
-
-
-
-
 
 ### Array
 
@@ -150,10 +126,6 @@ Array(矩陣)也是常見的用來記錄一連串「具有相同形態的資料�
 - 希望能夠快速存取資料。
 - 已知欲處理的資料數量，便能確認矩陣的大小。
 - 要求記憶體空間的使用越少越好。
-
-
-
-
 
 ### Linked list
 

@@ -1,6 +1,10 @@
-# 記憶體空間配置
+# Memory Allocation
+
+#c #memory 
 
 [reference](https://openhome.cc/Gossip/CGossip/MallocFree.html)
+
+[[CS50_l4(2020)]]
 
 到目前為止，變數建立後會配置記憶體空間，這類資源是配置在記憶體的堆疊區（Stack），生命週期侷限於函式執行期間，也就是函式執行過後，配置的空間就會自動清除。
 

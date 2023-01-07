@@ -1,4 +1,6 @@
-# Dart 基礎
+# Dart Basic
+
+#dart
 
 [Reference:ITHELP](https://ithelp.ithome.com.tw/articles/10215198)
 
@@ -16,17 +18,13 @@
 
 引用WikiPedia
 
-> **Dart** is a client-optimized[[8\]](https://en.wikipedia.org/wiki/Dart_(programming_language)#cite_note-8) programming language for [apps](https://en.wikipedia.org/wiki/Mobile_app) on multiple platforms. It is developed by [Google](https://en.wikipedia.org/wiki/Google) and is used to build mobile, desktop, server, and web applications.[[9\]](https://en.wikipedia.org/wiki/Dart_(programming_language)#cite_note-9)
+> **Dart** is a client-optimized[8](https://en.wikipedia.org/wiki/Dart_(programming_language)#cite_note-8) programming language for [apps](https://en.wikipedia.org/wiki/Mobile_app) on multiple platforms. It is developed by [Google](https://en.wikipedia.org/wiki/Google) and is used to build mobile, desktop, server, and web applications.[9](https://en.wikipedia.org/wiki/Dart_(programming_language)#cite_note-9)
 >
-> Dart is an [object-oriented](https://en.wikipedia.org/wiki/Object-oriented_programming), [class-based](https://en.wikipedia.org/wiki/Class-based_programming), [garbage-collected](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) language with [C](https://en.wikipedia.org/wiki/C_(programming_language))-style [syntax](https://en.wikipedia.org/wiki/Syntax_(programming_languages)).[[10\]](https://en.wikipedia.org/wiki/Dart_(programming_language)#cite_note-10) Dart can [compile](https://en.wikipedia.org/wiki/Compiler) to either [native code](https://en.wikipedia.org/wiki/Machine_code) or [JavaScript](https://en.wikipedia.org/wiki/JavaScript). It supports [interfaces](https://en.wikipedia.org/wiki/Interface_(object-oriented_programming)), [mixins](https://en.wikipedia.org/wiki/Mixin), [abstract classes](https://en.wikipedia.org/wiki/Abstract_class), [reified](https://en.wikipedia.org/wiki/Reification_(computer_science)) [generics](https://en.wikipedia.org/wiki/Generic_programming), and [type inference](https://en.wikipedia.org/wiki/Type_inference).[[11\]](https://en.wikipedia.org/wiki/Dart_(programming_language)#cite_note-11)
-
-
+> Dart is an [object-oriented](https://en.wikipedia.org/wiki/Object-oriented_programming), [class-based](https://en.wikipedia.org/wiki/Class-based_programming), [garbage-collected](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) language with [C](https://en.wikipedia.org/wiki/C_(programming_language))-style [syntax](https://en.wikipedia.org/wiki/Syntax_(programming_languages)).[10](https://en.wikipedia.org/wiki/Dart_(programming_language)#cite_note-10) Dart can [compile](https://en.wikipedia.org/wiki/Compiler) to either [native code](https://en.wikipedia.org/wiki/Machine_code) or [JavaScript](https://en.wikipedia.org/wiki/JavaScript). It supports [interfaces](https://en.wikipedia.org/wiki/Interface_(object-oriented_programming)), [mixins](https://en.wikipedia.org/wiki/Mixin), [abstract classes](https://en.wikipedia.org/wiki/Abstract_class), [reified](https://en.wikipedia.org/wiki/Reification_(computer_science)) [generics](https://en.wikipedia.org/wiki/Generic_programming), and [type inference](https://en.wikipedia.org/wiki/Type_inference).[11](https://en.wikipedia.org/wiki/Dart_(programming_language)#cite_note-11)
 
 ## 環境設置
 
 參考[tutorialspoint的教學](https://www.tutorialspoint.com/dart_programming/dart_programming_environment.htm)應該就行了，目前先用[DartPad](https://dartpad.dev/)作練習用，之後嘗試環境建置如果有比較特別的狀況再補充。
-
-
 
 ## Hello World
 
@@ -41,8 +39,6 @@ void main() {
 ```
 
 可以看到程式進入點也是` void main () `，程式碼風格大體上和C家族很相似，字串顯示的部分比較特別，不過也是很直觀，在C#應該長這樣`$"hello {i+1}"`。
-
-
 
 ## Data Types
 
@@ -60,7 +56,7 @@ void main() {
 
 ### Strings
 
-`String `(S大寫)用於表示UTF-16編碼的字串，字串內容可用`''`或`""`包起來。
+`String`(S大寫)用於表示UTF-16編碼的字串，字串內容可用`''`或`""`包起來。
 
 另外可以用`Runes`表示UTF-32編碼，[參考資料](https://api.dart.dev/stable/2.10.5/dart-core/Runes-class.html)。
 
@@ -69,8 +65,6 @@ void main() {
 ```dart
 "Hello ${name} !!"
 ```
-
-
 
 ### Booleans
 
@@ -81,29 +75,29 @@ void main() {
 表有序的物件集合
 
 ```dart
-void main() { 
+void main() {
    var lst = new List(3); //3代表List的長度，new List()代表長度為0
-   lst[0] = 12; 
-   lst[1] = 13; 
-   lst[2] = 11; 
-   print(lst); 
+   lst[0] = 12;
+   lst[1] = 13;
+   lst[2] = 11;
+   print(lst);
 }
 ```
 
 ```dart
-void main() { 
+void main() {
    var num_list = [1,2,3]; //用[]來設定初始內容
-   print(num_list); 
+   print(num_list);
 }
 ```
 
 ```dart
-void main() { 
-   var lst = new List(); 
-   lst.add(12); 
-   lst.add(13); 
-   print(lst); 
-} 
+void main() {
+   var lst = new List();
+   lst.add(12);
+   lst.add(13);
+   print(lst);
+}
 ```
 
 List沒有distinct方法，不過可以透過以下方式做到相同效果
@@ -113,16 +107,14 @@ List<Item> items;
 items.toSet().toList();
 ```
 
-
-
 ### Maps
 
 key - value 配對的集合，類似於Dictionary或Hash Table
 
 ```dart
-void main() { 
-   var details = {'Usrname':'tom','Password':'pass@123'}; 
-   print(details); 
+void main() {
+   var details = {'Usrname':'tom','Password':'pass@123'};
+   print(details);
 }
 ```
 
@@ -131,11 +123,11 @@ void main() {
 > ```
 
 ```Dart
-void main() { 
-   var details = {'Usrname':'tom','Password':'pass@123'}; 
-   details['Uid'] = 'U1oo1'; 
-   print(details); 
-} 
+void main() {
+   var details = {'Usrname':'tom','Password':'pass@123'};
+   details['Uid'] = 'U1oo1';
+   print(details);
+}
 ```
 
 > ```
@@ -143,12 +135,12 @@ void main() {
 > ```
 
 ```dart
-void main() { 
-   var details = new Map(); 
-   details['Usrname'] = 'admin'; 
-   details['Password'] = 'admin@123'; 
-   print(details); 
-} 
+void main() {
+   var details = new Map();
+   details['Usrname'] = 'admin';
+   details['Password'] = 'admin@123';
+   print(details);
+}
 ```
 
 > ```
@@ -171,8 +163,6 @@ void main() {
 ```
 
 > 123 asd
-
-
 
 ## Operators
 
@@ -218,57 +208,51 @@ void main() {
 | Left Shift  | a<<b     |
 | Right Shift | a>>b     |
 
-
-
 ### Assignment Operators
 
 同樣類似C家族，很好理解。
 
 這個部分直接貼 [範例](https://www.tutorialspoint.com/dart_programming/dart_programming_assignment_operators.htm)
 
-
-
 The following example shows how you can use the assignment operators in Dart −
 
 [Live Demo](http://tpcg.io/dHVftW)
 
 ```
-void main() { 
-   var a = 12; 
-   var b = 3; 
-     
-   a+=b; 
-   print("a+=b : ${a}"); 
-     
-   a = 12; b = 13; 
-   a-=b; 
-   print("a-=b : ${a}"); 
-     
-   a = 12; b = 13; 
-   a*=b; 
-   print("a*=b' : ${a}"); 
-     
-   a = 12; b = 13; 
+void main() {
+   var a = 12;
+   var b = 3;
+
+   a+=b;
+   print("a+=b : ${a}");
+
+   a = 12; b = 13;
+   a-=b;
+   print("a-=b : ${a}");
+
+   a = 12; b = 13;
+   a*=b;
+   print("a*=b' : ${a}");
+
+   a = 12; b = 13;
    a/=b;
-   print("a/=b : ${a}"); 
-     
-   a = 12; b = 13; 
-   a%=b; 
-   print("a%=b : ${a}"); 
-}    
+   print("a/=b : ${a}");
+
+   a = 12; b = 13;
+   a%=b;
+   print("a%=b : ${a}");
+}
 ```
 
 It will produce the following **output** −
 
 ```
-a+=b : 15                         
-a-=b : -1                             
-a*=b' : 156                                    
-a/=b :0.9230769230769231                       
+a+=b : 15
+a-=b : -1
+a*=b' : 156
+a/=b :0.9230769230769231
 a%=b : 12
 ```
-
-
 
 ### Logical Operators
 
@@ -278,38 +262,32 @@ a%=b : 12
 | Or    | a\|\|b    |
 | Not   | !a        |
 
-
-
 ### Conditional Expressions
 
-* Condition?expr1:expr2
+- Condition?expr1:expr2
 
   跟C家族一樣的用法BJ4
 
-* expr1??expr2
+- expr1??expr2
 
   If **expr1** is non-null, returns its value; otherwise, evaluates and returns the value of **expr2**
 
 ```dart
-void main() { 
-   var a = null; 
-   var b = 12; 
-   var res = a ?? b; 
-   print(res); 
+void main() {
+   var a = null;
+   var b = 12;
+   var res = a ?? b;
+   print(res);
 }
 ```
 
 > 12
-
-
 
 ## Loops
 
 一樣是`for` `while` `do while`
 
 用法和C一模一樣，沒什麼值得一提的
-
-
 
 ### foreach
 
@@ -337,35 +315,32 @@ for(Item item in items){
 items.forEach((item){/*...*/});
 ```
 
-
-
 順帶一提，[官方並不推薦使用作法二](https://dart-lang.github.io/linter/lints/avoid_function_literals_in_foreach_calls.html)
 
 ## Decision Making
 
-`if` `else if` `else `用法和C一模一樣，沒什麼值得一提的
+`if` `else if` `else`用法和C一模一樣，沒什麼值得一提的
 
 值得一提的是`switch`裡面`case`的內容用`{}`包起來，如下。
 
 ```dart
-void main() { 
-   var grade = "A"; 
-   switch(grade) { 
-      case "A": {  print("Excellent"); } 
-      break; 
-     
-      case "B": {  print("Good"); } 
-      break; 
-     
-      case "C": {  print("Fair"); } 
-      break; 
-     
-      case "D": {  print("Poor"); } 
-      break; 
-     
-      default: { print("Invalid choice"); } 
-      break; 
-   } 
-}  
-```
+void main() {
+   var grade = "A";
+   switch(grade) {
+      case "A": {  print("Excellent"); }
+      break;
 
+      case "B": {  print("Good"); }
+      break;
+
+      case "C": {  print("Fair"); }
+      break;
+
+      case "D": {  print("Poor"); }
+      break;
+
+      default: { print("Invalid choice"); }
+      break;
+   }
+}
+```

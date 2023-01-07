@@ -1,11 +1,11 @@
 # Tree
 
+#data_structure
+
 References:
 
-* https://www.programiz.com/dsa/trees
-* https://www.tutorialspoint.com/data_structures_algorithms/tree_traversal.htm
-
-
+* <https://www.programiz.com/dsa/trees>
+* <https://www.tutorialspoint.com/data_structures_algorithms/tree_traversal.htm>
 
 ## Abstract
 
@@ -17,11 +17,7 @@ References:
 >
 > Different tree data structures allow quicker and easier access to the data as it is a non-linear data structure.
 
-
-
 簡而言之，tree比起線性的資料結構在資料訪問的效率上來得更有效率。
-
-
 
 名詞解釋:
 

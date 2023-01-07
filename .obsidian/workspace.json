@@ -4,31 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "6263cd8808b24aa9",
+        "id": "439e2cd1709a71ab",
         "type": "tabs",
         "children": [
           {
-            "id": "4f6e705e5d1b2259",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
-            }
-          },
-          {
-            "id": "7213a601fd314745",
+            "id": "79f88722abb74bd6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Basic Structures.md",
+                "file": "My_Notes/Programming_Note/C#/DataBase ORM/SQLite in CSharp.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "99f416e96cf50688",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "My_Notes/Programming_Note/Naming Conventions.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -57,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#cpp",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -94,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Basic Structures.md",
+                "file": "My_Notes/Programming_Note/C#/DataBase ORM/SQLite in CSharp.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Basic Structures.md",
+                "file": "My_Notes/Programming_Note/C#/DataBase ORM/SQLite in CSharp.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +126,7 @@
             "state": {
               "type": "tag",
               "state": {
-                "sortOrder": "frequency",
+                "sortOrder": "alphabetical",
                 "useHierarchy": true
               }
             }
@@ -134,11 +137,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Basic Structures.md"
+                "file": "My_Notes/Programming_Note/C#/DataBase ORM/SQLite in CSharp.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -155,17 +159,17 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "7213a601fd314745",
+  "active": "79f88722abb74bd6",
   "lastOpenFiles": [
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/RabinKarp.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knuth–Morris–Pratt algorithm.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Floyd Cycle Detection.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Trie.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_Double Cola.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_6kyu_The search for Primes Twin Primes.md",
-    "My_Notes/Problem_Solve/Uva/100/100.pdf",
-    "My_Notes/Programming_Note/MySideProjects/C#_DLL_StockCrawlerTW_20210303/Stock Crawler.md",
-    "My_Notes/Programming_Note/IDE/OnlineIDEs.md"
+    "My_Notes/Programming_Note/C#/DataBase ORM/Entity Framework.md",
+    "My_Notes/Programming_Note/C#/DataBase ORM/LinQ to SQLite.md",
+    "My_Notes/Programming_Note/C#/Console/parse flags.md",
+    "My_Notes/Programming_Note/GoLang/Go 疑難雜症.md",
+    "My_Notes/Programming_Note/GoLang/gin/gin basic.md",
+    "My_Notes/Programming_Note/CPP/OpenCV/滑鼠事件.md",
+    "My_Notes/Programming_Note/CPP/OpenCV/圖片的讀寫.md",
+    "My_Notes/Programming_Note/CPP/OpenCV/OpenCV 画像処理演習/2.行列編/行列の作成と操作.md",
+    "My_Notes/Programming_Note/Database/SQL/PostgreSQL/Triggers and Foreign Keys.md",
+    "My_Notes/Programming_Note/Database/SQL/PostgreSQL/Query json array.md"
   ]
 }

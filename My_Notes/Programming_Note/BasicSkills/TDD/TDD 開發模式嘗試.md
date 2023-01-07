@@ -1,18 +1,14 @@
 # TDD開發模式嘗試
 
-
+#tdd #development_process #extreme_programming #agile_development
 
 [Reference:Alpha Camp](https://tw.alphacamp.co/blog/tdd-test-driven-development-example)
 
 TDD本身沒有太多的內容給我筆記，所以就直接按著流程練習幾遍。
 
-
-
 ## 流程
 
 最開頭還是先把整個TDD的開發流程記錄下來
-
-
 
 首先是TDD的宗旨:**先寫測試再開發**
 
@@ -26,7 +22,7 @@ TDD本身沒有太多的內容給我筆記，所以就直接按著流程練習�
 >
 > - **但尚未實作 API 實際內容**。
 >
->   
+>
 >
 > ### 步驟二：執行測試，得到 Failed（紅燈）
 >
@@ -49,8 +45,6 @@ TDD本身沒有太多的內容給我筆記，所以就直接按著流程練習�
 > - 提升程式的可讀性、可維護性、擴充性。
 > - 同時確保每次修改後，執行測試皆能通過。
 
-
-
 ## 練習
 
 總之先挑個題目，因為主要目的是練習TDD而非解題，所以會挑個簡單的題目試試
@@ -61,7 +55,7 @@ TDD本身沒有太多的內容給我筆記，所以就直接按著流程練習�
 
 ### 題目內容
 
-#### Task:
+#### Task
 
 Given a list of integers, determine whether the sum of its elements is odd or even.
 
@@ -69,7 +63,7 @@ Give your answer as a string matching `"odd"` or `"even"`.
 
 If the input array is empty consider it as: `[0]` (array with a zero).
 
-#### Examples:
+#### Examples
 
 ```
 Input: [0]
@@ -83,8 +77,6 @@ Output: "even"
 ```
 
 Have fun!
-
-
 
 ### 解題
 
@@ -118,7 +110,7 @@ namespace ConsoleApp1
         public void OddOrEven_InputCaseOdd_ReturnStringOdd()
         {
             //arrange
-            
+
             int[] input = new int[] { 1 };
             //act
             string actual = oOD.OddOrEven(input);
@@ -130,7 +122,7 @@ namespace ConsoleApp1
         public void OddOrEven_InputCaseEven_ReturnStringEven()
         {
             //arrange
-            
+
             int[] input = new int[] { 1, 2, 3 };
             //act
             string actual = oOD.OddOrEven(input);
@@ -141,8 +133,6 @@ namespace ConsoleApp1
     }
 }
 ```
-
-
 
 #### 執行測試，得到 Failed（紅燈）
 
@@ -155,8 +145,6 @@ namespace ConsoleApp1
 ```C#
 public string OddOrEven(int[] input) => Math.Abs(input.Sum()) % 2 == 1 ? "odd" : "even";
 ```
-
-
 
 #### 再次執行測試，得到 Passed（綠燈）
 

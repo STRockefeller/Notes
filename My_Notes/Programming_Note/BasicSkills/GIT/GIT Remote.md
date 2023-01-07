@@ -1,5 +1,7 @@
 # Git Remote
 
+#git #github
+
 ## github
 
 只是在github上建立新的reposit或上傳現有資料基本上沒啥太大問題，空的reposit點到code tab github 會直接手把手教可以很順利的完成。

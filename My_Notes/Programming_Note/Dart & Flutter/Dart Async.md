@@ -1,4 +1,6 @@
-# Dart 非同步
+# Dart Async
+
+#dart #async
 
 這篇主要整理Dart非同步的一些做法，內容會跟以往C#所學做一些比較
 
@@ -11,8 +13,6 @@
 [Reference:iter01](https://iter01.com/441301.html)
 
 [Reference:another ithelp](https://ithelp.ithome.com.tw/articles/10240005)
-
-
 
 ## 前言
 
@@ -51,8 +51,6 @@
 
 > 節錄自iter01
 
-
-
 ## Event Loop
 
 Event Loop 的原理就是將需要處理的事件放入一個Event Queue 中，當Event Queue 非空時，不斷取出事件並執行。
@@ -75,8 +73,6 @@ while (true) {
 }
 ```
 
-
-
 ## Isolate
 
 基本上可以看做Process，只是這個Process裡面**只能有一個**Thread。
@@ -86,8 +82,6 @@ while (true) {
 大多數的情況下，我們不會多開Isolate，而是會用Event Queue來實現非同步的需求。
 
 不過這邊依然來簡單介紹一下這東西。
-
-
 
 ### 建立isolate並傳出訊息
 
@@ -105,8 +99,6 @@ while (true) {
 
 entryPoint 就是我要執行的內容。可以看做一般非同步用的callback function。 message 是我從現在這個isolate傳入新建立的isolate的訊息。
 
-
-
 ex
 
 ```dart
@@ -120,8 +112,6 @@ void saySomething(String message){
   print(message);
 }
 ```
-
-
 
 ### 接收新isolate回傳的訊息
 
@@ -141,8 +131,6 @@ void responseSomething(SendPort mainSendPort){
 ```
 
 做法是在main isolate 建立Receive Port 並把對應的 Send Port 傳給新的isolate
-
-
 
 ### 雙向溝通
 
@@ -176,13 +164,9 @@ void repeatSomething(SendPort mainSendPort) {
 }
 ```
 
-
-
 ### 簡單的用法
 
 直接用[compute](https://docs-flutter-io.firebaseapp.com/flutter/foundation/compute.html)。就很簡單沒啥好說的，只需要記得他的底層是使用isolate而不是event loop就好。
-
-
 
 ## Dart 執行的流程
 
@@ -200,10 +184,6 @@ flowchart TD
 	C -- no --> F[run next microtask] --> C
 	D -- no --> G[run next event] --> C
 ```
-
-
-
-
 
 ## Future
 
@@ -240,8 +220,6 @@ main function start
 network data
 main function end
 ```
-
-
 
 #### Async
 
@@ -342,8 +320,6 @@ main function end
 Exception: 網路請求出現錯誤
 ```
 
-
-
 ### Future 的鏈式呼叫
 
 上面程式碼我們可以進行如下的改進：
@@ -398,8 +374,6 @@ Future的使用過程：
 
 3、通過`.catchError`(失敗或異常回撥函式)的方式來監聽Future內部執行失敗或者出現異常時的錯誤資訊；
 
-
-
 補充
 
 Future 建立方式屬於 event 還是 microtask
@@ -411,8 +385,6 @@ Future 建立方式屬於 event 還是 microtask
   Future.sync(() => null); // micro task
   Future.microtask(() => null); // micro task
 ```
-
-
 
 ### Future 的狀態
 
@@ -503,9 +475,7 @@ main(List<String> args) {
 }
 ```
 
-
-
-##  await / async
+## await / async
 
 `await`、 `async`可以讓我們用**同步的程式碼格式**，去實現**非同步的呼叫過程**。並且，通常一個`async`的函式會返回一個`Future`
 
@@ -530,8 +500,6 @@ Future<String> getNetworkData() async {
 - 我們現在可以像同步程式碼一樣去使用Future非同步返回的結果；
 - 等待拿到結果之後和其他資料進行拼接，然後一起返回；
 - 返回的時候並不需要包裝一個Future，直接返回即可，但是返回值會預設被包裝在一個Future中；
-
-
 
 將兩者放在一起更明顯
 
@@ -577,8 +545,6 @@ await Future.delayed(Duration(seconds: 3),()=>"network data");
 回傳的是`String`，它會等後方的內容處理完畢才得到結果的`String`
 
 所以這時 `return result`，回傳的是一個`String`，但`async`又把它包裝在`Future`裡面，所以方法回傳值依然是`Future<String>`
-
-
 
 ## 從 await / async 了解 event queue 機制
 
@@ -628,12 +594,10 @@ Future<void> asyncFunction() async {
 4. 執行`print("<2> start");`
 5. 看到`await`，把後面的程式碼都放入event queue。 --> 到此main執行完成
 6. FIFO執行event queue，首先是步驟2的event
-7. 執行` print("<1> start");`到`print("<1> end");`為止的內容。
+7. 執行`print("<1> start");`到`print("<1> end");`為止的內容。
 8. 執行下一個event，也就是步驟5的event。
 9. 執行`print("<3> start");`到`print("<2> end");`的內容。
 10. 到此程式執行完畢，兩個等待兩秒的內容並沒有同時執行，所以程式執行過程一共等待了4秒
-
-
 
 ## 補充
 
@@ -686,8 +650,6 @@ print("Future.delayed");
 return 2;
 });
 ```
-
-### 
 
 #### Future.foreach(Iterable elements, FutureOr action(T element))
 
@@ -805,8 +767,6 @@ print("microtask event");
 //Future event 2
 ```
 
-
-
 ## 處理Future的結果
 
 Flutter提供了下面三個方法，讓我們來註冊回調，來監聽處理Future的結果。
@@ -833,8 +793,6 @@ return Future.value(value + 3);
 }).then(print);
 //打印結果為6
 ```
-
-
 
 補充:
 

@@ -1,26 +1,22 @@
 # Latex
 
-
+#markdown #latex
 
 ## Windows Packages
 
 [using a package](https://latex-tutorial.com/tutorials/packages/)
 
-
-
 typora 可以渲染常見的 Latex 內容。不過有些東西還是必須安裝package 才能
 
-https://miktex.org/download
+<https://miktex.org/download>
 
 這個東西可以幫你自動安裝有用到的package 很是方便，不過可惜的是typora依然無法渲染，要用他自己的editor
-
-
 
 用 R Markdown 似乎可以渲染， 不知道還有沒有比較簡單的方法。有找到再來補充。
 
 ## Tree
 
-https://tex.stackexchange.com/questions/5447/how-can-i-draw-simple-trees-in-latex
+<https://tex.stackexchange.com/questions/5447/how-can-i-draw-simple-trees-in-latex>
 
 ```latex
 \documentclass{article}
@@ -39,8 +35,6 @@ https://tex.stackexchange.com/questions/5447/how-can-i-draw-simple-trees-in-late
 
 \end{document}
 ```
-
-
 
 ![](https://i.imgur.com/rEfiPtT.png)
 
@@ -93,8 +87,6 @@ https://tex.stackexchange.com/questions/5447/how-can-i-draw-simple-trees-in-late
 
 ![](https://i.imgur.com/fhx9ui3.png)
 
-
-
 ## Chess Board
 
 雖然用unicode也可以，不過latex還是好看很多，而且比較方便。
@@ -110,9 +102,7 @@ https://tex.stackexchange.com/questions/5447/how-can-i-draw-simple-trees-in-late
 ♜♞♝♚♛♝♞♜
 ```
 
-
-
-https://www.overleaf.com/learn/latex/Chess_notation
+<https://www.overleaf.com/learn/latex/Chess_notation>
 
 ```lat
 \documentclass{article}
@@ -140,10 +130,6 @@ The small white square to the right of the second board is called the \textit{mo
 
 渲染出來有一點點跑版的感覺
 
-
-
-
-
 ```latex
 \documentclass{article}
 \usepackage{xskak}
@@ -158,8 +144,6 @@ The small white square to the right of the second board is called the \textit{mo
 
 可以直接用棋譜渲染，讚。
 
-
-
 可以來個經典的 queen's gambit
 
 ```latex
@@ -173,8 +157,6 @@ The small white square to the right of the second board is called the \textit{mo
 ```
 
 ![](https://i.imgur.com/MIdFmRV.png)
-
-
 
 ```latex
 \documentclass{article}
@@ -206,10 +188,6 @@ The small white square to the right of the second board is called the \textit{mo
   ]
 \end{document}
 ```
-
-
-
-
 
 ![](https://i.imgur.com/WT35prL.png)
 

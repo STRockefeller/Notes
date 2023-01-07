@@ -1,7 +1,8 @@
 # Mega-linter
 
-https://github.com/nvuillam/mega-linter
+#cross_language #lint #hooks #docker
 
+https://github.com/nvuillam/mega-linter
 
 
 ## Abstract
@@ -9,7 +10,6 @@ https://github.com/nvuillam/mega-linter
 無意間發現的工具卻意外令人驚豔。算是繼`cheat.sh`之後，挖到的一個寶。
 
 下面算是把官方文件的內容簡化並且結合實際的使用經驗作紀錄
-
 
 
 ## Installation
@@ -29,6 +29,8 @@ npx mega-linter-runner@beta --install
 
 
 ### GitHub Actions
+
+reference: [[Github actions]]
 
 這邊拿一個將近半年前的side project做嘗試
 
@@ -101,9 +103,7 @@ copy paste 的部分當初寫的時候就有注意到了，但是chrome extensio
 ---
 
 
-
 gitlab等其他平台的做法看起來差不多，以後有機會用到再來補充
-
 
 
 ### mega-linter runner
@@ -113,9 +113,7 @@ https://nvuillam.github.io/mega-linter/mega-linter-runner/
 不用push的使用方法
 
 
-
 先安裝node.js 和 docker
-
 
 
 然後安裝npm套件
@@ -146,7 +144,6 @@ added 447 packages from 314 contributors in 29.517s
 ```
 
 
-
 接著沒意外應該就可以使用了(vscode裡面的terminal會無法辨識指令，原因不明)
 
 ```powershell
@@ -166,7 +163,6 @@ mega-linter [options]
   -v, --version            Show version
   -i, --install            Generate Mega-Linter configuration in your project
 ```
-
 
 
 #### Docker Connect Error

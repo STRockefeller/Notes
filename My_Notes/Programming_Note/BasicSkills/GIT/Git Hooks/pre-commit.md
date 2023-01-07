@@ -1,5 +1,7 @@
 # Pre-Commit
 
+#git #hooks #c_sharp #bash #yaml
+
 references:
 
 https://mropengate.blogspot.com/2019/08/pre-commit-git-hooks_4.html

@@ -1,26 +1,22 @@
 # Redis Basic
 
-
+#database/no_sql/redis
 
 Reference:
 
-https://redis.io/
+<https://redis.io/>
 
-https://blog.techbridge.cc/2016/06/18/redis-introduction/
+<https://blog.techbridge.cc/2016/06/18/redis-introduction/>
 
-http://tw.gitbook.net/redis/redis_quick_guide.html
+<http://tw.gitbook.net/redis/redis_quick_guide.html>
 
-https://marcus116.blogspot.com/2019/02/how-to-install-redis-in-windows-os.html
+<https://marcus116.blogspot.com/2019/02/how-to-install-redis-in-windows-os.html>
 
-https://www.tutorialspoint.com/redis/redis_data_types.htm
-
-
+<https://www.tutorialspoint.com/redis/redis_data_types.htm>
 
 ## Review with Questions
 
 * 嘗試說明在redis中`list` `sets` `sorted sets`三種型別的區別。 [Ans](#List)
-
-
 
 ## Abstract
 
@@ -28,30 +24,24 @@ https://www.tutorialspoint.com/redis/redis_data_types.htm
 
 以下是Redis的一些代表特色
 
-- Redis數據庫完全在內存中，使用磁盤僅用於持久性。
-- 相比許多鍵值數據存儲，Redis擁有一套較為豐富的數據類型。
-- Redis可以將數據複製到任意數量的從服務器。
+* Redis數據庫完全在內存中，使用磁盤僅用於持久性。
+* 相比許多鍵值數據存儲，Redis擁有一套較為豐富的數據類型。
+* Redis可以將數據複製到任意數量的從服務器。
 
 **Redis 優勢**
 
-- 異常快速：Redis的速度非常快，每秒能執行約11萬集合，每秒約81000+條記錄。
-- 支持豐富的數據類型：Redis支持最大多數開發人員已經知道像列表，集合，有序集合，散列數據類型。這使得它非常容易解決各種各樣的問題，因為我們知道哪些問題是可以處理通過它的數據類型更好。
-- 操作都是原子性：所有Redis操作是原子的，這保證了如果兩個客戶端同時訪問的Redis服務器將獲得更新後的值。
-- 多功能實用工具：Redis是一個多實用的工具，可以在多個用例如緩存，消息，隊列使用(Redis原生支持發布/訂閱)，任何短暫的數據，應用程序，如Web應用程序會話，網頁命中計數等。
-
-
+* 異常快速：Redis的速度非常快，每秒能執行約11萬集合，每秒約81000+條記錄。
+* 支持豐富的數據類型：Redis支持最大多數開發人員已經知道像列表，集合，有序集合，散列數據類型。這使得它非常容易解決各種各樣的問題，因為我們知道哪些問題是可以處理通過它的數據類型更好。
+* 操作都是原子性：所有Redis操作是原子的，這保證了如果兩個客戶端同時訪問的Redis服務器將獲得更新後的值。
+* 多功能實用工具：Redis是一個多實用的工具，可以在多個用例如緩存，消息，隊列使用(Redis原生支持發布/訂閱)，任何短暫的數據，應用程序，如Web應用程序會話，網頁命中計數等。
 
 ## Installation(Windows 10)
 
 > Redis 主要是運行在 Linux 環境，因此在官網下載區是找不到 Windows 版安裝程式，需要到 [MicrosoftArchive/redis](https://github.com/MicrosoftArchive/redis) 提供的 github 頁面中點擊 release page 連結才有 Windows for Redis 安裝檔
 
-
-
 目前看來這個項目已經五六年沒有更新了，最新的release時間在*1 Jul 2016* 分別是3.0.504 和 3.2.100(pre)
 
 還有分安裝版和免安裝版，這次筆記過程中使用3.2.100(pre)的免安裝版本。
-
-
 
 下載完成後打開server
 
@@ -191,8 +181,6 @@ cluster_enabled:0
 
 看起來沒問題。
 
-
-
 ## Data Type
 
 共五種
@@ -207,8 +195,6 @@ OK
 127.0.0.1:6379> get str
 "Hello World"
 ```
-
-
 
 ### Hashes
 
@@ -226,8 +212,6 @@ redis 127.0.0.1:6379> HGETALL user:1
 5) "points" 
 6) "200"
 ```
-
-
 
 ### List
 
@@ -247,13 +231,9 @@ redis 127.0.0.1:6379> lrange tutoriallist 0 10
 3) "redis"
 ```
 
-
-
 ### Sets
 
 > Redis Sets are an unordered collection of strings. In Redis, you can add, remove, and test for the existence of members in O(1) time complexity.
-
-
 
 ```powershell
 redis 127.0.0.1:6379> sadd tutoriallist redis 
@@ -270,8 +250,6 @@ redis 127.0.0.1:6379> smembers tutoriallist
 2) "mongodb" 
 3) "redis" 
 ```
-
-
 
 ### Sorted Sets
 
@@ -293,13 +271,9 @@ redis 127.0.0.1:6379> ZRANGEBYSCORE tutoriallist 0 1000
 3) "rabitmq" 
 ```
 
-
-
 ## Basic Command
 
 這邊只列出一些常用的基礎指令，詳細可以看[官網](https://redis.io/commands)，或cheat sheet
-
-
 
 ### SET/GET
 
@@ -309,8 +283,6 @@ redis 127.0.0.1:6379> ZRANGEBYSCORE tutoriallist 0 1000
 set [key] [value]
 get [key]
 ```
-
-
 
 key-value的讀寫
 
@@ -334,8 +306,6 @@ OK
 
 結合上方的結果看來set進去的value會被預設作為string看待
 
-
-
 ### DECR/INCR
 
 寫法
@@ -345,13 +315,9 @@ incr [key]
 decr [key]
 ```
 
-
-
 減少和增加
 
 拿上面的`int_value`繼續使用
-
-
 
 ```powershell
 127.0.0.1:6379> set int_value 100
@@ -366,8 +332,6 @@ OK
 
 相當於`int_value--` / `int_value++`
 
-
-
 ### DECRBY/INCRBY
 
 寫法
@@ -378,8 +342,6 @@ decrby [key] [decrement]
 ```
 
 增減指定數值(整數)
-
-
 
 ```powershell
 127.0.0.1:6379> incrby int_value 100
@@ -392,8 +354,6 @@ decrby [key] [decrement]
 
 中間試了一下給他非整數能不能運作，結果是不行
 
-
-
 ### HSET/HGET
 
 寫法
@@ -404,8 +364,6 @@ hget [key] [field]
 ```
 
 hash map 的讀寫
-
-
 
 ```powershell
 127.0.0.1:6379> hset sophie item1 magic_grass
@@ -418,10 +376,6 @@ hash map 的讀寫
 "gobalt_grass"
 ```
 
-
-
-
-
 ```powershell
 redis> HSET mydata name "nick"
 redis> HSET mydata nickname "nicknick"
@@ -432,4 +386,3 @@ redis> HGET mydata name
 可以存取一個 value 底下的 field，讓你可以更多元的使用，例如說你可以定義 key 的規則是：POST + 文章 id，裡面就可以存這篇文章的讚數、回覆數等等，就不用每一次都去 Database 裡面重新抓取。
 
 關於[Hashes](#Hashes)
-
