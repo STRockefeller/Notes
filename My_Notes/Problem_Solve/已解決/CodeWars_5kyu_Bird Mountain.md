@@ -1,17 +1,18 @@
 # CodeWars:Bird Mountain:20210128:C\#
-#problem_solve #c_sharp 
+
+#problem_solve #c_sharp #codewars/5kyu
 
 [Reference](https://www.codewars.com/kata/5c09ccc9b48e912946000157)
 
 ## Question
 
-# Kata Task
+## Kata Task
 
 A bird flying high above a mountain range is able to estimate the height of the highest peak.
 
 Can you?
 
-# Example
+## Example
 
 ## The birds-eye view
 
@@ -37,8 +38,6 @@ Can you?
   1111
 ```
 
-
-
 ```
 111111
  12222111
@@ -49,8 +48,6 @@ Can you?
   1111
 ```
 
-
-
 ```
 111111
  12222111
@@ -60,8 +57,6 @@ Can you?
   122211
   1111
 ```
-
-
 
 ```
 Height = 3
@@ -181,8 +176,6 @@ public class Dinglemouse
 
 雖然用了很多LOOP感覺效率極差，不過目前沒想到其他解法，所以就算了。
 
-
-
 ## Better Solutions
 
 ### Solution 1
@@ -213,8 +206,6 @@ public class Dinglemouse
 }
 ```
 
-
-
 ### Solution 2
 
 ```C#
@@ -228,8 +219,6 @@ public class Dinglemouse
         ' ' : x)).ToArray()).ToArray(), h+1);
 }
 ```
-
-
 
 看到one-line solution都先給尊重。但說實話這個解法真的不好懂。
 

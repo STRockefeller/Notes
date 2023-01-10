@@ -8,51 +8,26 @@
         "type": "tabs",
         "children": [
           {
-            "id": "79f88722abb74bd6",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
-            }
-          },
-          {
-            "id": "99f416e96cf50688",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "27601b7c88e19d06",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
             "id": "a9af30b49f6a0373",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
-            }
-          },
-          {
-            "id": "bfd62097fa662b79",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/C#/Console/parse flags.md",
+                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Primes in numbers.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "112ea484fe97c25a",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -81,7 +56,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Getting",
+                "query": "tag:#shortest_path_faster_algorithmn",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -118,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Primes in numbers.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Primes in numbers.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -155,11 +132,13 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Primes in numbers.md"
+              }
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -178,15 +157,15 @@
   },
   "active": "a9af30b49f6a0373",
   "lastOpenFiles": [
-    "My_Notes/Programming_Note/C#/Command Line Flags.md",
-    "My_Notes/Programming_Note/C#/Console/parse flags.md",
-    "My_Notes/Programming_Note/GoLang/Go Basic.md",
-    "My_Notes/Programming_Note/GoLang/Go Composition.md",
-    "My_Notes/Programming_Note/GoLang/Go Basic/Go Basic.md",
-    "My_Notes/Programming_Note/GoLang/Go Basic/Getting Start.md",
-    "My_Notes/Programming_Note/GoLang/Go Basic/Installation.md",
-    "My_Notes/Programming_Note/GoLang/Go Basic/Abstract.md",
-    "My_Notes/Programming_Note/GoLang/Go Basic/Review with Questions.md",
-    "My_Notes/Programming_Note/GoLang/Go Basic/Functions.md"
+    "My_Notes/Problem_Solve/已解決/CodeWars_Range Extraction.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Primes in numbers.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Pick peaks.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_4kyu_Path Finder 2 shortest path.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_4kyu_Path Finder 1 can you reach the exit.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_6kyu_Pascals triangle.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Number of trailing zeros of N!.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_4kyu_Number of integer partitions.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_4kyu_Next smaller number with the same digits.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_4kyu_Next bigger number with the same digits.md"
   ]
 }
