@@ -1,8 +1,8 @@
-# CodeWars:Sum of Digits / Digital Root:20200916:C#
+# CodeWars:Sum of Digits / Digital Root:20200916:C\#
+
+#problem_solve #codewars/6kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/541c8630095125aba6000c00/csharp)
-
-
 
 ## Question
 

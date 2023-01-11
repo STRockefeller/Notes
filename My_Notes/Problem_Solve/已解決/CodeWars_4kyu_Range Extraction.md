@@ -1,8 +1,8 @@
-# CodeWars:CodeWars_Range Extraction:20201027:C#
+# CodeWars:CodeWars_Range Extraction:20201027:C\#
+
+#problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/51ba717bb08c1cd60f00002f/train/csharp)
-
-
 
 ## Question
 
@@ -115,11 +115,7 @@ using System.Linq;
 
 `**Completed in 32.0560ms**`
 
-
-
 ## Better Solutions
-
-
 
 ### Solution 1
 
@@ -156,4 +152,3 @@ public class RangeExtraction
     }
 }
 ```
-

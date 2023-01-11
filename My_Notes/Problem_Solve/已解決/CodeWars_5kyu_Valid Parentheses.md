@@ -1,8 +1,8 @@
-# CodeWars:Valid Parentheses:20200918:C#
+# CodeWars:Valid Parentheses:20200918:C\#
+
+#problem_solve #codewars/5kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/52774a314c2333f0a7000688/csharp)
-
-
 
 ## Question
 
@@ -55,8 +55,6 @@ Along with opening (`(`) and closing (`)`) parenthesis, input may contain any va
 
 ## Better Solutions
 
-
-
 ### Solution 1
 
 ```C#
@@ -88,8 +86,6 @@ public class Parentheses
 ```
 
 不一樣的思路，有效括弧一定是先左再右，並且最後左右括弧的數量要相等。少一層迴圈，比起我的解法更加有效率
-
-
 
 ### Solution 2
 

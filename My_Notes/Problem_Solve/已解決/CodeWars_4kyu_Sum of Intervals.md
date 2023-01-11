@@ -1,8 +1,8 @@
-# CodeWars:Sum of Intervals:20200918:C#
+# CodeWars:Sum of Intervals:20200918:C\#
+
+#problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/52b7ed099cdc285c300001cd/csharp)
-
-
 
 ## Question
 
@@ -26,7 +26,7 @@ List containing overlapping intervals:
 
 The sum of the lengths of these intervals is 7. Since [1, 4] and [3, 5] overlap, we can treat the interval as [1, 5], which has a length of 4.
 
-### Examples:
+### Examples
 
 ```javascript
 sumIntervals( [

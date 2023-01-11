@@ -1,6 +1,6 @@
 # Blazor Directives
 
-
+#c_sharp/blazor
 
 Reference:[MSDN](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#attributes)
 
@@ -12,8 +12,6 @@ Razor directives are represented by implicit expressions with reserved keywords 
 
 Understanding how Razor generates code for a view makes it easier to understand how directives work.
 
-
-
 ```cshtml
 @{
     var quote = "Getting old ain't for wimps! - Anonymous";
@@ -23,8 +21,6 @@ Understanding how Razor generates code for a view makes it easier to understand 
 ```
 
 The code generates a class similar to the following:
-
-
 
 ```csharp
 public class _Views_Something_cshtml : RazorPage<dynamic>
@@ -48,8 +44,6 @@ Later in this article, the section [Inspect the Razor C# class generated for a v
 
 The `@attribute` directive adds the given attribute to the class of the generated page or view. The following example adds the `[Authorize]` attribute:
 
-
-
 ```cshtml
 @attribute [Authorize]
 ```
@@ -61,8 +55,6 @@ The `@attribute` directive adds the given attribute to the class of the generate
 *This scenario only applies to Razor components (.razor).*
 
 The `@code` block enables a [Razor component](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-5.0) to add C# members (fields, properties, and methods) to a component:
-
-
 
 ```razor
 @code {
@@ -78,8 +70,6 @@ For Razor components, `@code` is an alias of [`@functions`](https://docs.microso
 
 The `@functions` directive enables adding C# members (fields, properties, and methods) to the generated class:
 
-
-
 ```cshtml
 @functions {
     // C# members (fields, properties, and methods)
@@ -89,8 +79,6 @@ The `@functions` directive enables adding C# members (fields, properties, and me
 In [Razor components](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-5.0), use `@code` over `@functions` to add C# members.
 
 For example:
-
-
 
 ```cshtml
 @functions {
@@ -105,15 +93,11 @@ For example:
 
 The code generates the following HTML markup:
 
-
-
 ```html
 <div>From method: Hello</div>
 ```
 
 The following code is the generated Razor C# class:
-
-
 
 ```csharp
 using System.Threading.Tasks;
@@ -139,8 +123,6 @@ public class _Views_Home_Test_cshtml : RazorPage<dynamic>
 
 `@functions` methods serve as templating methods when they have markup:
 
-
-
 ```cshtml
 @{
     RenderName("Mahatma Gandhi");
@@ -157,8 +139,6 @@ public class _Views_Home_Test_cshtml : RazorPage<dynamic>
 
 The code renders the following HTML:
 
-
-
 ```html
 <p>Name: <strong>Mahatma Gandhi</strong></p>
 <p>Name: <strong>Martin Luther King, Jr.</strong></p>
@@ -171,8 +151,6 @@ The code renders the following HTML:
 The `@implements` directive implements an interface for the generated class.
 
 The following example implements [System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/system.idisposable) so that the [Dispose](https://docs.microsoft.com/en-us/dotnet/api/system.idisposable.dispose) method can be called:
-
-
 
 ```cshtml
 @implements IDisposable
@@ -192,15 +170,11 @@ The following example implements [System.IDisposable](https://docs.microsoft.com
 
 The `@inherits` directive provides full control of the class the view inherits:
 
-
-
 ```cshtml
 @inherits TypeNameOfClassToInheritFrom
 ```
 
 The following code is a custom Razor page type:
-
-
 
 ```csharp
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -215,8 +189,6 @@ public abstract class CustomRazorPage<TModel> : RazorPage<TModel>
 
 The `CustomText` is displayed in a view:
 
-
-
 ```cshtml
 @inherits CustomRazorPage<TModel>
 
@@ -224,8 +196,6 @@ The `CustomText` is displayed in a view:
 ```
 
 The code renders the following HTML:
-
-
 
 ```html
 <div>
@@ -236,15 +206,11 @@ The code renders the following HTML:
 
 `@model` and `@inherits` can be used in the same view. `@inherits` can be in a *_ViewImports.cshtml* file that the view imports:
 
-
-
 ```cshtml
 @inherits CustomRazorPage<TModel>
 ```
 
 The following code is an example of a strongly-typed view:
-
-
 
 ```cshtml
 @inherits CustomRazorPage<TModel>
@@ -254,8 +220,6 @@ The following code is an example of a strongly-typed view:
 ```
 
 If "rick@contoso.com" is passed in the model, the view generates the following HTML markup:
-
-
 
 ```html
 <div>The Login Email: rick@contoso.com</div>
@@ -285,15 +249,11 @@ MVC專案適用，Blazor專案沒有這種東西。
 
 The `@model` directive specifies the type of the model passed to a view or page:
 
-
-
 ```cshtml
 @model TypeNameOfModel
 ```
 
 In an ASP.NET Core MVC or Razor Pages app created with individual user accounts, *Views/Account/Login.cshtml* contains the following model declaration:
-
-
 
 ```cshtml
 @model LoginViewModel
@@ -301,15 +261,11 @@ In an ASP.NET Core MVC or Razor Pages app created with individual user accounts,
 
 The class generated inherits from `RazorPage<dynamic>`:
 
-
-
 ```csharp
 public class _Views_Account_Login_cshtml : RazorPage<LoginViewModel>
 ```
 
 Razor exposes a `Model` property for accessing the model passed to the view:
-
-
 
 ```cshtml
 <div>The Login Email: @Model.Email</div>
@@ -323,8 +279,6 @@ The `@namespace` directive:
 
 - Sets the namespace of the class of the generated Razor page, MVC view, or Razor component.
 - Sets the root derived namespaces of a pages, views, or components classes from the closest imports file in the directory tree, *_ViewImports.cshtml* (views or pages) or *_Imports.razor* (Razor components).
-
-
 
 ```cshtml
 @namespace Your.Namespace.Here
@@ -385,8 +339,6 @@ The `@section` directive is used in conjunction with [MVC and Razor Pages layout
 
 The `@using` directive adds the C# `using` directive to the generated view:
 
-
-
 ```cshtml
 @using System.IO
 @{
@@ -396,8 +348,6 @@ The `@using` directive adds the C# `using` directive to the generated view:
 ```
 
 In [Razor components](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-5.0), `@using` also controls which components are in scope.
-
-
 
 ## Directive attributes
 
@@ -437,8 +387,6 @@ Razor directive attributes are represented by implicit expressions with reserved
         };
 }
 ```
-
-
 
 *This scenario only applies to Razor components (.razor).*
 

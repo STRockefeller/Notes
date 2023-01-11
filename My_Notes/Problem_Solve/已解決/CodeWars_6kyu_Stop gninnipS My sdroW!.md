@@ -1,8 +1,8 @@
-# CodeWars:Stop gninnipS My sdroW!:20200914:C#
+# CodeWars:Stop gninnipS My sdroW!:20200914:C\#
+
+#problem_solve #codewars/6kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/5264d2b162488dc400000001/csharp)
-
-
 
 ## Question
 
@@ -52,4 +52,3 @@ public class Kata
 ```
 
 別人的一行解，基本差不多，差在他成功在一行內完成反轉字串`new string(str.Reverse().ToArray())`
-

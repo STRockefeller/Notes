@@ -1,10 +1,8 @@
 # ASP.NET Razor - C# Code Syntax - [PDF Download Cheatsheet](https://1drv.ms/b/s!Ai0GNI50Q5GAgdQ0B2b3gDPlXcxM_w)
 
+From <https://gist.github.com/jwill9999/655533b6652418bd3bc94d864a5e2b49>
 
-
-From https://gist.github.com/jwill9999/655533b6652418bd3bc94d864a5e2b49
-
-# Index
+## Index
 
 [Razor Comments](#Razor-Comments)<br>
 [Inline expression](#Inline-expression)<br>
@@ -13,7 +11,7 @@ From https://gist.github.com/jwill9999/655533b6652418bd3bc94d864a5e2b49
 [Store Date](#Tag-Helpers)<br>
 [Store Date](#Tag-Helpers)<br>
 [Variables](#Variables)<br>
-[Convert Data Types ](#Convert-Data-Types )<br>
+[Convert Data Types](#Convert-Data-Types )<br>
 [Loops](#Loops)<br>
 [Arrays](#Arrays)<br>
 [Conditionals](#Conditionals)<br>
@@ -21,15 +19,12 @@ From https://gist.github.com/jwill9999/655533b6652418bd3bc94d864a5e2b49
 [Models View](#Models-View)<br>
 [Dependency Injection](#Dependency-Injection)<br>
 [Add Functions](#Add-Functions)<br>
-[Create Templates ](#Create-Templates )<br>
+[Create Templates](#Create-Templates )<br>
 [Conditional Attributes](#Conditional-Attributes)<br>
 [Forms](#Forms)<br>
 [Add Partials](#Add-Partials)<br>
 [Add link to a page](#Add-link-to-a-page)<br>
-[ Loop through a list and output](#Loop-through-a-list-and-output)
-
-
-
+[Loop through a list and output](#Loop-through-a-list-and-output)
 
 ### Razor is a markup syntax that lets you embed server-based code (Visual Basic and C#) into web pages
 
@@ -43,6 +38,7 @@ From https://gist.github.com/jwill9999/655533b6652418bd3bc94d864a5e2b49
     It can continue for any number of lines.
 *@
 ```
+
 ```c#
 @{
     @* This is a comment. *@
@@ -67,6 +63,7 @@ From https://gist.github.com/jwill9999/655533b6652418bd3bc94d864a5e2b49
 ```c#
 @{ var myMessage = "Hello World"; }
 ```
+
 ## Multi statement block
 
 ```c#
@@ -84,7 +81,7 @@ var greetingMessage = greeting + " Here in Huston it is: " + weekDay;
 
 <br>
 
-## Store String 
+## Store String
 
 ```c#
 /* A string is a sequence of characters that are treated as text. To specify a string, you enclose it in double quotation marks:*/
@@ -92,7 +89,8 @@ var greetingMessage = greeting + " Here in Huston it is: " + weekDay;
 @{ var welcomeMessage = "Welcome, new members!"; }
 <p>@welcomeMessage</p>
 ```
-## Store Date 
+
+## Store Date
 
 ```c#
 @{ var year = DateTime.Now.Year; }
@@ -169,22 +167,20 @@ if(IsPost)
 
 ```
 
-
 <br>
 
 [back to top](#Index)<br>
 
 <br>
 
-## Convert Data Types 
-
+## Convert Data Types
 
 | Method     | Description          |Examples  |
 | ------------- |:-------------:| -----:|
-|AsInt(),<br> IsInt() |   Converts a string to an integer.   | ``` if (myString.IsInt())```<br>  ```{myInt=myString.AsInt();```|
+|AsInt(),<br> IsInt() |   Converts a string to an integer.   | ```if (myString.IsInt())```<br>  ```{myInt=myString.AsInt();```|
 |AsFloat(), IsFloat()| Converts a string to a floating-point number.|```if (myString.IsFloat())```<br>```{myFloat=myString.AsFloat();}```|
 |AsDecimal(), IsDecimal()| Converts a string to a decimal number..|```if (myString.IsDecimal())```<br>```{myDec=myString.AsDecimal();}```|
-|AsDateTime(), IsDateTime()|Converts a string to an ASP.NET DateTime type.| ```myString="10/10/2012";```<br>``` myDate=myString.AsDateTime();```|
+|AsDateTime(), IsDateTime()|Converts a string to an ASP.NET DateTime type.| ```myString="10/10/2012";```<br>```myDate=myString.AsDateTime();```|
 |AsBool(),<br> IsBool()|Converts a string to a Boolean..| ```myString="True";```<br> ```myBool=myString.AsBool();```|
 |ToString()|Converts any data type to a string.| ```myInt=1234;```<br> ```myString=myInt.ToString();```|
 
@@ -223,9 +219,7 @@ if(IsPost)
 }
 ```
 
-  
-
-## ForEach Loops 
+## ForEach Loops
 
 ```c#
 <ul>
@@ -235,7 +229,8 @@ if(IsPost)
 }
 </ul>
 ```
-## While Loops 
+
+## While Loops
 
 ```c#
 @{
@@ -248,14 +243,13 @@ if(IsPost)
 }
 ```
 
-
 <br>
 
 [back to top](#Index)<br>
 
 <br>
 
-## Arrays 
+## Arrays
 
 ```c#
 @{
@@ -278,17 +272,15 @@ string x = members[2-1];
 </html>
 ```
 
-
 <br>
 
 [back to top](#Index)<br>
 
 <br>
 
-
 # Conditionals
 
-## If 
+## If
 
 ```c#
 @{
@@ -299,7 +291,8 @@ string x = members[2-1];
   }
 }
 ```
-## If Else 
+
+## If Else
 
 ```c#
 @{
@@ -314,7 +307,8 @@ string x = members[2-1];
   }
 }
 ```
-## Else If 
+
+## Else If
 
 ```c#
 @{
@@ -333,7 +327,8 @@ string x = members[2-1];
     }
 }
 ```
-## Switch Statement 
+
+## Switch Statement
 
 ```c#
 @{
@@ -359,6 +354,7 @@ string x = members[2-1];
     <p>Since it is @weekday, the message for today is: @greeting</p>
 }
 ```
+
 ## Try Catch Finally
 
 ```c#
@@ -377,15 +373,13 @@ finally
 
 ```
 
-
 <br>
 
 [back to top](#Index)<br>
 
 <br>
 
-
-## Using 
+## Using
 
 ```c#
 
@@ -405,7 +399,6 @@ finally
 
 <br>
 
-
 ## Models View
 
 ```c#
@@ -415,7 +408,7 @@ finally
 
 ```
 
-## Access Model 
+## Access Model
 
 ```html
 <div>The Login Email: @Model.Email</div>
@@ -453,7 +446,7 @@ finally
 
 <br>
 
-## Create Templates 
+## Create Templates
 
 Create a class
 
@@ -514,7 +507,6 @@ Rendered output
 <div style="@divStyle">Hello, world!</div>
 ```
 
-
 <br>
 
 [back to top](#Index)<br>
@@ -549,8 +541,7 @@ Rendered output
 
 <br>
 
-
-## Add Partials 
+## Add Partials
 
 ```js
 @section Scripts {
@@ -607,7 +598,6 @@ Rendered output
     </tbody>
 
 ```
-
 
 <br>
 

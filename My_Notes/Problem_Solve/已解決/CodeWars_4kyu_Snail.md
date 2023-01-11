@@ -1,8 +1,8 @@
-# CodeWars:Snail:20200924:C#
+# CodeWars:Snail:20200924:C\#
+
+#problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1)
-
-
 
 ## Question
 
@@ -102,8 +102,6 @@ public class SnailSolution
 
 為了方便閱讀就沒有特別簡化寫法，原先沒有考慮到最中間的數字會被忽略，測試失敗一次，修正後就通過了，算是非常順利。
 
-
-
 雖然懶得再寫一次，不過還是記錄一下方案二的構思(其實我比較喜歡這種類似接龍的作法，但是這題感覺寫起來會變得很長所以作罷)
 
 ```C#
@@ -140,8 +138,6 @@ public class SnailSolution
 ```
 
 ## Better Solutions
-
-
 
 ### Solution 1
 

@@ -1,8 +1,8 @@
 # CodeWars:Twice linear:20210909:Go
 
+#problem_solve #codewars/4kyu #golang
+
 [Reference](https://www.codewars.com/kata/5672682212c8ecf83e000050)
-
-
 
 ## Question
 
@@ -12,7 +12,7 @@ Consider a sequence `u` where u is defined as follows:
 2. For each `x` in `u`, then `y = 2 * x + 1` and `z = 3 * x + 1` must be in `u` too.
 3. There are no other numbers in `u`.
 
-#### Example:
+### Example
 
 ```
 u = [1, 3, 4, 7, 9, 10, 13, 15, 19, 21, 22, 27, ...]
@@ -20,17 +20,17 @@ u = [1, 3, 4, 7, 9, 10, 13, 15, 19, 21, 22, 27, ...]
 
 1 gives 3 and 4, then 3 gives 7 and 10, 4 gives 9 and 13, then 7 gives 15 and 22 and so on...
 
-#### Task:
+### Task
 
 Given parameter `n` the function `dbl_linear` (or dblLinear...) returns the element `u(n)` of the ordered sequence `u` (ordered with `<` so there are no duplicates) .
 
-#### Example:
+### Example
 
 ```
 dbl_linear(10) should return 22
 ```
 
-#### Note:
+### Note
 
 Focus attention on efficiency
 
@@ -162,6 +162,3 @@ func DblLinear(n int) int {
 這個人沒有建立題目中的u陣列，取而代之的是`q2` `q3` 兩個`slice`，目前的數值(原本的`u[n]`)則以`h`表示。
 
 比較奇怪的是我感覺`q2` `q3`沒有必要宣告成`slice`也能做到一樣的事情。
-
-
-

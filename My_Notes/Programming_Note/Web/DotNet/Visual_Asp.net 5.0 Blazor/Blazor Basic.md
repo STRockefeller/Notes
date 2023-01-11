@@ -1,4 +1,6 @@
-# Blazor
+# Blazor Basic
+
+#c_sharp/blazor #server
 
 [Reference: Microsoft Blazor Tutorial](https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/intro)
 

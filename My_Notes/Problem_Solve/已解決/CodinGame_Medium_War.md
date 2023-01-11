@@ -1,8 +1,8 @@
 # CodinGam:War:20220127:Go
 
+#problem_solve #codingame/medium #golang
+
 ## Question
-
-
 
 Reference
 
@@ -10,7 +10,7 @@ Let's go back to basics with this simple card game: war!
 
 Your goal is to write a program which finds out which player is the winner for a given card distribution of the "war" game.
 
-###  Rules
+### Rules
 
 War is a card game played between two players. Each player gets a variable number of cards of the beginning of the game: that's the player's deck. Cards are placed face down on top of each deck.
 
@@ -29,42 +29,35 @@ If the two cards played are of equal value, then there is a "war". First, **both
 - If a player runs out of cards during a "war" (when giving up the three cards or when doing the battle), then the game ends and both players are placed equally first.
 - The test cases provided in this puzzle are built in such a way that a game always ends (you do not have to deal with infinite games)
 
-Each card is represented by its value followed by its suit: 
+Each card is represented by its value followed by its suit:
 
 D, H, C, S. For example: 4H, 8C, AS.
 
 When a player wins a battle, they put back the cards at the bottom of their deck in a precise order. **First the cards from the first player, then the one from the second player** (for a "war", all the cards from the first player **then** all the cards from the second player).
 
 For example, if the card distribution is the following:
-Player 1 : 
+Player 1 :
 
 10D 9S 8D KH 7D 5H 6S
 
-
-Player 2 : 
+Player 2 :
 
 10H 7H 5C QC 2C 4H 6D
 
-
 Then after one game turn, it will be:
-Player 1 : 
+Player 1 :
 
 5H 6S 10D 9S 8D KH 7D 10H 7H 5C QC 2C
 
-
-Player 2 : 
+Player 2 :
 
 4H 6D
-
- 
 
 #### Victory Conditions
 
 A player wins when the other player no longer has cards in their deck.
 
-
-
-###  Game Input
+### Game Input
 
 Input
 
@@ -84,8 +77,6 @@ Output
 Constraints
 
 0 < N, M < 1000
-
-
 
 example
 
@@ -108,10 +99,6 @@ Output
 1 3
 ```
 
-
-
-
-
 ## My Solution
 
 首先來分析一下 example
@@ -126,8 +113,6 @@ Output
 結果: Player 1 獲勝，回合數 3
 
 比較可惜的是這個case有點過於簡單，沒有演示到 war 或者 chain wars
-
-
 
 往上找 war 的範例來看
 
@@ -156,19 +141,13 @@ Player 2 拿出 7H 5C QC
 
 剩下的牌(5H 6S)+Battle(10D)+War(9S 8D KH)+WarBattle(7D)+對手出的順序同自己(10H 7H 5C QC 2C)
 
-
-
 然後這些動作加起來算在同一個回合
 
 如果後面還有chain wars 也算在一個回合
 
-
-
 > If players are equally first: PAT
 
 大致上已經了解流程了，現在只差這段話不清楚到底是什麼意思，先忽略直接寫好了。
-
-
 
 ---
 
@@ -328,8 +307,6 @@ func battle(p1deck, p2deck chan string) {
 放回排組的順序是先勝者再敗者，然後根據的是出排順序，那麼把先前出過的牌記下來就勢在必行了。
 
 修改方法簽章新增出牌紀錄的傳入
-
-
 
 丟測試
 
@@ -505,8 +482,6 @@ Failure
 Found: 2 34
 Expected: 2 26
 ```
-
-
 
 ```go
 package main
@@ -759,15 +734,11 @@ func parsePower(str string) int {
 
 之後除了 PAT 和 Long case 都通過了
 
-
-
 看懂了，special cases 裡面有寫pat條件，看太快直接忽略掉了..
 
 > If a player runs out of cards during a "war" (when giving up the three cards or when doing the battle), then the game ends and both players are placed equally first.
 
 還好還算好改，先前把牌不夠出的情形算成對方勝利，現在只要改成PAT就可以了
-
-
 
 改完之後還是過不了 long case
 
@@ -929,8 +900,6 @@ func parsePower(str string) int {
 
 閱讀性確實好了很多，但是原本對的還是對錯的也還是錯。放棄，想不出來了
 
-
-
 ---
 
 2022/02/08 補充
@@ -958,8 +927,6 @@ func parsePower(str string) int {
 ```
 
 只要修正這個部分就可以了
-
-
 
 完整如下
 
@@ -1103,11 +1070,7 @@ func parsePower(str string) int {
 
 ```
 
-
-
 ## Better Solutions
-
-
 
 ### Solution 1
 
@@ -1197,8 +1160,6 @@ func main() {
     }
 }
 ```
-
-
 
 ### Solution 2
 
@@ -1292,4 +1253,3 @@ func main() {
     fmt.Println(answer)// Write answer to stdout
 }
 ```
-

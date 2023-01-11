@@ -1,15 +1,15 @@
 # CodeWars:Sudoku Solution Validator:20211123:Go
 
+#problem_solve #codewars/4kyu #golang
+
 [Reference](https://www.codewars.com/kata/529bf0e9bdf7657179000008/go)
-
-
 
 ## Question
 
 ### Sudoku Background
 
 Sudoku is a game played on a 9x9 grid. The goal of the game is to fill all cells of the grid with digits from 1 to 9, so that each column, each row, and each of the nine 3x3 sub-grids (also known as blocks) contain all of the digits from 1 to 9.
-(More info at: http://en.wikipedia.org/wiki/Sudoku)
+(More info at: <http://en.wikipedia.org/wiki/Sudoku>)
 
 ### Sudoku Solution Validator
 
@@ -117,8 +117,6 @@ type position struct {
 
 ## Better Solutions
 
-
-
 ### Solution 1
 
 ```go
@@ -147,11 +145,7 @@ func ValidateSolution(m [][]int) bool {
 }
 ```
 
-
-
 `boxUsed[row/3][col/3][num] = true` 這個寫法值得參考
-
-
 
 ### Solution 2
 
@@ -177,8 +171,6 @@ func ValidateSolution(m [][]int) bool {
 ```
 
 お見事です
-
-
 
 寫得很精簡但又不是這麼容易看懂
 
@@ -303,4 +295,3 @@ row = 1022 ,  col = 1022 , box = 1022
 ```
 
 1<<5 ==> 100000 ==> 32
-

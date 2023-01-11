@@ -1,5 +1,7 @@
 # Data Binding
 
+#c_sharp/blazor #data_binding
+
 [Reference:MSDN](https://docs.microsoft.com/zh-tw/aspnet/core/blazor/components/data-binding?view=aspnetcore-5.0)
 
 [Reference:Blazor University](https://blazor-university.com/components/one-way-binding/)

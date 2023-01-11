@@ -1,6 +1,7 @@
 
-
 # CodinGame:BANK ROBBERS:20220106:Go
+
+#problem_solve #codingame/easy #golang
 
 [Reference](https://www.codingame.com/training/easy/bank-robbers)
 
@@ -8,7 +9,7 @@
 
 ### STATEMENT
 
-###  Goal
+### Goal
 
 A gang of R foolish robbers decides to heist a bank. In the bank there are V vaults (indexed from 0 to V - 1). The robbers have managed to extract some information from the bank's director:
 \- The combination of a vault is composed of C characters (digits/vowels).
@@ -23,8 +24,6 @@ A robber tries the combinations at the speed of 1 combination per second. He tri
 Assume it takes no time to move from one vault to another.
 
 You have to output the total time the heist takes.
-
-
 
 ```go
 package main
@@ -52,8 +51,6 @@ func main() {
     fmt.Println("1")// Write answer to stdout
 }
 ```
-
-
 
 ## My Solution
 
@@ -133,4 +130,3 @@ func (t task)assign(robbers []robber)[]robber{
 題目本身很簡單，但一時想不到合適的寫法，先寫一個比較沒效率的，記錄下來以後看看有沒有更好的解法。
 
 ## Better Solutions
-

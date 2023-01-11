@@ -1,8 +1,8 @@
-# CodeWars:Sum Strings as Numbers:202008XX:C#
+# CodeWars:Sum Strings as Numbers:202008XX:C\#
+
+#problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/5324945e2ece5e1f32000370/csharp)
-
-
 
 ## Question
 
@@ -65,13 +65,9 @@ public static class Kata
 }
 ```
 
-
-
 第一眼看到題目敘述只想到兂麼會有這麼簡單的Kyu4題目，興沖沖的把輸入Convert.toInt32之後相加，然後就跳了一堆Out of range
 
 發現測試用數據每個都大的誇張後，只能回頭扎扎實實的將每個位置的數字相加在算上進位(有考慮過一次計算多個數字但想不出具體實現方法)，將兩個字串變成相同長度並預先留下進位用的位置是這題思路的重點。
-
-
 
 ## Better Solutions
 
@@ -100,8 +96,6 @@ public static class Kata
 
 [MSDN:BigInteger](https://docs.microsoft.com/zh-tw/dotnet/api/system.numerics.biginteger?view=netcore-3.1)
 
-
-
 ### Solution 2
 
 ```C#
@@ -115,13 +109,9 @@ public static class Kata
 }
 ```
 
-
-
 ?????唉不是，這樣寫是怎麼過關的??搞不懂
 
 查了下評論發現題目有改版過，以前似乎不會用超大數據測試
-
-
 
 ### Solution 3
 

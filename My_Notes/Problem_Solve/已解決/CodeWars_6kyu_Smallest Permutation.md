@@ -1,8 +1,8 @@
-# CodeWars:Smallest Permutation:20210604:C#
+# CodeWars:Smallest Permutation:20210604:C\#
+
+#problem_solve #codewars/6kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/5fefee21b64cc2000dbfa875)
-
-
 
 ## Question
 
@@ -43,8 +43,6 @@ The input will always be an integer.
 基本上沒有特別困難的地方，只要注意一下負值和leading zero的情況即可。
 
 ## Better Solutions
-
-
 
 Solution1
 

@@ -1,16 +1,14 @@
 # LeetCode:15:20220422:TypeScript
 
+#problem_solve #leetcode/medium #typescript #algorithms #two_pointers
+
 [Reference](https://leetcode.com/problems/3sum/)
-
-
 
 ## Question
 
 Given an integer array nums, return all the triplets `[nums[i], nums[j], nums[k]]` such that `i != j`, `i != k`, and `j != k`, and `nums[i] + nums[j] + nums[k] == 0`.
 
 Notice that the solution set must not contain duplicate triplets.
-
- 
 
 **Example 1:**
 
@@ -33,8 +31,6 @@ Input: nums = [0]
 Output: []
 ```
 
- 
-
 **Constraints:**
 
 - `0 <= nums.length <= 3000`
@@ -47,8 +43,6 @@ Output: []
 雖然題目沒有提及要怎麼排列，但根據Example1來看，應該是數字由小到大排。
 
 最先想到的是任意兩數字相加，然後從剩下的數字找對應的數，感覺應該快不起來，不過暫時沒想到其他的，先試試。
-
-
 
 ```typescript
 function threeSum(nums: number[]): number[][] {
@@ -102,11 +96,9 @@ function distinctArray(nums: number[][]): number[][] {
 
 不過倒是學到不少東西。
 
-* ts 的 array 屬於傳址，不想動到原array的話要記得clone
-* 承上，參考型別的array無論使用 index of或者作為map的key都無法發揮預期的效果，distinct特別麻煩，找老半天找不到適合的，只好自己重頭寫。
-* 小心forEach的陷阱(裡面寫return會做為內部方法的return)，很容易忽略，剛大大的踩了一下，把它註解起來留作警惕。
-
-
+- ts 的 array 屬於傳址，不想動到原array的話要記得clone
+- 承上，參考型別的array無論使用 index of或者作為map的key都無法發揮預期的效果，distinct特別麻煩，找老半天找不到適合的，只好自己重頭寫。
+- 小心forEach的陷阱(裡面寫return會做為內部方法的return)，很容易忽略，剛大大的踩了一下，把它註解起來留作警惕。
 
 ---
 
@@ -136,15 +128,11 @@ function distinctArray(nums: number[][]): number[][] {
 
 接著以`[-1,-1,0,1,2]`繼續上一步。
 
-
-
 然後來看看這個做法有甚麼好處:
 
-* 不用排序答案，最開始就進行過排序了
-* 不用做distinct
-* 在一個排序過的array去找特定的值==>binary search
-
-
+- 不用排序答案，最開始就進行過排序了
+- 不用做distinct
+- 在一個排序過的array去找特定的值==>binary search
 
 大致上會像是這樣(先隨便寫寫)
 
@@ -159,11 +147,7 @@ for(int i = 0; i <nums.Length; i++){
 }
 ```
 
-
-
 光這邊就是兩個迴圈(接近n^2)再乘上binary search(logn)複雜度，似乎比第一次好一點點，總之先試試。
-
-
 
 初版如下
 
@@ -470,18 +454,16 @@ function mergeSort(nums: number[]): number[] {
 
 同樣拿第一個範例來參考`[-1,0,1,2,-1,-4]`排序後變為`[-4,-1-1,0,1,2]`
 
-* 第一個數字抓-4，剩下兩個數字要求和為4
-  * 指針分別指向 -1以及2，相加為1，左指針右移
-  * -1,2，再右移
-  * 0,2->1,2->找不到
-* 第一個數字抓-1
-  * -1,2-->ans
-  * 0,1-->ans
-* 第一個數字抓-1--->抓過了
-* 第一個數字抓0
-  * 1,2->找不到
-
-
+- 第一個數字抓-4，剩下兩個數字要求和為4
+  - 指針分別指向 -1以及2，相加為1，左指針右移
+  - -1,2，再右移
+  - 0,2->1,2->找不到
+- 第一個數字抓-1
+  - -1,2-->ans
+  - 0,1-->ans
+- 第一個數字抓-1--->抓過了
+- 第一個數字抓0
+  - 1,2->找不到
 
 ```typescript
 function search(arr: number[], target: number): boolean {
@@ -583,4 +565,3 @@ function mergeSort(nums: number[]): number[] {
 應該還有不少優化的空間，不過累了，有機會再回來看看
 
 ## Better Solutions
-

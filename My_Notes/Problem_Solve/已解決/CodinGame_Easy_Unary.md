@@ -1,18 +1,18 @@
 # Codingame:Unary:20211229:Typescript
 
+#problem_solve #codingame/easy #typescript
+
 [Reference](https://www.codingame.com/ide/puzzle/chuck-norris)
-
-
 
 ## Question
 
-###  The Goal
+### The Goal
 
 Binary with 0 and 1 is good, but binary with only 0, or almost, is even better!
 
 Write a program that takes an incoming message as input and displays as output the message encoded using this method.
 
-###  Rules
+### Rules
 
 Here is the encoding principle:
 
@@ -24,26 +24,18 @@ Here is the encoding principle:
 
 - Two consecutive blocks are used to produce a series of same value bits (only
 
-   
-
   1
-
-   
 
   or
 
-   
-
   0
-
-   
 
   values):
 
   \- First block: it is always 0 or 00. If it is 0, then the series contains 1, if not, it contains 0
   \- Second block: the number of 0 in this block is the number of bits in the series
 
-###  Example
+### Example
 
 Let’s take a simple example with a message which consists of only one character: Capital C. C in binary is represented as 1000011, so with this method, this gives:
 
@@ -63,7 +55,7 @@ Second example, we want to encode the message CC (i.e. the 14 bits 1000011100001
 
 So CC is coded as: 0 0 00 0000 0 000 00 0000 0 00
 
-###  Game Input
+### Game Input
 
 Input
 
@@ -190,8 +182,6 @@ console.log('answer');
 
 ```
 
-
-
 ## My Solution
 
 題目看完後覺得還挺簡單的，就拿來練習熟悉度比較低的語言吧。
@@ -203,8 +193,6 @@ console.log('answer');
 1. 在字串長度大於一時，從ascii轉成binary時要逐字轉
 
 2. 從binary要套用規則時，要合併在一起轉
-
-
 
 ```typescript
 /**
@@ -306,8 +294,6 @@ function readline(): string {
 
 輸入 "%" 和長字串是錯的
 
-
-
 '%'的錯誤如下
 
 ```bash
@@ -348,15 +334,11 @@ Expected: 00 0 0 0 00 00 0 0 00 0 0 0
 
 很好，看來找到關鍵了
 
-
-
 現在回頭看"C"和"CC"為甚麼可以過
 
 C ==ASCII==> 67 ==binary==> 1000011
 
 一開始就是7-bit所以沒有問題
-
-
 
 加入一些leading zero
 
@@ -451,7 +433,4 @@ C ==ASCII==> 67 ==binary==> 1000011
 
 就可以順利通過了
 
-
-
 ## Better Solutions
-

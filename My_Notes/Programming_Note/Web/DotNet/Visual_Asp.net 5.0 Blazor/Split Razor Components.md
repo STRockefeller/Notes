@@ -1,5 +1,7 @@
 # Razor 拆分
 
+#c_sharp/blazor #razor
+
 才發現Razor 元件是可以拆開來的，我比較喜歡這種拆開來的寫法以後應該會以這種寫法為主。
 
 有點類似把`javascript`寫在`.html`檔案裡面和另外寫在`.js`裡面的差別

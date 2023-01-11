@@ -1,5 +1,7 @@
 # Component Parameter
 
+#c_sharp/blazor #razor
+
 ## [Parameter]標籤
 
 以下節錄自[ITHELP](https://ithelp.ithome.com.tw/articles/10245286)

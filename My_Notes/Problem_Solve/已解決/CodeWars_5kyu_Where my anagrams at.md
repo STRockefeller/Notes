@@ -1,8 +1,8 @@
-# CodeWars:Where my anagrams at?:20200916:C#
+# CodeWars:Where my anagrams at?:20200916:C\#
+
+#problem_solve #codewars/5kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/523a86aa4230ebb5420001e1/csharp)
-
-
 
 ## Question
 
@@ -69,8 +69,6 @@ public static class Kata
     }
 }
 ```
-
-
 
 [MSDN:SequenceEqual](https://docs.microsoft.com/zh-tw/dotnet/api/system.linq.enumerable.sequenceequal?view=netcore-3.1)
 

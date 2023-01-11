@@ -1,4 +1,6 @@
 {
   "accentColor": "",
-  "textFontFamily": "Fira Code"
+  "textFontFamily": "Fira Code",
+  "monospaceFontFamily": "Fira Code",
+  "interfaceFontFamily": "Fira Code"
 }

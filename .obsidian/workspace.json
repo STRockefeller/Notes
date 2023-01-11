@@ -4,27 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "439e2cd1709a71ab",
+        "id": "08a7f01c67beb917",
         "type": "tabs",
         "children": [
           {
-            "id": "a9af30b49f6a0373",
+            "id": "acf46733e1640d33",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Primes in numbers.md",
+                "file": "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Razor Cheat sheet.md",
                 "mode": "source",
                 "source": false
               }
-            }
-          },
-          {
-            "id": "112ea484fe97c25a",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
             }
           }
         ]
@@ -56,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#shortest_path_faster_algorithmn",
+                "query": "tag:#git",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -93,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Primes in numbers.md",
+                "file": "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Razor Cheat sheet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Primes in numbers.md",
+                "file": "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Razor Cheat sheet.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,12 +125,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Primes in numbers.md"
+                "file": "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Razor Cheat sheet.md"
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -155,17 +147,17 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "a9af30b49f6a0373",
+  "active": "acf46733e1640d33",
   "lastOpenFiles": [
-    "My_Notes/Problem_Solve/已解決/CodeWars_Range Extraction.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Primes in numbers.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Pick peaks.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_4kyu_Path Finder 2 shortest path.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_4kyu_Path Finder 1 can you reach the exit.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_6kyu_Pascals triangle.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_5kyu_Number of trailing zeros of N!.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_4kyu_Number of integer partitions.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_4kyu_Next smaller number with the same digits.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_4kyu_Next bigger number with the same digits.md"
+    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Use Razor Pages in .Net Core Project.md",
+    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Razor Cheat sheet.md",
+    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/signalR/SignalR Basic.md",
+    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/ASP.NET I_ ASP.NET_ Databases Cheatsheet _ Codecademy.pdf",
+    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Login/登入驗證機制範例.md",
+    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/更改default file/Change Default Files.md",
+    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net 5.0 Blazor/Unit Testing.md",
+    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net 5.0 Blazor/Split Razor Components.md",
+    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net 5.0 Blazor/Directives.md",
+    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net 5.0 Blazor/Data Binding.md"
   ]
 }

@@ -1,4 +1,6 @@
-# 使用Javascript
+# Using Javascript in Blazor
+
+#c_sharp/blazor #javascript
 
 Framework: Blazor
 Other Tags: Web Assembly, razor
@@ -198,8 +200,6 @@ namespace BlazorAppWasm.Pages
     }
 }
 ```
-
-
 
 ### 美化
 

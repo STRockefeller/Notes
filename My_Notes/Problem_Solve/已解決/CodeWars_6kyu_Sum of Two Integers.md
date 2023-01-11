@@ -1,25 +1,25 @@
 # CodeWars:Sum of Two Integers:20201120:C
 
+#problem_solve #codewars/6kyu #c
+
 [Reference](https://www.codewars.com/kata/5a9c35e9ba1bb5c54a0001ac/c)
-
-
 
 ## Question
 
-> # Task
+> ### Task
 >
-> ***Given\*** *Two integers a , b* , ***find\*** *The sum of them* , ***BUT\*** ***You are not allowed to use the operators + and -\***
+> ***Given\****Two integers a , b*, ***find\*** *The sum of them* , ***BUT\*** ***You are not allowed to use the operators + and -\***
 >
 > ------
 >
-> # Notes
+> ### Notes
 >
-> - ***The numbers\*** *(a,b) may be positive , negative values or zeros* .
+> - ***The numbers\****(a,b) may be positive , negative values or zeros* .
 > - ***Returning value\*** will be an ***integer\*** .
 >
 > ------
 >
-> # Input >> Output Examples
+> ### Input >> Output Examples
 >
 > ```cpp
 > 1- Add (5,19) ==> return (24) 
@@ -33,12 +33,10 @@
 
 看完題目後想到的作法有二
 
-* 使用類似邏輯電路中`加法器`的方式完成，先將輸入轉為Binary再使用邏輯運算得到結果
-* 窮舉個位數的加法運算結果
+- 使用類似邏輯電路中`加法器`的方式完成，先將輸入轉為Binary再使用邏輯運算得到結果
+- 窮舉個位數的加法運算結果
 
 第二個做法太低端了，不考慮
-
-
 
 舉個例子來分析一下加法過程吧
 
@@ -71,11 +69,7 @@ int add(int x, int y)
 
 查了一下C的運算子發現XOR可以直接用`^`完成，簡單方便。
 
-
-
 ## Better Solutions
-
-
 
 ### Solution 1
 
@@ -93,8 +87,6 @@ int add(int x, int y)
 ```
 
 基本上是一樣的做法，只是把遞迴換成迴圈
-
-
 
 ---
 
@@ -122,8 +114,6 @@ int add(int x, int y)
 > So it's a hack...
 > (cool)
 
-
-
 ### Solution 3
 
 ```C
@@ -139,8 +129,6 @@ const unsigned add = 0xC337048D;
 >
 > (The input arguments are in `edi` and `esi`, the result is returned in `eax`.)
 
-
-
 ### Solution 4
 
 ```C
@@ -149,4 +137,3 @@ int add(int x, int y) {
   return x;
 }
 ```
-
