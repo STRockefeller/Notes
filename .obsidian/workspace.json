@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Razor Cheat sheet.md",
+                "file": "My_Notes/Problem_Solve/未完成/CodeWars_Boggle Word Checker.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "33d1f9ece7bacb41",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "My_Notes/Problem_Solve/已解決/CodeWars_3kyu_Make a spiral.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -48,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#git",
+                "query": "tag:#string_searching_algorithms",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,7 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 348.5
   },
   "right": {
     "id": "6325a3935438480e",
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Razor Cheat sheet.md",
+                "file": "My_Notes/Problem_Solve/已解決/CodeWars_3kyu_Make a spiral.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Razor Cheat sheet.md",
+                "file": "My_Notes/Problem_Solve/已解決/CodeWars_3kyu_Make a spiral.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Razor Cheat sheet.md"
+                "file": "My_Notes/Problem_Solve/已解決/CodeWars_3kyu_Make a spiral.md"
               }
             }
           }
@@ -134,7 +147,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -147,17 +161,17 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "acf46733e1640d33",
+  "active": "d0ca4190dab819b9",
   "lastOpenFiles": [
-    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Use Razor Pages in .Net Core Project.md",
-    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Razor Cheat sheet.md",
-    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/signalR/SignalR Basic.md",
-    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/ASP.NET I_ ASP.NET_ Databases Cheatsheet _ Codecademy.pdf",
-    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Login/登入驗證機制範例.md",
-    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/更改default file/Change Default Files.md",
-    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net 5.0 Blazor/Unit Testing.md",
-    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net 5.0 Blazor/Split Razor Components.md",
-    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net 5.0 Blazor/Directives.md",
-    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net 5.0 Blazor/Data Binding.md"
+    "My_Notes/Problem_Solve/problem_note_template.md.md",
+    "My_Notes/Problem_Solve/已解決/CodeWars_3kyu_Make a spiral.md",
+    "My_Notes/Problem_Solve/未完成/CodeWars_Count Squares In the Chess Board.md",
+    "My_Notes/Problem_Solve/未完成/CodeWars_Boggle Word Checker.md",
+    "My_Notes/Programming_Note/BasicSkills/Regular Expression/Regular Expression Cheat Sheet 詳細版.md",
+    "My_Notes/Programming_Note/BasicSkills/Regular Expression/davechild_regular-expressions.pdf",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/RabinKarp.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knuth–Morris–Pratt algorithm.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Trie.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Tree.md"
   ]
 }
