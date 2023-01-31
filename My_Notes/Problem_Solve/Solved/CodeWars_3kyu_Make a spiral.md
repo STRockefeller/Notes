@@ -6,7 +6,7 @@
 
 ## Question
 
-### DESCRIPTION:
+### DESCRIPTION
 
 Your task, is to create a NxN spiral with a given `size`.
 
@@ -50,6 +50,7 @@ General rule-of-a-thumb is, that the snake made with '1' cannot touch to itself.
 I will use this opportunity to practice my English and programming skills simultaneously by comppleting this note in English.
 
 As usual, begin by reading and analyzing the question.
+
 - With the exception of the second row's first cell, all outermost cells will be 1.
 - After ignoring the outermost cells, I discovered that all new outermost cells are zero, except for the first cell in the second row.
 
@@ -59,6 +60,7 @@ This problem can be solved using dynamic programming with the information above.
 But removing the outermost cells in a 2D array is not akin to peeling an onion, it is difficult to implement.
 
 Perhaps, I can iterate through all cells in the 2D array using two nested loops and do the following things.
+
 - if i == 0 + even number or i == length - 1 - even number, set value 1
 - if j == 0 + even number or j == length - 1 - even number, set value 1
 - set [1,0], [2,1], [3,2] ... as opposite value if i <= length/2
@@ -66,6 +68,7 @@ Perhaps, I can iterate through all cells in the 2D array using two nested loops 
 Uh..., I found a bug before starting to implement. The shape will be like an 囲 if I did the steps above.
 
 Modify the steps above:
+
 - let the even number be 2n, in a new for loop. n=0;2n-1<=length/2;n++
 - if i == 0 + 2n or i == length - 1 - 2n && length - 1 - 2n>= j >= 0 + 2n, set value 1
 - if j == 0 + 2n or j == length - 1 - 2n && length - 1 - 2n>= i >= 0 + 2n, set value 1
@@ -75,65 +78,34 @@ Here is the implementation.
 
 ```go
 func Spiralize(size int) [][]int {
-
     result := make([][]int, size)
-
     isExceptionCell := func(i, j int) bool {
-
         return i-j == 1 && i <= size/2
-
     }
-
     opposite := func(cell int) int {
-
         if cell == 1 {
-
             return 0
-
         }
-
         return 1
-
     }
-
   
-
     for i := range result {
-
         result[i] = make([]int, size)
-
         for j := range result[i] {
-
             for n := 0; 4*n-2 <= size; n++ {
-
                 rowsMatch := (i == 2*n || i == size-1-2*n) && (size-1-2*n >= j && j >= 2*n)
-
                 columnsMatch := (j == 2*n || j == size-1-2*n) && (size-1-2*n >= i && i >= 2*n)
-
                 if rowsMatch || columnsMatch {
-
                     result[i][j] = 1
-
                 }
-
             }
-
-  
 
             if isExceptionCell(i, j) {
-
                 result[i][j] = opposite(result[i][j])
-
             }
-
         }
-
     }
-
-  
-
     return result
-
 }
 ```
 
@@ -204,6 +176,11 @@ func Spiralize(size int) [][]int {
 
 After the modification, I passed the test.
 
+---
+Updated in 2023/01/30
+
+I have discovered that my solution is not only wrong when size is 4 or 100, but also when size is a multiple of 4.
+
 ### Conclusion
 
 The solution using three nested loops is considered a bad practice.
@@ -234,9 +211,9 @@ func Spiralize(size int) [][]int {
 }
 ```
 
--   x and y which are initially set to -2 and 0 respectively, and will be used to keep track of the current position in the array as the spiral is generated.
--   dx and dy which are initially set to 1 and 0 respectively, and will be used to determine the direction of movement in the array as the spiral is generated.
--   l which is initially set to "size + 1", and will be used to keep track of the remaining length of the current line segment of the spiral.
+- x and y which are initially set to -2 and 0 respectively, and will be used to keep track of the current position in the array as the spiral is generated.
+- dx and dy which are initially set to 1 and 0 respectively, and will be used to determine the direction of movement in the array as the spiral is generated.
+- l which is initially set to "size + 1", and will be used to keep track of the remaining length of the current line segment of the spiral.
 
 ### Solution2
 

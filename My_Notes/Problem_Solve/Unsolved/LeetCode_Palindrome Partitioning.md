@@ -1,16 +1,12 @@
-# LeetCode:Palindrome Partitioning:20201215:C#
+# LeetCode:Palindrome Partitioning:20201215:C #
 
 [Reference](https://leetcode.com/explore/challenge/card/december-leetcoding-challenge/570/week-2-december-8th-december-14th/3565/)
-
-
 
 ## Question
 
 Given a string `s`, partition `s` such that every substring of the partition is a **palindrome**. Return all possible palindrome partitioning of `s`.
 
 A **palindrome** string is a string that reads the same backward as forward.
-
- 
 
 **Example 1:**
 
@@ -26,8 +22,6 @@ Input: s = "a"
 Output: [["a"]]
 ```
 
- 
-
 **Constraints:**
 
 - `1 <= s.length <= 16`
@@ -42,8 +36,6 @@ Output: [["a"]]
 例如題目若給[a,a,b,b]那我要回{[a,a,b,b],[aa,b,b],[a,a,bb],[aa,bb]}還是{[a,a,b,b],[aa,bb]}就好?
 
 全部的substring湊起來是否必須等於輸入值?
-
-
 
 ```C#
 public class LeetSolution20201215
@@ -95,7 +87,4 @@ public class LeetSolution20201215
 7. 接著判斷長度2
 8. 以此類推
 
-
-
 ## Better Solutions
-

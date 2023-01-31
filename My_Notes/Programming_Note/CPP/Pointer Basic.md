@@ -273,3 +273,7 @@ const int m = 20;
 const int* const p = &n;
 p = &m; // error: assignment of read-only variable 'p'
 ```
+
+## Smart Pointers
+
+記錄在 [[Smart Pointer]]

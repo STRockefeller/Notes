@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Problem_Solve/未完成/CodeWars_Boggle Word Checker.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "33d1f9ece7bacb41",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "My_Notes/Problem_Solve/已解決/CodeWars_3kyu_Make a spiral.md",
+                "file": "My_Notes/Programming_Note/CPP/Shared Pointer.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Problem_Solve/已解決/CodeWars_3kyu_Make a spiral.md",
+                "file": "My_Notes/Programming_Note/CPP/Shared Pointer.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Problem_Solve/已解決/CodeWars_3kyu_Make a spiral.md",
+                "file": "My_Notes/Programming_Note/CPP/Shared Pointer.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Problem_Solve/已解決/CodeWars_3kyu_Make a spiral.md"
+                "file": "My_Notes/Programming_Note/CPP/Shared Pointer.md"
               }
             }
           }
@@ -147,8 +134,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 296.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -161,17 +147,17 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "d0ca4190dab819b9",
+  "active": "acf46733e1640d33",
   "lastOpenFiles": [
-    "My_Notes/Problem_Solve/problem_note_template.md.md",
-    "My_Notes/Problem_Solve/已解決/CodeWars_3kyu_Make a spiral.md",
-    "My_Notes/Problem_Solve/未完成/CodeWars_Count Squares In the Chess Board.md",
-    "My_Notes/Problem_Solve/未完成/CodeWars_Boggle Word Checker.md",
-    "My_Notes/Programming_Note/BasicSkills/Regular Expression/Regular Expression Cheat Sheet 詳細版.md",
-    "My_Notes/Programming_Note/BasicSkills/Regular Expression/davechild_regular-expressions.pdf",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/RabinKarp.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knuth–Morris–Pratt algorithm.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Trie.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Data Structure/Tree.md"
+    "My_Notes/Programming_Note/CPP/Shared Pointer.md",
+    "My_Notes/Programming_Note/CPP/Unique Pointer.md",
+    "My_Notes/Programming_Note/CPP/Smart Pointer.md",
+    "My_Notes/Programming_Note/CPP/vector.md",
+    "My_Notes/Programming_Note/CPP/Pointer Basic.md",
+    "My_Notes/Programming_Note/CPP/cpp-cheat-sheet.md",
+    "My_Notes/Programming_Note/CPP/linked list.md",
+    "My_Notes/Problem_Solve/Unsolved/CodeWars_Boggle Word Checker.md",
+    "Untitled.md",
+    "My_Notes/Problem_Solve/Solved/CodeWars_3kyu_Make a spiral.md"
   ]
 }

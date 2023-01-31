@@ -1,8 +1,6 @@
-# CodeWars:Count Squares In the Chess Board:20220503:C#
+# CodeWars:Count Squares In the Chess Board:20220503:C #
 
 [Reference](https://www.codewars.com/kata/5bc6f9110ca59325c1000254/csharp)
-
-
 
 ## Question
 
@@ -107,21 +105,13 @@ chessBoard = [
 
 the output should be `{}`.
 
-
-
 ## My Solution
 
 4kyu 題目有提供我會的語言只有C#，正好久違地複習一下。
 
-
-
 題目說是chessboard但其實和chess沒有半毛錢關係。看來是單純的數正方形題目。
 
-
-
 ### version1 (timeout)
-
-
 
 把最左上角當作參考點(O)，其他正方形包含的點以(X)表示，剩餘棋盤上的點以0和1表示
 
@@ -155,8 +145,6 @@ $$
 
 4*4(無)，因為總寬<0+4
 
-
-
 然後看index(0,1)
 
 2*2(有)
@@ -168,10 +156,7 @@ $$
 \end{bmatrix}
 $$
 
-
 3*3(無)，因為總寬<1+3
-
-
 
 ...etc
 
@@ -185,8 +170,6 @@ $$
    2. 範圍內包含0
 
 3. 以這個解法來說，光輪完一遍基準點就要接近n^2的複雜度了
-
-
 
 ```C#
 using System;
@@ -317,8 +300,6 @@ $$
 
 有{2:4}以及{3:1}
 
-
-
 一個4*4的棋盤
 $$
 \begin{bmatrix}
@@ -349,8 +330,6 @@ X&X&1&1\\
 $$
 {2:9}以及{4:1}
 
-
-
 堆論得到:對於一個n*n的棋盤，會有以下squares
 $$
 n: 1\\
@@ -359,9 +338,6 @@ n-2: 3^2\\
 ...\\
 n-k:(1+k)^2
 $$
-
-
-
 
 寫了個雛形如下
 
@@ -455,7 +431,6 @@ $$
 1&1&1&1&1\\
 \end{bmatrix}
 $$
-
 
 然後因為我不會把2當作參考點，所以如以下地方就會找不到
 $$
@@ -617,11 +592,6 @@ public class ChessBoard
 
 ![](https://i.imgur.com/XJSQ0ax.png)
 
-
-
 差不多爛..
 
-
-
 ## Better Solutions
-

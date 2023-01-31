@@ -225,7 +225,7 @@ ui task start
 ui task complete
 ```
 
-#### C#
+#### C\#
 
 ```C#
 using System;

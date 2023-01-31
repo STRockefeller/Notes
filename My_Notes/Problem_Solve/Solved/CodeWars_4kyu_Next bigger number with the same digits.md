@@ -5,6 +5,7 @@
 [Reference](https://www.codewars.com/kata/55983863da40caa2c900004e)
 
 relative problems:
+
 - [[CodeWars_4kyu_Next smaller number with the same digits]]
 
 ## Question

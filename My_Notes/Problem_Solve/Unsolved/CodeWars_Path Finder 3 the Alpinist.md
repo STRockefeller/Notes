@@ -2,8 +2,6 @@
 
 [Reference](https://www.codewars.com/kata/576986639772456f6f00030c)
 
-
-
 ## Question
 
 ### Task
@@ -12,7 +10,7 @@ You are at start location `[0, 0]` in mountain area of NxN and you can **only** 
 
 Location altitude is defined as an integer number (0-9).
 
-### Path Finder Series:
+### Path Finder Series
 
 - [#1: can you reach the exit?](https://www.codewars.com/kata/5765770e190b1472ec0022a2)
 - [#2: shortest path](https://www.codewars.com/kata/57657bfa27ed77ecfa00057a)
@@ -27,8 +25,6 @@ Location altitude is defined as an integer number (0-9).
 首先比起之前，這次不再是牆壁和空地這麼單純了，在此之上加入了高度系統，無論高度相差多少都可以前進，目標則改成找最短的垂直路徑。
 
 上次的解答已經遊走在超時的邊緣了，這次更是必須注意壓縮執行時間。
-
-
 
 先考慮目前想得到的極端情況，走S型最短，例如
 
@@ -51,27 +47,25 @@ Location altitude is defined as an integer number (0-9).
 77777
 ```
 
-
-
 先以區塊的角度下去考慮，將同高度的相鄰格視作一個區塊
 
-* 區塊的結構
+- 區塊的結構
 
-  * 區塊高度(int)
-  * 區塊中內涵的座標點(hash set?)
-  * 相鄰的區塊(指標?)
-  * 是否包含終點(bool)
+  - 區塊高度(int)
+  - 區塊中內涵的座標點(hash set?)
+  - 相鄰的區塊(指標?)
+  - 是否包含終點(bool)
 
-* 區塊的劃分
+- 區塊的劃分
 
-  * 先以一個hash set 紀錄未劃分區塊
-  * 按順序(可能是從左上到右下之類的)把區塊找出來
+  - 先以一個hash set 紀錄未劃分區塊
+  - 按順序(可能是從左上到右下之類的)把區塊找出來
 
-* 找相鄰的區塊
+- 找相鄰的區塊
 
-* 路徑
+- 路徑
 
-  * 找到每個區塊之間移動得最短路徑，例如
+  - 找到每個區塊之間移動得最短路徑，例如
 
     ```
     A(0)-->C(2)-->B(1) ==>3
@@ -80,9 +74,7 @@ Location altitude is defined as an integer number (0-9).
     則區塊A到區塊B最短路徑為1
     ```
 
-  * 取包含起點的區塊和包含終點的區塊的最短路徑回傳
-
-
+  - 取包含起點的區塊和包含終點的區塊的最短路徑回傳
 
 雛形是有了，但感覺難度不低，雖然細節還沒想好，不過先寫寫看吧
 
@@ -100,10 +92,10 @@ Location altitude is defined as an integer number (0-9).
 
 路徑分別是
 
-* 0-7-5==>9
-* 0-1-2-3-5==>5
-* 0-2-3-5==>5
-* 0-6-5==>7
+- 0-7-5==>9
+- 0-1-2-3-5==>5
+- 0-2-3-5==>5
+- 0-6-5==>7
 
 刻意將最短路徑設計在非最少經過區塊的路徑上
 
@@ -292,11 +284,4 @@ public static int PathFinder(string maze)
 
 但是這題沒有給測試案例，所以也不知道怎麼錯的
 
-
-
-
-
-
-
 ## Better Solutions
-

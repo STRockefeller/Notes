@@ -5,6 +5,7 @@
 [Reference](https://www.codewars.com/kata/57658bfa28ed87ecfa00058a)
 
 relative problems:
+
 - [[CodeWars_4kyu_Path Finder 1 can you reach the exit]]
 - [[CodeWars_Path Finder 3 the Alpinist]]
 

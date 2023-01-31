@@ -80,8 +80,6 @@ c(4,{1,2}) => c(3,{1,2}) , arr=[1] and c(2,{1,2}) arr=[2]
 
 => ...
 
-
-
 似乎，有搞頭。
 
 先來試試
@@ -101,8 +99,6 @@ unsigned long long countChange(const unsigned int money, const std::vector<unsig
 ![](https://i.imgur.com/UWsEFPc.png)
 
 簡單來說就是非常非常非常大的非負整數
-
-
 
 ```cpp
 #include <vector>
@@ -167,7 +163,4 @@ int main(void)
 
 ![](https://i.imgur.com/4UnjSYr.png)
 
-
-
 ## Better Solutions
-
