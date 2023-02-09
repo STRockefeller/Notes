@@ -1,6 +1,6 @@
 # Go Test
 
-#golang #test/unit_test #test/coverage #static_check
+#golang #test/unit_test #test/coverage #static_check #lint
 
 ## 專案檢查流程
 
@@ -17,6 +17,8 @@ go tool vet ./...
 //格式化
 go fmt
 ```
+
+補充: `golint` 現已棄用，用static check替代(或者用 [[Go glangci-lint]] 大禮包也行)
 
 檢查race
 
@@ -132,11 +134,11 @@ See golang.org/s/go15vendor for more about vendoring.
 
 ## 其他工具
 
-https://medium.com/@arshamshirvani/lint-your-golang-code-like-a-pro-668dc6637b39
+<https://medium.com/@arshamshirvani/lint-your-golang-code-like-a-pro-668dc6637b39>
 
 有一部分無法使用，一部分在v1.15版有安裝問題
 
-### **Gocyclo**
+### Gocyclo
 
 查詢還複雜度
 
@@ -175,8 +177,6 @@ module github.com/mvdan/interfacer@latest found (v0.0.0-20180901003855-c20040233
 
 去查了一下，發現它已經四年多沒更新了，難怪沒支援新的語法。
 
-
-
 ### staticcheck
 
 靜態檢查
@@ -211,6 +211,11 @@ PS D:\Rockefeller\Projects\mcom\cmd\mockgenerator>
 ### goconst
 
 可以找到很多重複使用的常量，但大多數的情況看起來並不是合設置const variable
+
+### suite
+
+也可以做到 setup 和 tear down。
+想寫的東西有點多所以另外記錄一篇 [[Go package suite]]
 
 ## Setup and Tear Down
 

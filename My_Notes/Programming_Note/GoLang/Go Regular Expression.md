@@ -101,8 +101,6 @@ For example, the prefix `"(?is)"` makes the matching case-insensitive and lets `
 | `m`  | let `^` and `$` match begin/end line in addition to begin/end text (multi-line mode) |
 | `s`  | let `.` match `\n` (single-line mode)                        |
 
-
-
 ## regexp
 
 一邊對照上面的Cheat Sheet，一邊來看官方文件的範例
@@ -135,17 +133,13 @@ func main() {
 }
 ```
 
-
-
-### func [MatchReader](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=537) 
+### func [MatchReader](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=537)
 
 ```go
 func MatchReader(pattern string, r io.RuneReader) (matched bool, err error)
 ```
 
 基本[同上](#func Match)，只是對象變成`io.RuneReader`而已
-
-
 
 ### func [MatchString](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=548)
 
@@ -154,8 +148,6 @@ func MatchString(pattern string, s string) (matched bool, err error)
 ```
 
 基本同[第一項](#func Match)，只是對象變成`string`而已
-
-
 
 ### func [QuoteMeta](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=720)
 
@@ -180,15 +172,13 @@ func main() {
 }
 ```
 
-
-
 ### Regexp struct
 
 > Regexp is the representation of a compiled regular expression. A Regexp is safe for concurrent use by multiple goroutines, except for configuration methods, such as Longest.
 
 這是套件定義的一個表達式的struct，下面提到的函式或方法多少和他都有點關係
 
- #### func [Compile](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=132)
+#### func [Compile](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=132)
 
 ```go
 func Compile(expr string) (*Regexp, error)
@@ -211,10 +201,6 @@ func main() {
 
 ![](https://i.imgur.com/mcC7hJt.png)
 
-
-
-
-
 #### func [CompilePOSIX](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=155)
 
 ```go
@@ -225,11 +211,9 @@ func CompilePOSIX(expr string) (*Regexp, error)
 >
 > That is, when matching against text, the regexp returns a match that begins as early as possible in the input (leftmost), and among those it chooses a match that is as long as possible. This so-called leftmost-longest matching is the same semantics that early regular expression implementations used and that POSIX specifies.
 >
-> However, there can be multiple leftmost-longest matches, with different submatch choices, and here this package diverges from POSIX. Among the possible leftmost-longest matches, this package chooses the one that a backtracking search would have found first, while POSIX specifies that the match be chosen to maximize the length of the first subexpression, then the second, and so on from left to right. The POSIX rule is computationally prohibitive and not even well-defined. See https://swtch.com/~rsc/regexp/regexp2.html#posix for details.
+> However, there can be multiple leftmost-longest matches, with different submatch choices, and here this package diverges from POSIX. Among the possible leftmost-longest matches, this package chooses the one that a backtracking search would have found first, while POSIX specifies that the match be chosen to maximize the length of the first subexpression, then the second, and so on from left to right. The POSIX rule is computationally prohibitive and not even well-defined. See <https://swtch.com/~rsc/regexp/regexp2.html#posix> for details.
 
 老實說我看不太懂，所以先略過
-
-
 
 #### func [MustCompile](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=308)
 
@@ -304,11 +288,7 @@ option2=value2
 option3=value3
 ```
 
-
-
 看不太懂，以後補充 ，後面[ExpandString](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=919)也是
-
-
 
 #### func (*Regexp) [Find](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=815)
 
@@ -336,8 +316,6 @@ func main() {
 }
 ```
 
-
-
 #### func (*Regexp) [FindAll](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=1076)
 
 ```go
@@ -361,8 +339,6 @@ func main() {
 	fmt.Printf("%q\n", re.FindAll([]byte(`seafood fool`), -1)) //["food" "fool"]
 }
 ```
-
-
 
 #### func (*Regexp) [FindIndex](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=828)
 
@@ -396,8 +372,6 @@ func main() {
 	fmt.Println(string(content[loc[0]:loc[1]])) //option1: value1
 }
 ```
-
-
 
 #### func (*Regexp) [FindAllIndex](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=1094)
 
@@ -434,8 +408,6 @@ Output:
 [[1 3] [4 6]]
 ```
 
-
-
 看完範例還是不知道n在幹嘛，只好繼續找下去了
 
 方法內容
@@ -465,8 +437,6 @@ func (re *Regexp) FindAllIndex(b []byte, n int) [][]int {
 func (re *Regexp) allMatches(s string, b []byte, n int, deliver func([]int))
 ```
 
-
-
 #### func (*Regexp) [FindString](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=841)
 
 ```go
@@ -476,8 +446,6 @@ func (re *Regexp) FindString(s string) string
 同[Find](#func (*Regexp) Find)，但是目標和回傳都變成`string`，沒找到會回傳空字串`""`
 
 後面還有 FindAllString FindStringIndex FindAllStringIndex等等都大同小異不提了。
-
-
 
 #### func (*Regexp) [FindSubmatch](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=880)
 
@@ -506,11 +474,7 @@ func main() {
 }
 ```
 
-
-
 同樣有String Index All 等等版本，這邊略過不提
-
-
 
 #### func (*Regexp) [Match](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=530)
 
@@ -521,8 +485,6 @@ func (re *Regexp) Match(b []byte) bool
 有任意內容符合`*Regexp`則回傳`true`
 
 MatchString MatchReader 以此類推
-
-
 
 #### func (*Regexp) [NumSubexp](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=335)
 
@@ -550,8 +512,6 @@ func main() {
 	fmt.Println(re.NumSubexp()) // 4
 }
 ```
-
-
 
 #### func (*Regexp) [ReplaceAllString](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=570)
 
@@ -607,21 +567,15 @@ Output:
 
 4. 綜合第一個和第二個結果
 
-
-
 ReplaceAll系列都是同理，不多談了
 
-
-
-#### func (*Regexp) [Split](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=1244) 
+#### func (*Regexp) [Split](https://cs.opensource.google/go/go/+/go1.17:src/regexp/regexp.go;l=1244)
 
 ```go
 func (re *Regexp) Split(s string, n int) []string
 ```
 
 就是以`*Regexp`作為split的規則，n代表要拆成多少個內容(由左而右，多的就保持原樣)
-
-
 
 Example:
 

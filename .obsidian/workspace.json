@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "08a7f01c67beb917",
+        "id": "8c901b083e1ccf8b",
         "type": "tabs",
         "children": [
           {
-            "id": "acf46733e1640d33",
+            "id": "9de446f87bdc6006",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "My_Notes/Programming_Note/CPP/Shared Pointer.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -48,7 +44,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#string_searching_algorithms",
+                "query": "tag:#AAA_pattern",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Programming_Note/CPP/Shared Pointer.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Programming_Note/CPP/Shared Pointer.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,13 +118,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "My_Notes/Programming_Note/CPP/Shared Pointer.md"
-              }
+              "state": {}
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -147,17 +139,17 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "acf46733e1640d33",
+  "active": "9de446f87bdc6006",
   "lastOpenFiles": [
-    "My_Notes/Programming_Note/CPP/Shared Pointer.md",
-    "My_Notes/Programming_Note/CPP/Unique Pointer.md",
-    "My_Notes/Programming_Note/CPP/Smart Pointer.md",
-    "My_Notes/Programming_Note/CPP/vector.md",
-    "My_Notes/Programming_Note/CPP/Pointer Basic.md",
-    "My_Notes/Programming_Note/CPP/cpp-cheat-sheet.md",
-    "My_Notes/Programming_Note/CPP/linked list.md",
-    "My_Notes/Problem_Solve/Unsolved/CodeWars_Boggle Word Checker.md",
-    "Untitled.md",
-    "My_Notes/Problem_Solve/Solved/CodeWars_3kyu_Make a spiral.md"
+    "aaa_pattern.md",
+    "My_Notes/Programming_Note/BasicSkills/BDD/Behavior Driven Development.md",
+    "My_Notes/Programming_Note/BasicSkills/TDD/TDD 開發模式嘗試.md",
+    "My_Notes/Programming_Note/GoLang/Go package godog.md",
+    "My_Notes/Programming_Note/GoLang/Go package suite.md",
+    "My_Notes/Programming_Note/GoLang/Go package Reflect.md",
+    "My_Notes/Programming_Note/GoLang/Go package wire.md",
+    "My_Notes/Programming_Note/GoLang/Go Test.md",
+    "My_Notes/Programming_Note/GoLang/Go glangci-lint.md",
+    "My_Notes/Programming_Note/GoLang/Go Triple Dot.md"
   ]
 }
