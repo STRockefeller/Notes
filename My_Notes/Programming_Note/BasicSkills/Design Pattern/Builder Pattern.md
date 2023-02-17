@@ -1,751 +1,330 @@
 # Builder Pattern
 
-[Reference](http://corrupt003-design-pattern.blogspot.com/2017/01/builder-pattern.html)
+#design_pattern #builder_pattern #refactor
 
-[Reference](https://medium.com/wenchin-rolls-around/%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F-builder-design-pattern-7c8eac7c9a7)
+## References
 
-## 目的
+- [corrupt003](http://corrupt003-design-pattern.blogspot.com/2017/01/builder-pattern.html)
+- [medium](https://medium.com/wenchin-rolls-around/%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F-builder-design-pattern-7c8eac7c9a7)
+- [refactoring.guru](https://refactoring.guru/design-patterns/builder)
+- [design patterns in go](https://www.udemy.com/course/design-patterns-go/)
 
-建造者模式可以解決的問題
+## Purpose
 
-> 1. 拖太長的建構子 (telescoping constructor)
-> 2. 建構子內不需要的參數必須放 null
+> **Builder** is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.
 
----
+(from refactoring.guru)
 
-這個例子說明為甚麼我們需要Builder Pattern
+Problems solved by builder pattern.
 
-> ## 蓋一間房子
->
-> 假設我要創造一個房子的物件，那最簡單粗暴的方法就是定義一個物件 `House`、賦予它房子該有的屬性 (property)：窗戶數、門數、房間數，並使用建構子 (constructor) 來帶入這些參數。
->
-> 以 pseudocode 表示：
->
-> ```
-> House(doorNum, windowNum, roomNum)
-> ```
->
-> ## 蓋許多間不同的房子
->
-> 今天假設我想要創建不同的房子：有花園的房子、有泳池的房子、有車庫的房子等等呢？
->
-> 簡單，我們都知道可以把 `House` 變成 base class，再讓其他子類別繼承它，打造不同的房子。
->
-> 這時為了記錄這些房子多出來的功能，我的 `House` 物件的屬性就要擴增成：窗戶數、門數、房間數、有無花園、有無泳池、有無車庫。
->
-> ```
-> House(doorNum, windowNum, roomNum, hasGarden, hasPool, hasGarage)
-> ```
->
-> 那假設我這個 `House` 物件要給更多房子用：有雕像的房子、有健身房的房子、有爐火的房子等等，那這物件的參數會拖得很長。這顯然不是一個好的解法。
->
-> ```
-> House(doorNum, windowNum, roomNum, hasGarden, hasPool, hasGarage, hasStatue, hasGym, hasFireStove)
-> ```
->
-> 因為當我要創造一個房子時，我很難一目瞭然每個建構子代表的意義：
->
-> ```
-> new House(2, 4, 3, true, true, true, false, false, false)
-> ```
->
-> 而且如果今天我可能有一系列的房子沒有爐火管線、也禁止蓋健身房，那可能對於這些房子我都要把某些參數設為 null，增加更多的混亂：
->
-> ```
-> new House(2, 4, 3, true, true, true, false, null, null)
-> ```
+1. telescoping constructor
+2. nullable parameters in constructor
 
 ---
 
-> Builder Pattern（建造者模式）屬於設計模式中Creational Pattern（創建模式）。當物件(object)的建構過程比較複雜或建構的物件有多種樣貌時，可利用Builder Pattern來設計。
->
-> 
->
-> Builder Pattern的定義如下，「把一個複雜物件的建構與樣貌分離，如此相同的建構過程可以產生不同樣貌的物件」。
->
-> > Separate the construction of a complex object from its representation so that the same construction process can create different representations.
->
-> 「物件的樣貌(object's representation)」的意思是指物件目前持有屬性的狀態。
->
-> 「不同樣貌的物件(different representations)」的意思是，一個類別的屬性（成員變數）有多個，而該類別的實例為各屬性不同排列組合所建構的物件。
+> The Builder pattern suggests that you extract the object construction code out of its own class and move it to separate objects called _builders_.
 
-## 概念
+(from refactoring.guru)
 
-> 典型的Builder Pattern包含下列角色。
->
-> - Product：最終要被建構物件的類別。
-> - Builder：用來定義建構物件過程中各必要步驟（方法）的介面。
-> - ConcreteBuilder：實作Builder介面，實際用來建構物件的類別
-> - Director：負責指揮ConcreteBuilder該如何建構物件。
+## Structure
 
----
+![structure](https://refactoring.guru/images/patterns/diagrams/builder/structure.png)
+(from refactoring.guru)
 
-> ## Builder: 客製化蓋房子的種種零件
->
-> 建造者模式用一種 configuration 的方式，拆解每個元件建造的過程，避免有拖得很長的建構子，使建構的意圖清晰許多。
->
-> 因此剛剛那些房子，實現建造者模式的程式碼可能會長得像這樣：
->
-> ```
-> HouseBuilder.SetDoorNum(2);            
-> HouseBuilder.SetWindowNum(4);            
-> HouseBuilder.SetRoomNum(3);        
-> HouseBuilder.SetHasGarden(true);
-> HouseBuilder.SetHasPool(true);       
-> ...    
-> HouseBuilder.GetHouse();
-> ```
->
-> 或是這樣：
->
-> ```
-> new HouseBuilder().SetDoorNum(2)
->                   .SetWindowNum(4)
->                   .SetRoomNum(3)
->                   .SetHasGarden(true)
->                   .SetHasPool(true)  
->                   ...
->                   .Build();
-> ```
->
-> 以下我們用另一個例子詳細說明，並在 C# 實現這兩種方式。
->
-> # 怎麼實現建造者模式？
->
-> ## 開一間水上活動工作室
->
-> 假設今天你擁有 SUP、獨木舟、浮潛、衝浪……的器材和專業，打算開一個水上活動工作室，設計不同的活動來銷售。
->
-> 藉由建造者模式，我們可以開始設計不同的課程。
->
-> 使用建造者模式的方法有兩種：
->
-> ## 方式一：透*過 Client、Director、Builder 和 Product 形成的建造者模式*
->
-> ![Image for post](https://miro.medium.com/max/575/0*xAiM-17lirZ0h0aF.png)
->
-> Source: [Refactoring Guru — Design Patterns: Builder](https://refactoring.guru/design-patterns/builder)
->
-> **Builder**: 創建抽象建造者 `ITripBuilder`，僅宣告打造水上活動行程的步驟，不實作這些方法
->
-> ```C#
-> public interface ITripBuilder
-> {
->     void Reset();
->     void SetDestination(string destination);
->     void SetPrice();
->     void SetDifficulty();
->     void SetDurationHours();
->     void SetMaxParticipants();
->     void SetDescription();
->     void SetSalesContext();
->     Trip GetTrip();
-> }
-> ```
->
-> **Concrete Builder**: 建立實體建造者 `KayakTripBuilder`, `SupTripBuilder`，實現 `ITripBuilder` 的各式設定
->
-> 這邊以 `SupTripBuilder` 舉例，我們暫且假設 SUP 行程的價格都是 $3,000、行程時間都是 5 小時……，僅有地點是變動的：
->
-> ```C#
-> public class SupTripBuilder : ITripBuilder
-> {
->     private Trip _trip;
->     private int _price = 3000;
->     private int _difficulty = 3;
->     private int _durationHours = 5;
->     private int _maxParticipants = 10;
->     private string _description = "立式槳板運動（英語：Stand Up Paddle, SUP)，也俗稱「槳板」， 是起源於夏威夷的一種運動，由衝浪與傳統的手划槳板（Paddleboard）結合而成。活動器材係由槳板（類似大型衝浪板）加上一支高於身高的單槳所組成。運用於衝浪時又稱立式單槳衝浪（簡稱立槳衝浪），也可在湖泊及河流等水域，從事探索、激流及救生等多方面的活動。";
->     private string _note = "7/1-8/31 SUP 行程 85 折";
->     public SupTripBuilder()
->     {
->         Reset();
->     }
->     public void Reset()
->     {
->         _trip = new Trip();
->     }
->     public void SetDestination(string destination)
->     {
->         _trip.AddDetail($"地點: {destination}");
->     }
->     public void SetPrice()
->     {
->         _trip.AddDetail($"每人價格: NTD {_price}");
->     }
->     public void SetDifficulty()
->     {
->         _trip.AddDetail($"困難度: {_difficulty}/5");
->     }
->     public void SetDurationHours()
->     {
->         _trip.AddDetail($"時間: {_durationHours}");
->     }
->     public void SetMaxParticipants()
->     {
->         _trip.AddDetail($"每團人數限制: {_maxParticipants} 人");
->     }
->     public void SetDescription()
->     {
->         _trip.AddDetail($"SUP 活動敘述: {_description}");
->     }
->     public void SetSalesContext()
->     {
->         _trip.AddDetail($"【{_note}】");
->     }
->     public Trip GetTrip()
->     {
->         return _trip;
->     }
-> }
-> ```
->
-> 
->
-> **Director**: 建立 `TripDirector`，讓它呼叫 `KayakTripBuilder`, `SupTripBuilder` 以建立行程的各個部分，並宣告一套流程按順序 (從 SetSalesContext, SetDestination, SetPrice… 接下去) 來建造複雜物件
->
-> ```C#
-> public class TripDirector
-> {
->     public Trip CreateTrip(ITripBuilder tripBuilder, string destination)
->     {
->         tripBuilder.SetSalesContext();
->         tripBuilder.SetDestination(destination);
->         tripBuilder.SetPrice();
->         tripBuilder.SetDifficulty();
->         tripBuilder.SetDurationHours();
->         tripBuilder.SetMaxParticipants();
->         tripBuilder.SetDescription();
->         return tripBuilder.GetTrip();
->     }
-> }
-> ```
->
-> 
->
-> **Product**: 建立一個物件 `Trip` 收整行程內容
->
-> 這邊簡化的用 List 紀錄行程內容的字串，並直接 yield return 這些內容：
->
-> ```C#
-> public class Trip
-> {
->     private IList<string> _tripDetail = new List<string>();
->     public void AddDetail(string detail)
->     {
->         _tripDetail.Add(detail);
->     }
->     public IEnumerable<string> GetDetail()
->     {
->         foreach (var item in _tripDetail)
->         {
->             yield return item;
->         }
->     }
-> }
-> ```
->
-> **Client**: 建構完以上物件，我們可以在`Program.cs`呼叫 `TripDirector` 開始打造行程
->
-> ```C#
-> class Program
-> {
->     static void PrintTripDetail(IEnumerable<object> tripDetail)
->     {
->         foreach (var item in tripDetail)
->         {
->             Console.WriteLine(item);
->         }
->         Console.WriteLine("---");
->     }
->     static void Main(string[] args)
->     {
->         var tripDirector = new TripDirector();
->         Console.WriteLine("SUP 象鼻岩行程:");
->         var trip = tripDirector.CreateTrip(new SupTripBuilder(), "深澳象鼻岩");
->         var tripDetail = trip.GetDetail();
->         PrintTripDetail(tripDetail);
-> 
->         Console.WriteLine("SUP 龜山島行程:");
->         var trip1 = tripDirector.CreateTrip(new SupTripBuilder(), "龜山島牛奶湖");
->         var tripDetail1 = trip1.GetDetail();
->         PrintTripDetail(tripDetail1);
-> 
->         Console.WriteLine("獨木舟 東澳行程:");
->         var trip2 = tripDirector.CreateTrip(new SupTripBuilder(), "東澳海蝕洞");
->         var tripDetail2 = trip2.GetDetail();
->         PrintTripDetail(tripDetail2);
->     }
-> }
-> ```
->
-> 
->
-> Console output:
->
-> ```
-> SUP 象鼻岩行程:
-> 【7/1-8/31 SUP 行程 85 折】
-> 地點: 深澳象鼻岩
-> 每人價格: NTD 3000
-> 困難度: 3/5
-> 時間: 5
-> 每團人數限制: 10 人
-> SUP 活動敘述: 立式槳板運動（英語：Stand Up Paddle, SUP)，也俗稱「槳板」， 是起源於夏威夷的一種運動，由衝浪與傳統的手划槳板（Paddleboard）結
-> 合而成。活動器材係由槳板（類似大型衝浪板）加上一支高於身高的單槳所組成。運用於衝浪時又稱立式單槳衝浪（簡稱立槳衝浪），也可在湖泊及河流等水 
-> 域，從事探索、激流及救生等多方面的活動。
-> ---
-> SUP 龜山島行程:
-> 【7/1-8/31 SUP 行程 85 折】
-> 地點: 龜山島牛奶湖
-> 每人價格: NTD 3000
-> 困難度: 3/5
-> 時間: 5
-> 每團人數限制: 10 人
-> SUP 活動敘述: 立式槳板運動（英語：Stand Up Paddle, SUP)，也俗稱「槳板」， 是起源於夏威夷的一種運動，由衝浪與傳統的手划槳板（Paddleboard）結
-> 合而成。活動器材係由槳板（類似大型衝浪板）加上一支高於身高的單槳所組成。運用於衝浪時又稱立式單槳衝浪（簡稱立槳衝浪），也可在湖泊及河流等水 
-> 域，從事探索、激流及救生等多方面的活動。
-> ---
-> 獨木舟 東澳行程:
-> 【7/1-8/31 SUP 行程 85 折】
-> 地點: 東澳海蝕洞
-> 每人價格: NTD 3000
-> 困難度: 3/5
-> 時間: 5
-> 每團人數限制: 10 人
-> SUP 活動敘述: 立式槳板運動（英語：Stand Up Paddle, SUP)，也俗稱「槳板」， 是起源於夏威夷的一種運動，由衝浪與傳統的手划槳板（Paddleboard）結
-> 合而成。活動器材係由槳板（類似大型衝浪板）加上一支高於身高的單槳所組成。運用於衝浪時又稱立式單槳衝浪（簡稱立槳衝浪），也可在湖泊及河流等水 
-> 域，從事探索、激流及救生等多方面的活動。
-> ---
-> ```
->
-> ## 方式二：透*過靜態內部類方式實現建造者模式*
->
-> 上面的假設是 SUP 行程價格、困難度、時間……都相同，僅地點有差異，所以 `TripDirector` 的參數只有一個。
->
-> 然而今天可能行程一多，針對同樣都是 SUP（或同樣都是獨木舟）的行程，不同地點我們希望也做不同價格、困難度、時間……的設定。
->
-> 這時候用第二種實現方法，會更加的彈性。
->
-> > 這種方式使用更加靈活，更符合定義。內部有複雜物件的預設實現，使用時可以根據使用者需求自由定義更改內容，並且無需改變具體的構造方式。就可以生產出不同複雜產品
->
-> 在我們的例子，就是讓 `Trip` 本身可以直接設定傳入的參數，並且每個 Builder 方法都回傳 `this`，以達到 chaining 的效果。
->
-> **Builder**: 創建抽象建造者 `ITripBuilder`，僅宣告打造水上活動行程的步驟，注意回傳型別也都是 `ITripBuilder`
->
-> ```
-> public interface ITripBuilder
-> {
->     ITripBuilder SetDestination(string destination);
->     ITripBuilder SetPrice(int price);
->     ITripBuilder SetDifficulty(int difficulty);
->     ITripBuilder SetDurationHours(int hours);
->     ITripBuilder SetMaxParticipants(int maxParticipants);
->     ITripBuilder SetDescription();
->     ITripBuilder SetSalesContext();
->     Trip Build();
-> }
-> ```
->
-> **Concrete Builder**: 建立實體建造者 `KayakTripBuilder`, `SupTripBuilder`，實現 `ITripBuilder` 的方法
->
-> 這邊以 `SupTripBuilder`舉例，我們把 SetDestination, SetPrice… 等步驟都交給 `Trip` 這個最後要完工的物件去進行：
->
-> ```C#
-> public class SupTripBuilder : ITripBuilder
-> {
->     private Trip _trip;
->     private string _description = "立式槳板運動（英語：Stand Up Paddle, SUP)，也俗稱「槳板」， 是起源於夏威夷的一種運動，由衝浪與傳統的手划槳板（Paddleboard）結合而成。活動器材係由槳板（類似大型衝浪板）加上一支高於身高的單槳所組成。運用於衝浪時又稱立式單槳衝浪（簡稱立槳衝浪），也可在湖泊及河流等水域，從事探索、激流及救生等多方面的活動。";
->     private string _salesContext = "7/1-8/31 SUP 行程 85 折";
->     public SupTripBuilder()
->     {
->         _trip = new Trip();
->     }
->     public ITripBuilder SetDestination(string destination)
->     {
->         _trip.SetDestination(destination);
->         return this;
->     }
->     public ITripBuilder SetPrice(int price)
->     {
->         _trip.SetPrice(price);
->         return this;
->     }
->     public ITripBuilder SetDifficulty(int difficulty)
->     {
->         _trip.SetDifficulty(difficulty);
->         return this;
->     }
->     public ITripBuilder SetDurationHours(int hours)
->     {
->         _trip.SetDurationHours(hours);
->         return this;
->     }
->     public ITripBuilder SetMaxParticipants(int maxParticipants)
->     {
->         _trip.SetMaxParticipants(maxParticipants);
->         return this;
->     }
->     public ITripBuilder SetDescription()
->     {
->         _trip.SetDescription(_description);
->         return this;
->     }
->     public ITripBuilder SetSalesContext()
->     {
->         _trip.SetSalesContext(_salesContext);
->         return this;
->     }
->     public Trip Build()
->     {
->         return _trip;
->     }
-> }
-> ```
->
-> 
->
-> **Product**: 建立一個物件 `Trip` 收整行程內容
->
-> 和第一個方法不同，這個方法直接在物件中做 SetDestination, SetPrice… 等步驟。最後一樣全部整理成字串丟到一個 List 裡面：
->
-> ```C#
-> public class Trip
-> {
->     private string _destination;
->     private int _price;
->     private int _difficulty;
->     private int _hours;
->     private int _maxParticipants;
->     private string _description;
->     private string _salesContext;
->     private IList<string> _tripDetail = new List<string>();
->     public IEnumerable<string> GetDetail()
->     {
->         foreach (var item in _tripDetail)
->         {
->             yield return item;
->         }
->     }
->     // Getters to be added
->     public void SetDestination(string destination)
->     {
->         _destination = destination;
->         _tripDetail.Add($"地點: {destination}");
->     }
->     public void SetPrice(int price)
->     {
->         _price = price;
->         _tripDetail.Add($"每人價格: NTD {price}");
->     }
->     public void SetDifficulty(int difficulty)
->     {
->         _difficulty = difficulty;
->         _tripDetail.Add($"困難度: {difficulty}/5");
->     }
->     public void SetDurationHours(int hours)
->     {
->         _hours = hours;
->         _tripDetail.Add($"時間: {hours} 小時");
->     }
->     public void SetMaxParticipants(int maxParticipants)
->     {
->         _maxParticipants = maxParticipants;
->         _tripDetail.Add($"每團人數限制: {maxParticipants} 人");
->     }
->     public void SetDescription(string description)
->     {
->         _description = description;
->         _tripDetail.Add($"SUP 活動敘述: {_description}");
->     }
->     public void SetSalesContext(string salesContext)
->     {
->         _salesContext = salesContext;
->         _tripDetail.Add($"【{_salesContext}】");
->     }
-> }
-> ```
->
-> 
->
-> **Client**: 建構完以上物件，我們可以在`Program.cs`呼叫 Builder 並用 chaining 的方式打造行程
->
-> 用這個方法可以更彈性就是因為順序（先設定地點還先設定價格？）、屬性多寡（要不要這個行程暫不設定行銷內容跟活動敘述？）都可以直接在建造 Trip 時決定。並且因為 `TripBuilder` 的方法都是回傳該 `TripBuilder` (this)，所以可以一路 chain 下去：
->
-> ```C#
-> class Program
-> {
->     static void PrintTripDetail(Trip trip)
->     {
->         var tripDetail = trip.GetDetail();
->         foreach (var item in tripDetail)
->         {
->             Console.WriteLine(item);
->         }
->         Console.WriteLine("---");
->     }
->     static void Main(string[] args)
->     {
->         Console.WriteLine("Trip 1. SUP 象鼻岩行程");
->         Trip trip = new SupTripBuilder()
->                     .SetSalesContext()
->                     .SetDestination("深澳象鼻岩")
->                     .SetPrice(2000)
->                     .SetDifficulty(2)
->                     .SetDurationHours(4)
->                     .SetMaxParticipants(15)
->                     .SetDescription()
->                     .Build();
->         PrintTripDetail(trip);
-> 
->         Console.WriteLine("Trip 2. SUP 龜山島行程");
->         Trip trip1 = new SupTripBuilder()
->                     .SetSalesContext()
->                     .SetDestination("龜山島牛奶湖")
->                     .SetPrice(5000)
->                     .SetDifficulty(4)
->                     .SetDurationHours(6)
->                     .SetMaxParticipants(10)
->                     .SetDescription()
->                     .Build();
->         PrintTripDetail(trip1);
-> 
->         Console.WriteLine("Trip 3. 獨木舟 小琉球行程");
->         Trip trip2 = new KayakTripBuilder()
->                     .SetSalesContext()
->                     .SetDestination("小琉球")
->                     .SetPrice(3500)
->                     .SetDifficulty(2)
->                     .SetDurationHours(5)
->                     .SetMaxParticipants(20)
->                     .SetDescription()
->                     .Build();
->         PrintTripDetail(trip2);
-> 
->         Console.WriteLine("Trip 4. 獨木舟 東澳行程");
->         Trip trip3 = new KayakTripBuilder()
->                     .SetSalesContext()
->                     .SetDestination("東澳海蝕洞")
->                     .SetPrice(1500)
->                     .SetDifficulty(3)
->                     .SetDurationHours(4)
->                     .Build();
->         PrintTripDetail(trip3);
-> 
->         Console.WriteLine("Trip 5. 獨木舟 龍洞行程");
->         Trip trip4 = new KayakTripBuilder()
->                     .SetSalesContext()
->                     .SetDestination("龍洞")
->                     .SetPrice(1500)
->                     .Build();
->         PrintTripDetail(trip4);
->     }
-> }
-> ```
->
-> 
->
-> Console output:
->
-> ```
-> Trip 1. SUP 象鼻岩行程
-> 【7/1-8/31 SUP 行程 85 折】
-> 地點: 深澳象鼻岩
-> 每人價格: NTD 2000
-> 困難度: 2/5
-> 時間: 4 小時
-> 每團人數限制: 15 人
-> SUP 活動敘述: 立式槳板運動（英語：Stand Up Paddle, SUP)，也俗稱「槳板」， 是起源於夏威夷的一種運動，由衝浪與傳統的手划槳板（Paddleboard）結
-> 合而成。活動器材係由槳板（類似大型衝浪板）加上一支高於身高的單槳所組成。運用於衝浪時又稱立式單槳衝浪（簡稱立槳衝浪），也可在湖泊及河流等水 
-> 域，從事探索、激流及救生等多方面的活動。
-> ---
-> Trip 2. SUP 龜山島行程
-> 【7/1-8/31 SUP 行程 85 折】
-> 地點: 龜山島牛奶湖
-> 每人價格: NTD 5000
-> 困難度: 4/5
-> 時間: 6 小時
-> 每團人數限制: 10 人
-> SUP 活動敘述: 立式槳板運動（英語：Stand Up Paddle, SUP)，也俗稱「槳板」， 是起源於夏威夷的一種運動，由衝浪與傳統的手划槳板（Paddleboard）結
-> 合而成。活動器材係由槳板（類似大型衝浪板）加上一支高於身高的單槳所組成。運用於衝浪時又稱立式單槳衝浪（簡稱立槳衝浪），也可在湖泊及河流等水 
-> 域，從事探索、激流及救生等多方面的活動。
-> ---
-> Trip 3. 獨木舟 小琉球行程
-> 【獨木舟振興券優惠套餐 開跑囉】
-> 地點: 小琉球
-> 每人價格: NTD 3500
-> 困難度: 2/5
-> 時間: 5 小時
-> 每團人數限制: 20 人
-> SUP 活動敘述: 獨木舟是一種用單根樹幹挖成的划艇，需要藉助槳驅動。獨木舟的優點在於由一根樹幹製成，製作簡單，不易有漏水，散架的風險。它可以說
-> 是人類最古老的水域交通工具之一。
-> ---
-> Trip 4. 獨木舟 東澳行程
-> 【獨木舟振興券優惠套餐 開跑囉】
-> 地點: 東澳海蝕洞
-> 每人價格: NTD 1500
-> 困難度: 3/5
-> 時間: 4 小時
-> ---
-> Trip 5. 獨木舟 龍洞行程
-> 【獨木舟振興券優惠套餐 開跑囉】
-> 地點: 龍洞
-> 每人價格: NTD 1500
-> ---
-> ```
+> 1. The **Builder** interface declares product construction steps that are common to all types of builders.
+> 2. **Concrete Builders** provide different implementations of the construction steps. Concrete builders may produce products that don’t follow the common interface.
+> 3. **Products** are resulting objects. Products constructed by different builders don’t have to belong to the same class hierarchy or interface.
+> 4. The **Director** class defines the order in which to call construction steps, so you can create and reuse specific configurations of products.
+> 5. The **Client** must associate one of the builder objects with the director. Usually, it’s done just once, via parameters of the director’s constructor. Then the director uses that builder object for all further construction. However, there’s an alternative approach for when the client passes the builder object to the production method of the director. In this case, you can use a different builder each time you produce something with the director.
 
-> ### 建立者模式 (Builder Pattern)
->
-> ​    今天你要為一個遊樂園設計程式，讓客人可以自由選擇旅館及各種門票、餐廳訂位、或是其他特殊活動來建立自己的假期計畫，但你可能會遇到一些問題：每個客人的**假期計畫都不一樣**，如旅行天數不同，或是想住的旅館會不同，而且為了要滿足客製化假期內容的要求，你的設計可能會有**很多建構子**才能滿足需求：
->
-> 
->
-> ```
-> public class Vocation {
-> 
->     // 客人只要求天數，其他隨便排
->     public Vocation(Date begin, Date end)
->     {
->         // ...
->     }
-> 
->     // 客人要求天數，還指定飯店
->     public Vocation(Date begin, Date end, Hotel hotel)
->     {
->         // ...
->     }
-> 
->     // 客人指定天數，飯店，還有餐廳
->     public Vocation(Date begin, Date end, Hotel hotel,
->                     Restaurant restaurant)
->     {
->         // ...
->     }
-> 
->     // 可能還有其他可以讓客人選擇的建構子
-> }
-> ```
->
-> ​    這樣對於客戶而言，他需要先知道全部的建構子有哪些，才能知道要選用哪個來建立適合自己的假期物件。但有時候我們提供的的建構子可能還是不符合客戶的要求，因此我們需要有一個有彈性的結構，可以把**整個假期物件的產生過程封裝起來**，而且客戶還可以不影響物件建立的步驟，建立出自己想要的假期物件，這就是這次要介紹的建立者模式！
->
-> ​    我們先來看看建立者模式的定義及類別圖吧
->
-> **將一個複雜對象的建構和表現分離，使得同樣的建構過程可以產生出不同的表現**
-> **Separate the construction of a complex object from its representation so that the same construction process can create different representations.**
->
-> [![img](https://2.bp.blogspot.com/-hqQjkCLqtOw/WHH5uNE944I/AAAAAAAAH_4/gTbxmZ4FeTkKKb3LCi2XYsmgXkzqnCxRQCLcB/s640/builder%2Bpattern.png)](https://2.bp.blogspot.com/-hqQjkCLqtOw/WHH5uNE944I/AAAAAAAAH_4/gTbxmZ4FeTkKKb3LCi2XYsmgXkzqnCxRQCLcB/s1600/builder%2Bpattern.png)
->
-> ​    從類別圖及定義可以知道，Builder 就是定義物件產生的一個介面，通常會定義一系列的方法，通常是 setXXX / addXXX，可以讓使用者來更改想要的物件行為。**物件建構的過程是隱藏的**，使用者是碰不到的。因為上述兩點，才符合定義說的相同建構過程可以有不同表現。Director 就是實際上調用這個介面來產生物件的中介者，主要的工作是指導 Builder 產生出特定的物件，client 要自己調用 Builder 來取得物件當然也可以。ConcreteBuilder 就是 Builder 介面的實作，可以產生真正產品的類別。
->
-> ​    接著就來看看上述的範例使用了建立者模式的程式碼吧
->
-> 
->
-> ```
-> // Builder 介面
-> // 實務上 Builder 會搭配 Fluent interface
-> // 讓程式更有可讀性
-> public interface VocationBuilder {
-> 
->     // 指定假期開始時間
->     public VocationBuilder setBeginDate(String date);
-> 
->     // 指定假期結束時間
->     public VocationBuilder setEndDate(String date);
-> 
->     // 指定住哪間飯店
->     public VocationBuilder setHotel(Hotel hotel);
-> 
->     // 指定吃哪間餐廳
->     public VocationBuilder setRestaurant(Restaurant restaurant);
-> 
->     // 指定要玩哪些景點的門票
->     public VocationBuilder setTicket(List tickets);
-> 
->     // 要提供一個方法讓使用者能取得假期物件
->     public Vocation create();
-> }
-> 
-> // 能產生三天假期規劃的 Builder, 實作上面的 Builder
-> // 這裡只是範例, 實際上可以依需求有不同實作
-> public class ThreeDayVocationBuilder implements VocationBuilder {
-> 
->     // 保留使用者想要的客製化,
->     // 就是使用者想要的 "表現"
->     private String mBeginDate;
->     private String mEndDate;
->     private Hotel mHotel;
->     private Restaurant mRestaurent;
->     private List mTickets;
-> 
->     @Override
->     public VocationBuilder setBeginDate(String date);
->     {
->         mBeginDate = date;
->         return this;
->     }
-> 
->     @Override
->     public VocationBuilder setEndDate(String date)
->     {
->         // 這邊可以加上些判斷, 確認使用者傳入的參數
->         // 確實是三天後，或是自動幫使用者調整
->         mEndDate = date;
->         return this;
->     }
-> 
->     @Override
->     public VocationBuilder setHotel(Hotel hotel)
->     {
->         mHotel = hotel;
->         return this;
->     }
-> 
->     @Override
->     public VocationBuilder setRestaurant(Restaurant restaurant)
->     {
->         mRestaurant = restaurant;
->         return this;
->     }
-> 
->     @Override
->     public VocationBuilder setTicket(List tickets);
->     {
->         mTickets = tickets;
->         return this;
->     }
-> 
->     @Override
->     public Vocation create()
->     {
->         // 回傳真正的假期物件給使用者
->         // 省略了 Vocation 的程式碼
->         // 這邊只是範例, 實務上可能物件的產生很繁瑣
->         return new Vocation(mBeginDate, mEndDate, mHotel,
->                             mRestaurent, mTickets);
->     }
-> }
-> 
-> // 使用上可以這樣使用 Builder
-> VocationBuilder builder = new ThreeDayVocationBuilder();
-> builder.setBeginDate("2018/01/01");
-> builder.setEndDate("2018/01/03");
-> builder.setHotel(someHotel); // 懶得寫 hotel 物件
-> Vocation vocation = builder.build() // 這樣就能取得 Vocation
->     
-> // 也能搭配使用 Fluent interface
-> Vocation vocation = new ThreeDayVocationBuilder()
->                         .setBeginDate("2018/01/01")
->                         .setEndDate("2018/01/03")
->                         .setHotel(someHotel)
->                         .create()
-> ```
->
-> ​    看到這裡，可能有些人會覺得，同樣都是建立物件，那直接 [Abstract Factory](http://corrupt003-design-pattern.blogspot.tw/2016/06/abstract-factory-pattern.html) 來建立物件不就好了？這裡要注意的是， Builder 著重在**隱藏****複雜****物件生成的步驟**，**且生成的物件(通常是複雜物件) 彼此會有「部份」（Part of）的概念**。而 Abstract Factory 則是著重在**管理有關聯性的物件，但這些物件不會有****「部份」（Part of）的概念**。實務上這個模式還滿常被使用到的，如 JAVA SDK 裡的 [StringBuilder](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html)，[StringBuffer](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html)，以及 Android SDK 裡的 [AlertDialog.Builder](https://developer.android.com/reference/android/app/AlertDialog.Builder.html)，有興趣的人可以參考看看。
->
-> ​    最後來說說總結吧，建立者模式的特點就是將複雜物件的產生過程隱藏起來，使用者無法碰到，且允許物件用多個步驟建立 (跟 [Factory Method](http://corrupt003-design-pattern.blogspot.tw/2016/05/factory-method-pattern.html) 只有一個步驟不同)，因為它的特性，因此經常用來建立合成結構。但對於使用者而言，要是不知道有哪些 setXXX() 方法可以用，也無法建立出想要的物件，這是要注意的地方。
+## Examples
 
+### Html builder
 
+(according to design patterns in go)
+
+Let's imagine the situation where let's say you're writing a Web service.
+
+So a Web server is supposed to serve HTML.
+
+For example, you have a piece of text and you want to turn that text into a paragraph.
+
+```go
+const indentSize = 2
+
+type HtmlElement struct {
+	name, text string
+	elements   []HtmlElement
+}
+
+func (e *HtmlElement) String() string {
+	return e.string(0)
+}
+
+func (e *HtmlElement) string(indent int) string {
+	sb := strings.Builder{}
+	i := strings.Repeat(" ", indentSize*indent)
+	sb.WriteString(fmt.Sprintf("%s< %s>\n", i, e.name))
+	if len(e.text) > 0 {
+		sb.WriteString(strings.Repeat(" ",
+			indentSize*(indent+1)))
+		sb.WriteString(e.text)
+		sb.WriteString("\n")
+	}
+
+	for _, el := range e.elements {
+		sb.WriteString(el.string(indent + 1))
+	}
+	sb.WriteString(fmt.Sprintf("%s</%s>\n",
+		i, e.name))
+	return sb.String()
+}
+
+type HtmlBuilder struct {
+	rootName string
+	root     HtmlElement
+}
+
+func NewHtmlBuilder(rootName string) *HtmlBuilder {
+	b := HtmlBuilder{rootName,
+		HtmlElement{rootName, "", []HtmlElement{}}}
+	return &b
+}
+
+func (b *HtmlBuilder) String() string {
+	return b.root.String()
+}
+
+func (b *HtmlBuilder) AddChild(
+	childName, childText string) {
+	e := HtmlElement{childName, childText, []HtmlElement{}}
+	b.root.elements = append(b.root.elements, e)
+}
+
+func (b *HtmlBuilder) AddChildFluent(
+	childName, childText string) *HtmlBuilder {
+	e := HtmlElement{childName, childText, []HtmlElement{}}
+	b.root.elements = append(b.root.elements, e)
+	return b
+}
+
+```
+
+### Person Builder
+
+(according to design patterns in go)
+
+In most situations that you encounter in daily programming, a single builder is sufficient for building up a particular object.
+
+But there are situations where you need more than one builder, where you need to somehow separate the process of building up the different aspects of a particular type.
+
+```go
+package main
+
+import "fmt"
+
+type Person struct {
+	StreetAddress, Postcode, City string
+	CompanyName, Position         string
+	AnnualIncome                  int
+}
+
+type PersonBuilder struct {
+	person *Person // needs to be inited
+}
+
+func NewPersonBuilder() *PersonBuilder {
+	return &PersonBuilder{&Person{}}
+}
+
+func (it *PersonBuilder) Build() *Person {
+	return it.person
+}
+
+func (it *PersonBuilder) Works() *PersonJobBuilder {
+	return &PersonJobBuilder{*it}
+}
+
+func (it *PersonBuilder) Lives() *PersonAddressBuilder {
+	return &PersonAddressBuilder{*it}
+}
+
+type PersonJobBuilder struct {
+	PersonBuilder
+}
+
+func (pjb *PersonJobBuilder) At(
+	companyName string) *PersonJobBuilder {
+	pjb.person.CompanyName = companyName
+	return pjb
+}
+
+func (pjb *PersonJobBuilder) AsA(
+	position string) *PersonJobBuilder {
+	pjb.person.Position = position
+	return pjb
+}
+
+func (pjb *PersonJobBuilder) Earning(
+	annualIncome int) *PersonJobBuilder {
+	pjb.person.AnnualIncome = annualIncome
+	return pjb
+}
+
+type PersonAddressBuilder struct {
+	PersonBuilder
+}
+
+func (it *PersonAddressBuilder) At(
+	streetAddress string) *PersonAddressBuilder {
+	it.person.StreetAddress = streetAddress
+	return it
+}
+
+func (it *PersonAddressBuilder) In(
+	city string) *PersonAddressBuilder {
+	it.person.City = city
+	return it
+}
+
+func (it *PersonAddressBuilder) WithPostcode(
+	postcode string) *PersonAddressBuilder {
+	it.person.Postcode = postcode
+	return it
+}
+
+func main() {
+	pb := NewPersonBuilder()
+	pb.
+		Lives().
+		At("123 London Road").
+		In("London").
+		WithPostcode("SW12BC").
+		Works().
+		At("Fabrikam").
+		AsA("Programmer").
+		Earning(123000)
+	person := pb.Build()
+	fmt.Println(*person)
+}
+```
+
+### Email Builder
+
+(according to design patterns in go)
+
+So one question you might be asking is, how do I get the uses of my API to actually use my builders as opposed to stop messing with the objects directly?
+
+And one approach to this is you simply hide the objects that you want your users not to touch.
+
+Let's suppose that you have a an API of some kind for sending emails.
+
+```go
+package main
+
+import "strings"
+
+type email struct {
+	from, to, subject, body string
+}
+
+type EmailBuilder struct {
+	email email
+}
+
+func (b *EmailBuilder) From(from string) *EmailBuilder {
+	if !strings.Contains(from, "@") {
+		panic("email should contain @")
+	}
+	b.email.from = from
+	return b
+}
+
+func (b *EmailBuilder) To(to string) *EmailBuilder {
+	b.email.to = to
+	return b
+}
+
+func (b *EmailBuilder) Subject(subject string) *EmailBuilder {
+	b.email.subject = subject
+	return b
+}
+
+func (b *EmailBuilder) Body(body string) *EmailBuilder {
+	b.email.body = body
+	return b
+}
+
+func sendMailImpl(email *email) {
+	// actually ends the email
+}
+
+type build func(*EmailBuilder)
+
+func SendEmail(action build) {
+	builder := EmailBuilder{}
+	action(&builder)
+	sendMailImpl(&builder.email)
+}
+
+func main() {
+	SendEmail(func(b *EmailBuilder) {
+		b.From("foo@bar.com").
+			To("bar@baz.com").
+			Subject("Meeting").
+			Body("Hello, do you want to meet?")
+	})
+}
+```
+
+### Functional Person Builder
+
+(according to design patterns in go)
+
+```go
+package main
+
+import "fmt"
+
+type Person struct {
+	name, position string
+}
+
+type personMod func(*Person)
+type PersonBuilder struct {
+	actions []personMod
+}
+
+func (b *PersonBuilder) Called(name string) *PersonBuilder {
+	b.actions = append(b.actions, func(p *Person) {
+		p.name = name
+	})
+	return b
+}
+
+func (b *PersonBuilder) Build() *Person {
+	p := Person{}
+	for _, a := range b.actions {
+		a(&p)
+	}
+	return &p
+}
+
+// extend PersonBuilder
+func (b *PersonBuilder) WorksAsA(position string) *PersonBuilder {
+	b.actions = append(b.actions, func(p *Person) {
+		p.position = position
+	})
+	return b
+}
+
+func main() {
+	b := PersonBuilder{}
+	p := b.Called("Dmitri").WorksAsA("dev").Build()
+	fmt.Println(*p)
+}
+
+```
 
 ## 實作之前
 
@@ -847,8 +426,6 @@ Director
     }
 ```
 
-
-
 測試程式
 
 ```C#
@@ -869,8 +446,6 @@ Director
 > 8扇窗
 > 3扇門
 > 含後院
-
-
 
 ### 實作二
 
@@ -959,8 +534,6 @@ Builder
         }
     }
 ```
-
-
 
 測試程式
 

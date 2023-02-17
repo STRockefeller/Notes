@@ -4,11 +4,7 @@
 
 The Single Responsibility Principle is a software design principle that states that a software module or class should **have only one reason to change**.
 
-
-
-[designe patterns in go](https://www.udemy.com/course/design-patterns-go/learn/lecture/16912628#overview)
-
-
+[design patterns in go](https://www.udemy.com/course/design-patterns-go/learn/lecture/16912628#overview)
 
 ## Note of Design Patterns in Go
 
@@ -51,8 +47,6 @@ func (j *Journal) Load(filePath string){
 ```
 
 then the single responsibility was broken because the responsibility of the `Journal` is to do with the management of the entries not persistence.
-
-
 
 To follow the SRP, declaring a new struct to handle persistence is a good idea.
 
