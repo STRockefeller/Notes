@@ -1,6 +1,6 @@
 # CodeWars:Greedy thief:20230222:js
 
-#problem_solve #codewars/4kyu #javascript #knapsack_problem
+#problem_solve #codewars/4kyu #javascript #knapsack_problem #dynamic_programming #greedy_algorithm
 
 [Reference](https://www.codewars.com/kata/58296c407da141e2c7000271)
 
@@ -395,5 +395,119 @@ third test: [
   { weight: 0, price: 15 }
 ]
 ```
+
+---
+
+3 days later ...
+
+I finally found where the problem was coming from.
+
+```ts
+class item {
+    weight: number = 0;
+    price: number = 0;
+}
+
+function greedyThief(items: item[], weightLimitation: number): item[] {
+    let itemsCount = items.length;
+    // Declare result array to store the chosen items
+    let result: item[] = [];
+
+    class knapsackReply {
+        value: number = 0;
+        history: number[] = [];
+    }
+
+    // Create a matrix of itemsCount+1 rows and weightLimitation+1 columns with all elements initialized as 0
+    let knapsackMatrix: knapsackReply[][] = Array.from(Array(itemsCount + 1), () => (new Array(weightLimitation + 1) as knapsackReply[]));
+
+    // Recursively solve for the maximum possible value given the remaining total weight
+    function knapsack(itemCount: number, remainWeight: number, history: number[]): knapsackReply {
+        // unable to take this one
+        if (remainWeight < 0) return { value: -Infinity, history: history };
+
+        // no item
+        if (itemCount === -1) return { value: 0, history: history };
+
+        if(itemCount === 0 && remainWeight == 1) console.log("hello")
+        if (knapsackMatrix[itemCount][remainWeight]) return knapsackMatrix[itemCount][remainWeight];
+        if(itemCount === 0 && remainWeight == 1) console.log("world")
+
+        let p = knapsack(itemCount - 1, remainWeight - items[itemCount].weight, [...history, itemCount])
+        let putIntoBagValue = p.value + items[itemCount].price
+        let np = knapsack(itemCount - 1, remainWeight, history)
+        let notPutIntoBagValue = np.value;
+
+        if(itemCount === 2){
+            console.log("item {4,5}")
+            console.log("putIntoBagValue",putIntoBagValue,"notPutIntoBagValue",notPutIntoBagValue)
+            console.log(history,np.history)
+        }
+
+        if(itemCount === 1 && remainWeight == 5){
+            console.log("item {4,10}")
+            console.log("putIntoBagValue",putIntoBagValue,"notPutIntoBagValue",notPutIntoBagValue)
+            console.log(history,p.history)
+        }
+
+        if(itemCount === 0 && remainWeight == 1){
+            console.log("item {0,2}")
+            console.log("putIntoBagValue",putIntoBagValue,"notPutIntoBagValue",notPutIntoBagValue)
+            console.log(history,p.history)
+        }
+
+        if (putIntoBagValue > notPutIntoBagValue) {
+            return knapsackMatrix[itemCount][remainWeight] = { value: putIntoBagValue, history: p.history }
+        }
+        else return knapsackMatrix[itemCount][remainWeight] = { value: notPutIntoBagValue, history: np.history }
+    }
+
+    let ans = knapsack(itemsCount - 1, weightLimitation, [])
+    let history = ans.history;
+    console.log("ans value", ans.value)
+
+    // iterate history
+    for (let i = 0; i < history.length; i++) {
+        result.push(items[history[i]]);
+    }
+
+    let recountAns = 0;
+    for (let i = 0; i < result.length; i++) {
+        recountAns += result[i].price;
+    }
+    console.log("recountAns", recountAns)
+
+    return result;
+}
+
+var items = [ { "weight": 0, "price": 2 }, { "weight": 4, "price": 10 }, { "weight": 4, "price": 5 }]
+var n = 5
+console.log("third test:", greedyThief(items, n));
+```
+
+Console output
+
+```console
+hello
+world
+item {0,2}
+putIntoBagValue 2 notPutIntoBagValue 0
+[ 2 ] [ 2, 0 ]
+hello
+item {4,10}
+putIntoBagValue 12 notPutIntoBagValue 2
+[] [ 2, 0 ]
+item {4,5}
+putIntoBagValue 7 notPutIntoBagValue 12
+[] [ 2, 0 ]
+ans value 12
+recountAns 7
+third test: [ { weight: 4, price: 5 }, { weight: 0, price: 2 } ]
+```
+
+My 2D array used for caching would give an incorrect history due to data with weight == 0.
+If I remove the caching mechanism, I can get the correct answer. However, doing so will cause the tests to time out.
+
+![](https://i.imgur.com/H4qz2UX.png)
 
 ## Better Solutions

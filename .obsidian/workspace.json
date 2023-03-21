@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
+                "file": "My_Notes/Problem_Solve/Solved/CodeWars_5kyu_Is the King in check.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#knapsack_problem",
+                "query": "tag:#err",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
+                "file": "My_Notes/Problem_Solve/Solved/CodeWars_5kyu_Is the King in check.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
+                "file": "My_Notes/Problem_Solve/Solved/CodeWars_5kyu_Is the King in check.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md"
+                "file": "My_Notes/Problem_Solve/Solved/CodeWars_5kyu_Is the King in check.md"
               }
             }
           },
@@ -138,7 +138,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -155,17 +155,17 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "63ccbf48aefcd53c",
+  "active": "d0ca4190dab819b9",
   "lastOpenFiles": [
     "My_Notes/Problem_Solve/Unsolved/CodeWars_4kyu_Greedy thief.md.md",
+    "My_Notes/Programming_Note/GoLang/Go Generic.md",
+    "My_Notes/Programming_Note/Dart & Flutter/Flutter Basic.md",
+    "My_Notes/Programming_Note/BasicSkills/graceful shutdown.md",
+    "My_Notes/Programming_Note/BasicSkills/Functional Programming/Basic of FP.md",
+    "My_Notes/Programming_Note/GoLang/Go Error Handle.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Branch and bound algorithm.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knapsack Problem.md",
-    "My_Notes/Programming_Note/BasicSkills/PowerShell/PowerShell 基礎.md",
-    "My_Notes/Problem_Solve/Unsolved/CodeWars_Most frequently used words in a text.md",
-    "My_Notes/Programming_Note/Database/SQL/SQL-cheat-sheet.pdf",
-    "My_Notes/Programming_Note/GoLang/Go package godog.md",
-    "My_Notes/Programming_Note/BasicSkills/BDD/Behavior Driven Development.md",
-    "My_Notes/Programming_Note/GoLang/Go type alias.md",
-    "My_Notes/Problem_Solve/Unsolved/CodeWars_5kyu_URL shortener.md",
-    "My_Notes/Programming_Note/BasicSkills/Design Pattern/Builder Pattern.md"
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
+    "My_Notes/Programming_Note/BasicSkills/PowerShell/PowerShell 基礎.md"
   ]
 }
