@@ -13,13 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/Dart & Flutter/Flutter Basic Widgets.md",
+                "file": "Vue Directives.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "70db5ec6118c55aa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "My_Notes/Programming_Note/Dart & Flutter/Flutter Package - Dio.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "acf95179453dba8c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "My_Notes/Programming_Note/Dart & Flutter/Dart Basic.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -64,6 +89,14 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "288d4b39612cf64d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
@@ -85,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Programming_Note/Dart & Flutter/Flutter Basic Widgets.md",
+                "file": "My_Notes/Programming_Note/Dart & Flutter/Flutter Package - Dio.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Programming_Note/Dart & Flutter/Flutter Basic Widgets.md",
+                "file": "My_Notes/Programming_Note/Dart & Flutter/Flutter Package - Dio.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Programming_Note/Dart & Flutter/Flutter Basic Widgets.md"
+                "file": "My_Notes/Programming_Note/Dart & Flutter/Flutter Package - Dio.md"
               }
             }
           },
@@ -155,30 +188,36 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "63ccbf48aefcd53c",
+  "active": "70db5ec6118c55aa",
   "lastOpenFiles": [
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter Scrollable Widgets.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter Right Click Menu.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter with Sqlite.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter Storage.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart mixin.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter Basic Widgets.md",
-    "My_Notes/Programming_Note/C.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter Package - Dio.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter Navigator.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter release apk.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Ones and Zeroes.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Ones and Zeroes.md",
+    "My_Notes/Programming_Note/Dart & Flutter/Dart Basic.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Creating Docker Images.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Introduction to Docker.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Docker Images and Containers.md",
     "My_Notes/Programming_Note/Dart & Flutter/Flutter Local File Edit.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter Basic.md",
-    "My_Notes/Programming_Note/Database/SQL/SQLite/SQLite Note.md",
-    "My_Notes/Programming_Note/Database/SQL/SQLite/About PK.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
-    "My_Notes/Programming_Note/CPP/Pointer Basic.md",
-    "My_Notes/Programming_Note/CPP/Shared Pointer.md",
-    "My_Notes/Programming_Note/CPP/Smart Pointer.md",
-    "My_Notes/Programming_Note/CPP/Unique Pointer.md",
-    "My_Notes/Programming_Note/C#/Check Null.md",
-    "My_Notes/Programming_Note/C#/WinForm/KeyBoard Event.md",
-    "My_Notes/Programming_Note/C#/Unit Testing/NUnit.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Branch and bound algorithm.md"
+    "My_Notes/Programming_Note/Dart & Flutter/Dart enum.md",
+    "My_Notes/Programming_Note/reference or value.md",
+    "My_Notes/Problem_Solve/problem_note_template.md.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Writing Dockerfiles.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/d.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Running and managing Docker containers.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Docker Installation and Setup.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Docker Hub and Registries.md",
+    "My_Notes/Programming_Note/BasicSkills/Mega-linter.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/r",
+    "My_Notes/Programming_Note/BasicSkills/Docker/r.md",
+    "My_Notes/Programming_Note/BasicSkills/About Cycular Import.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/i.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/ins.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/ins",
+    "My_Notes/Programming_Note/BasicSkills/Docker/introduction.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker",
+    "My_Notes/Programming_Note/Dart & Flutter/Flutter Package - Dio.md",
+    "My_Notes/Programming_Note/Dart & Flutter/Dart Cascade Operator.md",
+    "Vue Directives.md",
+    "My_Notes/Problem_Solve/Unsolved/CodeWars_Path Finder 3 the Alpinist.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Kadane Algorithm.md"
   ]
 }
