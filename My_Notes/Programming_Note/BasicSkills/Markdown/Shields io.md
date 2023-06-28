@@ -230,7 +230,7 @@ Alumni:
 
 ## License
 
-All assets and code are under the [CC0 LICENSE](LICENSE) and in the public
+All assets and code are under the [CC0 LICENSE](License.md) and in the public
 domain unless specified otherwise.
 
 The assets in `logo/` are trademarks of their respective companies and are
