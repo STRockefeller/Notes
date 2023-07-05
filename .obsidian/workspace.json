@@ -8,87 +8,30 @@
         "type": "tabs",
         "children": [
           {
-            "id": "70db5ec6118c55aa",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "My_Notes/Programming_Note/Dart & Flutter/Dart Basic.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "bf7a302206bdc221",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Make Array Strictly Increasing.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "3bf607ba357f323f",
+            "id": "eafd9e81e78a91a0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Find K Pairs with Smallest Sums.md",
+                "file": "My_Notes/Problem_Solve/Solved/CodeWars_3kyu_The Millionth Fibonacci Kata.md",
                 "mode": "source",
                 "source": false
               }
-            }
-          },
-          {
-            "id": "ad1597f62270224e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "My_Notes/Programming_Note/Web/Vue/Vue Directive.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7de66a0496963e2c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "My_Notes/Programming_Note/Natural Language/Vowel alternation in Proto-Indo-European (PIE) roots tutorial.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "acf95179453dba8c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/Test Doubles.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "03f360e2be95b612",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -162,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Find K Pairs with Smallest Sums.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Find K Pairs with Smallest Sums.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -202,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Find K Pairs with Smallest Sums.md"
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md"
               }
             }
           },
@@ -232,36 +175,36 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "d0ca4190dab819b9",
+  "active": "bf7a302206bdc221",
   "lastOpenFiles": [
-    "My_Notes/Problem_Solve/problem_note_template.md.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Find K Pairs with Smallest Sums.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Make Array Strictly Increasing.md",
-    "Pasted image 20230627112516.png",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart Basic.md",
-    "My_Notes/Programming_Note/Natural Language/Vowel alternation in Proto-Indo-European (PIE) roots tutorial.md",
-    "My_Notes/Programming_Note/Web/Vue/Vue Directive.md",
-    "Vue Directives.md",
-    "My_Notes/Programming_Note/CPP/vector.md",
-    "My_Notes/Programming_Note/Database/SQL/SQL-cheat-sheet.pdf",
-    "My_Notes/Programming_Note/Web/typeScript/TypeScript Cheat Sheet.md",
-    "My_Notes/Programming_Note/Web/typeScript/TypeScript Declare.md",
+    "My_Notes/Problem_Solve/Solved/CodeWars_3kyu_The Millionth Fibonacci Kata.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Exponentiation by squaring.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Dynamic Programming.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Boyer–Moore Algorithm.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/BM.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knapsack Problem.md",
-    "My_Notes/Problem_Solve/Unsolved/CodeWars_4kyu_Greedy thief.md.md",
-    "My_Notes/Programming_Note/Web/typeScript/Differences between Boolean and boolean in typescript.md",
-    "My_Notes/Programming_Note/Web/typeScript/Differences between The nullish coalescing operator and The logical OR operator in Typescript.md",
-    "My_Notes/Programming_Note/BasicSkills/License.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart Flutter Miscellaneous problems.md",
-    "My_Notes/Programming_Note/BasicSkills/Test Doubles.md",
-    "My_Notes/Programming_Note/GoLang/Go Benchmark.md",
-    "My_Notes/Programming_Note/Type Conversion.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter FutureBuilder.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter Basic Widgets.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci number.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci numbers.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Make Array Strictly Increasing.md",
+    "My_Notes/Problem_Solve/Solved/problem_note_template.md.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Pairs of Songs With Total Durations Divisible by 60.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium Single Number II.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Path with Maximum Probability.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium Single Number.md",
     "My_Notes/Programming_Note/Dart & Flutter/Dart Async.md",
+    "My_Notes/Problem_Solve/Unsolved/CodeWars_Path Finder 3 the Alpinist.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Shortest Path to Get All Keys.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Find K Pairs with Smallest Sums.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Palindrome Partitioning.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Decoded String at Index.md",
+    "My_Notes/Programming_Note/Dart & Flutter/Dart mixin.md",
+    "Pasted image 20230627112516.png",
     "My_Notes/Programming_Note/Dart & Flutter/Flutter Basic.md",
+    "My_Notes/Programming_Note/Dart & Flutter/Dart Flutter Miscellaneous problems.md",
+    "My_Notes/Programming_Note/Dart & Flutter/Dart enum.md",
+    "My_Notes/Programming_Note/Dart & Flutter/Dart Convention.md",
+    "My_Notes/Programming_Note/Dart & Flutter/Dart const final late.md",
+    "My_Notes/Programming_Note/Dart & Flutter/Dart Cascade Operator.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_.md",
+    "My_Notes/Programming_Note/Database/SQL/SQL-cheat-sheet.pdf",
     "My_Notes/Programming_Note/BasicSkills/Docker/r",
     "My_Notes/Programming_Note/BasicSkills/Docker/ins",
     "My_Notes/Programming_Note/BasicSkills/Docker"

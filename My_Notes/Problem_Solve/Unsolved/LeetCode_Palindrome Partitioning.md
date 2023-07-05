@@ -1,6 +1,8 @@
-# LeetCode:Palindrome Partitioning:20201215:C #
+# LeetCode:131:20201215:C\#
 
-[Reference](https://leetcode.com/explore/challenge/card/december-leetcoding-challenge/570/week-2-december-8th-december-14th/3565/)
+tags: #problem_solve #leetcode/medium #c_sharp 
+
+[Reference](https://leetcode.com/problems/palindrome-partitioning/)
 
 ## Question
 

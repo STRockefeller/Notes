@@ -1,4 +1,4 @@
-# CodeWars:Path Finder #3: the Alpinist:20210922:C#
+# CodeWars:Path Finder #3: the Alpinist:20210922:C\#
 
 [Reference](https://www.codewars.com/kata/576986639772456f6f00030c)
 

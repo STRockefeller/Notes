@@ -1,6 +1,6 @@
 # LeetCode:373:20230627:dart
 
-tags: #problem_solve #dart
+tags: #problem_solve #dart #algorithms #priority_queue #heap #leetcode/medium 
 
 [Reference](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/)
 

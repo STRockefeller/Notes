@@ -1,6 +1,6 @@
 # LeetCode:1187:20230609:cpp
 
-#problem_solve
+tags: #problem_solve #cpp #leetcode/hard 
 
 [Reference](https://leetcode.com/problems/make-array-strictly-increasing/)
 
