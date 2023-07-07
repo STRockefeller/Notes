@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "bf7a302206bdc221",
+            "id": "2f1922795e9b4ed2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md",
+                "file": "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Maximize the Confusion of an Exam.md",
                 "mode": "source",
                 "source": false
               }
@@ -60,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#dynamic_programming",
+                "query": "tag:#Fibonacci_sequence",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -105,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md",
+                "file": "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Maximize the Confusion of an Exam.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md",
+                "file": "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Maximize the Confusion of an Exam.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -145,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md"
+                "file": "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Maximize the Confusion of an Exam.md"
               }
             }
           },
@@ -175,10 +175,26 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "bf7a302206bdc221",
+  "active": "2f1922795e9b4ed2",
   "lastOpenFiles": [
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Sliding Window.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Maximize the Confusion of an Exam.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Maximize the Confusion of an Exam.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Longest Subarray of 1's After Deleting One Element.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Minimum Size Subarray Sum.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Ones and Zeroes.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Design Twitter.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Binary Tree Level Order Traversal II.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Binary Tree Level Order Traversal.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Longest Substring Without Repeating Characters.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_3Sum.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium Single Number II.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Minimum Size Subarray Sum.md",
     "My_Notes/Problem_Solve/Solved/CodeWars_3kyu_The Millionth Fibonacci Kata.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Longest Subarray of 1's After Deleting One Element.md",
+    "My_Notes/Problem_Solve/Unsolved/Longest Subarray of 1's After Deleting One Element.md",
+    "My_Notes/Problem_Solve/Unsolved/aa.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Exponentiation by squaring.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Dynamic Programming.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci number.md",
@@ -186,24 +202,8 @@
     "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Make Array Strictly Increasing.md",
     "My_Notes/Problem_Solve/Solved/problem_note_template.md.md",
     "My_Notes/Problem_Solve/Solved/LeetCode_Pairs of Songs With Total Durations Divisible by 60.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium Single Number II.md",
     "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Path with Maximum Probability.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium Single Number.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart Async.md",
-    "My_Notes/Problem_Solve/Unsolved/CodeWars_Path Finder 3 the Alpinist.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Shortest Path to Get All Keys.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Find K Pairs with Smallest Sums.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Palindrome Partitioning.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Decoded String at Index.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart mixin.md",
     "Pasted image 20230627112516.png",
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter Basic.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart Flutter Miscellaneous problems.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart enum.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart Convention.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart const final late.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart Cascade Operator.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_.md",
     "My_Notes/Programming_Note/Database/SQL/SQL-cheat-sheet.pdf",
     "My_Notes/Programming_Note/BasicSkills/Docker/r",
     "My_Notes/Programming_Note/BasicSkills/Docker/ins",
