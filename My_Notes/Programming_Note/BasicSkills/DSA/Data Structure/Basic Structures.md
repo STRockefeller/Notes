@@ -1,6 +1,6 @@
 # Basic Structures
 
-#data_structure
+tags: #data_structure #array #linked_list #queue #stack
 
 Reference:
 

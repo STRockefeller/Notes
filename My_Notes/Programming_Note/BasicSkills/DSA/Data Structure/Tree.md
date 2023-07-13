@@ -1,6 +1,6 @@
 # Tree
 
-#data_structure
+tags: #data_structure #tree
 
 References:
 

@@ -13,19 +13,43 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Maximize the Confusion of an Exam.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Kadane Algorithm.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "eafd9e81e78a91a0",
+            "id": "9ca940cee0c87b9b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Problem_Solve/Solved/CodeWars_3kyu_The Millionth Fibonacci Kata.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Depth-First Search.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0b1fde69d7ff9f17",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Course Schedule.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5b6ee2ac54c48e55",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Sliding Window.md",
                 "mode": "source",
                 "source": false
               }
@@ -60,7 +84,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Fibonacci_sequence",
+                "query": "tag:#graph",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -105,7 +129,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Maximize the Confusion of an Exam.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Kadane Algorithm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +146,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Maximize the Confusion of an Exam.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Kadane Algorithm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -145,7 +169,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Maximize the Confusion of an Exam.md"
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Kadane Algorithm.md"
               }
             }
           },
@@ -157,8 +181,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -177,32 +200,33 @@
   },
   "active": "2f1922795e9b4ed2",
   "lastOpenFiles": [
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Find Eventual Safe States.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Depth-First Search.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Kadane Algorithm.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Tarjan's Algorithm.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Directed Graph Cycle Detection.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Course Schedule.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Sliding Window.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Maximize the Confusion of an Exam.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Maximize the Confusion of an Exam.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Longest Subarray of 1's After Deleting One Element.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Minimum Size Subarray Sum.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Ones and Zeroes.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Design Twitter.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Binary Tree Level Order Traversal II.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Binary Tree Level Order Traversal.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Longest Substring Without Repeating Characters.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_3Sum.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium Single Number II.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Minimum Size Subarray Sum.md",
-    "My_Notes/Problem_Solve/Solved/CodeWars_3kyu_The Millionth Fibonacci Kata.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Longest Subarray of 1's After Deleting One Element.md",
-    "My_Notes/Problem_Solve/Unsolved/Longest Subarray of 1's After Deleting One Element.md",
-    "My_Notes/Problem_Solve/Unsolved/aa.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Exponentiation by squaring.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Dynamic Programming.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci number.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci numbers.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Make Array Strictly Increasing.md",
-    "My_Notes/Problem_Solve/Solved/problem_note_template.md.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Pairs of Songs With Total Durations Divisible by 60.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Path with Maximum Probability.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Exponentiation by squaring.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Floyd Cycle Detection.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knapsack Problem.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/RabinKarp.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knuth–Morris–Pratt algorithm.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/ta.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/dgcd.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/dgcd",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Single Number II.md",
+    "My_Notes/Problem_Solve/Solved/LeetCOde_Medium Find Eventual Safe States.md",
+    "My_Notes/Problem_Solve/Unsolved/problem_note_template.md.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Validate Binary Search Tree.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Ones and Zeroes.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Binary Tree Level Order Traversal.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Binary Tree Level Order Traversal II.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Design Twitter.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Longest Subarray of 1's After Deleting One Element.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Maximize the Confusion of an Exam.md",
     "Pasted image 20230627112516.png",
     "My_Notes/Programming_Note/Database/SQL/SQL-cheat-sheet.pdf",
     "My_Notes/Programming_Note/BasicSkills/Docker/r",

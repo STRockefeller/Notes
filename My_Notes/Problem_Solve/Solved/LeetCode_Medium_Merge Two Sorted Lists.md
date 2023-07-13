@@ -1,8 +1,8 @@
-# LeetCode:Merge Two Sorted Lists:20220107:Go
+# LeetCode:21:20220107:Go
+
+tags: #problem_solve #leetcode/easy #golang #linked_list
 
 [Reference](https://leetcode.com/problems/merge-two-sorted-lists/)
-
-
 
 ## Question
 
@@ -11,8 +11,6 @@ You are given the heads of two sorted linked lists `list1` and `list2`.
 Merge the two lists in a one **sorted** list. The list should be made by splicing together the nodes of the first two lists.
 
 Return *the head of the merged linked list*.
-
- 
 
 **Example 1:**
 
@@ -36,8 +34,6 @@ Output: []
 Input: list1 = [], list2 = [0]
 Output: [0]
 ```
-
- 
 
 **Constraints:**
 
@@ -87,8 +83,6 @@ B1-->B2-->A2
 B3
 ```
 
-
-
 就會遺失B3的位置
 
 ---
@@ -137,8 +131,6 @@ B1[1]-->A1
 B2[3]-->B3[4]
 ```
 
-
-
 第三點取A2，原本就是正確的不需要動
 
 第四點取B2，把斷線的A3位置記起來
@@ -149,8 +141,6 @@ A1(1)-->A2(2)-->A3(4)
 B1[1]-->A1
 A2-.->B2[3]-->B3[4]
 ```
-
-
 
 ```mermaid
 flowchart LR
@@ -223,11 +213,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 
 大概輸給八成的golang答案，慘
 
-
-
 ## Better Solutions
-
-
 
 ### Solution 1
 
@@ -250,8 +236,6 @@ java 1ms solution
 edge case 的處理方式和我一樣
 
 下面的遞迴就真的很精彩。
-
-
 
 ### Solution 2
 
@@ -278,8 +262,6 @@ public:
     }
 };
 ```
-
-
 
 建立一個新節點作為第一點，回傳的時候回它的next(真正的第一點)，還順便解決了edge cases (因為dummy.next會是`null`)
 

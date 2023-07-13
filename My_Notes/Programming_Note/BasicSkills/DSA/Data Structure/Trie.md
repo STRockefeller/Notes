@@ -1,6 +1,6 @@
 # Trie
 
-#data_structure
+tags: #data_structure #trie #tree
 
 [wiki](https://en.wikipedia.org/wiki/Trie)
 

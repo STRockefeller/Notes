@@ -1,16 +1,14 @@
-# LeetCode:Pairs of Songs With Total Durations Divisible by 60:20201210:C#
+# LeetCode:1010:20201210:C\# and go
 
-[Reference](https://leetcode.com/explore/challenge/card/december-leetcoding-challenge/570/week-2-december-8th-december-14th/3559/)
+tags: #problem_solve #leetcode/medium #c_sharp #golang
 
-
+[Reference](https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/)
 
 ## Question
 
 You are given a list of songs where the ith song has a duration of `time[i]` seconds.
 
 Return *the number of pairs of songs for which their total duration in seconds is divisible by* `60`. Formally, we want the number of indices `i`, `j` such that `i < j` with `(time[i] + time[j]) % 60 == 0`.
-
- 
 
 **Example 1:**
 
@@ -30,8 +28,6 @@ Input: time = [60,60,60]
 Output: 3
 Explanation: All three pairs have a total duration of 120, which is divisible by 60.
 ```
-
- 
 
 **Constraints:**
 
@@ -98,8 +94,6 @@ $$
 如果抓著第一個30，再去找後面出現的30，然後抓20....就依然還是n^2 ==>所以不能這樣做
 
 先分類，總共有 一個20 兩個30 兩個40
-
-
 
 重新來一次，抓第一個30=>要找30=>發先30數量為2(減去自己為1)=>...
 
@@ -171,7 +165,4 @@ func numPairsDivisibleBy60(time []int) int {
 
 我感覺應該是有更好才對，但是結果反而變糟了，我猜是leetcode的問題，晚點用benchmark測測
 
-
-
 ## Better Solutions
-

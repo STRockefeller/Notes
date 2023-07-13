@@ -1,8 +1,8 @@
-# LeetCode:Validate Binary Search Tree:20201217:C#
+# LeetCode:Validate Binary Search Tree:20201217:C\#
 
-[Reference](https://leetcode.com/explore/featured/card/december-leetcoding-challenge/571/week-3-december-15th-december-21st/3568/)
+tags: #problem_solve #leetcode/medium #c_sharp #binary_tree #binary_search_tree
 
-
+[Reference](https://leetcode.com/problems/validate-binary-search-tree/)
 
 ## Question
 
@@ -13,8 +13,6 @@ A **valid BST** is defined as follows:
 - The left subtree of a node contains only nodes with keys **less than** the node's key.
 - The right subtree of a node contains only nodes with keys **greater than** the node's key.
 - Both the left and right subtrees must also be binary search trees.
-
- 
 
 **Example 1:**
 
@@ -35,16 +33,12 @@ Output: false
 Explanation: The root node's value is 5 but its right child's value is 4.
 ```
 
- 
-
 **Constraints:**
 
 - The number of nodes in the tree is in the range `[1, 104]`.
 - `-231 <= Node.val <= 231 - 1`
 
 ## My Solution
-
-
 
 ```C#
 /**
@@ -195,15 +189,11 @@ public class Solution {
 
 過關。
 
-
-
 Runtime: **104 ms**
 
 Memory Usage: **29.8 MB**
 
 執行時間跟記憶體使用量都是後段班
-
-
 
 ---
 
@@ -326,8 +316,6 @@ Runtime: **96 ms**
 
 Memory Usage: **26.5 MB**
 
-
-
 執行時間前25%
 
 記憶體使用量前3%
@@ -335,4 +323,3 @@ Memory Usage: **26.5 MB**
 ~滿意~
 
 ## Better Solutions
-

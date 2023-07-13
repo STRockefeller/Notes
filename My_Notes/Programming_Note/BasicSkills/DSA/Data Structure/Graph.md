@@ -1,6 +1,6 @@
 # Graph
 
-#data_structure
+tags: #data_structure #graph
 
 ## Reference
 

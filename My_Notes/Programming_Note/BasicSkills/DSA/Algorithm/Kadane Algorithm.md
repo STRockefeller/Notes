@@ -1,38 +1,62 @@
 # Kadane Algorithm
 
-## 1. Introduction
+tags: #algorithms #kadane_algorithm #dynamic_programming
 
-The Kadane algorithm is a dynamic programming algorithm for finding the contiguous subarray within a one-dimensional array of numbers (containing at least one positive number) which has the largest sum. For example, for the sequence of values [-2, 1, -3, 4, -1, 2, 1, -5, 4], the contiguous subarray with the largest sum is [4, -1, 2, 1], with sum 6.
+## References
 
-## 2. Algorithm
+- [wikipedia](https://en.wikipedia.org/wiki/Maximum_subarray_problem)
+- [geeksforgeeks](https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/)
 
-### 2.1. Algorithm
+## Overview
 
-The algorithm is in the following:
+The algorithm scans the array from start to end, keeping track of the current sum of the subarray. It starts with the assumption that the maximum sum is the first element of the array, and then iteratively updates the maximum sum as it encounters new elements. If the current sum becomes negative, the algorithm resets it to zero, effectively ignoring any negative contributions to the sum. The maximum sum encountered during the scan is the desired result.
+
+## Problem Statement
+
+Given an array of integers, we want to find the subarray (contiguous elements) with the largest sum. In other words, we need to determine the maximum possible sum of a subarray within the given array.
+
+## Algorithm Steps
+
+The steps of the Kadane algorithm can be summarized as follows:
+
+1. Initialize two variables: `maxSum` and `currentSum` to the value of the first element of the array.
+2. Iterate over the array from the second element onwards.
+    - Add the current element to `currentSum`.
+    - If `currentSum` becomes negative, set it to zero.
+    - If `currentSum` is greater than `maxSum`, update `maxSum` with the value of `currentSum`.
+3. Return `maxSum` as the maximum sum of a contiguous subarray.
+
+## Pseudocode
+
+Here is the pseudocode representation of the Kadane algorithm:
 
 ```go
-func maxSubArray(nums []int) int {
-    maxSum := nums[0]
-    currentSum := 0
-    for _, num := range nums {
-        currentSum += num
-        if currentSum > maxSum {
-            maxSum = currentSum
-        }
-        if currentSum < 0 {
-            currentSum = 0
-        }
+func kadaneAlgorithm(arr []int) int {
+    maxEndingHere := arr[0]
+    maxSoFar := arr[0]
+
+    for i := 1; i < len(arr); i++ {
+        maxEndingHere = max(arr[i], maxEndingHere+arr[i])
+        maxSoFar = max(maxSoFar, maxEndingHere)
     }
-    return maxSum
+
+    return maxSoFar
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
 }
 ```
 
-### 2.2. Complexity
+## Complexity
 
 Time complexity: O(n)
 
 Space complexity: O(1)
 
-## 3. References
+## Conclusion
 
-- <https://en.wikipedia.org/wiki/Maximum_subarray_problem>
+By scanning the array in a single pass and using [[Dynamic Programming]] techniques, it  achieves a linear time complexity. This algorithm can be applied to various scenarios, such as optimizing financial portfolios, analyzing time-series data, and solving other similar problems.
