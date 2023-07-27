@@ -8,24 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "2f1922795e9b4ed2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Kadane Algorithm.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "9ca940cee0c87b9b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Depth-First Search.md",
+                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Knight Probability in Chessboard.md",
                 "mode": "source",
                 "source": false
               }
@@ -84,7 +72,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#graph",
+                "query": "flags",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -129,8 +117,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Kadane Algorithm.md",
-                "collapseAll": false,
+                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Knight Probability in Chessboard.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -146,7 +134,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Kadane Algorithm.md",
+                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Knight Probability in Chessboard.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -169,7 +157,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Kadane Algorithm.md"
+                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Knight Probability in Chessboard.md"
               }
             }
           },
@@ -181,7 +169,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -198,37 +187,38 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2f1922795e9b4ed2",
+  "active": "9ca940cee0c87b9b",
   "lastOpenFiles": [
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Find Eventual Safe States.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Depth-First Search.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Kadane Algorithm.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Tarjan's Algorithm.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Directed Graph Cycle Detection.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Course Schedule.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Sliding Window.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Dynamic Programming.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Exponentiation by squaring.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Fibonacci sequence.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Floyd Cycle Detection.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knapsack Problem.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/RabinKarp.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knuth–Morris–Pratt algorithm.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/ta.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/dgcd.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/dgcd",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Single Number II.md",
-    "My_Notes/Problem_Solve/Solved/LeetCOde_Medium Find Eventual Safe States.md",
+    "My_Notes/Programming_Note/Web/typeScript/TypeScript Decorators.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Knight Probability in Chessboard.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_.md",
+    "My_Notes/Problem_Solve/Unsolved/problem_note_template.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Minimum Speed to Arrive on Time.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Minimum Speed to Arrive on Time.md",
+    "My_Notes/Programming_Note/Web/Chrome Extension/Chrome Extension Basic.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Peak Index in a Mountain Array.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Peak Index in a Mountain Array.md",
+    "My_Notes/Problem_Solve/Unsolved/image.png",
+    "My_Notes/Problem_Solve/problem_note_template.md",
     "My_Notes/Problem_Solve/Unsolved/problem_note_template.md.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Validate Binary Search Tree.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Ones and Zeroes.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Binary Tree Level Order Traversal.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Binary Tree Level Order Traversal II.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Design Twitter.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Longest Subarray of 1's After Deleting One Element.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Maximize the Confusion of an Exam.md",
-    "Pasted image 20230627112516.png",
+    "My_Notes/Programming_Note/CPP/Unique Pointer.md",
+    "My_Notes/Programming_Note/CPP/Smart Pointer.md",
+    "My_Notes/Programming_Note/CPP/Pointer Basic.md",
+    "My_Notes/Programming_Note/CPP/linked list.md",
+    "My_Notes/Programming_Note/CPP/cpp-cheat-sheet.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Depth-First Search.md",
+    "My_Notes/Programming_Note/GoLang/Go Cross Compile.md",
+    "My_Notes/Programming_Note/GoLang/Go package suite.md",
+    "My_Notes/Programming_Note/GoLang/Go package validator.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Number of Longest Increasing Subsequence.md",
+    "My_Notes/Programming_Note/GoLang/Go package zap log.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Number of Longest Increasing Subsequence.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Asteroid Collision.md",
+    "My_Notes/Problem_Solve/Unsolved/CodeWars_5kyu_URL shortener.md",
+    "My_Notes/Problem_Solve/Unsolved/CodeWars_4kyu_Greedy thief.md.md",
     "My_Notes/Programming_Note/Database/SQL/SQL-cheat-sheet.pdf",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/dgcd",
+    "Pasted image 20230627112516.png",
     "My_Notes/Programming_Note/BasicSkills/Docker/r",
     "My_Notes/Programming_Note/BasicSkills/Docker/ins",
     "My_Notes/Programming_Note/BasicSkills/Docker"

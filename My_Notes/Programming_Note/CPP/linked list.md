@@ -60,7 +60,7 @@ Linked list(連結串列)是一種常見的資料結構，其使用**node(節點
 
 ### Realized Linked list by 2 classes
 
-若以C++的**class(類別)**來實作Linked list，可以利用兩個class，使得node的資料不會被任意更動(也就是封裝(Encapsulation)的概念)。
+若以C++的 **class(類別)** 來實作Linked list，可以利用兩個class，使得node的資料不會被任意更動(也就是封裝(Encapsulation)的概念)。
 使用`struct`來代表node也是常見的做法，差別在於，`struct`的資料成員(data member)一定是**公開的(public)**。
 
 `class ListNode`的private data有兩項，一項代表著資料項目(在此以`int`示範)，一項是「指向型別(type)為ListNode之指標」，以`ListNode *next`表示，用來記錄「下一個node」的記憶體位置。
@@ -106,15 +106,10 @@ Array(矩陣)也是常見的用來記錄一連串「具有相同形態的資料�
 
 **優點**：
 
-- random access：只要利用**index**即可在O(11)時間對Array的資料做存取。
+- random access：只要利用**index**即可在O(1)時間對Array的資料做存取。
 
-- 較Linked list為節省記憶體空間：因為Linked list需要多一個
-
-  pointer
-
-  來記錄下一個node的記憶體位置。
-
-  - 假設node之**data**項目為11byte的`char`，但是**pointer**項目卻要44bytes，這樣的資料結構就多花了4倍的記憶體空間在與真正要處理的資料無關的部分上，是個沒有效率的做法。
+- 較Linked list為節省記憶體空間：因為Linked list需要多一個 pointer 來記錄下一個node的記憶體位置。
+- 假設node之**data**項目為11byte的`char`，但是**pointer**項目卻要44bytes，這樣的資料結構就多花了4倍的記憶體空間在與真正要處理的資料無關的部分上，是個沒有效率的做法。
 
 **缺點**：
 
@@ -131,16 +126,15 @@ Array(矩陣)也是常見的用來記錄一連串「具有相同形態的資料�
 
 **優點**：
 
-- 新增/刪除資料較Array簡單，只要對O(11)個node(所有與欲新增/刪除的node有pointer相連的node)調整pointer即可，不需要如同Array般搬動其餘元素。
-
-  - 若是在Linked list的「開頭」新增node，只要O(11)。
-- 若要刪除特定node，或者在特定位置新增node，有可能需要先執行O(NN)的「搜尋」。
+- 新增/刪除資料較Array簡單，只要對O(1)個node(所有與欲新增/刪除的node有pointer相連的node)調整pointer即可，不需要如同Array般搬動其餘元素。
+- 若是在Linked list的「開頭」新增node，只要O(1)。
+- 若要刪除特定node，或者在特定位置新增node，有可能需要先執行O(N)的「搜尋」。
   
 - Linked list的資料數量可以是動態的，不像Array會有**resize**的問題。
 
 **缺點**：
 
-- 因為Linked list沒有**index**，若要找到特定node，需要從頭(`ListNode *first`)開始找起，搜尋的時間複雜度為O(NN)。
+- 因為Linked list沒有**index**，若要找到特定node，需要從頭(`ListNode *first`)開始找起，搜尋的時間複雜度為O(N)。
 - 需要額外的記憶體空間來儲存**pointer**。
 
 **適用時機**：
