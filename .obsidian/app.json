@@ -1,7 +1,4 @@
 {
   "alwaysUpdateLinks": true,
-  "spellcheckLanguages": [
-    "zh-TW",
-    "en"
-  ]
+  "spellcheckLanguages": null
 }

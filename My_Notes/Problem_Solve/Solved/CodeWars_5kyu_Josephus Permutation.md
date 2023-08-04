@@ -1,6 +1,6 @@
 # CodeWars:Josephus Permutation:20200928:C\#
 
-#problem_solve #codewars/5kyu #c_sharp 
+tags: #problem_solve #codewars/5kyu #c_sharp #permutation #arrangement
 
 [Reference](https://www.codewars.com/kata/5550d638a99ddb113e0000a2)
 

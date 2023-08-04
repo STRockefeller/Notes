@@ -1,6 +1,6 @@
 # CodeWars:Smallest Permutation:20210604:C\#
 
-#problem_solve #codewars/6kyu #c_sharp
+tags: #problem_solve #codewars/6kyu #c_sharp #permutation #arrangement
 
 [Reference](https://www.codewars.com/kata/5fefee21b64cc2000dbfa875)
 

@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9ca940cee0c87b9b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Knight Probability in Chessboard.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "0b1fde69d7ff9f17",
             "type": "leaf",
             "state": {
@@ -37,13 +25,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Sliding Window.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -72,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "flags",
+                "query": "docker",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -117,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Knight Probability in Chessboard.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Knight Probability in Chessboard.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -157,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Knight Probability in Chessboard.md"
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md"
               }
             }
           },
@@ -187,40 +176,50 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "9ca940cee0c87b9b",
+  "active": "5b6ee2ac54c48e55",
   "lastOpenFiles": [
-    "My_Notes/Programming_Note/Web/typeScript/TypeScript Decorators.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Knight Probability in Chessboard.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-5.svg",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-5.dot",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-4.svg",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-4.dot",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-3.svg",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-3.dot",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Sliding Window.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Course Schedule.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-2.svg",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-2.dot",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/s",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-1.svg",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-1.dot",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Word Break.md",
+    "My_Notes/Programming_Note/Async.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/nac.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/a.svg",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm.dot",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/RabinKarp.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knuth–Morris–Pratt algorithm.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Writing Dockerfiles.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Introduction to Docker.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Running and managing Docker containers.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Docker Installation and Setup.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Creating Docker Images.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Path with Maximum Probability.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Letter Combinations of a Phone Number.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Permutations.md",
     "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_.md",
     "My_Notes/Problem_Solve/Unsolved/problem_note_template.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Minimum Speed to Arrive on Time.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Minimum Speed to Arrive on Time.md",
-    "My_Notes/Programming_Note/Web/Chrome Extension/Chrome Extension Basic.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Peak Index in a Mountain Array.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Peak Index in a Mountain Array.md",
+    "My_Notes/Problem_Solve/Solved/CodeWars_6kyu_Smallest Permutation.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Permutations.md",
+    "My_Notes/Problem_Solve/Solved/CodeWars_5kyu_Josephus Permutation.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Minimum ASCII Delete Sum for Two Strings.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Combinations.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Combinations.md",
+    "My_Notes/Programming_Note/reference or value.md",
     "My_Notes/Problem_Solve/Unsolved/image.png",
-    "My_Notes/Problem_Solve/problem_note_template.md",
-    "My_Notes/Problem_Solve/Unsolved/problem_note_template.md.md",
-    "My_Notes/Programming_Note/CPP/Unique Pointer.md",
-    "My_Notes/Programming_Note/CPP/Smart Pointer.md",
-    "My_Notes/Programming_Note/CPP/Pointer Basic.md",
-    "My_Notes/Programming_Note/CPP/linked list.md",
-    "My_Notes/Programming_Note/CPP/cpp-cheat-sheet.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Depth-First Search.md",
-    "My_Notes/Programming_Note/GoLang/Go Cross Compile.md",
-    "My_Notes/Programming_Note/GoLang/Go package suite.md",
-    "My_Notes/Programming_Note/GoLang/Go package validator.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Number of Longest Increasing Subsequence.md",
-    "My_Notes/Programming_Note/GoLang/Go package zap log.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Number of Longest Increasing Subsequence.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Asteroid Collision.md",
-    "My_Notes/Problem_Solve/Unsolved/CodeWars_5kyu_URL shortener.md",
-    "My_Notes/Problem_Solve/Unsolved/CodeWars_4kyu_Greedy thief.md.md",
     "My_Notes/Programming_Note/Database/SQL/SQL-cheat-sheet.pdf",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/dgcd",
-    "Pasted image 20230627112516.png",
-    "My_Notes/Programming_Note/BasicSkills/Docker/r",
-    "My_Notes/Programming_Note/BasicSkills/Docker/ins",
-    "My_Notes/Programming_Note/BasicSkills/Docker"
+    "Pasted image 20230627112516.png"
   ]
 }

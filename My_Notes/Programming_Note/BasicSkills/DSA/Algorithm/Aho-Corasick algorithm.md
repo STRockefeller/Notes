@@ -13,13 +13,13 @@
 
 假設我有個字串"ABCDABD"在trie裡面
 
-![](https://i.imgur.com/RVaV5wg.png)
+![image](./graph/Aho-Corasick%20algorithm-1.svg)
 
 在KMP筆記裡面我們曾經算過他的LPS table : [0000120]，代表查詢失敗後要從哪個位置繼續
 
 把這個作法帶到trie裡面，用箭頭標出重試的位置。
 
-![](https://i.imgur.com/BdYmdty.png)
+![image](./graph/Aho-Corasick%20algorithm-2.svg)
 
 ## Failure Index
 
@@ -27,7 +27,7 @@
 
 trie裡面一共有7個詞，分別是`a`, `ab`, `bab`, `bc`, `bca`, `c`, `caa`
 
-![](https://i.imgur.com/ZhEH6P6.png)
+![image](./graph/Aho-Corasick%20algorithm-3.svg)
 
 求出他們的LPS Table:
 
@@ -41,42 +41,13 @@ trie裡面一共有7個詞，分別是`a`, `ab`, `bab`, `bc`, `bca`, `c`, `caa`
 
 若只按照LPS來看，畫上失敗後指向的位置，如下
 
-![](https://i.imgur.com/gezd8RQ.png)
+![image](./graph/Aho-Corasick%20algorithm-4.svg)
 
 接著用Latex來畫trie好了
 
-```Latex
-\documentclass[tikz,border=10pt]{standalone}
-\usepackage[linguistics]{forest}
-\begin{document}
-\begin{forest}
-    [
-        [\color{blue}a
-            [\color{blue}b]
-        ]
-        [b
-            [a
-                [\color{blue}b]
-            ]
-            [\color{blue}c
-                [\color{blue}a]
-            ]
-        ]
-        [\color{blue}c
-            [a
-                [\color{blue}a]
-            ]
-        ]
-    ]
-\end{forest}
-\end{document}
-```
-
-![](https://i.imgur.com/RHBwxQy.png)
-
 以AC演算法來說，除了指向自己的節點以外，還要能指向其他branches的節點，例如`bab` 出錯， 要從 `ab` 接著繼續， `ba` 出錯， 要從 `a` 接著繼續
 
-![](https://i.imgur.com/T2xbKAB.png)
+![image](./graph/Aho-Corasick%20algorithm-5.svg)
 
 ## Try and Error
 

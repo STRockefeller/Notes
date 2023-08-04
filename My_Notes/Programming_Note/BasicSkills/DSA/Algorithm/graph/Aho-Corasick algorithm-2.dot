@@ -1,0 +1,12 @@
+digraph Trie {
+    node [shape=circle];
+    edge [arrowhead=vee];
+
+    root [label="", shape=point];
+    A2 [label = "A"];
+    B2 [label = "B"];
+    D2 [label = "D",color = green];
+    root -> A -> B -> C -> D -> A2 -> B2 -> D2;
+    A2 -> A [color = red];
+    B2 -> B [color = red];
+}
