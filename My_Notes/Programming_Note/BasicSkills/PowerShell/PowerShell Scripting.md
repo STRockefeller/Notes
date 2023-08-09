@@ -1,6 +1,6 @@
 # PowerShell Scripting
 
-#powershell
+tags: #powershell
 
 `PowerShell Scripting` 之於 `PowerShell`就如同 `Batch file` 之於 `Command line`
 

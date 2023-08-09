@@ -1,6 +1,6 @@
 # Interface
 
-#golang #interface
+tags: #golang #interface
 
 ## Abstract
 

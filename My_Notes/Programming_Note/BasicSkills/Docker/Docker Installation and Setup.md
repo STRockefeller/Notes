@@ -1,6 +1,6 @@
 # Docker Installation and Setup
 
-#docker
+tags: #docker
 
 Docker ([[Introduction to Docker]]) is an open-source platform that allows you to build, deploy, and run applications in a containerized environment. In this guide, we will walk you through the steps to install and set up Docker on your system.
 

@@ -1,6 +1,6 @@
 # Cross Compile
 
-#golang #compile/cross_compile
+tags: #golang #compile/cross_compile
 
 ## Goos table
 

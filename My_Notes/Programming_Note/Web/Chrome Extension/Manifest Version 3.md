@@ -1,6 +1,6 @@
 # Manifest Version 3
 
-#chrome_extension
+tags: #chrome_extension
 
 剛好有個完整的manifest V2 的擴充功能要改成 manifest V3，順便把過程記錄下來。
 

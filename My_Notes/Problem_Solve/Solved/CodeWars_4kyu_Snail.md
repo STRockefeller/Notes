@@ -1,6 +1,6 @@
 # CodeWars:Snail:20200924:C\#
 
-#problem_solve #codewars/4kyu #c_sharp
+tags: #problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1)
 

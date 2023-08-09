@@ -1,6 +1,6 @@
 # Docker Images and Containers
 
-#docker
+tags: #docker
 
 [Docker](https://www.docker.com/) ([[Introduction to Docker]]) is a platform for building, shipping, and running applications in containers. Containers are lightweight and portable environments that can be easily moved between machines and cloud platforms. In this markdown document, we will discuss Docker images and containers and their roles in the Docker ecosystem.
 

@@ -1,6 +1,6 @@
 # Memory Allocation
 
-#c #memory 
+tags: #c #memory 
 
 [reference](https://openhome.cc/Gossip/CGossip/MallocFree.html)
 

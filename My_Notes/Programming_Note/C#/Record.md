@@ -1,6 +1,6 @@
 # Record
 
-#c_sharp
+tags: #c_sharp
 
 https://docs.microsoft.com/zh-tw/dotnet/csharp/whats-new/csharp-9
 

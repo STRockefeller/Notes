@@ -1,6 +1,6 @@
 # Query json/jsonb array
 
-#database/sql/postgresql
+tags: #database/sql/postgresql
 
 研究了一下發現有點複雜，先記下來免得以後又忘記。
 

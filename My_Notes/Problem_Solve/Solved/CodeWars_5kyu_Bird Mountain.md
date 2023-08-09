@@ -1,6 +1,6 @@
 # CodeWars:Bird Mountain:20210128:C\#
 
-#problem_solve #c_sharp #codewars/5kyu
+tags: #problem_solve #c_sharp #codewars/5kyu
 
 [Reference](https://www.codewars.com/kata/5c09ccc9b48e912946000157)
 

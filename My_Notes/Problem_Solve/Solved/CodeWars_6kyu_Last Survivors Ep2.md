@@ -1,6 +1,6 @@
 # CodeWars:Last Survivors Ep.2:20210621:Python
 
-#problem_solve #codewars/6kyu #python
+tags: #problem_solve #codewars/6kyu #python
 
 [Reference](https://www.codewars.com/kata/60a1aac7d5a5fc0046c89651/python)
 

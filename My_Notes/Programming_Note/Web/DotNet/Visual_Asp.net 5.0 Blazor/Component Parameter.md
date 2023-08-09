@@ -1,6 +1,6 @@
 # Component Parameter
 
-#c_sharp/blazor #razor
+tags: #c_sharp/blazor #razor
 
 ## [Parameter]標籤
 

@@ -1,6 +1,6 @@
 # Command List
 
-#git
+tags: #git
 
 From [ITHELP](https://ithelp.ithome.com.tw/articles/10241407)
 

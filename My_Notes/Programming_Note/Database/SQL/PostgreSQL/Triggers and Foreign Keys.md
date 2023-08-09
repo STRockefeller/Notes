@@ -1,6 +1,6 @@
 # Triggers & Foreign Keys
 
-#database/sql/postgresql
+tags: #database/sql/postgresql
 
 References:
 

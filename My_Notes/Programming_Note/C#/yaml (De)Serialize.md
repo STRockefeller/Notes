@@ -1,6 +1,6 @@
 # Yaml Serialize
 
-#c_sharp #yaml #serialize #marshal
+tags: #c_sharp #yaml #serialize #marshal
 
 參考
 

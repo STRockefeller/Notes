@@ -1,6 +1,6 @@
 # Benchmark
 
-#golang #test/benchmark
+tags: #golang #test/benchmark
 
 實際上是go test的延伸，但還是分開來記錄比較合適。
 

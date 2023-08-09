@@ -1,6 +1,6 @@
 # Difference between -> and
 
-#c
+tags: #c
 
 對，我要講的是`->`以及`.`，但是widows文件檔案名稱不能有這類特殊字元...
 

@@ -1,6 +1,6 @@
 # Transact-SQL
 
-#database/sql/mssql
+tags: #database/sql/mssql
 
 Reference:
 

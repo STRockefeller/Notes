@@ -1,6 +1,6 @@
 # CodeWars:Gap in Primes:20220901:TS
 
-#typescript #problem_solve #codewars/5kyu
+tags: #typescript #problem_solve #codewars/5kyu
 
 [Gap in Primes | Codewars](https://www.codewars.com/kata/561e9c843a2ef5a40c0000a4)
 

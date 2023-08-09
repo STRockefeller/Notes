@@ -1,6 +1,6 @@
 # CodeWars:Help your granny:20211116:Go
 
-#problem_solve #codewars/5kyu #golang
+tags: #problem_solve #codewars/5kyu #golang
 
 [Reference](https://www.codewars.com/kata/5536a85b6ed4ee5a78000035/go)
 

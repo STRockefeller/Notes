@@ -1,6 +1,6 @@
 # CodeWars:Decode the Morse code, advanced:202008XX:C\#
 
-#problem_solve #codewars/4kyu #c_sharp
+tags: #problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/decode-the-morse-code-advanced)
 

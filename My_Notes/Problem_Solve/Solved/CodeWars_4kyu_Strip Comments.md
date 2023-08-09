@@ -1,6 +1,6 @@
 # CodeWars:Strip Comments:20200918:C\#
 
-#problem_solve #codewars/4kyu #c_sharp
+tags: #problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/51c8e37cee245da6b40000bd/csharp)
 

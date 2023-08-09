@@ -1,6 +1,6 @@
 # CodeWars:Make a spiral:20230117:golang
 
-#problem_solve #codewars/3kyu  #golang
+tags: #problem_solve #codewars/3kyu  #golang
 
 [Reference](https://www.codewars.com/kata/534e01fbbb17187c7e0000c6/go)
 

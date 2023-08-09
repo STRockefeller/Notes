@@ -1,6 +1,6 @@
 # Markdown Cheatsheet
 
-#markdown
+tags: #markdown
 
 Clone From <https://github.com/tchapi/markdown-cheatsheet>
 

@@ -1,7 +1,7 @@
 
 # Introduction to Docker
 
-#docker
+tags: #docker
 
 Docker is a containerization technology that allows developers to create, deploy, and run applications in a portable, isolated environment called a container. This technology has gained popularity in recent years due to its ability to simplify the development process and increase the efficiency of deploying applications.
 

@@ -1,6 +1,6 @@
 # Linked list
 
-#cpp #data_structure #linked_list
+tags: #cpp #data_structure #linked_list
 
 [reference](http://alrightchiu.github.io/SecondRound/linked-list-introjian-jie.html)
 

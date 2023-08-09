@@ -1,5 +1,5 @@
 # Command Line Flags
-#c_sharp #console
+tags: #c_sharp #console
 
 先排除argv的寫法~~，你以為再寫C language嗎~~，這篇筆記主要紀錄使用套件的寫法。
 

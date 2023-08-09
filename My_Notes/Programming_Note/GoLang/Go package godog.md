@@ -1,6 +1,6 @@
 # godog
 
-#golang #test/unit_test #given_when_then_pattern #bdd #cucumber #gherkin
+tags: #golang #test/unit_test #given_when_then_pattern #bdd #cucumber #gherkin
 
 ## References
 

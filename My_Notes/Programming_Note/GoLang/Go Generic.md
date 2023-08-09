@@ -1,6 +1,6 @@
 # Generic
 
-#golang #generic
+tags: #golang #generic
 
 ## Abstract
 

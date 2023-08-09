@@ -1,6 +1,6 @@
 # CodeWars:Is the King in check ?:20230321:GO
 
-#problem_solve #codewars/5kyu #golang
+tags: #problem_solve #codewars/5kyu #golang
 
 [Reference](https://www.codewars.com/kata/5e28ae347036fa001a504bbe)
 

@@ -1,6 +1,6 @@
 # PostgreSQL Basic
 
-#database/sql/postgresql
+tags: #database/sql/postgresql
 
 ## Review with Questions
 

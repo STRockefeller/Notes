@@ -1,6 +1,6 @@
 # Gorm
 
-#golang #orm #database/sql
+tags: #golang #orm #database/sql
 
 Reference:
 

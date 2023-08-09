@@ -1,6 +1,6 @@
 # Option Page and `chrome.storage`
 
-#chrome_extension
+tags: #chrome_extension
 
 參考
 

@@ -1,6 +1,6 @@
 # Pre-Commit
 
-#git #hooks #c_sharp #bash #yaml
+tags: #git #hooks #c_sharp #bash #yaml
 
 references:
 
@@ -325,7 +325,7 @@ go vet: Pass
 
 ```C#
 #!/usr/bin/env dotnet-script
-#r "nuget: YamlDotNet, 11.2.1"
+tags: #r "nuget: YamlDotNet, 11.2.1"
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

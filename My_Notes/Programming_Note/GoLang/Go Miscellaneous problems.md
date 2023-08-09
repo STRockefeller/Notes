@@ -1,6 +1,6 @@
 # Miscellaneous problems
 
-#golang #pointer
+tags: #golang #pointer
 
 ## Debug 路徑問題
 

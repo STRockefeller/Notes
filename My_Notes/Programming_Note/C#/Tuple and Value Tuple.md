@@ -1,6 +1,6 @@
 # Tuple & Value Tuple
 
-#c_sharp #data_structure/tuple
+tags: #c_sharp #data_structure/tuple
 
 [MSDN:Tuple](https://docs.microsoft.com/zh-tw/dotnet/api/system.tuple?view=net-5.0)
 

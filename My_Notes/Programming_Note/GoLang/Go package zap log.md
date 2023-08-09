@@ -1,6 +1,6 @@
 # Zap
 
-#golang #log
+tags: #golang #log
 
 [zap package - go.uber.org/zap - Go Packages](https://pkg.go.dev/go.uber.org/zap)
 

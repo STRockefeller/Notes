@@ -1,6 +1,6 @@
 # CodeWars:The Supermarket Queue:20200914:C\#
 
-#problem_solve #codewars/6kyu #c_sharp
+tags: #problem_solve #codewars/6kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/57b06f90e298a7b53d000a86)
 

@@ -1,6 +1,6 @@
 # Go Language Basic
 
-#golang
+tags: #golang
 
 Reference:
 

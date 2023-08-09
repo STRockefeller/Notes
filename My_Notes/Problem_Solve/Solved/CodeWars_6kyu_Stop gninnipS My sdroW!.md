@@ -1,6 +1,6 @@
 # CodeWars:Stop gninnipS My sdroW!:20200914:C\#
 
-#problem_solve #codewars/6kyu #c_sharp
+tags: #problem_solve #codewars/6kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/5264d2b162488dc400000001/csharp)
 

@@ -1,6 +1,6 @@
 # Hash Table and Hash set
 
-#c_sharp #hash_set #data_structure/hash_table
+tags: #c_sharp #hash_set #data_structure/hash_table
 
 [Reference:MSDN:HashSet](https://docs.microsoft.com/zh-tw/dotnet/api/system.collections.generic.hashset-1?view=netcore-3.1)
 

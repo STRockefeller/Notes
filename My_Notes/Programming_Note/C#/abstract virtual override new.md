@@ -1,6 +1,6 @@
 # abstract vs virtual
 
-#c_sharp
+tags: #c_sharp
 
 總是搞混的內容，每次查完都覺得很簡單，下次再用到又不確定這樣對不對，還是認命做一次筆記吧
 

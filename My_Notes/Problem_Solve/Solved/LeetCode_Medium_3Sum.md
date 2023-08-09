@@ -1,6 +1,6 @@
 # LeetCode:15:20220422:TypeScript
 
-#problem_solve #leetcode/medium #typescript #algorithms #two_pointers
+tags: #problem_solve #leetcode/medium #typescript #algorithms #two_pointers
 
 [Reference](https://leetcode.com/problems/3sum/)
 

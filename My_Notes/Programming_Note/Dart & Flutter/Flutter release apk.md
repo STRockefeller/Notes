@@ -1,6 +1,6 @@
 # Flutter APK Release
 
-#dart/flutter #release #build
+tags: #dart/flutter #release #build
 
 [Reference](https://www.codegrepper.com/code-examples/whatever/build+apk+in+flutter+in+visual+code)
 

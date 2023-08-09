@@ -1,6 +1,6 @@
 # Codewars:Ease the StockBroker:20210830:Go
 
-#problem_solve #codewars/6kyu #golang
+tags: #problem_solve #codewars/6kyu #golang
 
 [Reference](https://www.codewars.com/kata/54de3257f565801d96001200)
 

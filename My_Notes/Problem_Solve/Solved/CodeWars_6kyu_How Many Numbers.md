@@ -1,6 +1,6 @@
 # CodeWars:How Many Numbers?:20200929:C\#
 
-#problem_solve #codewars/6kyu #c_sharp
+tags: #problem_solve #codewars/6kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/55d8aa568dec9fb9e200004a)
 

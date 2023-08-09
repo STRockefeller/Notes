@@ -1,6 +1,6 @@
 # Git Remote
 
-#git #github
+tags: #git #github
 
 ## github
 

@@ -1,6 +1,6 @@
 # LinQ to Sqlite
 
-#c_sharp/linq #orm #database/sql
+tags: #c_sharp/linq #orm #database/sql
 
 [TOC]
 

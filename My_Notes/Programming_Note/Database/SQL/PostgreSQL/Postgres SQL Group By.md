@@ -1,5 +1,5 @@
 
-#database/sql/postgresql
+tags: #database/sql/postgresql
 
 簡單介紹一下我遇到的狀況，假設我有table A，裡面包含三個columns 分別是 a,b,c 其中 a 是 pk。
 我想找出裡面b欄位重複的資料，於是我組出了如下sql

@@ -1,6 +1,6 @@
 # CodeWars:Next bigger number with the same digits:20200924:C\#
 
-#problem_solve #codewars/4kyu #c_sharp
+tags: #problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/55983863da40caa2c900004e)
 

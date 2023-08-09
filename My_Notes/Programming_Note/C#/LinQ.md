@@ -1,6 +1,6 @@
 # LINQ
 
-#c_sharp/linq 
+tags: #c_sharp/linq 
 
 [TOC]
 

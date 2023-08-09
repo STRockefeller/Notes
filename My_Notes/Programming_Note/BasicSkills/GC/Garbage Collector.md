@@ -1,6 +1,6 @@
 # Garbaga Collector
 
-#c #cpp #garbage_collect
+tags: #c #cpp #garbage_collect
 
 References:
 

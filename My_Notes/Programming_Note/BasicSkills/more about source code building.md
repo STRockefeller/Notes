@@ -1,6 +1,6 @@
 # More about source code building
 
-#c #golang #preprocess #compile #link #build #gcc
+tags: #c #golang #preprocess #compile #link #build #gcc
 
 references:
 

@@ -1,6 +1,6 @@
 # Mega-linter
 
-#cross_language #lint #hooks #docker
+tags: #cross_language #lint #hooks #docker
 
 https://github.com/nvuillam/mega-linter
 

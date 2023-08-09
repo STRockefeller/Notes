@@ -1,6 +1,6 @@
 # LinQ
 
-#golang #c_sharp/linq
+tags: #golang #c_sharp/linq
 
 ## ahmetb go-linq
 

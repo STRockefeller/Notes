@@ -1,6 +1,6 @@
 # golangci-lint
 
-#golang #lint
+tags: #golang #lint
 
 <https://betterprogramming.pub/how-to-improve-code-quality-with-an-automatic-check-in-go-d18a5eb85f09>
 

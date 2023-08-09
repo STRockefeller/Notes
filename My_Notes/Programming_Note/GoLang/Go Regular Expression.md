@@ -1,6 +1,6 @@
 # Regular Expression
 
-#golang #regexp
+tags: #golang #regexp
 
 [Reference:pkg.go.dev](https://pkg.go.dev/regexp)
 

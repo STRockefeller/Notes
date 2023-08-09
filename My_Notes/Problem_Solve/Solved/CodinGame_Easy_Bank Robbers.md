@@ -1,7 +1,7 @@
 
 # CodinGame:BANK ROBBERS:20220106:Go
 
-#problem_solve #codingame/easy #golang
+tags: #problem_solve #codingame/easy #golang
 
 [Reference](https://www.codingame.com/training/easy/bank-robbers)
 

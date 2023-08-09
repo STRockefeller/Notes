@@ -1,6 +1,6 @@
 # CodinGam:War:20220127:Go
 
-#problem_solve #codingame/medium #golang
+tags: #problem_solve #codingame/medium #golang
 
 ## Question
 

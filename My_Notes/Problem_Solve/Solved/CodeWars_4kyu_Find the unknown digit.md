@@ -1,6 +1,6 @@
 # CodeWars:Find the unknown digit:20201006:C\#
 
-#problem_solve #codewars/4kyu #c_sharp
+tags: #problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/546d15cebed2e10334000ed9)
 

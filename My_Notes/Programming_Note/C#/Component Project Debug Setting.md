@@ -1,6 +1,6 @@
 # 類別庫DEBUG設定
 
-#c_sharp #debug 
+tags: #c_sharp #debug 
 
 單純的情況不討論，這邊紀錄`匯出的dll須由其他的執行檔執行同時進行DEBUG的情況`。
 

@@ -1,6 +1,6 @@
 # CodeWars:Bit Counting:20200916:C\#
 
-#problem_solve #codewars/6kyu #c_sharp/linq
+tags: #problem_solve #codewars/6kyu #c_sharp/linq
 
 [Reference](https://www.codewars.com/kata/526571aae218b8ee490006f4/csharp)
 

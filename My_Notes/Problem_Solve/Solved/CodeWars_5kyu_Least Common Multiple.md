@@ -1,6 +1,6 @@
 # CodeWars:Least Common Multiple:20201005:C\#
 
-#problem_solve #codewars/5kyu #c_sharp
+tags: #problem_solve #codewars/5kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/5259acb16021e9d8a60010af/train/csharp)
 

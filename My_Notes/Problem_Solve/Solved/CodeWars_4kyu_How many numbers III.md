@@ -1,6 +1,6 @@
 # CodeWars:How many numbers III?:20200930:C\#
 
-#problem_solve #codewars/4kyu #c_sharp
+tags: #problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/5877e7d568909e5ff90017e6)
 

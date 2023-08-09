@@ -1,6 +1,6 @@
 # Call Back Function
 
-#dart #delegate
+tags: #dart #delegate
 
 [Reference:CodingHive](https://medium.com/@codinghive.dev/how-to-implement-call-back-function-in-dart-66bdf8c8ca3c)
 

@@ -1,6 +1,6 @@
 # Python Basic
 
-#python
+tags: #python
 
 ## Abstract
 

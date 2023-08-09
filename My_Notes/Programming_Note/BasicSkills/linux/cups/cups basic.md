@@ -1,6 +1,6 @@
 # Cups Basic
 
-#linux
+tags: #linux
 
 
 https://linuxhint.com/cups_print_server_ubuntu/

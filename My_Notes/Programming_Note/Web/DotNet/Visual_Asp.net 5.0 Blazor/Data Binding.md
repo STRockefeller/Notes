@@ -1,6 +1,6 @@
 # Data Binding
 
-#c_sharp/blazor #data_binding
+tags: #c_sharp/blazor #data_binding
 
 [Reference:MSDN](https://docs.microsoft.com/zh-tw/aspnet/core/blazor/components/data-binding?view=aspnetcore-5.0)
 

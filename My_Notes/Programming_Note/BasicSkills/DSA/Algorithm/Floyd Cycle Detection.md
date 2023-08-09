@@ -1,6 +1,6 @@
 # Floyd Cycle Detection
 
-#algorithms #two_pointers #cycle_detection
+tags: #algorithms #two_pointers #cycle_detection
 
 ## References
 

@@ -1,6 +1,6 @@
 # Go Doc
 
-#golang #documents
+tags: #golang #documents
 
 Reference:
 

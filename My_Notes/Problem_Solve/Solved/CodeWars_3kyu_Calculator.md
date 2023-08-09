@@ -1,6 +1,6 @@
 # CodeWars:Calculator:20201028:C\#
 
-#problem_solve #codewars/3kyu #c_sharp
+tags: #problem_solve #codewars/3kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/5235c913397cbf2508000048)
 

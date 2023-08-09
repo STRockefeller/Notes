@@ -1,6 +1,6 @@
 # Go Test
 
-#golang #test/unit_test #test/coverage #static_check #lint
+tags: #golang #test/unit_test #test/coverage #static_check #lint
 
 ## 專案檢查流程
 

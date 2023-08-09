@@ -1,6 +1,6 @@
 # Using Javascript in Blazor
 
-#c_sharp/blazor #javascript
+tags: #c_sharp/blazor #javascript
 
 Framework: Blazor
 Other Tags: Web Assembly, razor

@@ -1,6 +1,6 @@
 # CodeWars:Twice linear:20210909:Go
 
-#problem_solve #codewars/4kyu #golang
+tags: #problem_solve #codewars/4kyu #golang
 
 [Reference](https://www.codewars.com/kata/5672682212c8ecf83e000050)
 

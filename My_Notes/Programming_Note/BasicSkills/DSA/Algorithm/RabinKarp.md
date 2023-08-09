@@ -1,4 +1,4 @@
-#string_searching_algorithms #algorithms #hash #rehash
+tags: #string_searching_algorithms #algorithms #hash #rehash
 
 references:
 - [mark-lin](https://mark-lin.com/posts/20200625/)

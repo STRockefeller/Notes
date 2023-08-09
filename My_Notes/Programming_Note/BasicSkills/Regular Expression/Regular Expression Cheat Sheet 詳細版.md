@@ -1,6 +1,6 @@
 # Regular expression syntax cheatsheet
 
-#regexp
+tags: #regexp
 
 節錄自<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet>
 

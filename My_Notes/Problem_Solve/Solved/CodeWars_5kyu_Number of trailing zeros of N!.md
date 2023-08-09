@@ -1,6 +1,6 @@
 # CodeWars:Number of trailing zeros of N!:20200922:C\#
 
-#problem_solve #codewars/5kyu #c_sharp
+tags: #problem_solve #codewars/5kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/52f787eb172a8b4ae1000a34/csharp)
 

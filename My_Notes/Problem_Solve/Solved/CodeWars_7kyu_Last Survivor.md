@@ -1,6 +1,6 @@
 # CodeWars:Last Survivor:20210621:PowerShell
 
-#problem_solve #codewars/7kyu #powershell
+tags: #problem_solve #codewars/7kyu #powershell
 
 [Reference](https://www.codewars.com/kata/609eee71109f860006c377d1/solutions/powershell)
 

@@ -1,6 +1,6 @@
 # CodeWars:URL shortener:20230214:Dart
 
-#problem_solve #dart #codewars/5kyu
+tags: #problem_solve #dart #codewars/5kyu
 
 [Reference](https://www.codewars.com/kata/5fee4559135609002c1a1841/dart)
 

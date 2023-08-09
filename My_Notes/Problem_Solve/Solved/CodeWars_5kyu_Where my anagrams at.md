@@ -1,6 +1,6 @@
 # CodeWars:Where my anagrams at?:20200916:C\#
 
-#problem_solve #codewars/5kyu #c_sharp
+tags: #problem_solve #codewars/5kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/523a86aa4230ebb5420001e1/csharp)
 

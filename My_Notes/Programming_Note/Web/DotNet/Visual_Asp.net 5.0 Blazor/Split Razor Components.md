@@ -1,6 +1,6 @@
 # Razor 拆分
 
-#c_sharp/blazor #razor
+tags: #c_sharp/blazor #razor
 
 才發現Razor 元件是可以拆開來的，我比較喜歡這種拆開來的寫法以後應該會以這種寫法為主。
 

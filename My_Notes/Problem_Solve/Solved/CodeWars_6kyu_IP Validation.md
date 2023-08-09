@@ -1,6 +1,6 @@
 # CodeWars:IP Validation:20210831:Go
 
-#problem_solve #codewars/6kyu #golang #regexp
+tags: #problem_solve #codewars/6kyu #golang #regexp
 
 [Reference](https://www.codewars.com/kata/515decfd9dcfc23bb6000006)
 

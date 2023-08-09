@@ -1,6 +1,6 @@
 # Validator
 
-#golang
+tags: #golang
 
 [official doc](https://pkg.go.dev/github.com/go-playground/validator)
 

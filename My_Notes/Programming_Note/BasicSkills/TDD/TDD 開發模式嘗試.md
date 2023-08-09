@@ -1,6 +1,6 @@
 # TDD開發模式嘗試
 
-#tdd #development_process #extreme_programming #agile_development
+tags: #tdd #development_process #extreme_programming #agile_development
 
 [Reference:Alpha Camp](https://tw.alphacamp.co/blog/tdd-test-driven-development-example)
 

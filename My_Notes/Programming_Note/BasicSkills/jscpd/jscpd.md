@@ -1,6 +1,6 @@
 # JSCPD
 
-#refactor
+tags: #refactor
 
 [doc](https://www.npmjs.com/package/jscpd?activeTab=readme)
 

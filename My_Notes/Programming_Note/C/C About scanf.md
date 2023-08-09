@@ -1,6 +1,6 @@
 # About `scanf()`
 
-#c 
+tags: #c 
 
 [Reference: 紅燒小站](https://sites.google.com/site/9braised/fan-si/c1)
 

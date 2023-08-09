@@ -1,6 +1,6 @@
 # Creating Docker Images
 
-#docker
+tags: #docker
 
 Docker is a containerization platform that enables developers to package their applications into containers. A Docker container is a lightweight, standalone, and executable package that includes everything needed to run an application, such as code, dependencies, and system libraries. In this guide, we will walk you through the process of creating Docker images.
 

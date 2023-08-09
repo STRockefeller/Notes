@@ -1,6 +1,6 @@
 # SQLite Note
 
-#database/sql/sqlite
+tags: #database/sql/sqlite
 
 [Reference](https://www.sqlitetutorial.net/)
 

@@ -1,6 +1,6 @@
 # CodeWars:Going to the cinema:20210209:dart
 
-#problem_solve #codewars/7kyu #dart
+tags: #problem_solve #codewars/7kyu #dart
 
 [Reference](https://www.codewars.com/kata/562f91ff6a8b77dfe900006e)
 

@@ -1,6 +1,6 @@
 # CodeWars:Valid Parentheses:20200918:C\#
 
-#problem_solve #codewars/5kyu #c_sharp
+tags: #problem_solve #codewars/5kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/52774a314c2333f0a7000688/csharp)
 

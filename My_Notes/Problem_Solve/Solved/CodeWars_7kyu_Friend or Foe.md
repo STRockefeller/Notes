@@ -1,6 +1,6 @@
 # CodeWars:Friend or Foe?:20201117:Python
 
-#problem_solve #codewars/7kyu #python
+tags: #problem_solve #codewars/7kyu #python
 
 [Reference](https://www.codewars.com/kata/55b42574ff091733d900002f)
 

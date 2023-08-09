@@ -1,6 +1,6 @@
 # Probability of Draws
 
-#math #latex
+tags: #math #latex
 
 ## Abstract
 

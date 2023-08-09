@@ -1,6 +1,6 @@
 # Running and managing Docker containers
 
-#docker
+tags: #docker
 
 Docker ([[Introduction to Docker]]) is an open-source containerization platform that enables developers to package and run applications in isolated environments called containers. Containers provide a lightweight and portable way to deploy applications, and they can run on any platform that supports Docker.
 

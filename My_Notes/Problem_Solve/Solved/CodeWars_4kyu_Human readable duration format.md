@@ -1,6 +1,6 @@
 # CodeWars:Human readable duration format:202008:C\#
 
-#problem_solve #codewars/4kyu #c_sharp
+tags: #problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/52742f58faf5485cae000b9a)
 

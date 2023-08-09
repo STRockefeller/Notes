@@ -1,6 +1,6 @@
 # CodeWars:Sum of Two Integers:20201120:C
 
-#problem_solve #codewars/6kyu #c
+tags: #problem_solve #codewars/6kyu #c
 
 [Reference](https://www.codewars.com/kata/5a9c35e9ba1bb5c54a0001ac/c)
 

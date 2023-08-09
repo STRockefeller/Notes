@@ -1,6 +1,6 @@
 # Chrome Extension
 
-#chrome_extension #dart/flutter #content_security_policy #c_sharp/blazor
+tags: #chrome_extension #dart/flutter #content_security_policy #c_sharp/blazor
 
 Reference
 

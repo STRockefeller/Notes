@@ -1,6 +1,6 @@
 # Go Cheat Sheet
 
-#golang
+tags: #golang
 
 From: <https://github.com/a8m/golang-cheat-sheet#channels>
 

@@ -1,6 +1,6 @@
 # Single Responsibility Principle
 
-#solid_principles #programming_principles
+tags: #solid_principles #programming_principles
 
 The Single Responsibility Principle is a software design principle that states that a software module or class should **have only one reason to change**.
 

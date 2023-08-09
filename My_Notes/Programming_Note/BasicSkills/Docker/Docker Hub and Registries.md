@@ -1,6 +1,6 @@
 # Docker Hub and Registries
 
-#docker
+tags: #docker
 
 ## Introduction
 

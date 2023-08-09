@@ -1,6 +1,6 @@
 # Builder Pattern
 
-#design_pattern #builder_pattern #refactor
+tags: #design_pattern #builder_pattern #refactor
 
 ## References
 

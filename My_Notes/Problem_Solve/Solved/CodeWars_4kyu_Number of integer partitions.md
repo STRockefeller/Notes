@@ -1,6 +1,6 @@
 # CodeWars:Number of integer partitions:20210909:Go
 
-#problem_solve #codewars/4kyu #golang
+tags: #problem_solve #codewars/4kyu #golang
 
 [Reference](https://www.codewars.com/kata/546d5028ddbcbd4b8d001254)
 

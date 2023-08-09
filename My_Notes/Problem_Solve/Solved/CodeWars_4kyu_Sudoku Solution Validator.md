@@ -1,6 +1,6 @@
 # CodeWars:Sudoku Solution Validator:20211123:Go
 
-#problem_solve #codewars/4kyu #golang
+tags: #problem_solve #codewars/4kyu #golang
 
 [Reference](https://www.codewars.com/kata/529bf0e9bdf7657179000008/go)
 

@@ -1,6 +1,6 @@
 # Knapsack Problem
 
-#knapsack_problem #algorithms #dynamic_programming #greedy_algorithm
+tags: #knapsack_problem #algorithms #dynamic_programming #greedy_algorithm
 
 ## References
 

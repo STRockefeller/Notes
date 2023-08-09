@@ -1,6 +1,6 @@
 # CodeWars:Maximum subarray sum:20200917:C\#
 
-#problem_solve #codewars/5kyu #c_sharp
+tags: #problem_solve #codewars/5kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/54521e9ec8e60bc4de000d6c)
 

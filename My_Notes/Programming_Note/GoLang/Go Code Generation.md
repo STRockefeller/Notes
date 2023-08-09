@@ -1,6 +1,6 @@
 # Code generation
 
-#golang #code_generation
+tags: #golang #code_generation
 
 目前有兩個主要的做法，一個是使用template，另一個是使用jennifer套件
 

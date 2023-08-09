@@ -1,6 +1,6 @@
 # CodeWars:Pick peaks:20220429:CPP
 
-#problem_solve #codewars/5kyu #cpp
+tags: #problem_solve #codewars/5kyu #cpp
 
 [Reference](https://www.codewars.com/kata/5279f6fe5ab7f447890006a7)
 

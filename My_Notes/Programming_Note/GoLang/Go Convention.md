@@ -1,6 +1,6 @@
 # 社群習慣及開發慣例
 
-#golang
+tags: #golang
 
 ## Abstract
 

@@ -1,6 +1,6 @@
 # Git Basic
 
-#git #bash
+tags: #git #bash
 
 [Reference](https://progressbar.tw/posts/1)
 

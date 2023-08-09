@@ -1,6 +1,6 @@
 # Codingame:Unary:20211229:Typescript
 
-#problem_solve #codingame/easy #typescript
+tags: #problem_solve #codingame/easy #typescript
 
 [Reference](https://www.codingame.com/ide/puzzle/chuck-norris)
 

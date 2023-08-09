@@ -1,6 +1,6 @@
 # Format Printing and Scanning
 
-#golang #format
+tags: #golang #format
 
 [Reference](https://pkg.go.dev/fmt)
 

@@ -1,6 +1,6 @@
 #
 
-#golang
+tags: #golang
 
 Reference:
 

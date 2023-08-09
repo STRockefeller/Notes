@@ -1,6 +1,6 @@
 # CodeWars:Greedy thief:20230222:js
 
-#problem_solve #codewars/4kyu #javascript #knapsack_problem #dynamic_programming #greedy_algorithm
+tags: #problem_solve #codewars/4kyu #javascript #knapsack_problem #dynamic_programming #greedy_algorithm
 
 [Reference](https://www.codewars.com/kata/58296c407da141e2c7000271)
 

@@ -1,6 +1,6 @@
 # Composition
 
-#golang #composition
+tags: #golang #composition
 
 Reference:
 

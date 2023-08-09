@@ -1,6 +1,6 @@
 # Protocol Buffers
 
-#proto #golang #c_sharp #dart #typescript #code_generation
+tags: #proto #golang #c_sharp #dart #typescript #code_generation
 
 https://developers.google.com/protocol-buffers/
 

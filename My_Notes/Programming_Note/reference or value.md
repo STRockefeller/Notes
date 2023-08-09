@@ -1,6 +1,6 @@
 # Reference or Value
 
-#golang #c_sharp #c #cpp #dart #typescript
+tags: #golang #c_sharp #c #cpp #dart #typescript
 
 參考型別?值型別?
 

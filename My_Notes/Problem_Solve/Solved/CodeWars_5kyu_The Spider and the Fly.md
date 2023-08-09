@@ -1,6 +1,6 @@
 # CodeWars:The Spider and the Fly:20210226:C\#
 
-#problem_solve #codewars/5kyu #c_sharp
+tags: #problem_solve #codewars/5kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/59cb7e01d751df471e0000a8/csharp)
 

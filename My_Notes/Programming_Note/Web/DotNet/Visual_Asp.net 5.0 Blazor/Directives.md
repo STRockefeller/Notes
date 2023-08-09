@@ -1,6 +1,6 @@
 # Blazor Directives
 
-#c_sharp/blazor
+tags: #c_sharp/blazor
 
 Reference:[MSDN](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#attributes)
 

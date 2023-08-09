@@ -1,6 +1,6 @@
 # CodeWars:Decode the Morse code Part1/3:202008XX:C\#
 
-#problem_solve #codewars/6kyu #c_sharp
+tags: #problem_solve #codewars/6kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/54b724efac3d5402db00065e)
 

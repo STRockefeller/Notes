@@ -1,6 +1,6 @@
 # Codewars:Is my friend cheating?:20200923:C\#
 
-#problem_solve #codewars/5kyu #c_sharp
+tags: #problem_solve #codewars/5kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/5547cc7dcad755e480000004)
 

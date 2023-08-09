@@ -1,6 +1,6 @@
 # Redis Basic
 
-#database/no_sql/redis
+tags: #database/no_sql/redis
 
 Reference:
 

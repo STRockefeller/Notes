@@ -1,6 +1,6 @@
 # LeetCode:474:20230519:dart
 
-#problem_solve #dynamic_programming #knapsack_problem
+tags: #problem_solve #dynamic_programming #knapsack_problem
 
 [Reference](https://leetcode.com/problems/ones-and-zeroes/)
 

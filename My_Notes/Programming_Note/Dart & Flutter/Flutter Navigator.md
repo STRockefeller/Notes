@@ -1,6 +1,6 @@
 # Navigator
 
-#dart/flutter
+tags: #dart/flutter
 
 這個`Navigator`指的不是常出現在網頁上方或左方的那種Navigator，而是Flutter中的一個`Class`，但是他們功能是相近的，就是把使用者導到正確的頁面。
 

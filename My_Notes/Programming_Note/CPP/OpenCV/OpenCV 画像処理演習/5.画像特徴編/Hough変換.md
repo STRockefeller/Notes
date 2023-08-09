@@ -1,6 +1,6 @@
 # Hough変換
 
-#cpp/openCV
+tags: #cpp/openCV
 
 ## 直線を検出する
 

@@ -1,6 +1,6 @@
 # CodeWars:Next smaller number with the same digits:20200925:C\#
 
-#problem_solve #codewars/4kyu #c_sharp
+tags: #problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/5659c6d896bc135c4c00021e)
 

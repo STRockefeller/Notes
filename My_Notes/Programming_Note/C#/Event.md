@@ -1,6 +1,6 @@
 # Event
 
-#c_sharp #event 
+tags: #c_sharp #event 
 
 [TOC]
 

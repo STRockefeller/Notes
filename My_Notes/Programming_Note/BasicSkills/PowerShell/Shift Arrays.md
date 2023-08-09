@@ -1,6 +1,6 @@
 # Shift Arrays
 
-#powershell
+tags: #powershell
 
 參考[MSDN Blog](https://devblogs.microsoft.com/powershell/powershell-tip-how-to-shift-arrays/)
 

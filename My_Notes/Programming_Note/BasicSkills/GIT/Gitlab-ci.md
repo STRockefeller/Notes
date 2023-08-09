@@ -1,6 +1,6 @@
 # Gitlab-ci
 
-#git #gitlab #cicd #hooks
+tags: #git #gitlab #cicd #hooks
 
 主要想記錄gitlab自動化測試以及gitlab-ci.yaml的撰寫方式
 

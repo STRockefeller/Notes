@@ -1,6 +1,6 @@
 # PowerShell 基礎
 
-#powershell
+tags: #powershell
 
 ## 關於PowerShell
 

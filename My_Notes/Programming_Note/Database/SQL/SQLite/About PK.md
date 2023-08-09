@@ -1,5 +1,5 @@
 
-#database/sql/sqlite 
+tags: #database/sql/sqlite 
 
 About PK (Primary Key) in SQLite, I have summarized the following characteristics:
 

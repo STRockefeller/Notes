@@ -1,6 +1,6 @@
 # Pipeline
 
-#powershell
+tags: #powershell
 
 ## 建立Pipeline
 

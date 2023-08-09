@@ -1,6 +1,6 @@
 # Branch and bound algorithm
 
-#algorithms #branch_and_bound #traveling_salesman_problem
+tags: #algorithms #branch_and_bound #traveling_salesman_problem
 
 ## References
 

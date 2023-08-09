@@ -1,6 +1,6 @@
 # Writing Dockerfiles
 
-#docker
+tags: #docker
 
 Docker is a platform that allows developers to package, distribute, and run applications in a containerized environment. Dockerfiles are the building blocks of Docker images, which contain all the necessary components to run an application. In this document, we will cover the basics of writing Dockerfiles and best practices to follow.
 

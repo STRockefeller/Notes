@@ -1,6 +1,6 @@
 # Type Alias
 
-#golang #type_alias
+tags: #golang #type_alias
 
 ## References
 

@@ -1,6 +1,6 @@
 # CodeWars:Double Cola:20200915:C\#
 
-#problem_solve #codewars/5kyu #c_sharp
+tags: #problem_solve #codewars/5kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/551dd1f424b7a4cdae0001f0)
 

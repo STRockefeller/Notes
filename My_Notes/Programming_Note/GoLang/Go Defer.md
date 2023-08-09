@@ -1,6 +1,6 @@
 # Defer
 
-#golang
+tags: #golang
 
 Reference:
 

@@ -1,6 +1,6 @@
 # CodeWars:CodeWars_Range Extraction:20201027:C\#
 
-#problem_solve #codewars/4kyu #c_sharp
+tags: #problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/51ba717bb08c1cd60f00002f/train/csharp)
 

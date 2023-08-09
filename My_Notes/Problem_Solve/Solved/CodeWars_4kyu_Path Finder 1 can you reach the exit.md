@@ -1,6 +1,6 @@
 # CodeWars:Path Finder #1: can you reach the exit?:20210910:C\#
 
-#problem_solve #codewars/4kyu #c_sharp #shortest_path_faster_algorithm
+tags: #problem_solve #codewars/4kyu #c_sharp #shortest_path_faster_algorithm
 
 [Reference](https://www.codewars.com/kata/5765870e190b1472ec0022a2/csharp)
 

@@ -1,6 +1,6 @@
 # CodeWars:John and Ann sign up for Codewars:20220217:Go
 
-#problem_solve #codewars/5kyu #golang
+tags: #problem_solve #codewars/5kyu #golang
 
 [Reference](https://www.codewars.com/kata/57591ef494aba64d14000526)
 

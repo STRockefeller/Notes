@@ -1,6 +1,6 @@
 # Refactoring
 
-#refactor
+tags: #refactor
 
 參考
 

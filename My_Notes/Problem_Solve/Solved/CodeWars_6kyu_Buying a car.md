@@ -1,6 +1,6 @@
 # CodeWars:Buying a car:20201007:TypeScript
 
-#problem_solve #codewars/6kyu #typescript
+tags: #problem_solve #codewars/6kyu #typescript
 
 [Reference](https://www.codewars.com/kata/554a44516729e4d80b000012)
 

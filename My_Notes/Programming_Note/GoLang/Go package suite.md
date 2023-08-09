@@ -1,6 +1,6 @@
 # suite
 
-#golang #test/unit_test #aaa_pattern
+tags: #golang #test/unit_test #aaa_pattern
 
 ## References
 

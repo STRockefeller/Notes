@@ -1,6 +1,6 @@
 # Basic of Functional Programming
 
-#functional_programming #golang
+tags: #functional_programming #golang
 
 ## References
 

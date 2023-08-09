@@ -1,6 +1,6 @@
 # Github Actions
 
-#git #github #cicd #hooks 
+tags: #git #github #cicd #hooks 
 
 Reference :
 

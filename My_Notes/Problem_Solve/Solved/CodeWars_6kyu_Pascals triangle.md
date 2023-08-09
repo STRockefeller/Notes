@@ -1,6 +1,6 @@
 # CodeWars:Pascal's Triangle:20201124:Python
 
-#problem_solve #codewars/6kyu #python
+tags: #problem_solve #codewars/6kyu #python
 
 [Reference](https://www.codewars.com/kata/5226eb40316b56c8d500030f/python)
 

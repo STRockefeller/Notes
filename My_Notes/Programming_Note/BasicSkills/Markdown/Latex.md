@@ -1,6 +1,6 @@
 # Latex
 
-#markdown #latex
+tags: #markdown #latex
 
 ## Windows Packages
 

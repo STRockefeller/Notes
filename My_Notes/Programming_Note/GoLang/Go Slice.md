@@ -1,6 +1,6 @@
 # Slices in go
 
-#golang
+tags: #golang
 
 Reference:
 [ITHELP](https://ithelp.ithome.com.tw/articles/10237400)

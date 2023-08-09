@@ -1,6 +1,6 @@
 # Smart Pointer
 
-#cpp #pointer #garbage_collect
+tags: #cpp #pointer #garbage_collect
 
 ## References
 

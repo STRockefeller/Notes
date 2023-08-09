@@ -1,6 +1,6 @@
 # Go Concurrency
 
-#golang #concurrency #async
+tags: #golang #concurrency #async
 
 Reference:
 

@@ -1,6 +1,6 @@
 # Environment Variables
 
-#golang #environment_variables
+tags: #golang #environment_variables
 
 沒問題的時候沒問題，一旦出狀況就很麻煩
 

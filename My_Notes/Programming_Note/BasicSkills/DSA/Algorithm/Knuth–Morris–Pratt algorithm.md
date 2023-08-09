@@ -1,6 +1,6 @@
 # Knuth–Morris–Pratt algorithm
 
-#string_searching_algorithms #algorithms
+tags: #string_searching_algorithms #algorithms
 
 [wiki](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
 

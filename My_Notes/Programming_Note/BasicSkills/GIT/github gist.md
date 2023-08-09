@@ -1,6 +1,6 @@
 # Github gist
 
-#git #github
+tags: #git #github
 
 參考
 

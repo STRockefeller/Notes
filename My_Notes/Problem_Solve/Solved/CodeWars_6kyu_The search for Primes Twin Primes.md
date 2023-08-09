@@ -1,6 +1,6 @@
 # CodeWars: The search for Primes! Twin Primes!:20220901:TS
 
-#typescript #problem_solve #codewars/6kyu
+tags: #typescript #problem_solve #codewars/6kyu
 
 [The search for Primes! Twin Primes! | Codewars](https://www.codewars.com/kata/596549c7743cf369b900021b/typescript)
 

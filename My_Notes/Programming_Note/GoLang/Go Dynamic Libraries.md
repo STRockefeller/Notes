@@ -1,6 +1,6 @@
 # Dynamic Libraries
 
-#golang
+tags: #golang
 
 [plugin package - plugin - Go Packages](https://pkg.go.dev/plugin)
 

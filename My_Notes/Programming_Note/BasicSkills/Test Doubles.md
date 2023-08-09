@@ -1,6 +1,6 @@
 # Test Doubles
 
-#test/unit_test #test/test_doubles #test/mock #test/spy #test/dummy #test/stub
+tags: #test/unit_test #test/test_doubles #test/mock #test/spy #test/dummy #test/stub
 
 [references:blog.pragmastists.com](https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da)
 

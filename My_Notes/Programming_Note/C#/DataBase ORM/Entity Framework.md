@@ -1,6 +1,6 @@
 # Entity Framework
 
-#c_sharp #orm #database/sql
+tags: #c_sharp #orm #database/sql
 
 [Reference:淺談 Entity Framework 與 ADO.NET 差異](http://www.kangting.tw/2019/06/entity-framework_23.html)
 

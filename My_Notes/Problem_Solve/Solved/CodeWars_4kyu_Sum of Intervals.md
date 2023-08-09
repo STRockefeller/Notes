@@ -1,6 +1,6 @@
 # CodeWars:Sum of Intervals:20200918:C\#
 
-#problem_solve #codewars/4kyu #c_sharp
+tags: #problem_solve #codewars/4kyu #c_sharp
 
 [Reference](https://www.codewars.com/kata/52b7ed099cdc285c300001cd/csharp)
 

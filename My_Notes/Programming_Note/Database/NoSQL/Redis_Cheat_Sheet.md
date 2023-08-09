@@ -1,6 +1,6 @@
 # Redis Cheat Sheet
 
-#database/no_sql/redis
+tags: #database/no_sql/redis
 
 Copy From <https://simplecheatsheet.com/tag/redis-cheat-sheet/>
 
