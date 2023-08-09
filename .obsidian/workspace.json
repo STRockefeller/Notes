@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Course Schedule.md",
+                "file": "My_Notes/Programming_Note/reference or value.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,14 +25,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
+                "file": "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Peak Index in a Mountain Array.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -61,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "docker",
+                "query": "tag:#binary_search",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -106,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
+                "file": "My_Notes/Programming_Note/reference or value.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
+                "file": "My_Notes/Programming_Note/reference or value.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md"
+                "file": "My_Notes/Programming_Note/reference or value.md"
               }
             }
           },
@@ -176,8 +175,19 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5b6ee2ac54c48e55",
+  "active": "0b1fde69d7ff9f17",
   "lastOpenFiles": [
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Minimize the Maximum Difference of Pairs.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Maximum Running Time of N Computers.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Course Schedule.md",
+    "My_Notes/Problem_Solve/Unsolved/problem_note_template.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Search in Rotated Sorted Array.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Search in Rotated Sorted Array.md",
+    "My_Notes/Problem_Solve/Solved/graph/LeetCode_Medium_Course Schedule/00.dot",
+    "My_Notes/Problem_Solve/Solved/graph/LeetCode_Medium_Course Schedule",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Peak Index in a Mountain Array.md",
+    "My_Notes/Problem_Solve/Solved/graph",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-5.svg",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-5.dot",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-4.svg",
@@ -185,8 +195,6 @@
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-3.svg",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-3.dot",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Sliding Window.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Course Schedule.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-2.svg",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-2.dot",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/s",
@@ -197,8 +205,6 @@
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/nac.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/a.svg",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm.dot",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/RabinKarp.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knuth–Morris–Pratt algorithm.md",
     "My_Notes/Programming_Note/BasicSkills/Docker/Writing Dockerfiles.md",
@@ -210,16 +216,10 @@
     "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Letter Combinations of a Phone Number.md",
     "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Permutations.md",
     "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_.md",
-    "My_Notes/Problem_Solve/Unsolved/problem_note_template.md",
     "My_Notes/Problem_Solve/Solved/CodeWars_6kyu_Smallest Permutation.md",
     "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Permutations.md",
     "My_Notes/Problem_Solve/Solved/CodeWars_5kyu_Josephus Permutation.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Minimum ASCII Delete Sum for Two Strings.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Combinations.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Combinations.md",
-    "My_Notes/Programming_Note/reference or value.md",
     "My_Notes/Problem_Solve/Unsolved/image.png",
-    "My_Notes/Programming_Note/Database/SQL/SQL-cheat-sheet.pdf",
     "Pasted image 20230627112516.png"
   ]
 }
