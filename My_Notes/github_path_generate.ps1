@@ -37,7 +37,7 @@ function searchNote($location,[string]$header)
     {
         $name = $($dir.Name)
         "$header $name"
-        $newLocation = "$location\$name"
+        $newLocation = Join-Path $location $name
         $newHeader = "#$header"
         if($newHeader.Length -gt 6)
         {

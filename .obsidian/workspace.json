@@ -8,24 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "0b1fde69d7ff9f17",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "My_Notes/Programming_Note/reference or value.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "5b6ee2ac54c48e55",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Peak Index in a Mountain Array.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Depth-First Search.md",
                 "mode": "source",
                 "source": false
               }
@@ -105,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Programming_Note/reference or value.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Depth-First Search.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Programming_Note/reference or value.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Depth-First Search.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -145,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Programming_Note/reference or value.md"
+                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Depth-First Search.md"
               }
             }
           },
@@ -175,50 +163,50 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "0b1fde69d7ff9f17",
+  "active": "5b6ee2ac54c48e55",
   "lastOpenFiles": [
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Minimize the Maximum Difference of Pairs.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Maximum Running Time of N Computers.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Course Schedule.md",
-    "My_Notes/Problem_Solve/Unsolved/problem_note_template.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Search in Rotated Sorted Array.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Tarjan's Algorithm.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Add Two Numbers II.md",
+    "My_Notes/Problem_Solve/Solved/CodeWars_4kyu_Sudoku Solution Validator.md",
+    "My_Notes/Problem_Solve/Solved/CodeWars_4kyu_Human readable duration format.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Combinations.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knuth–Morris–Pratt algorithm.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Search in Rotated Sorted Array II.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Number of Longest Increasing Subsequence.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Easy_Happy Number.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Letter Combinations of a Phone Number.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Single Number II.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Predict the Winner.md",
     "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Search in Rotated Sorted Array.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Peak Index in a Mountain Array.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Search in Rotated Sorted Array II.md",
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-5.svg",
+    "My_Notes/convert_dot_to_svg.ps1",
+    "README.md",
+    "My_Notes/Problem_Solve/Unsolved/problem_note_template.md",
+    "My_Notes/Programming_Note/BasicSkills/PowerShell/PowerShell 基礎.md",
+    "My_Notes/Programming_Note/BasicSkills/PowerShell/Pipeline.md",
+    "My_Notes/Programming_Note/BasicSkills/Regular Expression/davechild_regular-expressions.pdf",
+    "My_Notes/Programming_Note/BasicSkills/Regular Expression/Regular Expression Cheat Sheet 詳細版.md",
+    "My_Notes/Programming_Note/reference or value.md",
+    "My_Notes/Programming_Note/Naming Conventions.md",
+    "My_Notes/Programming_Note/BasicSkills/About Cycular Import.md",
+    "My_Notes/Programming_Note/BasicSkills/graceful shutdown.md",
+    "My_Notes/Programming_Note/BasicSkills/License.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Course Schedule.md",
     "My_Notes/Problem_Solve/Solved/graph/LeetCode_Medium_Course Schedule/00.dot",
     "My_Notes/Problem_Solve/Solved/graph/LeetCode_Medium_Course Schedule",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Peak Index in a Mountain Array.md",
     "My_Notes/Problem_Solve/Solved/graph",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-5.svg",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-5.dot",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-4.svg",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-4.dot",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-3.svg",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-3.dot",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Sliding Window.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-2.svg",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-2.dot",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/s",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-1.svg",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-1.dot",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Word Break.md",
-    "My_Notes/Programming_Note/Async.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/nac.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/a.svg",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm.dot",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/RabinKarp.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Knuth–Morris–Pratt algorithm.md",
-    "My_Notes/Programming_Note/BasicSkills/Docker/Writing Dockerfiles.md",
-    "My_Notes/Programming_Note/BasicSkills/Docker/Introduction to Docker.md",
-    "My_Notes/Programming_Note/BasicSkills/Docker/Running and managing Docker containers.md",
-    "My_Notes/Programming_Note/BasicSkills/Docker/Docker Installation and Setup.md",
-    "My_Notes/Programming_Note/BasicSkills/Docker/Creating Docker Images.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Path with Maximum Probability.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Letter Combinations of a Phone Number.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Permutations.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_.md",
-    "My_Notes/Problem_Solve/Solved/CodeWars_6kyu_Smallest Permutation.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Permutations.md",
-    "My_Notes/Problem_Solve/Solved/CodeWars_5kyu_Josephus Permutation.md",
     "My_Notes/Problem_Solve/Unsolved/image.png",
     "Pasted image 20230627112516.png"
   ]

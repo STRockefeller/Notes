@@ -27,8 +27,8 @@ The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0,
 
 **Constraints:**
 
-- `1 <= nums.length <= 105`
-- `0 <= nums[i] <= 109`
+- `1 <= nums.length <= 10^5`
+- `0 <= nums[i] <= 10^9`
 - `0 <= p <= (nums.length)/2`
 
 ## My Solution
@@ -43,7 +43,7 @@ public class Solution
         // binary search
         int left = 0;
         int right = nums[nums.Length - 1] - nums[0];
-        int res = 0;
+        int res = int.MaxValue;
         while (left <= right)
         {
             int mid = left + (right - left) / 2;
@@ -69,9 +69,9 @@ public class Solution
                 continue;
             for (int j = i + 1; j < nums.Length; j++)
             {
-                if (used[j] || difference(nums[i], nums[j]) > p)
+                if (used[j] || Difference(nums[i], nums[j]) > min)
                     continue;
-                bool[] updatedUsed = used.Clone();
+                bool[] updatedUsed = (bool[])used.Clone();
                 updatedUsed[i] = true;
                 updatedUsed[j] = true;
                 if (ValidateMinMaxValue(nums, updatedUsed, p - 1, min))
@@ -81,11 +81,80 @@ public class Solution
         return false;
     }
 
-    private int difference(int a, b)
+    private int Difference(int a,int b)
     {
         return a > b ? a - b : b - a;
     }
 }
 ```
+
+result: timed out
+
+![image](https://i.imgur.com/QkSMrPH.png)
+
+---
+
+improve the efficiency
+
+- since `nums` has been sorted, the `Difference` function is redundant.
+- do NOT copy `used`
+- add more `break` and `continue` conditions in the loop
+
+```c#
+public class Solution
+{
+    public int MinimizeMax(int[] nums, int p)
+    {
+        Array.Sort(nums);
+
+        // binary search
+        int left = 0;
+        int right = nums[nums.Length - 1] - nums[0];
+        int res = int.MaxValue;
+        while (left <= right)
+        {
+            int mid = left + (right - left) / 2;
+            if (ValidateMinMaxValue(nums, new bool[nums.Length], p, mid))
+            {
+                res = mid;
+                right = mid - 1;
+            }
+            else
+                left = mid + 1;
+        }
+
+        return res;
+    }
+
+    private bool ValidateMinMaxValue(int[] nums, bool[] used, int p, int min)
+    {
+        if (p == 0)
+            return true;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (used[i] || (i > 0 && nums[i] == nums[i - 1]))
+                continue;
+            for (int j = i + 1; j < nums.Length; j++)
+            {
+                if (used[j])
+                    continue;
+                if (nums[j] - nums[i] > min)
+                    break;
+                used[i] = true;
+                used[j] = true;
+                if (ValidateMinMaxValue(nums, used, p - 1, min))
+                    return true;
+                used[i] = false;
+                used[j] = false;
+            }
+        }
+        return false;
+    }
+}
+```
+
+still timed out
+
+---
 
 ## Better Solutions
