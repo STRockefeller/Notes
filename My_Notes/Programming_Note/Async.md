@@ -96,7 +96,7 @@ Cooperation + Routine
 | -------- | --------------- |
 | C# Go(?) | dart javascript |
 
-多執行緒比較沒啥問題。單執行緒+事件迴圈比較不直覺，礙於篇幅，以下提供兩篇文章參考，或者在我的dart筆記裡面也有較詳細的說明。
+多執行緒比較沒啥問題。單執行緒+事件迴圈比較不直覺，礙於篇幅，以下提供兩篇文章參考，或者在[[Dart Async]]裡面也有較詳細的說明。
 
 reference: [js](https://jimmyswebnote.com/javascript-sync-async/) [dart](https://ithelp.ithome.com.tw/articles/10240626)
 
@@ -983,4 +983,4 @@ async function asyncFunction2(): Promise<void> {
 <2> end
 ```
 
-至於詳細原因，請參考js筆記。
+至於詳細原因，請參考[[javascript async]]。

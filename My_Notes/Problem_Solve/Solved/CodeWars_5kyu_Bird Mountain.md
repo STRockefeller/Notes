@@ -229,7 +229,7 @@ public class Dinglemouse
 若還有則執行
 
 ```C#
-PeakHeight(m.Select((a,r) => a.Select((x,c) => 
+PeakHeight(m.Select((a,r) => a.Select((x,c) =>
         (r<1 || c<1 || c==a.Length-1 || r==m.Length-1 || new[]{x, m[r-1][c], m[r+1][c], a[c-1], a[c+1]}.Any(z => z==' ') ? 
         ' ' : x)).ToArray()).ToArray(), h+1);
 ```

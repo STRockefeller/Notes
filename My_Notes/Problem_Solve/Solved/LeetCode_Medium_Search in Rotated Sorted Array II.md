@@ -85,6 +85,8 @@ func search(nums []int, target int) bool {
 }
 ```
 
-Solved
+result:
+
+![image](https://i.imgur.com/dnkmv5A.png)
 
 ## Better Solutions

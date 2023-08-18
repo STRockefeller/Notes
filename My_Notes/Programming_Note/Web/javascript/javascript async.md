@@ -1,6 +1,8 @@
 # Javascript Async
 
-References:
+tags: #javascript #async #typescript
+
+## References:
 
 [mozilla](https://developer.mozilla.org/zh-TW/docs/Learn/JavaScript/Asynchronous/Introducing)
 

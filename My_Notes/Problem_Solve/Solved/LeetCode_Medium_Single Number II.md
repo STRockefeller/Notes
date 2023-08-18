@@ -1,6 +1,6 @@
 # LeetCode:137:20230704:dart
 
-tags: #problem_solve #dart
+tags: #problem_solve #dart #leetcode/medium
 
 [Reference](https://leetcode.com/problems/single-number-ii/description/)
 
