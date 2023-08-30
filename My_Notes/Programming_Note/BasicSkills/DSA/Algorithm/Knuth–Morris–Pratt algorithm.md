@@ -217,7 +217,7 @@ W: ABCDABD
 i: 0123456
 ```
 
-LPS table 只針對字串，以一個array呈現，值代表到該處為止prefix和sufix相符的個數(中文有點差，描述得不是很好，待改善)
+LPS table 只針對字串，以一個array呈現，值代表到該處為止prefix和suffix相符的個數(中文有點差，描述得不是很好，待改善)
 
 先用wiki的範例來寫個LPS table。
 
@@ -412,7 +412,7 @@ index:     0123456789012
 string:    abcabffabcabc
 substring: abcabffabcabc
            ⬆
-LPS:       
+LPS:
 ```
 
 老樣子第一位先填入0

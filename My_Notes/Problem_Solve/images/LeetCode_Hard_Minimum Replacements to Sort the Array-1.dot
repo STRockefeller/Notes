@@ -1,0 +1,11 @@
+digraph G {
+    node [shape=box];
+
+    i1[label = "3"];
+    i2[label = "9"];
+    i3[label = "3"];
+
+    i1 -> i2;
+
+    i3;
+}

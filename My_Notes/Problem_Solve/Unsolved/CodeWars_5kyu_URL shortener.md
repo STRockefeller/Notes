@@ -311,6 +311,6 @@ class UrlShortener {
 
 ```
 
-DIY hash funciton but still timed out.
+DIY hash function but still timed out.
 
 ## Better Solutions

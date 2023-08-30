@@ -13,7 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Maximal Network Rank.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/Lazy functions.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "65490a4db5271c6a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Shortest Path to Get All Keys.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,13 +37,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/graphiz and dot language.md",
+                "file": "My_Notes/Programming_Note/BasicSkills/String Buffer.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -60,7 +73,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "bird",
+                "query": "prime",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -105,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Maximal Network Rank.md",
+                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Shortest Path to Get All Keys.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Maximal Network Rank.md",
+                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Shortest Path to Get All Keys.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -145,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Maximal Network Rank.md"
+                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Shortest Path to Get All Keys.md"
               }
             }
           },
@@ -175,51 +188,53 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "b1e2037787cce07d",
+  "active": "65490a4db5271c6a",
   "lastOpenFiles": [
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Minimum Replacements to Sort the Array.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Hard_Minimum Replacements to Sort the Array.md",
+    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-3.svg",
+    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-3.dot",
+    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-2 copy.dot",
+    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-2.svg",
+    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-1.svg",
+    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-0.svg",
+    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-2.dot",
+    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-1 copy.dot",
+    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-1.dot",
+    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-0 copy.dot",
+    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-0.dot",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Shortest Path to Get All Keys.md",
+    "My_Notes/Problem_Solve/Solved/CodeWars_6kyu_The search for Primes Twin Primes.md",
+    "My_Notes/Problem_Solve/Unsolved/problem_note_template.md",
+    "My_Notes/Problem_Solve/Unsolved/PGrammer_Hard_Binary Tree Maximum Path Sum.md",
+    "My_Notes/Problem_Solve/Unsolved/PGrammer_Hard_.md",
+    "My_Notes/Problem_Solve/Solved/CodeWars_5kyu_Primes in numbers.md",
+    "My_Notes/Problem_Solve/Solved/CodeWars_5kyu_Gap in Primes.md",
+    "My_Notes/Programming_Note/GoLang/Go Concurrency.md",
+    "My_Notes/Programming_Note/GoLang/Go Basic.md",
+    "My_Notes/Programming_Note/C#/Delegate.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Find K Pairs with Smallest Sums.md",
+    "My_Notes/Problem_Solve/Unsolved/CodeWars_4kyu_Count Squares In the Chess Board.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Hard_Text Justification.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Interleaving String.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Interleaving String.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Text Justification.md",
+    "My_Notes/Problem_Solve/Unsolved/image.png",
+    "My_Notes/Programming_Note/BasicSkills/String Buffer.md",
+    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Reorganize String.md",
+    "golang.md",
+    "My_Notes/Programming_Note/Web/typeScript/TypeScript Declare.md",
+    "My_Notes/Programming_Note/BasicSkills/graphiz and dot language.md",
+    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Reorganize String.md",
+    "My_Notes/Programming_Note/Dart & Flutter/Dart Lazy Evaluation.md",
+    "My_Notes/Programming_Note/BasicSkills/Lazy functions.md",
+    "My_Notes/Programming_Note/Dart & Flutter/Dart Lazy Evaluation",
     "My_Notes/Problem_Solve/images/LeetCode_Medium_Maximal Network Rank-0.svg",
     "My_Notes/Problem_Solve/images/LeetCode_Medium_Maximal Network Rank-0.dot",
     "My_Notes/Problem_Solve/images/0.dot",
-    "My_Notes/Problem_Solve/images",
-    "My_Notes/Programming_Note/BasicSkills/graphiz and dot language.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Maximal Network Rank.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart Comparing Objects.md",
-    "My_Notes/Programming_Note/BasicSkills/graphiz and dot language",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_01 Matrix.md",
-    "My_Notes/Programming_Note/BasicSkills/CS50/CS50_l3(2020).md",
-    "My_Notes/Problem_Solve/Unsolved/problem_note_template.md",
-    "My_Notes/Programming_Note/BasicSkills/CS50/CS50_l2(2020).md",
-    "My_Notes/Problem_Solve/Solved/CodeWars_5kyu_Bird Mountain.md",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Breadth-First Search.md",
-    "My_Notes/Programming_Note/GoLang/Go Concurrency.md",
-    "My_Notes/Programming_Note/Web/javascript/javascript async.md",
-    "My_Notes/Programming_Note/Async.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart Async.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Coin Change II.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Shortest Path to Get All Keys.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Sliding Window Maximum.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Hard_Sliding Window Maximum.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Make Array Strictly Increasing.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Hard_Maximum Running Time of N Computers.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Single Number II.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Validate Binary Search Tree.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Search in Rotated Sorted Array II.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Search in Rotated Sorted Array.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Predict the Winner.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Permutations.md",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-5.svg",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-4.svg",
     "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-3.svg",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-2.svg",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-1.svg",
-    "My_Notes/convert_dot_to_svg.ps1",
-    "My_Notes/Programming_Note/BasicSkills/Regular Expression/davechild_regular-expressions.pdf",
-    "My_Notes/Problem_Solve/Solved/graph/LeetCode_Medium_Course Schedule/00.dot",
-    "My_Notes/Problem_Solve/Solved/graph/LeetCode_Medium_Course Schedule",
-    "My_Notes/Problem_Solve/Solved/graph",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-5.dot",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/a.svg",
-    "My_Notes/Problem_Solve/Unsolved/image.png",
-    "Pasted image 20230627112516.png"
+    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-2.svg"
   ]
 }

@@ -1,0 +1,15 @@
+digraph G {
+    node [shape=box];
+
+    i1[label = "3"];
+    i21[label = "3"];
+    i22[label = "3"];
+    i23[label = "3"];
+    i3[label = "3"];
+
+    i1 -> i21;
+
+    i21 -> i22 -> i23 [dir = none];
+
+    i3;
+}
