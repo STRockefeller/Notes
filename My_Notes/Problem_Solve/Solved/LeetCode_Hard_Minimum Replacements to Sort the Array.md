@@ -1,6 +1,6 @@
 # LeetCode:2366:20230830:C\#
 
-tags: #problem_solve
+tags: #problem_solve #leetcode/hard #c_sharp
 
 [Reference](https://leetcode.com/problems/minimum-replacements-to-sort-the-array/)
 

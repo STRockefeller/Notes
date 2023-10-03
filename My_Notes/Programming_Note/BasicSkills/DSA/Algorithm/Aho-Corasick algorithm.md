@@ -1,6 +1,6 @@
 # Aho Corasick algorithm
 
-tags: #string_searching_algorithms #algorithms
+tags: #string_searching_algorithms #algorithms #aho_corasick
 [wiki](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm)
 
 ## Abstract

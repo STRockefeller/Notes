@@ -1,8 +1,6 @@
-# LeetCode:Decoded String at Index:20201221:C#
+# LeetCode:Decoded String at Index:20201221:C #
 
 [Reference](https://leetcode.com/explore/challenge/card/december-leetcoding-challenge/571/week-3-december-15th-december-21st/3572/)
-
-
 
 ## Question
 
@@ -12,8 +10,6 @@ An encoded string `S` is given. To find and write the *decoded* string to a tape
 - If the character read is a digit (say `d`), the entire current tape is repeatedly written `d-1` more times in total.
 
 Now for some encoded string `S`, and an index `K`, find and return the `K`-th letter (1 indexed) in the decoded string.
-
- 
 
 **Example 1:**
 
@@ -42,8 +38,6 @@ Output: "a"
 Explanation: 
 The decoded string is "a" repeated 8301530446056247680 times.  The 1st letter is "a".
 ```
-
- 
 
 **Constraints:**
 
@@ -85,8 +79,6 @@ public class Solution {
 進階測試未通過，超時。
 
 測試條件:**"y959q969u3hb22odq595" 222280369**
-
-
 
 ---
 
@@ -142,8 +134,6 @@ func isDigit(b rune) bool {
 
 ```
 
-
-
 再想想看有沒有其他不用複製的手段
 
 假如題目是
@@ -162,7 +152,6 @@ func isDigit(b rune) bool {
 
 第8位在前半段，所以可以套回第一個公式`"abc"[8%3-1]="abc"[1]="b"`
 
-
 $$
 [[[abc...]def...]ghi...]\\
 1.\space len = 3*3\\
@@ -170,14 +159,47 @@ $$
 3.\space len = (len+3)*3
 $$
 
-
-
-
 好像看懂了什麼，總之試試..
 
+---
 
+20230927 再次挑戰
 
+這次透過stack來完成DECODE，直到超過目標長度時停下，pop至目標為止
 
+```dart
+class Solution {
+  String decodeAtIndex(String s, int k) {
+    List<String> stack = [];
+    final List<int> chars = s.runes.toList();
+    for (int i = 0; i < s.length; i++) {
+      if (RegExp(r'[a-zA-Z]').hasMatch(String.fromCharCode(chars[i]))) {
+        stack.insert(0, s[i]);
+        if (stack.length == k) {
+          return stack.removeAt(0);
+        }
+        continue;
+      }
+      final List<String> temp = List.from(stack);
+      for (int j = 0; j < int.parse(s[i]) - 1; ++j) {
+        stack = List.from(stack)..addAll(temp);
+        if (stack.length >= k) {
+          while (stack.length > k) {
+            stack.removeAt(0);
+          }
+          return stack.removeAt(0);
+        }
+      }
+    }
+    return "";
+  }
+}
+```
+
+結果:
+
+![image](https://i.imgur.com/mbF1rM3.png)
+
+timed out
 
 ## Better Solutions
-

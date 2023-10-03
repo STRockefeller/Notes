@@ -1,6 +1,6 @@
 # CodeWars:Path Finder #2: shortest path:20210911:C\#
 
-tags: #problem_solve #codewars/4kyu #c_sharp #shortest_path_faster_algorithm
+tags: #problem_solve #codewars/4kyu #c_sharp #the_shortest_path_algorithm
 
 [Reference](https://www.codewars.com/kata/57658bfa28ed87ecfa00058a)
 
