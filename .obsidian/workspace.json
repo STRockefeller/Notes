@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/Docker/Running and managing Docker containers.md",
+                "file": "My_Notes/Programming_Note/C#/Task.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "docker",
+                "query": "async",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -143,7 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/Docker/Running and managing Docker containers.md",
+                "file": "My_Notes/Programming_Note/C#/Task.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -160,7 +160,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/Docker/Running and managing Docker containers.md",
+                "file": "My_Notes/Programming_Note/C#/Task.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -183,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/Docker/Running and managing Docker containers.md"
+                "file": "My_Notes/Programming_Note/C#/Task.md"
               }
             }
           },
@@ -227,6 +227,10 @@
   },
   "active": "9a606e50334feece",
   "lastOpenFiles": [
+    "My_Notes/Programming_Note/Dart & Flutter/Dart Async.md",
+    "My_Notes/Programming_Note/Web/javascript/javascript async.md",
+    "My_Notes/Programming_Note/Async.md",
+    "My_Notes/Programming_Note/BasicSkills/Docker/Running and managing Docker containers.md",
     "My_Notes/Programming_Note/BasicSkills/Docker/Introduction to Docker.md",
     "My_Notes/Programming_Note/GoLang/Go Convention.md",
     "My_Notes/Programming_Note/BasicSkills/Docker/Docker Installation and Setup.md",
@@ -252,10 +256,6 @@
     "My_Notes/Problem_Solve/Unsolved/LeetCode_Decoded String at Index.md",
     "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Decoded String at Index.md",
     "My_Notes/Programming_Note/Database/SQL/Tough Cases.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Remove Duplicate Letters.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Remove Duplicate Letters.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Longest String Chain.md",
-    "My_Notes/Problem_Solve/Unsolved/problem_note_template.md",
     "My_Notes/Programming_Note/Dart & Flutter/Dart Factory Constructor.md'",
     "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-3.svg",
     "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-3.dot",
