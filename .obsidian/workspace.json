@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/C#/Task.md",
+                "file": "LeetCode_Medium_Minimum Number of Operations to Make Array Empty.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "async",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -122,8 +122,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -143,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/Programming_Note/C#/Task.md",
+                "file": "LeetCode_Medium_Minimum Number of Operations to Make Array Empty.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -160,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/Programming_Note/C#/Task.md",
+                "file": "LeetCode_Medium_Minimum Number of Operations to Make Array Empty.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -183,7 +182,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/Programming_Note/C#/Task.md"
+                "file": "LeetCode_Medium_Minimum Number of Operations to Make Array Empty.md"
               }
             }
           },
@@ -227,6 +226,16 @@
   },
   "active": "9a606e50334feece",
   "lastOpenFiles": [
+    "Pasted image 20240104102756.png",
+    "LeetCode_Medium_Minimum Number of Operations to Make Array Empty.md",
+    "My_Notes/Programming_Note/CPP/vector.md",
+    "My_Notes/Programming_Note/CPP/Unique Pointer.md",
+    "My_Notes/Programming_Note/CPP/Shared Pointer.md",
+    "My_Notes/Programming_Note/CPP/Smart Pointer.md",
+    "My_Notes/Programming_Note/CPP/Pointer Basic.md",
+    "My_Notes/Programming_Note/CPP/cpp-cheat-sheet.md",
+    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Login/登入驗證機制範例.md",
+    "My_Notes/Programming_Note/C#/Task.md",
     "My_Notes/Programming_Note/Dart & Flutter/Dart Async.md",
     "My_Notes/Programming_Note/Web/javascript/javascript async.md",
     "My_Notes/Programming_Note/Async.md",
@@ -238,24 +247,13 @@
     "My_Notes/Programming_Note/BasicSkills/Docker/Docker Hub and Registries.md",
     "My_Notes/Programming_Note/BasicSkills/Docker/Creating Docker Images.md",
     "My_Notes/Problem_Solve/problem_note_template.md",
-    "LeetCode_Medium_Minimum Number of Operations to Make Array Empty.md",
     "My_Notes/Problem_Solve/Unsolved/LeetCode_Palindrome Partitioning.md",
-    "Pasted image 20240104102756.png",
     "My_Notes/Programming_Note/Naming Conventions.md",
     "My_Notes/Programming_Note/Database/SQL/SQL-cheat-sheet.pdf",
     "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Validate Binary Search Tree.md",
     "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Validate Binary Tree Nodes.md",
     "My_Notes/Problem_Solve/Solved/image.png",
     "My_Notes/Programming_Note/Dart & Flutter/Flutter Basic Widgets.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Easy_Average Time of Process per Machine.md",
-    "My_Notes/Programming_Note/Database/SQL/PostgreSQL/Postgres SQL Group By.md",
-    "My_Notes/Programming_Note/Database/SQL/PostgreSQL/postgreSQL.md",
-    "My_Notes/Programming_Note/Database/SQL/PostgreSQL/Triggers and Foreign Keys.md",
-    "My_Notes/Programming_Note/Database/SQL/PostgreSQL/Query json array.md",
-    "My_Notes/Programming_Note/Database/SQL/SQLite/About PK.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Decoded String at Index.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Medium_Decoded String at Index.md",
-    "My_Notes/Programming_Note/Database/SQL/Tough Cases.md",
     "My_Notes/Programming_Note/Dart & Flutter/Dart Factory Constructor.md'",
     "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-3.svg",
     "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-3.dot",
