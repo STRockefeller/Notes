@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/github_path_generate.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               }
@@ -142,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My_Notes/github_path_generate.md",
+                "file": "README.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -159,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My_Notes/github_path_generate.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -182,7 +182,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My_Notes/github_path_generate.md"
+                "file": "README.md"
               }
             }
           },
@@ -224,8 +224,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "d0ca4190dab819b9",
+  "active": "9a606e50334feece",
   "lastOpenFiles": [
+    "My_Notes/github_path_generate.md",
+    "README.md",
+    "My_Notes/Problem_Solving/Unsolved/LeetCode_Palindrome Partitioning.md",
     "My_Notes/Programming/Natural Language/Vowel alternation in Proto-Indo-European (PIE) roots tutorial.md",
     "My_Notes/Problem_Solving/Solved/LeetCode_Medium_Minimum Number of Operations to Make Array Empty.md",
     "Pasted image 20240104102756.png",
@@ -248,13 +251,10 @@
     "My_Notes/Programming/BasicSkills/Docker/Docker Hub and Registries.md",
     "My_Notes/Programming/BasicSkills/Docker/Creating Docker Images.md",
     "My_Notes/Problem_Solving/problem_note_template.md",
-    "My_Notes/Problem_Solving/Unsolved/LeetCode_Palindrome Partitioning.md",
     "My_Notes/Programming/Naming Conventions.md",
     "My_Notes/Programming/Database/SQL/SQL-cheat-sheet.pdf",
     "My_Notes/Problem_Solving/Solved/LeetCode_Medium_Validate Binary Search Tree.md",
-    "My_Notes/Problem_Solving/Solved/LeetCode_Medium_Validate Binary Tree Nodes.md",
     "My_Notes/Problem_Solve/Solved/image.png",
-    "My_Notes/Programming/Dart & Flutter/Flutter Basic Widgets.md",
     "My_Notes/Programming_Note/Dart & Flutter/Dart Factory Constructor.md'",
     "My_Notes/Problem_Solving/images/LeetCode_Hard_Minimum Replacements to Sort the Array-3.svg",
     "My_Notes/Problem_Solving/images/LeetCode_Hard_Minimum Replacements to Sort the Array-3.dot",
