@@ -1,5 +1,5 @@
 ﻿$createFileName = "github_path_generate.md"
-$linkPath="https://github.com/STRockefeller/MyProgrammingNote/tree/master/My_Notes"
+$linkPath="https://github.com/STRockefeller/Notes/tree/master/My_Notes"
 
 
 function isIgnoreFile($name)
