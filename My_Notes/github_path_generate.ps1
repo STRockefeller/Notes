@@ -1,10 +1,10 @@
 ﻿$createFileName = "github_path_generate.md"
 $linkPath="https://github.com/STRockefeller/Notes/tree/master/My_Notes"
-
+$ignoreFolders = @("Temporary", "Personal", "Financial", "Diary")  # Add the folder names to ignore here
 
 function isIgnoreFile($name)
 {
-    $ignoreFileExtension = ".dll", ".exe", ".layout", ".out", ".doc", ".zip", ".chm", ".sln", ".csproj"
+    $ignoreFileExtension = @(".dll", ".exe", ".layout", ".out", ".doc", ".zip", ".chm", ".sln", ".csproj")
     $res = $false
     foreach($ext in $ignoreFileExtension)
     {
@@ -35,7 +35,12 @@ function searchNote($location,[string]$header)
 
     foreach($dir in $dirs)
     {
-        $name = $($dir.Name)
+        $dirName = $($dir.Name)
+        if ($dirName -in $ignoreFolders) {
+            continue  # Skip the entire directory if it's in the ignore list
+        }
+        
+        $name = $dirName
         "$header $name"
         $newLocation = Join-Path $location $name
         $newHeader = "#$header"
@@ -59,4 +64,4 @@ function startup()
 
 Set-Location $PSScriptRoot
 $localPath = "Microsoft.PowerShell.Core\FileSystem::$pwd"
-startup|Out-File $createFileName
+startup | Out-File $createFileName

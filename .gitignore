@@ -402,5 +402,11 @@ FodyWeavers.xsd
 # obsidian
 .obsidian/
 
-#vscode
+# vscode
 .vscode/
+
+# personal notes
+My_Notes/Temporary/
+My_Notes/Personal/
+My_Notes/Financial/
+My_Notes/Diary/
