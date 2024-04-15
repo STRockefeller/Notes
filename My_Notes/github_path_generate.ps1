@@ -1,6 +1,6 @@
 ﻿$createFileName = "github_path_generate.md"
 $linkPath="https://github.com/STRockefeller/Notes/tree/master/My_Notes"
-$ignoreFolders = @("Temporary", "Personal", "Financial", "Diary")  # Add the folder names to ignore here
+$ignoreFolders = @("Temporary", "Personal", "Financial", "Diary", "Others", "Natural Languages")  # Add the folder names to ignore here
 
 function isIgnoreFile($name)
 {
