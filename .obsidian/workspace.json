@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Problem_Solve/Unsolved/LeetCode_Palindrome Partitioning.md",
+                "file": "My_Notes/Problem_Solving/Unsolved/LeetCode_Palindrome Partitioning.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Problem_Solve/problem_note_template.md",
+                "file": "My_Notes/Problem_Solving/problem_note_template.md",
                 "mode": "source",
                 "source": false
               }
@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Minimum Number of Operations to Make Array Empty.md",
+                "file": "My_Notes/Problem_Solving/Solved/LeetCode_Medium_Minimum Number of Operations to Make Array Empty.md",
                 "mode": "source",
                 "source": false
               }
@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
+                "file": "My_Notes/Programming/BasicSkills/DSA/Algorithm/Aho-Corasick algorithm.md",
                 "mode": "source",
                 "source": false
               }
@@ -224,53 +224,53 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "9a606e50334feece",
+  "active": "d0ca4190dab819b9",
   "lastOpenFiles": [
-    "My_Notes/Programming_Note/Natural Language/Vowel alternation in Proto-Indo-European (PIE) roots tutorial.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Minimum Number of Operations to Make Array Empty.md",
+    "My_Notes/Programming/Natural Language/Vowel alternation in Proto-Indo-European (PIE) roots tutorial.md",
+    "My_Notes/Problem_Solving/Solved/LeetCode_Medium_Minimum Number of Operations to Make Array Empty.md",
     "Pasted image 20240104102756.png",
-    "My_Notes/Programming_Note/CPP/vector.md",
-    "My_Notes/Programming_Note/CPP/Unique Pointer.md",
-    "My_Notes/Programming_Note/CPP/Shared Pointer.md",
-    "My_Notes/Programming_Note/CPP/Smart Pointer.md",
-    "My_Notes/Programming_Note/CPP/Pointer Basic.md",
-    "My_Notes/Programming_Note/CPP/cpp-cheat-sheet.md",
-    "My_Notes/Programming_Note/Web/DotNet/Visual_Asp.net Core Web Project/Login/登入驗證機制範例.md",
-    "My_Notes/Programming_Note/C#/Task.md",
-    "My_Notes/Programming_Note/Dart & Flutter/Dart Async.md",
-    "My_Notes/Programming_Note/Web/javascript/javascript async.md",
-    "My_Notes/Programming_Note/Async.md",
-    "My_Notes/Programming_Note/BasicSkills/Docker/Running and managing Docker containers.md",
-    "My_Notes/Programming_Note/BasicSkills/Docker/Introduction to Docker.md",
-    "My_Notes/Programming_Note/GoLang/Go Convention.md",
-    "My_Notes/Programming_Note/BasicSkills/Docker/Docker Installation and Setup.md",
-    "My_Notes/Programming_Note/BasicSkills/Docker/Docker Images and Containers.md",
-    "My_Notes/Programming_Note/BasicSkills/Docker/Docker Hub and Registries.md",
-    "My_Notes/Programming_Note/BasicSkills/Docker/Creating Docker Images.md",
-    "My_Notes/Problem_Solve/problem_note_template.md",
-    "My_Notes/Problem_Solve/Unsolved/LeetCode_Palindrome Partitioning.md",
-    "My_Notes/Programming_Note/Naming Conventions.md",
-    "My_Notes/Programming_Note/Database/SQL/SQL-cheat-sheet.pdf",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Validate Binary Search Tree.md",
-    "My_Notes/Problem_Solve/Solved/LeetCode_Medium_Validate Binary Tree Nodes.md",
+    "My_Notes/Programming/CPP/vector.md",
+    "My_Notes/Programming/CPP/Unique Pointer.md",
+    "My_Notes/Programming/CPP/Shared Pointer.md",
+    "My_Notes/Programming/CPP/Smart Pointer.md",
+    "My_Notes/Programming/CPP/Pointer Basic.md",
+    "My_Notes/Programming/CPP/cpp-cheat-sheet.md",
+    "My_Notes/Programming/Web/DotNet/Visual_Asp.net Core Web Project/Login/登入驗證機制範例.md",
+    "My_Notes/Programming/C#/Task.md",
+    "My_Notes/Programming/Dart & Flutter/Dart Async.md",
+    "My_Notes/Programming/Web/javascript/javascript async.md",
+    "My_Notes/Programming/Async.md",
+    "My_Notes/Programming/BasicSkills/Docker/Running and managing Docker containers.md",
+    "My_Notes/Programming/BasicSkills/Docker/Introduction to Docker.md",
+    "My_Notes/Programming/GoLang/Go Convention.md",
+    "My_Notes/Programming/BasicSkills/Docker/Docker Installation and Setup.md",
+    "My_Notes/Programming/BasicSkills/Docker/Docker Images and Containers.md",
+    "My_Notes/Programming/BasicSkills/Docker/Docker Hub and Registries.md",
+    "My_Notes/Programming/BasicSkills/Docker/Creating Docker Images.md",
+    "My_Notes/Problem_Solving/problem_note_template.md",
+    "My_Notes/Problem_Solving/Unsolved/LeetCode_Palindrome Partitioning.md",
+    "My_Notes/Programming/Naming Conventions.md",
+    "My_Notes/Programming/Database/SQL/SQL-cheat-sheet.pdf",
+    "My_Notes/Problem_Solving/Solved/LeetCode_Medium_Validate Binary Search Tree.md",
+    "My_Notes/Problem_Solving/Solved/LeetCode_Medium_Validate Binary Tree Nodes.md",
     "My_Notes/Problem_Solve/Solved/image.png",
-    "My_Notes/Programming_Note/Dart & Flutter/Flutter Basic Widgets.md",
+    "My_Notes/Programming/Dart & Flutter/Flutter Basic Widgets.md",
     "My_Notes/Programming_Note/Dart & Flutter/Dart Factory Constructor.md'",
-    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-3.svg",
-    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-3.dot",
+    "My_Notes/Problem_Solving/images/LeetCode_Hard_Minimum Replacements to Sort the Array-3.svg",
+    "My_Notes/Problem_Solving/images/LeetCode_Hard_Minimum Replacements to Sort the Array-3.dot",
     "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-2 copy.dot",
-    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-2.svg",
-    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-1.svg",
-    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-0.svg",
-    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-2.dot",
+    "My_Notes/Problem_Solving/images/LeetCode_Hard_Minimum Replacements to Sort the Array-2.svg",
+    "My_Notes/Problem_Solving/images/LeetCode_Hard_Minimum Replacements to Sort the Array-1.svg",
+    "My_Notes/Problem_Solving/images/LeetCode_Hard_Minimum Replacements to Sort the Array-0.svg",
+    "My_Notes/Problem_Solving/images/LeetCode_Hard_Minimum Replacements to Sort the Array-2.dot",
     "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-1 copy.dot",
-    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-1.dot",
+    "My_Notes/Problem_Solving/images/LeetCode_Hard_Minimum Replacements to Sort the Array-1.dot",
     "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-0 copy.dot",
-    "My_Notes/Problem_Solve/images/LeetCode_Hard_Minimum Replacements to Sort the Array-0.dot",
+    "My_Notes/Problem_Solving/images/LeetCode_Hard_Minimum Replacements to Sort the Array-0.dot",
     "My_Notes/Problem_Solve/Unsolved/image.png",
     "My_Notes/Programming_Note/Dart & Flutter/Dart Lazy Evaluation",
-    "My_Notes/Problem_Solve/images/LeetCode_Medium_Maximal Network Rank-0.svg",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-5.svg",
-    "My_Notes/Programming_Note/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-4.svg"
+    "My_Notes/Problem_Solving/images/LeetCode_Medium_Maximal Network Rank-0.svg",
+    "My_Notes/Programming/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-5.svg",
+    "My_Notes/Programming/BasicSkills/DSA/Algorithm/graph/Aho-Corasick algorithm-4.svg"
   ]
 }
