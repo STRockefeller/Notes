@@ -48,3 +48,7 @@ function bubbleDown(heap, index)
 function findMaxMin(heap)
     return heap[0]
 ```
+
+### Examples
+
+- [Youtube-Data Structures: Heaps](https://www.youtube.com/watch?v=t0Cq6tVNRBA&ab_channel=HackerRank)
