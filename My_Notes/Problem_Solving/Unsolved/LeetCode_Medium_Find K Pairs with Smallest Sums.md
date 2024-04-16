@@ -39,7 +39,7 @@ Return _the_ `k` _pairs_ `(u1, v1), (u2, v2), ..., (uk, vk)` _with the smal
 
 ## My Solution
 
-Use a simplified priority queue to solve it.
+Use a simplified [[Priority Queue (Heap)|priority queue]] to solve it.
 
 ```dart
 class Solution {

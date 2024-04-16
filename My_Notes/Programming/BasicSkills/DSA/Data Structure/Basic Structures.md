@@ -12,8 +12,6 @@ Reference:
 
 ## Array
 
-![](http://web.ntnu.edu.tw/~algo/Data1.png)
-
 一個格子放入一筆資料，資料可以是一個數字、一個字元（所有字元合起來變成字串）、一個物件等等。
 
 搜尋、插入、刪除的時間複雜度都是 O(N) 。資料已排序，則支援二元搜尋。
@@ -125,13 +123,10 @@ Array 和 List 皆可實作。
 
 ### Priority Queue
 
-![](http://web.ntnu.edu.tw/~algo/Data12.png)
-
-資料保持排序，可以隨時得到最小（大）值，稱作 Priority Queue 。資料保持排序，可以隨時得到最小值、最大值，稱作 Double Ended Priority Queue 。
+資料保持排序，可以隨時得到最小（大）值，稱作 [[Priority Queue (Heap)]] 。
+資料保持排序，可以隨時得到最小值以及最大值，稱作 Double Ended Priority Queue 。
 
 ## Stack
-
-![](http://web.ntnu.edu.tw/~algo/Data13.png)
 
 Array 和 List 皆可實作。
 
