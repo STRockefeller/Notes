@@ -2,7 +2,8 @@
 
 tags: #tree #graph #algorithms #DFS #golang
 
-Depth-First Search (DFS) is an algorithm used to traverse or search in a [[Graph]] or [[Tree]] data structure. It explores as far as possible along each branch before backtracking. DFS starts at a specified node and recursively visits its adjacent nodes until it reaches a leaf node, then backtracks to explore the remaining unvisited nodes.
+Depth-First Search (DFS) is an algorithm used to traverse or search in a [[Graph]] or [[Tree]] data structure. 
+DFS starts at a specified node and recursively visits its adjacent nodes until it reaches a leaf node, then backtracks to explore the remaining unvisited nodes.
 
 ## Algorithm
 
@@ -73,8 +74,7 @@ g := Graph{
 g.DFS("A")
 ```
 
-The above code defines a `Graph` struct with an adjacency list representation. The `DFS` method performs the depth-first search starting from the specified node. It uses a stack and a visited map to keep track of the nodes to be visited and the visited nodes, respectively.
 
-## Conclusion
+## Usages
 
-Depth-First Search is a widely used algorithm for exploring or searching in graphs or trees. It traverses as deeply as possible before backtracking, making it useful for tasks such as detecting cycles, generating mazes, and solving puzzles. DFS is a fundamental algorithm in computer science and provides a powerful tool for graph and tree traversal.
+- [[DFS-find the shortest path in binary trees]]
