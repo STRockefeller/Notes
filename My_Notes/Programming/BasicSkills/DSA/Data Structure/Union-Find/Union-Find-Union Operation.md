@@ -13,4 +13,4 @@ function union(x, y):
             parent[rootY] = rootX
             rank[rootX] += 1
 ```
-`rank` keeps track of the depth of trees rooted at each node. Initially, all ranks are zero.
+[[Union-Find-Rank|`rank`]] keeps track of the depth of trees rooted at each node. Initially, all ranks are zero.

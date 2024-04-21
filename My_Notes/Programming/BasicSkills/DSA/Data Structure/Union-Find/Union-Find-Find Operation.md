@@ -7,3 +7,5 @@ function find(x):
     return parent[x]
 ```
 Here, `parent` is an array where `parent[i]` points to the parent of `i`, or to `i` itself if it is a root node.
+
+[[Union-Find-Simplifying Rank in the Find Method]]
