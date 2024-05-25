@@ -32,4 +32,4 @@ tags: #data_structure #trie #tree
 
 ## Implement
 
-實作的部分在LeetCode208的解題筆記中。
+實作的部分在[[LeetCode_Medium_Implement Trie (Prefix Tree)|LeetCode208]]的解題筆記中。

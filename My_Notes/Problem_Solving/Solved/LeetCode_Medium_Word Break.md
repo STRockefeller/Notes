@@ -1,6 +1,6 @@
 # LeetCode:139:20230804:go
 
-tags: #problem_solve
+tags: #problem_solve #leetcode/medium #trie #dynamic_programming 
 
 [Reference](https://leetcode.com/problems/word-break/)
 
@@ -331,4 +331,45 @@ timed out again
 
 ![image](https://i.imgur.com/6i8Yu27.png)
 
+
+---
+
+After a few months... 2024/5/25
+
+New approach:
+- dynamic programming
+- use a bool array to represent if the prefix of `s` could be broken or not
+- if the first j chars in the string can be boken, then we can just validate the rest chars in the string.
+
+```go
+func wordBreak(s string, wordDict []string) bool {
+    if s == ""{
+        return true
+    }
+
+    // dp[i] means that s[:i] can be broken or not
+    dp := make([]bool,len(s)+1)
+    dp[0] = true
+
+    for i:=1;i<=len(s);i++{
+        for j:=0;j<i;j++{
+            if dp[i]{
+                break
+            }
+            if dp[j]{
+                w := string(s[j:i])
+                for _,word := range wordDict{
+                    if w == word{
+                        dp[i] = true
+                        break
+                    }
+                }
+            }
+        }
+    }
+    return dp[len(s)]
+}
+```
+
+![image](https://i.imgur.com/VvQHZSG.png)
 ## Better Solutions

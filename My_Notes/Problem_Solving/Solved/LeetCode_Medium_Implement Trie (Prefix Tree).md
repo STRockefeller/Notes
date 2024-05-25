@@ -1,9 +1,8 @@
 # LeetCode:208:20220518:Go
 
+tags: #leetcode/medium #golang #trie  
+
 [Reference](https://leetcode.com/problems/implement-trie-prefix-tree/)
-
-
-
 ## Question
 
 A [**trie**](https://en.wikipedia.org/wiki/Trie) (pronounced as "try") or **prefix tree** is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.

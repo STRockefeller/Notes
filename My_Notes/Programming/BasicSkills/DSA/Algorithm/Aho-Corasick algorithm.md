@@ -5,9 +5,9 @@ tags: #string_searching_algorithms #algorithms #aho_corasick
 
 ## Abstract
 
-與[[Knuth–Morris–Pratt algorithm]]同為字串比對演算法，主要是用來處理KMP在多個字串間搜尋時間複雜度會明顯提升的問題。
+與[[(Archive) Knuth–Morris–Pratt algorithm]]同為字串比對演算法，主要是用來處理KMP在多個字串間搜尋時間複雜度會明顯提升的問題。
 
-閱讀這篇筆記之前，請先熟讀 [[Trie]] 和 [[Knuth–Morris–Pratt algorithm]] 的筆記。
+閱讀這篇筆記之前，請先熟讀 [[Trie]] 和 [[(Archive) Knuth–Morris–Pratt algorithm]] 的筆記。
 
 這個演算法大致可以看成在trie的搜尋中加入KMP 的 LPS table 的概念
 

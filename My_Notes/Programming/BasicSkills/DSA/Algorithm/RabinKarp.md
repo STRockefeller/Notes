@@ -10,7 +10,7 @@ references:
 
 為了簡化問題，這篇中會先以一對一查詢為主，多組的查詢還是用[[Aho-Corasick algorithm]]吧。
 
-在最開頭先聲明，平均而言這個演算法的速度是不及我先前學過的[[Knuth–Morris–Pratt algorithm]]，特定案例中，rabin-karp會略快一些。
+在最開頭先聲明，平均而言這個演算法的速度是不及我先前學過的[[(Archive) Knuth–Morris–Pratt algorithm]]，特定案例中，rabin-karp會略快一些。
 
 題外話，golang的strings package 就是用rabin-karp來實作字串搜尋的。
 
@@ -24,7 +24,7 @@ references:
 
 以下直接舉個例子
 
-我直接拿[[Knuth–Morris–Pratt algorithm]]那篇的例子來用
+我直接拿[[(Archive) Knuth–Morris–Pratt algorithm]]那篇的例子來用
 
 ```text
 Input:  txt[] =  "ABC ABCDAB ABCDABCDABDE"
